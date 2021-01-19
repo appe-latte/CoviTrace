@@ -45,10 +45,11 @@ struct ContentView: View {
                             Image(systemName: "chevron.right")
                                 .font(.title3)
                         }
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
                         .padding()
                         .foregroundColor(.white)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .cornerRadius(40)
+                        .cornerRadius(15)
                         
                         
                         // MARK: Long Button
