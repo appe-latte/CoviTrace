@@ -17,98 +17,121 @@ struct MainView: View {
             Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
                 .ignoresSafeArea()
             
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
+//            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
+//                Text("You are currenly Covid-19:")
+//                    .foregroundColor(.white)
+//                    .font(.title2)
+//                Text("NEGATIVE")
+//                    .fontWeight(.semibold)
+//                    .foregroundColor(.white)
+//                    .font(.largeTitle)
+//                    .scaledToFit()
+//            }.padding()
+            
+            
+            VStack(alignment:.center){
+                Image(systemName: "checkmark")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .scaledToFill()
+//                Spacer()
                 Text("You are currenly Covid-19:")
                     .foregroundColor(.white)
                     .font(.title2)
+                    .fontWeight(.semibold)
                 Text("NEGATIVE")
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                     .font(.largeTitle)
                     .scaledToFit()
-            }.padding()
-            
-            
-            VStack(alignment:.trailing){
-                Spacer()
+                Text("Last test results: 01.01.21")
+                    .foregroundColor(.white)
+//                Spacer()
                 Button(action: {
-                    print("button 1")
+                    print("show area statistics")
                 }) {
                     HStack {
-                        Image(systemName: "circle")
+                        Image(systemName: "map.fill")
                             .font(.title3)
-                        Text("AREA STATISTICS")
-                            .fontWeight(.bold)
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
+                        Text("Area Statistics")
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
                     .padding()
                     .foregroundColor(.white)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(15)
                 }
                 Button(action: {
-                    print("button 2")
+                    print("symptom checker")
                 }) {
                     HStack {
-                        Image(systemName: "location")
+                        Image(systemName: "stethoscope")
                             .font(.title3)
-                        Text("SYMPTOM CHECKER")
-                            .fontWeight(.bold)
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
+                        Text("Symptom Checker")
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
                     .padding()
                     .foregroundColor(.white)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(15)
                 }
                 Button(action: {
-                    print("button 3")
+                    print("show test results")
                 }) {
                     HStack {
-                        Image(systemName: "info.circle")
+                        Image(systemName: "list.bullet.rectangle")
                             .font(.title3)
-                        Text("RESULTS")
-                            .fontWeight(.bold)
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
+                        Text("TEST RESULTS")
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
                     .padding()
                     .foregroundColor(.white)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(15)
                 }
                 Button(action: {
-                    print("button 4")
+                    print("check-in start")
                 }) {
                     HStack {
-                        Image(systemName: "circle")
+                        Image(systemName: "checkmark.seal")
                             .font(.title3)
                         Text("CHECK-IN")
-                            .fontWeight(.bold)
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
                     .padding()
                     .foregroundColor(.white)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(15)
                 }
                 Button(action: {
-                    print("button 5")
+                    print("show hygiene tips")
                 }) {
                     HStack {
-                        Image(systemName: "circle")
+                        Image(systemName: "info.circle.fill")
                             .font(.title3)
                         Text("HYGIENE TIPS")
-                            .fontWeight(.bold)
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
                     .padding()
                     .foregroundColor(.white)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(15)
                 }
                 Button(action: {
-                    print("button 6")
+                    print("log exposure")
                 }) {
                     HStack {
-                        Image(systemName: "iphone")
+                        Image(systemName: "bell.fill")
                             .font(.title3)
                         Text("EXPOSURE ALERT")
-                            .fontWeight(.bold)
+                            .fontWeight(.semibold)
+                            .font(.title3)
                     }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
                     .padding()
                     .foregroundColor(.white)

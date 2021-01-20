@@ -20,16 +20,10 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack(alignment:.center){
-                Image("wave")
+                Image("logo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100, height: 110)
-                Text("CoviTrace App")
-                    .foregroundColor(.white)
-                    .bold()
-                    .font(.largeTitle)
-                Text("Covid-19 Track & Trace")
-                    .foregroundColor(.white)
+                    .frame(width: 300, height: 300)
             }
             
             VStack(alignment:.trailing) {
@@ -41,24 +35,17 @@ struct ContentView: View {
                     }) {
                         HStack {
                             Text("ENTER")
-                                .fontWeight(.bold)
+                                .fontWeight(.semibold)
+                                .font(.title3)
                             Image(systemName: "chevron.right")
                                 .font(.title3)
+                            
                         }
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
                         .padding()
                         .foregroundColor(.white)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(15)
-                        
-                        
-                        // MARK: Long Button
-                        
-                        //                        .frame(minWidth: 0, maxWidth: 300)
-                        //                        .padding()
-                        //                        .foregroundColor(.white)
-                        //                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        //                        .cornerRadius(40)
                     }
                 }
             }
