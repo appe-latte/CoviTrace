@@ -16,25 +16,12 @@ struct MainView: View {
             // MARK: BACKGROUND COLOUR CODE:
             Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
                 .ignoresSafeArea()
-            
-//            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
-//                Text("You are currenly Covid-19:")
-//                    .foregroundColor(.white)
-//                    .font(.title2)
-//                Text("NEGATIVE")
-//                    .fontWeight(.semibold)
-//                    .foregroundColor(.white)
-//                    .font(.largeTitle)
-//                    .scaledToFit()
-//            }.padding()
-            
-            
+    
             VStack(alignment:.center){
-                Image(systemName: "checkmark")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .scaledToFill()
+                Image("safe-mark")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 250)
 //                Spacer()
                 Text("You are currenly Covid-19:")
                     .foregroundColor(.white)
@@ -84,7 +71,7 @@ struct MainView: View {
                     HStack {
                         Image(systemName: "list.bullet.rectangle")
                             .font(.title3)
-                        Text("TEST RESULTS")
+                        Text("Test Results")
                             .fontWeight(.semibold)
                             .font(.title3)
                     }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
@@ -99,7 +86,7 @@ struct MainView: View {
                     HStack {
                         Image(systemName: "checkmark.seal")
                             .font(.title3)
-                        Text("CHECK-IN")
+                        Text("Check-in")
                             .fontWeight(.semibold)
                             .font(.title3)
                     }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
@@ -114,7 +101,7 @@ struct MainView: View {
                     HStack {
                         Image(systemName: "info.circle.fill")
                             .font(.title3)
-                        Text("HYGIENE TIPS")
+                        Text("Hygiene Tips")
                             .fontWeight(.semibold)
                             .font(.title3)
                     }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)

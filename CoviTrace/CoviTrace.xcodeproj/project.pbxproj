@@ -15,6 +15,8 @@
 		2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F2A7425B5BD4A00103879 /* CoviTrace.xcdatamodeld */; };
 		2F31980725B5C2DE00AB182C /* DataFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980625B5C2DE00AB182C /* DataFetchRequest.swift */; };
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
+		2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337E4525B88872009AC0A2 /* AreaStatsView.swift */; };
+		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
 		2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B2BED25B73BC3009F0689 /* MainView.swift */; };
 		8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 /* End PBXBuildFile section */
@@ -31,6 +33,8 @@
 		2F0F2A7725B5BD4A00103879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F31980625B5C2DE00AB182C /* DataFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchRequest.swift; sourceTree = "<group>"; };
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2F337E4525B88872009AC0A2 /* AreaStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaStatsView.swift; sourceTree = "<group>"; };
+		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F7B2BED25B73BC3009F0689 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				2F31980925B5CC9700AB182C /* Model.swift */,
 				2F0F2A6D25B5BD4A00103879 /* Assets.xcassets */,
 				2F7B2BED25B73BC3009F0689 /* MainView.swift */,
+				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
+				2F337E4525B88872009AC0A2 /* AreaStatsView.swift */,
 				2F0F2A7225B5BD4A00103879 /* Persistence.swift */,
 				2F0F2A7725B5BD4A00103879 /* Info.plist */,
 				2F0F2A7425B5BD4A00103879 /* CoviTrace.xcdatamodeld */,
@@ -222,11 +228,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
+				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F31980725B5C2DE00AB182C /* DataFetchRequest.swift in Sources */,
+				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

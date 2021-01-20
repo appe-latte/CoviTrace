@@ -13,7 +13,7 @@ struct CoviTraceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            AreaStatsView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
