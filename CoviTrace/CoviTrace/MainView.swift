@@ -69,7 +69,7 @@ struct MainView: View {
                     print("show test results")
                 }) {
                     HStack {
-                        Image(systemName: "list.bullet.rectangle")
+                        Image(systemName: "folder.fill")
                             .font(.title3)
                         Text("Test Results")
                             .fontWeight(.semibold)
@@ -84,7 +84,7 @@ struct MainView: View {
                     print("check-in start")
                 }) {
                     HStack {
-                        Image(systemName: "checkmark.seal")
+                        Image(systemName: "scope")
                             .font(.title3)
                         Text("Check-in")
                             .fontWeight(.semibold)
