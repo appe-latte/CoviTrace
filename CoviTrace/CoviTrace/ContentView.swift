@@ -37,8 +37,6 @@ struct ContentView: View {
                                 .font(.title3)
                             Image(systemName: "chevron.right")
                                 .font(.title3)
-                                
-                            
                         }
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250)
                         .padding()
@@ -48,7 +46,8 @@ struct ContentView: View {
                     }
                 }
             }
-        }
+        }.navigationBarHidden(true)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
