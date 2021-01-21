@@ -33,28 +33,29 @@ struct MainView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .font(.largeTitle)
-                        .scaledToFit()
                     Text("Last test results: 01.01.21")
                         .foregroundColor(.white)
                     
                     // MARK: Area Statistics
-                    NavigationLink(
-                        destination: AreaStatsView()){
-                        Image(systemName: "map.fill")
-                            .font(.title3)
-                        Text("Area Statistics")
-                            .fontWeight(.semibold)
-                            .font(.title3)
+                    Button(action: {
+                        print("show statistics")
+                    }) {
+                        HStack {
+                            Image(systemName: "map.fill")
+                                .font(.title3)
+                            Text("Area Statistics")
+                                .fontWeight(.semibold)
+                                .font(.title3)
+                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(15)
                     }
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, alignment: .leading)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(15)
                     
                     // MARK: Symptom Checker
                     Button(action: {
-                        print("symptom checker")
+                        print("check for symptoms")
                     }) {
                         HStack {
                             Image(systemName: "stethoscope")
@@ -85,6 +86,8 @@ struct MainView: View {
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(15)
                     }
+                    
+                    // MARK: Check-in
                     Button(action: {
                         print("check-in start")
                     }) {
