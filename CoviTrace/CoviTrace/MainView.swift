@@ -151,6 +151,7 @@ struct MainView: View {
                 .frame(minHeight: 0, maxHeight: 800 )
             }
         }.edgesIgnoringSafeArea(.all)
+        .navigationTitle("Home")
         .navigationBarHidden(true)
     }
     

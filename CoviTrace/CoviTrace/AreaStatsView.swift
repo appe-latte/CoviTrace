@@ -23,6 +23,7 @@ struct AreaStatsView: View {
                     VStack{
                         MapView()
                             .cornerRadius(15.0)
+                            .padding()
                     }
                     
                     HStack {
@@ -68,7 +69,7 @@ struct AreaStatsView: View {
                     // MARK: Second row stats
                     
                     HStack {
-                        
+                        // MARK: Latest Deaths Figures
                         Button(action: {
                         }) {
                             VStack {
@@ -85,12 +86,12 @@ struct AreaStatsView: View {
                             .background(Color(red: 171 / 255, green: 110 / 255, blue: 193 / 255))
                             .cornerRadius(15)
                         }
-                        
+                        // MARK: Last Check-in
                         Button(action: {
                             print("show area statistics")
                         }) {
                             VStack {
-                                Text("Check-in:")
+                                Text("Last Check-in:")
                                     .fontWeight(.semibold)
                                     .font(.title2)
                                 Text("Euston")
@@ -103,9 +104,9 @@ struct AreaStatsView: View {
                             .cornerRadius(15)
                         }
                     }
-                }.padding()
+                }.padding(5)
                 .frame(minHeight: 0, maxHeight: 800 )
-            }
+            }.navigationBarTitle("Area Statistics")
         }.edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)
     }
