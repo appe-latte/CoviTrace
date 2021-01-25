@@ -7,6 +7,7 @@
 
 import MapKit
 import SwiftUI
+
 struct MapView: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
         setupManager()

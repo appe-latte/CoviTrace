@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        NavigationView{
+//        NavigationView{
             ZStack
             {
                 // MARK: BACKGROUND COLOUR CODE:
@@ -46,8 +46,8 @@ struct ContentView: View {
                     }
                 }
             }
-        }.navigationBarHidden(true)
-        .edgesIgnoringSafeArea(.all)
+//        }.navigationBarHidden(true)
+//        .edgesIgnoringSafeArea(.all)
     }
 }
 

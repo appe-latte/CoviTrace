@@ -11,7 +11,7 @@ struct AreaStatsView: View {
     @State private var buttonDisabled = true
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             
             ZStack
             {
@@ -52,7 +52,7 @@ struct AreaStatsView: View {
                             VStack {
                                 Text("Latest Cases:")
                                     .fontWeight(.semibold)
-                                    .font(.title2)
+                                    .font(.title3)
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Text("12,763")
                                     .fontWeight(.semibold)
@@ -75,7 +75,7 @@ struct AreaStatsView: View {
                             VStack {
                                 Text("Latest Deaths:")
                                     .fontWeight(.semibold)
-                                    .font(.title2)
+                                    .font(.title3)
                                 
                                 Text("763")
                                     .fontWeight(.semibold)
@@ -93,7 +93,7 @@ struct AreaStatsView: View {
                             VStack {
                                 Text("Last Check-in:")
                                     .fontWeight(.semibold)
-                                    .font(.title2)
+                                    .font(.title3)
                                 Text("Euston")
                                     .fontWeight(.semibold)
                                     .font(.title)
@@ -107,8 +107,8 @@ struct AreaStatsView: View {
                 }.padding(5)
                 .frame(minHeight: 0, maxHeight: 800 )
             }.navigationBarTitle("Area Statistics")
-        }.edgesIgnoringSafeArea(.all)
-        .navigationBarHidden(true)
+//        }.edgesIgnoringSafeArea(.all)
+//        .navigationBarHidden(true)
     }
     
     struct AreaStatsView_Previews: PreviewProvider {
@@ -116,6 +116,16 @@ struct AreaStatsView: View {
             AreaStatsView()
         }
         
+    }
+    
+    struct ButtonView: View {
+        @State var navigationBarBackButtonHidden = true
+
+        var body: some View {
+            Button("Show back") {
+                self.navigationBarBackButtonHidden = false
+            }.navigationBarBackButtonHidden(navigationBarBackButtonHidden)
+        }
     }
 }
 

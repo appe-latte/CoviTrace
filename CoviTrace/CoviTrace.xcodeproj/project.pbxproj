@@ -18,6 +18,11 @@
 		2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337E4525B88872009AC0A2 /* AreaStatsView.swift */; };
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
 		2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B2BED25B73BC3009F0689 /* MainView.swift */; };
+		2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */; };
+		2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */; };
+		2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952625BF539E005E6000 /* SymptomPageView.swift */; };
+		2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952925BF5877005E6000 /* SymptomFeverView.swift */; };
+		2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */; };
 		8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +41,11 @@
 		2F337E4525B88872009AC0A2 /* AreaStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaStatsView.swift; sourceTree = "<group>"; };
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F7B2BED25B73BC3009F0689 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckIntroView.swift; sourceTree = "<group>"; };
+		2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCoughView.swift; sourceTree = "<group>"; };
+		2FD2952625BF539E005E6000 /* SymptomPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomPageView.swift; sourceTree = "<group>"; };
+		2FD2952925BF5877005E6000 /* SymptomFeverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomFeverView.swift; sourceTree = "<group>"; };
+		2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomSmellView.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,14 +83,11 @@
 		2F0F2A6825B5BD4A00103879 /* CoviTrace */ = {
 			isa = PBXGroup;
 			children = (
+				2FD2951825BF3A4D005E6000 /* Helpers */,
 				2F0F2A6925B5BD4A00103879 /* CoviTraceApp.swift */,
-				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
-				2F31980625B5C2DE00AB182C /* DataFetchRequest.swift */,
 				2F31980925B5CC9700AB182C /* Model.swift */,
 				2F0F2A6D25B5BD4A00103879 /* Assets.xcassets */,
-				2F7B2BED25B73BC3009F0689 /* MainView.swift */,
-				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
-				2F337E4525B88872009AC0A2 /* AreaStatsView.swift */,
+				2FD2951925BF3A93005E6000 /* Views */,
 				2F0F2A7225B5BD4A00103879 /* Persistence.swift */,
 				2F0F2A7725B5BD4A00103879 /* Info.plist */,
 				2F0F2A7425B5BD4A00103879 /* CoviTrace.xcdatamodeld */,
@@ -95,6 +102,30 @@
 				2F0F2A7025B5BD4A00103879 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2FD2951825BF3A4D005E6000 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2F31980625B5C2DE00AB182C /* DataFetchRequest.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2FD2951925BF3A93005E6000 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F337E4525B88872009AC0A2 /* AreaStatsView.swift */,
+				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
+				2F7B2BED25B73BC3009F0689 /* MainView.swift */,
+				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
+				2FD2952625BF539E005E6000 /* SymptomPageView.swift */,
+				2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */,
+				2FD2952925BF5877005E6000 /* SymptomFeverView.swift */,
+				2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */,
+				2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		581A119D9820B52D116D5DFE /* Frameworks */ = {
@@ -228,10 +259,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
+				2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */,
+				2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */,
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */,
+				2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
+				2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */,
+				2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F31980725B5C2DE00AB182C /* DataFetchRequest.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
