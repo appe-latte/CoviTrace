@@ -11,6 +11,7 @@ struct SymptomCoughView: View {
     
     var body: some View {
 //        NavigationView {
+        ScrollView(.vertical) {
             ZStack
             {
                 // MARK: BACKGROUND COLOUR CODE:
@@ -39,6 +40,7 @@ struct SymptomCoughView: View {
                 .frame(minHeight: 0, maxHeight: 800 )
             }.navigationBarTitle("Covid-19 Symptoms").navigationBarHidden(false)
 //        }.edgesIgnoringSafeArea(.all)
+        }
     }
     
     struct SymptomCoughView_Previews: PreviewProvider {

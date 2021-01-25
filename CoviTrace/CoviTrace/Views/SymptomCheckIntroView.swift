@@ -33,6 +33,7 @@ struct SymptomCheckIntroView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .lineLimit(nil)
+//                        Spacer()
                     }
                     
                     // MARK: Weblinks

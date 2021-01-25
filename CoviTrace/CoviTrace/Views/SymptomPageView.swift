@@ -20,7 +20,6 @@ struct SymptomPageView: View {
                 SymptomFeverView()
                 SymptomCoughView()
                 SymptomSmellView()
-                
             }.tabViewStyle(PageTabViewStyle())
             
         }
