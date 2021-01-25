@@ -52,7 +52,7 @@ struct MainView: View {
                     
                     // MARK: Symptom Checker
                     NavigationLink(
-                        destination: SymptomCheckIntroView()){
+                        destination: SymptomPageView()){
                         Image(systemName: "stethoscope")
                             .font(.title3)
                         Text("Symptom Checker")
@@ -130,7 +130,7 @@ struct MainView: View {
                         
                     }
                 }.padding()
-                .frame(minHeight: 0, maxHeight: 800)
+                .frame(minHeight: 0, maxHeight: 800) 
             }
         }
     }

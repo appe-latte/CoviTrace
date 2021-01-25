@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct SymptomPageView: View {
- 
+    
     var body: some View {
-        TabView() {
-            SymptomCheckIntroView()
-            SymptomFeverView()
-            SymptomCoughView()
-            SymptomSmellView()
+        ZStack {
+            // MARK: BACKGROUND COLOUR CODE:
+            Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+                .ignoresSafeArea()
             
- 
-        }.tabViewStyle(PageTabViewStyle())
+            TabView() {
+                SymptomCheckIntroView()
+                SymptomFeverView()
+                SymptomCoughView()
+                SymptomSmellView()
+                
+            }.tabViewStyle(PageTabViewStyle())
+            
+        }
     }
 }
 
