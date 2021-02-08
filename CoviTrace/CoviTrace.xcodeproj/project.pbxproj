@@ -15,8 +15,14 @@
 		2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F2A7425B5BD4A00103879 /* CoviTrace.xcdatamodeld */; };
 		2F31980725B5C2DE00AB182C /* DataFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980625B5C2DE00AB182C /* DataFetchRequest.swift */; };
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
+		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
 		2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337E4525B88872009AC0A2 /* AreaStatsView.swift */; };
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
+		2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150E925D1A438003AAB52 /* TextArea.swift */; };
+		2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F025D1A471003AAB52 /* CustomTextField.swift */; };
+		2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */; };
+		2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F625D1A4D5003AAB52 /* SignUpView.swift */; };
+		2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F925D1A4FA003AAB52 /* LandingView.swift */; };
 		2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B2BED25B73BC3009F0689 /* MainView.swift */; };
 		2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */; };
 		2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */; };
@@ -38,8 +44,14 @@
 		2F0F2A7725B5BD4A00103879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F31980625B5C2DE00AB182C /* DataFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchRequest.swift; sourceTree = "<group>"; };
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F337E4525B88872009AC0A2 /* AreaStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaStatsView.swift; sourceTree = "<group>"; };
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
+		2F6150F025D1A471003AAB52 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextField.swift; sourceTree = "<group>"; };
+		2F6150F625D1A4D5003AAB52 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2F6150F925D1A4FA003AAB52 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		2F7B2BED25B73BC3009F0689 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckIntroView.swift; sourceTree = "<group>"; };
 		2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCoughView.swift; sourceTree = "<group>"; };
@@ -83,6 +95,7 @@
 		2F0F2A6825B5BD4A00103879 /* CoviTrace */ = {
 			isa = PBXGroup;
 			children = (
+				2F6150E825D1A424003AAB52 /* Utils */,
 				2FD2951825BF3A4D005E6000 /* Helpers */,
 				2F0F2A6925B5BD4A00103879 /* CoviTraceApp.swift */,
 				2F31980925B5CC9700AB182C /* Model.swift */,
@@ -104,6 +117,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2F6150E825D1A424003AAB52 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2F6150E925D1A438003AAB52 /* TextArea.swift */,
+				2F6150F025D1A471003AAB52 /* CustomTextField.swift */,
+				2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		2FD2951825BF3A4D005E6000 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +139,10 @@
 			isa = PBXGroup;
 			children = (
 				2F337E4525B88872009AC0A2 /* AreaStatsView.swift */,
+				2F6150F625D1A4D5003AAB52 /* SignUpView.swift */,
+				2F3307EA25D1AAC1009CD715 /* LoginView.swift */,
 				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
+				2F6150F925D1A4FA003AAB52 /* LandingView.swift */,
 				2F7B2BED25B73BC3009F0689 /* MainView.swift */,
 				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
 				2FD2952625BF539E005E6000 /* SymptomPageView.swift */,
@@ -262,15 +288,21 @@
 				2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */,
 				2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */,
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
+				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
+				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
 				2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */,
 				2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
+				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
 				2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */,
 				2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */,
+				2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F31980725B5C2DE00AB182C /* DataFetchRequest.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
+				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
+				2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,7 +442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace.CoviTrace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -433,7 +465,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace.CoviTrace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
