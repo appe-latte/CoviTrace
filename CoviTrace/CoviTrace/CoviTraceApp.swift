@@ -14,6 +14,7 @@ struct CoviTraceApp: App {
     init(){
         FirebaseApp.configure()
     }
+    
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

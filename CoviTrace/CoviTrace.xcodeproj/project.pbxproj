@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,12 @@
 		2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337E4525B88872009AC0A2 /* AreaStatsView.swift */; };
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
 		2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */; };
+		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
+		2F59570925D1C0A6004D1F53 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59570825D1C0A6004D1F53 /* FirebaseFunctions */; };
+		2F59570B25D1C0A6004D1F53 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59570A25D1C0A6004D1F53 /* FirebaseAnalytics */; };
+		2F59570D25D1C0A6004D1F53 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59570C25D1C0A6004D1F53 /* FirebaseStorage */; };
+		2F59570F25D1C0A6004D1F53 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59570E25D1C0A6004D1F53 /* FirebaseAuth */; };
+		2F59571125D1C0A6004D1F53 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59571025D1C0A6004D1F53 /* FirebaseFirestore */; };
 		2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150E925D1A438003AAB52 /* TextArea.swift */; };
 		2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F025D1A471003AAB52 /* CustomTextField.swift */; };
 		2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */; };
@@ -49,6 +55,7 @@
 		2F337E4525B88872009AC0A2 /* AreaStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaStatsView.swift; sourceTree = "<group>"; };
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Certificates/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		2F6150F025D1A471003AAB52 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextField.swift; sourceTree = "<group>"; };
@@ -70,6 +77,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */,
+				2F59570F25D1C0A6004D1F53 /* FirebaseAuth in Frameworks */,
+				2F59570D25D1C0A6004D1F53 /* FirebaseStorage in Frameworks */,
+				2F59570925D1C0A6004D1F53 /* FirebaseFunctions in Frameworks */,
+				2F59570B25D1C0A6004D1F53 /* FirebaseAnalytics in Frameworks */,
+				2F59571125D1C0A6004D1F53 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				2F31980625B5C2DE00AB182C /* DataFetchRequest.swift */,
+				2F5956E025D1B635004D1F53 /* AuthViewModel.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -192,6 +205,13 @@
 			dependencies = (
 			);
 			name = CoviTrace;
+			packageProductDependencies = (
+				2F59570825D1C0A6004D1F53 /* FirebaseFunctions */,
+				2F59570A25D1C0A6004D1F53 /* FirebaseAnalytics */,
+				2F59570C25D1C0A6004D1F53 /* FirebaseStorage */,
+				2F59570E25D1C0A6004D1F53 /* FirebaseAuth */,
+				2F59571025D1C0A6004D1F53 /* FirebaseFirestore */,
+			);
 			productName = CoviTrace;
 			productReference = 2F0F2A6625B5BD4A00103879 /* CoviTrace.app */;
 			productType = "com.apple.product-type.application";
@@ -219,6 +239,9 @@
 				Base,
 			);
 			mainGroup = 2F0F2A5D25B5BD4A00103879;
+			packageReferences = (
+				2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2F0F2A6725B5BD4A00103879 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -305,6 +328,7 @@
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F31980725B5C2DE00AB182C /* DataFetchRequest.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
+				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
 				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
 				2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
@@ -498,6 +522,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2F59570825D1C0A6004D1F53 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		2F59570A25D1C0A6004D1F53 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		2F59570C25D1C0A6004D1F53 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		2F59570E25D1C0A6004D1F53 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2F59571025D1C0A6004D1F53 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2F0F2A7425B5BD4A00103879 /* CoviTrace.xcdatamodeld */ = {

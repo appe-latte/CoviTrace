@@ -12,6 +12,7 @@ struct SignUpView: View {
     @State var userPassword = ""
     @State var lastName = ""
     @State var firstName = ""
+    @ObservedObject var viewModel = AuthViewModel()
     
     var body: some View {
         
@@ -73,7 +74,7 @@ struct SignUpView: View {
                     
                     // MARK: "Sign Up" Button
                     Button(action: {
-                        
+                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword)
                     }, label: {
                         Text("Sign Up")
                             .font(.subheadline)
