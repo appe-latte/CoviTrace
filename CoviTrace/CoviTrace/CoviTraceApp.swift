@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct CoviTraceApp: App {
+    
+    init(){
+        FirebaseApp.configure()
+    }
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            LandingView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

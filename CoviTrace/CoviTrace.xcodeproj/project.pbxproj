@@ -18,6 +18,7 @@
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
 		2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337E4525B88872009AC0A2 /* AreaStatsView.swift */; };
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
+		2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */; };
 		2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150E925D1A438003AAB52 /* TextArea.swift */; };
 		2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F025D1A471003AAB52 /* CustomTextField.swift */; };
 		2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */; };
@@ -47,6 +48,7 @@
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F337E4525B88872009AC0A2 /* AreaStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaStatsView.swift; sourceTree = "<group>"; };
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Certificates/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		2F6150F025D1A471003AAB52 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextField.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				2FD2951925BF3A93005E6000 /* Views */,
 				2F0F2A7225B5BD4A00103879 /* Persistence.swift */,
 				2F0F2A7725B5BD4A00103879 /* Info.plist */,
+				2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */,
 				2F0F2A7425B5BD4A00103879 /* CoviTrace.xcdatamodeld */,
 				2F0F2A6F25B5BD4A00103879 /* Preview Content */,
 			);
@@ -232,6 +235,7 @@
 			files = (
 				2F0F2A7125B5BD4A00103879 /* Preview Assets.xcassets in Resources */,
 				2F0F2A6E25B5BD4A00103879 /* Assets.xcassets in Resources */,
+				2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
