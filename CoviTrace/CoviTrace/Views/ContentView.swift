@@ -148,7 +148,7 @@ struct ContentView: View {
             } else {
                 LandingView()
             }
-        }
+        }.accentColor(.white)
         
     }
     

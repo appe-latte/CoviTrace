@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct AreaStatsView: View {
     @State var riskLevel = "MEDIUM"
     @State var currentCases: Int = 12976
     @State var deaths : Int = 762
     @State var checkIn = "Euston"
+    @State private var centerCoordinate = CLLocationCoordinate2D()
+    @State private var locations = [MKPointAnnotation]()
     
     var body: some View {
 //        NavigationView {
@@ -34,7 +37,7 @@ struct AreaStatsView: View {
                 // MARK: Map
                 VStack(alignment:.center){
                     VStack{
-                        MapView()
+                        MapView(centerCoordinate: $centerCoordinate)
                             .cornerRadius(15.0)
                             .padding()
                     }
@@ -88,10 +91,9 @@ struct AreaStatsView: View {
                     
                 }.padding()
                 .frame(minHeight: 0, maxHeight: 800 )
-            }
+            }.navigationBarTitle("Area Statistics")
 //        }.edgesIgnoringSafeArea(.all)
 //        .navigationBarHidden(true)
-        
     }
     
     struct AreaStatsView_Previews: PreviewProvider {
