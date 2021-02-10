@@ -16,6 +16,15 @@ struct ContentView: View {
                 // MARK: BACKGROUND COLOUR CODE:
                 Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
                     .ignoresSafeArea()
+                    
+                    // MARK: Settings
+                    .navigationBarItems(trailing:
+                                            NavigationLink(
+                                                destination: LandingView()){
+                                                Image(systemName: "gearshape.fill")
+                                                    .foregroundColor(.white)
+                                            }
+                    )
                 
                 // MARK: Shield & Status
                 VStack(alignment:.center){
