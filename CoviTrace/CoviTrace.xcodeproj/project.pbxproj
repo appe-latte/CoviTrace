@@ -35,6 +35,13 @@
 		2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952625BF539E005E6000 /* SymptomPageView.swift */; };
 		2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952925BF5877005E6000 /* SymptomFeverView.swift */; };
 		2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */; };
+		2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */; };
+		2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */; };
+		2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */; };
+		2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F9425D4952D00D5594B /* HealthTipsCoverView.swift */; };
+		2FD53F9825D495F900D5594B /* HealthTipsSanitiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F9725D495F900D5594B /* HealthTipsSanitiseView.swift */; };
+		2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53FA025D4978E00D5594B /* HealthTipsFoodView.swift */; };
+		2FD53FA425D49AB000D5594B /* HealthTipsRestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53FA325D49AB000D5594B /* HealthTipsRestView.swift */; };
 		8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +72,13 @@
 		2FD2952625BF539E005E6000 /* SymptomPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomPageView.swift; sourceTree = "<group>"; };
 		2FD2952925BF5877005E6000 /* SymptomFeverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomFeverView.swift; sourceTree = "<group>"; };
 		2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomSmellView.swift; sourceTree = "<group>"; };
+		2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsPageView.swift; sourceTree = "<group>"; };
+		2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsWashView.swift; sourceTree = "<group>"; };
+		2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsDistanceView.swift; sourceTree = "<group>"; };
+		2FD53F9425D4952D00D5594B /* HealthTipsCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsCoverView.swift; sourceTree = "<group>"; };
+		2FD53F9725D495F900D5594B /* HealthTipsSanitiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsSanitiseView.swift; sourceTree = "<group>"; };
+		2FD53FA025D4978E00D5594B /* HealthTipsFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsFoodView.swift; sourceTree = "<group>"; };
+		2FD53FA325D49AB000D5594B /* HealthTipsRestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsRestView.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,13 +172,36 @@
 				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
 				2F6150F925D1A4FA003AAB52 /* LandingView.swift */,
 				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
+				2FD53F8925D48F7300D5594B /* Health Tips */,
+				2FD53F8425D48EAD00D5594B /* Symptoms */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2FD53F8425D48EAD00D5594B /* Symptoms */ = {
+			isa = PBXGroup;
+			children = (
 				2FD2952625BF539E005E6000 /* SymptomPageView.swift */,
 				2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */,
 				2FD2952925BF5877005E6000 /* SymptomFeverView.swift */,
 				2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */,
 				2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */,
 			);
-			path = Views;
+			path = Symptoms;
+			sourceTree = "<group>";
+		};
+		2FD53F8925D48F7300D5594B /* Health Tips */ = {
+			isa = PBXGroup;
+			children = (
+				2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */,
+				2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */,
+				2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */,
+				2FD53F9425D4952D00D5594B /* HealthTipsCoverView.swift */,
+				2FD53F9725D495F900D5594B /* HealthTipsSanitiseView.swift */,
+				2FD53FA025D4978E00D5594B /* HealthTipsFoodView.swift */,
+				2FD53FA325D49AB000D5594B /* HealthTipsRestView.swift */,
+			);
+			path = "Health Tips";
 			sourceTree = "<group>";
 		};
 		581A119D9820B52D116D5DFE /* Frameworks */ = {
@@ -310,7 +347,9 @@
 			files = (
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
 				2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */,
+				2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */,
 				2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */,
+				2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */,
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
@@ -318,11 +357,16 @@
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
+				2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */,
 				2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */,
 				2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */,
 				2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */,
+				2FD53F9825D495F900D5594B /* HealthTipsSanitiseView.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
+				2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */,
 				2F31980725B5C2DE00AB182C /* DataFetchRequest.swift in Sources */,
+				2FD53FA425D49AB000D5594B /* HealthTipsRestView.swift in Sources */,
+				2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
 				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
 				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
@@ -466,6 +510,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -489,6 +534,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

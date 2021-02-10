@@ -107,21 +107,23 @@ struct ContentView: View {
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .cornerRadius(15)
                             }
-                            Button(action: {
-                                print("show hygiene tips")
-                            }) {
-                                HStack {
-                                    Image(systemName: "info.circle.fill")
-                                        .font(.title3)
-                                    Text("Hygiene Tips")
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(15)
+                            
+                            // MARK: Hygiene Tips
+                            NavigationLink(
+                                destination: HealthTipsPageView()){
+                                Image(systemName: "info.circle.fill")
+                                    .font(.title3)
+                                Text("Health Tips")
+                                    .fontWeight(.semibold)
+                                    .font(.title3)
                             }
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .cornerRadius(15)
+                            
+                            // MARK: Exposure
                             Button(action: {
 //                                print("log exposure")
                                 viewModel.signOut()

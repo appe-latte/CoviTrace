@@ -27,9 +27,10 @@ struct MapView: UIViewRepresentable {
         let status = CLLocationManager.authorizationStatus()
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
         if status == .authorizedAlways || status == .authorizedWhenInUse {
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             let location: CLLocationCoordinate2D = locationManager.location!.coordinate
 //            let span = MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009)
