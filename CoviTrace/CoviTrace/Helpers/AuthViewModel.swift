@@ -9,15 +9,23 @@ import SwiftUI
 import Firebase
 
 class AuthViewModel: ObservableObject {
+    @Published var userSession: FirebaseAuth.User?
+    @Published var isAuthenticating = false // blocks buttons and textfields during authentication
+    @Published var error: Error? // Displays error message
+    @Published var user: User? // Keeps track of the user
+    
+    init(){
+        userSession = Auth.auth().currentUser
+    }
     
     // MARK: User Login
-    func userLogin(email: String, password: String) {
+    func userLogin(withEmail email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
-                print("Error: \(error.localizedDescription)")
+                print("DEBUG: Login failed \(error.localizedDescription)")
                 return
             }
-            print("DEBUG: Login successful!")
+            self.userSession = result?.user
         }
     }
     
@@ -37,10 +45,14 @@ class AuthViewModel: ObservableObject {
                         "uid": user.uid]
             
             Firestore.firestore().collection("users").document(user.uid).setData(data){ _ in
-                print("DEBUG: user data successfully uploaded")
+                self.userSession = result?.user // moves to main screen after authentication
                 
             }
         }
-        
+    }
+    
+    func signOut() {
+        userSession = nil
+        try? Auth.auth().signOut()
     }
 }

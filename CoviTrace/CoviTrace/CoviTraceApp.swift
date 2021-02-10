@@ -19,8 +19,9 @@ struct CoviTraceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LandingView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            LandingView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ContentView().environmentObject(AuthViewModel())
         }
     }
 }

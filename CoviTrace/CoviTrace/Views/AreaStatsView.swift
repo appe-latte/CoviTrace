@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct AreaStatsView: View {
-    @State private var buttonDisabled = true
+    @State var riskLevel = "MEDIUM"
+    @State var currentCases: Int = 12976
+    @State var deaths : Int = 762
+    @State var checkIn = "Euston"
     
     var body: some View {
 //        NavigationView {
-            
             ZStack
             {
                 // MARK: BACKGROUND COLOUR CODE:
                 Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
                     .ignoresSafeArea()
+                    
+                    // MARK: Settings
+//                    .navigationBarItems(leading:
+//                                            NavigationLink(
+//                                                destination: ContentView()){
+//                                                Image(systemName: "chevron.left")
+//                                                Text("BACK")
+//                                                    .foregroundColor(.white)
+//                                            }
+//                    )
                 
+                // MARK: Map
                 VStack(alignment:.center){
                     VStack{
                         MapView()
@@ -26,89 +39,59 @@ struct AreaStatsView: View {
                             .padding()
                     }
                     
-                    HStack {
+                    VStack{
+                        // MARK: Risk Level
+                        HStack {
+                            Text("Risk Level: \(riskLevel)")
+                                .fontWeight(.semibold)
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
+                        .padding(5)
+                        .foregroundColor(.white)
+                        .background(Color(red: 195 / 255, green: 216 / 255, blue: 213 / 255))
+                        .cornerRadius(15)
                         
-                        Button(action: {
-                            print("show area statistics")
-                        }) {
-                            VStack {
-                                Text("Risk Level:")
-                                    .fontWeight(.semibold)
-                                    .font(.title2)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                Text("MEDIUM")
-                                    .fontWeight(.semibold)
-                                    .font(.title)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: 0, maxHeight: 150, alignment: .center)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 195 / 255, green: 216 / 255, blue: 213 / 255))
-                            .cornerRadius(15)
-                            .disabled(buttonDisabled)
-                        }
-                        Button(action: {
-                        }) {
-                            VStack {
-                                Text("Latest Cases:")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                Text("12,763")
-                                    .fontWeight(.semibold)
-                                    .font(.title)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: 0, maxHeight: 150, alignment: .center)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 234 / 255, green: 201 / 255, blue: 169 / 255))
-                            .cornerRadius(15)
-                        }
+                        // MARK: Current Cases
+                        HStack {
+                            Text("Latest Cases: \(currentCases)")
+                                .fontWeight(.semibold)
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
+                        .padding(5)
+                        .foregroundColor(.white)
+                        .background(Color(red: 234 / 255, green: 201 / 255, blue: 169 / 255))
+                        .cornerRadius(15)
                     }
                     
-                    // MARK: Second row stats
+                    // MARK: Deaths
+                    HStack {
+                        Text("Latest Deaths: \(deaths)")
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
+                    .padding(5)
+                    .foregroundColor(.white)
+                    .background(Color(red: 171 / 255, green: 110 / 255, blue: 193 / 255))
+                    .cornerRadius(15)
                     
                     HStack {
-                        // MARK: Latest Deaths Figures
-                        Button(action: {
-                        }) {
-                            VStack {
-                                Text("Latest Deaths:")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
-                                
-                                Text("763")
-                                    .fontWeight(.semibold)
-                                    .font(.title)
-                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: 0, maxHeight: 150, alignment: .center)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 171 / 255, green: 110 / 255, blue: 193 / 255))
-                            .cornerRadius(15)
-                        }
-                        // MARK: Last Check-in
-                        Button(action: {
-                            print("show area statistics")
-                        }) {
-                            VStack {
-                                Text("Last Check-in:")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
-                                Text("Euston")
-                                    .fontWeight(.semibold)
-                                    .font(.title)
-                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: 0, maxHeight: 150, alignment: .center)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
-                        }
-                    }
-                }.padding(5)
+                        Text("Last Check-in: \(checkIn)")
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
+                    .padding(5)
+                    .foregroundColor(.white)
+                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .cornerRadius(15)
+                    
+                }.padding()
                 .frame(minHeight: 0, maxHeight: 800 )
-            }.navigationBarTitle("Area Statistics")
+            }
 //        }.edgesIgnoringSafeArea(.all)
 //        .navigationBarHidden(true)
+        
     }
     
     struct AreaStatsView_Previews: PreviewProvider {
@@ -119,7 +102,7 @@ struct AreaStatsView: View {
     }
     
     struct ButtonView: View {
-        @State var navigationBarBackButtonHidden = true
+        @State var navigationBarBackButtonHidden = false
 
         var body: some View {
             Button("Show back") {

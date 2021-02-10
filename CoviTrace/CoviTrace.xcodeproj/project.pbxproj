@@ -30,7 +30,6 @@
 		2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */; };
 		2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F625D1A4D5003AAB52 /* SignUpView.swift */; };
 		2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F925D1A4FA003AAB52 /* LandingView.swift */; };
-		2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B2BED25B73BC3009F0689 /* MainView.swift */; };
 		2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */; };
 		2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */; };
 		2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952625BF539E005E6000 /* SymptomPageView.swift */; };
@@ -61,7 +60,6 @@
 		2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextField.swift; sourceTree = "<group>"; };
 		2F6150F625D1A4D5003AAB52 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2F6150F925D1A4FA003AAB52 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
-		2F7B2BED25B73BC3009F0689 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckIntroView.swift; sourceTree = "<group>"; };
 		2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCoughView.swift; sourceTree = "<group>"; };
 		2FD2952625BF539E005E6000 /* SymptomPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomPageView.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				2F3307EA25D1AAC1009CD715 /* LoginView.swift */,
 				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
 				2F6150F925D1A4FA003AAB52 /* LandingView.swift */,
-				2F7B2BED25B73BC3009F0689 /* MainView.swift */,
 				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
 				2FD2952625BF539E005E6000 /* SymptomPageView.swift */,
 				2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */,
@@ -317,7 +314,6 @@
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
-				2F7B2BEE25B73BC3009F0689 /* MainView.swift in Sources */,
 				2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
