@@ -15,11 +15,9 @@ struct SignUpView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
-        
         NavigationView{
             ZStack
             {
-                // MARK: BACKGROUND COLOUR CODE:
                 Background()
                 
                 VStack(alignment:.center){
@@ -33,7 +31,6 @@ struct SignUpView: View {
                 
                 VStack (alignment: .center){
                     Spacer()
-                    
                     // MARK: First Name Text
                     CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
                         .padding(5)

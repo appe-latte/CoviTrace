@@ -29,7 +29,6 @@ struct LandingView: View {
                 VStack(alignment:.trailing) {
                     Spacer()
                     VStack {
-                        
                         //MARK: "Register" Button
                         NavigationLink(
                             destination: SignUpView()){

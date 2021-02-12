@@ -21,7 +21,7 @@ struct ContentView: View {
                             
                             .navigationBarItems(trailing:
                                                     NavigationLink(
-                                                        destination: LandingView()){
+                                                        destination: InformationView()){
                                                         Image(systemName: "info.circle.fill")
                                                             .foregroundColor(.white)
                                                     }
@@ -74,38 +74,34 @@ struct ContentView: View {
                             .cornerRadius(15)
                             
                             // MARK: Test Results
-                            Button(action: {
-                                print("show test results")
-                            }) {
-                                HStack {
-                                    Image(systemName: "folder.fill")
-                                        .font(.title3)
-                                    Text("Test Results")
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(15)
+                            NavigationLink(
+                                destination: ResultsView()){
+                                Image(systemName: "folder.fill")
+                                    .font(.title3)
+                                Text("Test Results")
+                                    .fontWeight(.semibold)
+                                    .font(.title3)
                             }
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .cornerRadius(15)
                             
                             // MARK: Check-in
-                            Button(action: {
-                                print("check-in start")
-                            }) {
-                                HStack {
-                                    Image(systemName: "scope")
-                                        .font(.title3)
-                                    Text("Check-in")
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(15)
+                            NavigationLink(
+                                destination: CheckInView()){
+                                Image(systemName: "scope")
+                                    .font(.title3)
+                                Text("Check In")
+                                    .fontWeight(.semibold)
+                                    .font(.title3)
                             }
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .cornerRadius(15)
                             
                             // MARK: Hygiene Tips
                             NavigationLink(
@@ -124,8 +120,6 @@ struct ContentView: View {
                             
                             // MARK: Exposure
                             Button(action: {
-//                                print("log exposure")
-                                viewModel.signOut()
                                 
                             }) {
                                 HStack {
@@ -139,7 +133,6 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                                 .background(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
                                 .cornerRadius(15)
-                                
                             }
                             Spacer()
                         }.padding()
@@ -150,14 +143,12 @@ struct ContentView: View {
                 LandingView()
             }
         }.accentColor(.white)
-        
     }
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
         }
-        
     }
 }
 

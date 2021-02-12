@@ -1,5 +1,5 @@
 //
-//  TopView.swift
+//  CheckInTopView.swift
 //  CoviTrace
 //
 //  Created by Stanford L. Khumalo on 11/02/2021.

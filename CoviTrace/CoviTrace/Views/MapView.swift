@@ -17,7 +17,6 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ view: MKMapView, context: Context) {
-        
         view.showsUserLocation = true
         let status = CLLocationManager.authorizationStatus()
         locationManager.requestAlwaysAuthorization()
@@ -25,10 +24,8 @@ struct MapView: UIViewRepresentable {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
         if status == .authorizedAlways || status == .authorizedWhenInUse {
-//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             let location: CLLocationCoordinate2D = locationManager.location!.coordinate
-//            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
             let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
             let region = MKCoordinateRegion(center: location, latitudinalMeters: 50, longitudinalMeters: 50)
             view.setRegion(region, animated: true)
@@ -40,7 +37,6 @@ struct MapView: UIViewRepresentable {
         
         class Coordinator: NSObject, MKMapViewDelegate {
             var parent: MapView
-            
             init(_ parent: MapView) {
                 self.parent = parent
             }

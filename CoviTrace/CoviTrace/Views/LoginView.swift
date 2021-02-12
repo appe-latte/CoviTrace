@@ -71,11 +71,8 @@ struct LoginView: View {
                             .foregroundColor(Color(.white))
                             .padding(.top, 2)
                     }
-                    
                 }.font(.subheadline)
                 .padding(10)
-                
-                
             }
         }.navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
