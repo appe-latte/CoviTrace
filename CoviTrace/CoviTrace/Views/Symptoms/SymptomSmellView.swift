@@ -13,9 +13,8 @@ struct SymptomSmellView: View {
 //        NavigationView {
             ZStack
             {
-                // MARK: BACKGROUND COLOUR CODE:
-                Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-                    .ignoresSafeArea()
+                // MARK: BACKGROUND:
+                Background()
                 
                 VStack(alignment:.center){
                     VStack{

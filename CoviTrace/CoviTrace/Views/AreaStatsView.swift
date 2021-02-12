@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct AreaStatsView: View {
     @State var riskLevel = "MEDIUM"
@@ -21,8 +22,7 @@ struct AreaStatsView: View {
             ZStack
             {
                 // MARK: BACKGROUND COLOUR CODE:
-                Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-                    .ignoresSafeArea()
+                Background()
                     
                     // MARK: Settings
 //                    .navigationBarItems(leading:

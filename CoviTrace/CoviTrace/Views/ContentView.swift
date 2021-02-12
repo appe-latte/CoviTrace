@@ -17,31 +17,30 @@ struct ContentView: View {
                     ZStack
                     {
                         // MARK: BACKGROUND COLOUR CODE:
-                        Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-                            .ignoresSafeArea()
+                        Background()
                             
                             .navigationBarItems(trailing:
                                                     NavigationLink(
                                                         destination: LandingView()){
-                                                        Image(systemName: "gearshape.fill")
+                                                        Image(systemName: "info.circle.fill")
                                                             .foregroundColor(.white)
                                                     }
                             )
                         
                         // MARK: Shield & Status
                         VStack(alignment:.center){
-                            Image("safe-mark")
+                            Image("logo")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 150, height: 150)
+                                .frame(width: 300, height: 150)
                             Text("You are currenly Covid-19:")
                                 .foregroundColor(.white)
-                                .font(.title2)
+                                .font(.title3)
                                 .fontWeight(.semibold)
                             Text("NEGATIVE")
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
-                                .font(.largeTitle)
+                                .font(.title2)
                             //                    Text("Last test results: 01.01.21")
                             //                        .foregroundColor(.white)
                             
@@ -111,7 +110,7 @@ struct ContentView: View {
                             // MARK: Hygiene Tips
                             NavigationLink(
                                 destination: HealthTipsPageView()){
-                                Image(systemName: "info.circle.fill")
+                                Image(systemName: "bell.fill")
                                     .font(.title3)
                                 Text("Health Tips")
                                     .fontWeight(.semibold)
@@ -130,7 +129,7 @@ struct ContentView: View {
                                 
                             }) {
                                 HStack {
-                                    Image(systemName: "bell.fill")
+                                    Image(systemName: "exclamationmark.triangle.fill")
                                         .font(.title3)
                                     Text("EXPOSURE ALERT")
                                         .fontWeight(.semibold)

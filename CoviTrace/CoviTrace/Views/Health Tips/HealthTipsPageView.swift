@@ -12,8 +12,7 @@ struct HealthTipsPageView: View {
     var body: some View {
         ZStack {
             // MARK: BACKGROUND COLOUR CODE:
-            Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-                .ignoresSafeArea()
+            Background()
             
             TabView() {
                 HealthTipsWashView()

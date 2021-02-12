@@ -13,11 +13,6 @@ struct MapView: UIViewRepresentable {
     let locationManager = CLLocationManager()
     
     func makeUIView(context: Context) -> MKMapView {
-//        let mapView = MKMapView()
-//
-//        //        mapView.delegate = context.coordinator
-//
-//        return mapView
         MKMapView()
     }
     
@@ -33,8 +28,9 @@ struct MapView: UIViewRepresentable {
 //            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             let location: CLLocationCoordinate2D = locationManager.location!.coordinate
-//            let span = MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009)
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 100, longitudinalMeters: 100)
+//            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 50, longitudinalMeters: 50)
             view.setRegion(region, animated: true)
         }
         

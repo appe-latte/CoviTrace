@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct SymptomCheckIntroView: View {
+    @Environment(\.openURL) var openURL
     
     var body: some View {
 //        NavigationView {
             ZStack
             {
                 // MARK: BACKGROUND COLOUR CODE:
-                Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-                    .ignoresSafeArea()
+                Background()
                 
                 VStack(alignment:.center){
                     VStack{
@@ -41,6 +42,7 @@ struct SymptomCheckIntroView: View {
                     VStack {
                         // MARK: Latest Deaths Figures
                         Button(action: {
+                            openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!)
                         }) {
                             VStack {
                                 Text("nhs.uk")
@@ -52,9 +54,11 @@ struct SymptomCheckIntroView: View {
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             .cornerRadius(15)
                         }
+
+    
                         // MARK: Last Check-in
                         Button(action: {
-                            print("show area statistics")
+                            openURL(URL(string: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019")!)
                         }) {
                             VStack {
                                 Text("who.int")
