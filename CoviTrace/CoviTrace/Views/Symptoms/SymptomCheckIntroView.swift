@@ -44,7 +44,7 @@ struct SymptomCheckIntroView: View {
                         .padding()
                         .foregroundColor(.white)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .cornerRadius(15)
+                        .cornerRadius(30)
                     }
                     
                     // MARK: WHO Covid Link
@@ -59,7 +59,7 @@ struct SymptomCheckIntroView: View {
                         .padding()
                         .foregroundColor(.white)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .cornerRadius(15)
+                        .cornerRadius(30)
                     }
                 }
             }.padding(5)

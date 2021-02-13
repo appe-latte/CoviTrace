@@ -54,13 +54,13 @@ struct LoginView: View {
                         viewModel.userLogin(withEmail: userEmail, password: userPassword)
                     }, label: {
                         Text("Login")
-                            .font(.subheadline)
+                            .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                         
-                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 15)
+                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 10)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(15)
+                    .cornerRadius(30)
                     
                     // MARK: "No Account"
                     NavigationLink(

@@ -24,30 +24,48 @@ struct InformationView: View {
                     Button(action: {
                         
                     }) {
-                        VStack {
+                        HStack {
+                            Image(systemName: "questionmark.circle.fill")
                             Text("How This App Works")
                                 .fontWeight(.semibold)
                                 .font(.title2)
-                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 30, alignment: .center)
+                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 30, alignment: .leading)
                         .padding()
                         .foregroundColor(.white)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .cornerRadius(15)
+                        .cornerRadius(30)
+                    }
+                    
+                    // MARK: Global Statistics
+                    Button(action: {
+                        openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!)
+                    }) {
+                        HStack(){
+                            Image(systemName: "globe")
+                            Text("Global Statistics")
+                                .fontWeight(.semibold)
+                                .font(.title2)
+                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 30, alignment: .leading)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(30)
                     }
                     
                     // MARK: Privacy Policy
                     Button(action: {
                         openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!)
                     }) {
-                        VStack {
+                        HStack {
+                            Image(systemName: "book.fill")
                             Text("Privacy Policy")
                                 .fontWeight(.semibold)
                                 .font(.title2)
-                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 30, alignment: .center)
+                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 30, alignment: .leading)
                         .padding()
                         .foregroundColor(.white)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .cornerRadius(15)
+                        .cornerRadius(30)
                     }
                     
                     // MARK: Sign Out
@@ -62,9 +80,9 @@ struct InformationView: View {
                         .padding()
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .background(Color(red: 245 / 255, green: 246 / 255, blue: 243 / 255))
-                        .cornerRadius(15)
+                        .cornerRadius(30)
                     }
-                    
+                    Spacer()
                 }
                 
             }.padding(5)

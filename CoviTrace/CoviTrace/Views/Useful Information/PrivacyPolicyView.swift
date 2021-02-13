@@ -15,8 +15,7 @@ struct PrivacyPolicyView: View {
             
             VStack(alignment:.center){
                 VStack{
-                    
-                    
+                    //
                 }.foregroundColor(.white)
                 .lineLimit(nil)
                 .font(.footnote)

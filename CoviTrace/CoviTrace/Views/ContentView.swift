@@ -22,8 +22,9 @@ struct ContentView: View {
                             .navigationBarItems(trailing:
                                                     NavigationLink(
                                                         destination: InformationView()){
-                                                        Image(systemName: "info.circle.fill")
+                                                        Image(systemName: "line.horizontal.3.circle.fill")
                                                             .foregroundColor(.white)
+                                                            .font(.largeTitle)
                                                     }
                             )
                         
@@ -48,7 +49,7 @@ struct ContentView: View {
                                 destination: AreaStatsView()){
                                 Image(systemName: "map.fill")
                                     .font(.title3)
-                                Text("Area Statistics")
+                                Text("AREA STATISTICS")
                                     .fontWeight(.semibold)
                                     .font(.title3)
                             }
@@ -56,14 +57,14 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
+                            .cornerRadius(30)
                             
                             // MARK: Symptom Checker
                             NavigationLink(
                                 destination: SymptomPageView()){
                                 Image(systemName: "stethoscope")
                                     .font(.title3)
-                                Text("Symptom Checker")
+                                Text("SYMPTOM CHECKER")
                                     .fontWeight(.semibold)
                                     .font(.title3)
                             }
@@ -71,29 +72,14 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
-                            
-                            // MARK: Test Results
-                            NavigationLink(
-                                destination: ResultsView()){
-                                Image(systemName: "folder.fill")
-                                    .font(.title3)
-                                Text("Test Results")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
-                            }
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
+                            .cornerRadius(30)
                             
                             // MARK: Check-in
                             NavigationLink(
                                 destination: CheckInView()){
                                 Image(systemName: "scope")
                                     .font(.title3)
-                                Text("Check In")
+                                Text("LOCATION CHECK-IN")
                                     .fontWeight(.semibold)
                                     .font(.title3)
                             }
@@ -101,14 +87,29 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
+                            .cornerRadius(30)
+                            
+                            // MARK: Test Results
+                            NavigationLink(
+                                destination: ResultsView()){
+                                Image(systemName: "folder.fill")
+                                    .font(.title3)
+                                Text("COVID RESULTS")
+                                    .fontWeight(.semibold)
+                                    .font(.title3)
+                            }
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .cornerRadius(30)
                             
                             // MARK: Hygiene Tips
                             NavigationLink(
                                 destination: HealthTipsPageView()){
                                 Image(systemName: "bell.fill")
                                     .font(.title3)
-                                Text("Health Tips")
+                                Text("HEALTH ADVICE")
                                     .fontWeight(.semibold)
                                     .font(.title3)
                             }
@@ -116,7 +117,7 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
+                            .cornerRadius(30)
                             
                             // MARK: Exposure
                             Button(action: {
@@ -125,18 +126,19 @@ struct ContentView: View {
                                 HStack {
                                     Image(systemName: "exclamationmark.triangle.fill")
                                         .font(.title3)
-                                    Text("EXPOSURE ALERT")
+                                    Text("LOG EXPOSURE")
                                         .fontWeight(.semibold)
                                         .font(.title3)
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
+                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-                                .cornerRadius(15)
+                                .cornerRadius(30)
                             }
-                            Spacer()
+//                            Spacer()
                         }.padding()
                         .frame(minHeight: 0, maxHeight: 800)
+                        Spacer()
                     }
                 }
             } else {

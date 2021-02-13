@@ -52,27 +52,27 @@ struct ResultsView: View {
                 Button(action: {
                    
                 }, label: {
-                    Text("Upload Certificate")
+                    Text("UPLOAD CERTIFICATE")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 246 / 255, green: 245 / 255, blue: 243 / 255))
-                .cornerRadius(15)
+                .cornerRadius(30)
                 
                 // MARK: "Check-In" Button
                 Button(action: {
                    
                 }, label: {
-                    Text("Log Results")
+                    Text("LOG RESULTS")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     
                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                .cornerRadius(15)
+                .cornerRadius(30)
                 .padding(.top, 2)
                     Spacer()
             }
