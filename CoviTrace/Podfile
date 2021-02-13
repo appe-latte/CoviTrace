@@ -9,6 +9,5 @@ target 'CoviTrace' do
   
    pod 'Alamofire'
    pod 'SwiftyJSON'
-#   pod 'Firebase/Analytics'
 
 end

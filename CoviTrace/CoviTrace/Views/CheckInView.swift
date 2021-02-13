@@ -15,7 +15,7 @@ struct CheckInView: View {
             VStack{
                 // MARK: "Check-In" Button
                 Button(action: {
-                   
+                    
                 }, label: {
                     Text("CHECK IN")
                         .font(.subheadline)

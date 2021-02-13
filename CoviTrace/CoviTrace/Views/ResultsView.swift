@@ -18,46 +18,35 @@ struct ResultsView: View {
             ResultsTopView()
             VStack{
                 // MARK: Test Reference Number
-                CustomTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"), imageName: "person")
-                    .padding(5)
+                SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
-                    .textContentType(.name)
-                    .keyboardType(.default)
                 
                 // MARK: Test Centre
-                CustomTextField(text: $testCentre, placeholder: Text("Enter Test Centre"), imageName: "person")
-                    .padding(5)
+                SimpleTextField(text: $testCentre, placeholder: Text("Enter Test Centre"))
+//                    .padding(5)
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
-                    .textContentType(.name)
-                    .keyboardType(.default)
                 
                 // MARK:
                 HStack{
                     // MARK: Test Date
-                    CustomTextField(text: $testDate, placeholder: Text("Test Date"), imageName: "calendar")
-                        .padding(5)
+                    SimpleTextField(text: $testDate, placeholder: Text("Test Date"))
                         .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 100, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .frame(minWidth: 0, maxWidth: 100, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
-                        .textContentType(.name)
-                        .keyboardType(.default)
                     
                     // MARK: Test Result
-                    CustomTextField(text: $testResult, placeholder: Text("Test Result"), imageName: "calendar")
-                        .padding(5)
+                    SimpleTextField(text: $testResult, placeholder: Text("Test Result"))
                         .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 180, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .frame(minWidth: 0, maxWidth: 180, minHeight: 0, maxHeight: 50).padding(.leading, 10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
-                        .textContentType(.name)
-                        .keyboardType(.default)
                 }
                 // MARK: "Upload Certificate" Button
                 Button(action: {
@@ -68,10 +57,9 @@ struct ResultsView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center)
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 246 / 255, green: 245 / 255, blue: 243 / 255))
                 .cornerRadius(15)
-                
                 
                 // MARK: "Check-In" Button
                 Button(action: {
@@ -82,15 +70,12 @@ struct ResultsView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center)
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 .cornerRadius(15)
                 .padding(.top, 2)
-    
                     Spacer()
             }
-            
-            
         }.navigationBarTitle("Test Results")
     }
 }

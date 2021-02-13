@@ -20,16 +20,15 @@ struct SignUpView: View {
             {
                 Background()
                 
-                VStack(alignment:.center){
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .padding()
-                    Spacer()
-                }
-                
                 VStack (alignment: .center){
+                    VStack(alignment:.center){
+                        Image("logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                            .padding()
+                        Spacer()
+                    }
                     Spacer()
                     // MARK: First Name Text
                     CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
@@ -38,8 +37,8 @@ struct SignUpView: View {
                         .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
-                        .textContentType(.name)
-                        .keyboardType(.default)
+                        .textContentType(.none)
+                        .keyboardType(.URL)
                     
                     // MARK: Last Name Text
                     CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person")
@@ -90,7 +89,6 @@ struct SignUpView: View {
                             .foregroundColor(Color(.white))
                             .padding(.top, 2)
                     }
-                    
                 }.font(.subheadline)
                 .padding(10)
             }
