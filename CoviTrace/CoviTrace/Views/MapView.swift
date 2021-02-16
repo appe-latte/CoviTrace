@@ -26,7 +26,7 @@ struct MapView: UIViewRepresentable {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
             let location: CLLocationCoordinate2D = locationManager.location!.coordinate
-            let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+//            let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
             let region = MKCoordinateRegion(center: location, latitudinalMeters: 50, longitudinalMeters: 50)
             view.setRegion(region, animated: true)
         }

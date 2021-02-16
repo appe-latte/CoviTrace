@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct GlobalStatsView: View {
+    @ObservedObject var covidFetch = CovidFetchRequest()
+    
     var body: some View {
         ZStack(){
             Background()
+            Text("\(covidFetch.totalData.critical)")
         }
     }
 }

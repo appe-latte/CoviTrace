@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LandingView: View {
-    @ObservedObject var dataFetch = DataFetchRequest()
+    @ObservedObject var dataFetch = CovidFetchRequest()
     
     var body: some View {
         

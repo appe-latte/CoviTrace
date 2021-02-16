@@ -10,12 +10,14 @@ import MapKit
 import CoreLocation
 
 struct AreaStatsView: View {
-    @State var riskLevel = "MEDIUM"
-    @State var currentCases: Int = 12976
-    @State var deaths : Int = 762
-    @State var checkIn = "Euston"
+    
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [MKPointAnnotation]()
+    @ObservedObject var covidFetch = CovidFetchRequest()
+    @State var riskLevel = ""
+    @State var currentCases: Int = 0
+    @State var deaths : Int = 0
+    @State var checkIn = ""
     
     var body: some View {
         //        NavigationView {
@@ -35,7 +37,7 @@ struct AreaStatsView: View {
                 VStack{
                     // MARK: Risk Level
                     HStack {
-                        Text("Risk Level: \(riskLevel)")
+                        Text("Total Cases: \(covidFetch.totalData.confirmed)")
                             .fontWeight(.semibold)
                             .font(.title3)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -47,7 +49,7 @@ struct AreaStatsView: View {
                     
                     // MARK: Current Cases
                     HStack {
-                        Text("Latest Cases: \(currentCases)")
+                        Text("Total Recoveries: \(covidFetch.totalData.recovered)")
                             .fontWeight(.semibold)
                             .font(.title3)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -60,7 +62,7 @@ struct AreaStatsView: View {
                 
                 // MARK: Deaths
                 HStack {
-                    Text("Latest Deaths: \(deaths)")
+                    Text("Total Critical: \(covidFetch.totalData.critical)")
                         .fontWeight(.semibold)
                         .font(.title3)
                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
@@ -71,7 +73,7 @@ struct AreaStatsView: View {
                 
                 // MARK: Check-in
                 HStack {
-                    Text("Last Check-in: \(checkIn)")
+                    Text("Total Deaths: \(covidFetch.totalData.deaths)")
                         .fontWeight(.semibold)
                         .font(.title3)
                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
