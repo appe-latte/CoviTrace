@@ -7,6 +7,7 @@
 
 import MapKit
 import SwiftUI
+import CoreLocation
 
 struct MapView: UIViewRepresentable {
     @Binding var centerCoordinate: CLLocationCoordinate2D

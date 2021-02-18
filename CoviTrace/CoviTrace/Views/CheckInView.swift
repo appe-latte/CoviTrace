@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct CheckInView: View {
+
+    let locationFetch = LocationFetch()
+
     var body: some View {
         ZStack{
             CheckInTopView()
@@ -15,7 +19,11 @@ struct CheckInView: View {
             VStack{
                 // MARK: "Check-In" Button
                 Button(action: {
-                    
+                    if let locationCheckin = self.locationFetch.lastLocation{
+                        print("Your location is: \(locationCheckin)")
+                    } else {
+                        print("Unknown location")
+                    }
                 }, label: {
                     Text("CHECK-IN")
                         .font(.subheadline)
@@ -27,12 +35,12 @@ struct CheckInView: View {
                 .cornerRadius(30)
                 .padding()
                 
-                    Text("*Check-in data is only stored for a maximum of 14 days and is automatically deleted from our servers.")
+                Text("*Check-in data is only stored for a maximum of 14 days and is automatically deleted from our servers.")
                     .foregroundColor(.white)
-    //                .lineLimit(nil)
+                    //                .lineLimit(nil)
                     .font(.footnote)
                     .padding(5)
-                    Spacer()
+                Spacer()
             }
         }.navigationBarTitle("Recent Check-ins")
     }

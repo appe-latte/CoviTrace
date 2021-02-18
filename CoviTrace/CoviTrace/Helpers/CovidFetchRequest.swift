@@ -14,17 +14,18 @@ class CovidFetchRequest: ObservableObject {
     @Published var totalData: TotalData = testTotalData
     @Published var dailyData: DailyCovidData = testDailyCovidData
     
+    let headers: HTTPHeaders = [
+        "x-rapidapi-key": "821059debfmsh17dd5446e54ea65p1d449fjsn6706c09ba882",
+        "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
+    ]
+    
     init(){
         
-        getCovidTotals()
+                getCovidTotals()
+//        getAllCountries()
     }
     
     func getCovidTotals() {
-        
-        let headers: HTTPHeaders = [
-            "x-rapidapi-key": "821059debfmsh17dd5446e54ea65p1d449fjsn6706c09ba882",
-            "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
-        ]
         
         AF.request("https://covid-19-data.p.rapidapi.com/country/code?date=2020-12-01&code=gb", headers: headers).responseJSON { response in
             
@@ -32,7 +33,7 @@ class CovidFetchRequest: ObservableObject {
             
             if result != nil {
                 let json = JSON(result!)
-//                print(json)
+                //                print(json)
                 let confirmed = json[0]["confirmed"].intValue
                 let deaths = json[0]["deaths"].intValue
                 let critical = json[0]["critical"].intValue
@@ -40,14 +41,24 @@ class CovidFetchRequest: ObservableObject {
                 
                 self.totalData = TotalData(confirmed: confirmed, critical: critical, deaths: deaths, recovered: recovered)
                 self.dailyData = DailyCovidData(confirmed: confirmed, deaths: deaths, recovered: recovered, critical: critical)
-            
+                
             } else {
-//                self.totalData = testTotalData
                 self.dailyData = testDailyCovidData
             }
-            
         }
-        
     }
-
+    
+//    func getAllCountries() {
+//        AF.request( "https://covid-19-data.p.rapidapi.com/country/all?format=undefined", headers: headers).responseJSON { response in
+//
+//            let result = response.value
+//            if result != nil{
+//                let dataDictionary = result as! [Dictionary<String, AnyObject>]
+//                for countryData in dataDictionary {
+//                    print(countryData)
+//                }
+//            }
+//        }
+//    }
 }
+

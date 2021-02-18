@@ -13,7 +13,15 @@ struct GlobalStatsView: View {
     var body: some View {
         ZStack(){
             Background()
-            Text("\(covidFetch.totalData.critical)")
+            HStack {
+                Text("Total Deaths: \(covidFetch.totalData.deaths)")
+                    .fontWeight(.semibold)
+                    .font(.title3)
+            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
+            .padding(5)
+            .foregroundColor(.white)
+            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+            .cornerRadius(30)
         }
     }
 }
