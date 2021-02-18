@@ -31,6 +31,8 @@
 		2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9725DEC14F00873C15 /* LocationFetch.swift */; };
 		2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9E25DEDA1F00873C15 /* LocationManager.swift */; };
 		2F682BB925DEDD4B00873C15 /* LogCovidExposure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */; };
+		2F682BCD25DEEEB200873C15 /* testResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */; };
+		2F682BE825DEFA3C00873C15 /* ResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BE725DEFA3C00873C15 /* ResultsListView.swift */; };
 		2F80847A25D6D872000A50B6 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847925D6D872000A50B6 /* InformationView.swift */; };
 		2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */; };
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
@@ -80,6 +82,8 @@
 		2F682B9725DEC14F00873C15 /* LocationFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetch.swift; sourceTree = "<group>"; };
 		2F682B9E25DEDA1F00873C15 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCovidExposure.swift; sourceTree = "<group>"; };
+		2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testResultViewModel.swift; sourceTree = "<group>"; };
+		2F682BE725DEFA3C00873C15 /* ResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListView.swift; sourceTree = "<group>"; };
 		2F80847925D6D872000A50B6 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		2F80848125D6E847000A50B6 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */,
 				2F6150E825D1A424003AAB52 /* Utils */,
 				2FD2951825BF3A4D005E6000 /* Helpers */,
+				2F682BCB25DEEE9100873C15 /* ViewModel */,
 				2F0F2A6925B5BD4A00103879 /* CoviTraceApp.swift */,
 				2F0F2A6D25B5BD4A00103879 /* Assets.xcassets */,
 				2FD2951925BF3A93005E6000 /* Views */,
@@ -169,9 +174,18 @@
 				2F1217E025D5B88B00D62B18 /* Background.swift */,
 				2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */,
 				2F80848425D6EDEA000A50B6 /* ResultsTopView.swift */,
+				2F682BE725DEFA3C00873C15 /* ResultsListView.swift */,
 				2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2F682BCB25DEEE9100873C15 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2F80847C25D6E0D4000A50B6 /* Useful Information */ = {
@@ -381,6 +395,7 @@
 				2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */,
 				2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */,
 				2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */,
+				2F682BE825DEFA3C00873C15 /* ResultsListView.swift in Sources */,
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
@@ -407,6 +422,7 @@
 				2FD53FA425D49AB000D5594B /* HealthTipsRestView.swift in Sources */,
 				2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
+				2F682BCD25DEEEB200873C15 /* testResultViewModel.swift in Sources */,
 				2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */,
 				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
 				2F80848525D6EDEA000A50B6 /* ResultsTopView.swift in Sources */,

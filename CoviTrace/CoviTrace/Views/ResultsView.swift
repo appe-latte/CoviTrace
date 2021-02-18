@@ -12,10 +12,12 @@ struct ResultsView: View {
     @State var testCentre = ""
     @State var testDate = ""
     @State var testResult = ""
+    @ObservedObject private var resultsViewModel = testResultViewModel()
     
     var body: some View {
         ZStack{
             ResultsTopView()
+            
             VStack{
                 // MARK: Test Reference Number
                 SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
@@ -74,9 +76,15 @@ struct ResultsView: View {
                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 .cornerRadius(30)
                 .padding(.top, 2)
-                    Spacer()
-            }
+//                    Spacer()
+            }.frame(minHeight: 0, maxHeight: 300, alignment: .top)
+            
+//        }
         }.navigationBarTitle("Test Results")
+        
+        VStack{
+            ResultsListView()
+        }.frame(minHeight: 0, maxHeight: 400, alignment: .bottom)
     }
 }
 struct ResultsView_Previews: PreviewProvider {

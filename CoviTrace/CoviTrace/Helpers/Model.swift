@@ -7,15 +7,23 @@
 
 import Foundation
 
+struct TestResults: Identifiable {
+    var id : String = UUID().uuidString
+    var refNum : String
+    var testCentre : String
+    var testDate : String
+    var testResult : String
+}
+
 struct DailyCovidData {
-    let confirmed: Int
-    let deaths: Int
-    let recovered: Int
-    let critical: Int
+    let confirmed : Int
+    let deaths : Int
+    let recovered : Int
+    let critical : Int
 }
 
 struct TotalData {
-
+    
     let confirmed : Int
     let critical : Int
     let deaths : Int
@@ -33,12 +41,12 @@ struct TotalData {
 struct CountryData {
     
     let country : String
-    let critical: Int64
-    let deaths: Int64
-    let recovered: Int64
-    let longitude: Double
-    let latitude: Double
-    let confirmed: Int
+    let critical : Int64
+    let deaths : Int64
+    let recovered : Int64
+    let longitude : Double
+    let latitude : Double
+    let confirmed : Int
     
     var fatalityRate : Double {
         return (100.00 * Double(deaths)) / (Double(confirmed))
