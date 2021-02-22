@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+//import Combine
 
 struct LoginView: View {
     @State var userEmail = ""
     @State var userPassword = ""
+//    @State private var keyboardHeight: CGFloat = 0
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignUpView: View {
     @State var userEmail = ""
@@ -13,6 +14,7 @@ struct SignUpView: View {
     @State var lastName = ""
     @State var firstName = ""
     @EnvironmentObject var viewModel : AuthViewModel
+    @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
         NavigationView{
@@ -90,6 +92,7 @@ struct SignUpView: View {
                     }
                 }.font(.subheadline)
                 .padding(10)
+                .padding(.bottom, keyboardHeight)                        .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
             }
         }.navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
@@ -99,5 +102,23 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
+    }
+}
+extension Publishers {
+    static var keyboardHeight: AnyPublisher<CGFloat, Never> {
+        let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+            .map { $0.keyboardHeight }
+        
+        let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
+            .map { _ in CGFloat(0) }
+        
+        return MergeMany(willShow, willHide)
+            .eraseToAnyPublisher()
+    }
+}
+
+extension Notification {
+    var keyboardHeight: CGFloat {
+        return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
     }
 }

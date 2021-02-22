@@ -16,6 +16,7 @@
 		2F1217E125D5B88B00D62B18 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E025D5B88B00D62B18 /* Background.swift */; };
 		2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */; };
 		2F1217E925D5C4C300D62B18 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E825D5C4C300D62B18 /* ResultsView.swift */; };
+		2F167DAF25E3DA6C00304F9F /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */; };
 		2F31980725B5C2DE00AB182C /* CovidFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980625B5C2DE00AB182C /* CovidFetchRequest.swift */; };
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
@@ -67,6 +68,7 @@
 		2F1217E025D5B88B00D62B18 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTopView.swift; sourceTree = "<group>"; };
 		2F1217E825D5C4C300D62B18 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		2F31980625B5C2DE00AB182C /* CovidFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFetchRequest.swift; sourceTree = "<group>"; };
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,8 @@
 			children = (
 				2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */,
 				2F6150E825D1A424003AAB52 /* Utils */,
+				2F167DAD25E3DA1E00304F9F /* Exposure */,
+				2F167D6625E3D5A500304F9F /* Models */,
 				2FD2951825BF3A4D005E6000 /* Helpers */,
 				2F682BCB25DEEE9100873C15 /* ViewModel */,
 				2F0F2A6925B5BD4A00103879 /* CoviTraceApp.swift */,
@@ -164,6 +168,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2F167D6625E3D5A500304F9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2F31980925B5CC9700AB182C /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2F167DAD25E3DA1E00304F9F /* Exposure */ = {
+			isa = PBXGroup;
+			children = (
+				2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */,
+			);
+			path = Exposure;
+			sourceTree = "<group>";
+		};
 		2F6150E825D1A424003AAB52 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +195,6 @@
 				2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */,
 				2F80848425D6EDEA000A50B6 /* ResultsTopView.swift */,
 				2F682BE725DEFA3C00873C15 /* ResultsListView.swift */,
-				2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -183,6 +202,8 @@
 		2F682BCB25DEEE9100873C15 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */,
+				2F5956E025D1B635004D1F53 /* AuthViewModel.swift */,
 				2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */,
 			);
 			path = ViewModel;
@@ -202,8 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				2F31980625B5C2DE00AB182C /* CovidFetchRequest.swift */,
-				2F31980925B5CC9700AB182C /* Model.swift */,
-				2F5956E025D1B635004D1F53 /* AuthViewModel.swift */,
 				2F682B9725DEC14F00873C15 /* LocationFetch.swift */,
 				2F682B9E25DEDA1F00873C15 /* LocationManager.swift */,
 			);
@@ -428,6 +447,7 @@
 				2F80848525D6EDEA000A50B6 /* ResultsTopView.swift in Sources */,
 				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
 				2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */,
+				2F167DAF25E3DA6C00304F9F /* KeyboardAdaptive.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
 				2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */,
 				2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */,
