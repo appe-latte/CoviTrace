@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
+    var testResult = "Negative"
     
     var body: some View {
         Group {
@@ -30,15 +31,16 @@ struct ContentView: View {
                         
                         // MARK: Shield & Status
                         VStack(alignment:.center){
-                            Image("logo")
+                            Image(systemName: "checkmark.shield.fill")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 300, height: 150)
+                                .foregroundColor(.white)
                             Text("You are currenly Covid-19:")
                                 .foregroundColor(.white)
                                 .font(.title3)
                                 .fontWeight(.semibold)
-                            Text("NEGATIVE")
+                            Text(testResult)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
                                 .font(.title2)
@@ -57,7 +59,7 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(30)
+                            .cornerRadius(15)
                             
                             // MARK: Symptom Checker
                             NavigationLink(
@@ -72,7 +74,7 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(30)
+                            .cornerRadius(15)
                             
                             // MARK: Check-in
                             NavigationLink(
@@ -87,7 +89,7 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(30)
+                            .cornerRadius(15)
                             
                             // MARK: Test Results
                             NavigationLink(
@@ -102,7 +104,7 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(30)
+                            .cornerRadius(15)
                             
                             // MARK: Hygiene Tips
                             NavigationLink(
@@ -117,7 +119,7 @@ struct ContentView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(30)
+                            .cornerRadius(15)
                             
                             // MARK: Exposure
                             Button(action: {
@@ -133,7 +135,7 @@ struct ContentView: View {
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-                                .cornerRadius(30)
+                                .cornerRadius(15)
                             }
 //                            Spacer()
                         }.padding()

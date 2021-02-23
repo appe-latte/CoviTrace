@@ -22,6 +22,7 @@ struct CoviTraceApp: App {
 //            LandingView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             ContentView().environmentObject(AuthViewModel())
+                .preferredColorScheme(.light)
         }
     }
 }

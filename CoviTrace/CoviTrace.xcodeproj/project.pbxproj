@@ -209,6 +209,37 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2F77959D25E5793B00E30128 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2F77959F25E5796200E30128 /* About App */,
+				2F7795A025E5797800E30128 /* How It Works */,
+				2F77959E25E5795500E30128 /* Onboarding */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2F77959E25E5795500E30128 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2F77959F25E5796200E30128 /* About App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "About App";
+			sourceTree = "<group>";
+		};
+		2F7795A025E5797800E30128 /* How It Works */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "How It Works";
+			sourceTree = "<group>";
+		};
 		2F80847C25D6E0D4000A50B6 /* Useful Information */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +274,7 @@
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
 				2FD53F8425D48EAD00D5594B /* Symptoms */,
+				2F77959D25E5793B00E30128 /* Screens */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -14,6 +14,11 @@ struct ResultsView: View {
     @State var testResult = ""
     @ObservedObject private var resultsViewModel = testResultViewModel()
     
+    init(){
+        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
     var body: some View {
         ZStack{
             ResultsTopView()
