@@ -11,11 +11,12 @@ import WebKit
 struct InformationView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.openURL) var openURL
-    let appVersion = ""
+    @State var GlobalStatsView: Bool = false
     @State var exposureEnabled: Bool = false
     @State var locationEnabled: Bool = false
     let emergencyNumber = "999"
     let enquiryNumber = "111"
+    let appVersion = ""
     
     init(){
         UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -42,8 +43,8 @@ struct InformationView: View {
                         
                     }) {
                         HStack{
-                            Image(systemName: "questionmark.circle.fill")
-                            Text("How The App Works")
+                            Image(systemName: "hand.tap.fill")
+                            Text("How CoviTrace Works")
                             Spacer()
                             Image(systemName: "chevron.right")
                         }
@@ -53,7 +54,7 @@ struct InformationView: View {
                         
                     }) {
                         HStack{
-                            Image(systemName: "info.circle.fill")
+                            Image(systemName: "app.badge")
                             Text("About The App")
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -62,24 +63,24 @@ struct InformationView: View {
                 }.foregroundColor(.white)
                 
                 // MARK: Privacy Section
-                Section(header: Text("Privacy")){
+                Section(header: Text("Permissions & Privacy")){
                     // Toggle Button - Exposure
                     Toggle(isOn: $exposureEnabled){
                         Image(systemName:"figure.stand.line.dotted.figure.stand")
-                        Text("Exposure Alert")
+                        Text("Exposure Logging")
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     // Toggle Button - Location
                     Toggle(isOn: $locationEnabled){
                         Image(systemName:"location.fill")
-                        Text("Location Enabled")
+                        Text("Location Permission")
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
                     // Privacy Policy
                     Button(action: {
-                        
+                        openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!)
                     }) {
                         HStack{
-                            Image(systemName: "doc.text.fill")
+                            Image(systemName: "hand.raised.fill")
                             Text("Privacy Policy")
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -122,30 +123,30 @@ struct InformationView: View {
                     }
                     
                     HStack{
-                        Text("Version")
-                        Spacer()
-                        Text("\(UIApplication.appVersion!)")
+                        Text("Version: \(UIApplication.appVersion!)")
                             .font(.footnote)
-                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .padding(.leading, 110)
+                        
+                    }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 }
             }
         }
         .navigationBarTitle("Useful Information").navigationBarHidden(false)
     }
     
-    
+    // MARK: Function for calling feature
     private func callNumber(phoneNumber:String) {
-
+        
         if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
-
+            
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
                 if #available(iOS 10.0, *) {
                     application.open(phoneCallURL, options: [:], completionHandler: nil)
                 } else {
                     // Fallback on earlier versions
-                     application.openURL(phoneCallURL as URL)
-
+                    application.openURL(phoneCallURL as URL)
+                    
                 }
             }
         }

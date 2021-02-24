@@ -19,73 +19,86 @@ struct AreaStatsView: View {
     @State var deaths : Int = 0
     @State var checkIn = ""
     
+    
+    init(){
+        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
     var body: some View {
-        //        NavigationView {
         ZStack
         {
-            // MARK: BACKGROUND COLOUR CODE:
-            Background()
-            
-            // MARK: Map
-            VStack(alignment:.center){
-                VStack{
-                    MapView(centerCoordinate: $centerCoordinate)
-                        .cornerRadius(15.0)
-                        .padding()
-                }
-                
-                VStack{
-                    // MARK: Risk Level
-                    HStack {
-                        Text("Total Cases: \(covidFetch.totalData.confirmed)")
-                            .fontWeight(.semibold)
-                            .font(.title3)
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
-                    .padding(5)
-                    .foregroundColor(.white)
-                    .background(Color(red: 195 / 255, green: 216 / 255, blue: 213 / 255))
-                    .cornerRadius(15)
+            Form {
+                Section {
+                    Button(action: {
+                        
+                    }) {
+                        HStack{
+                            MapView(centerCoordinate: $centerCoordinate).cornerRadius(5)
+                                .frame(height: 300)
+                                .padding(.top, 10)
+                                .padding(.bottom, 10)
+                            
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
-                    // MARK: Current Cases
-                    HStack {
-                        Text("Total Recoveries: \(covidFetch.totalData.recovered)")
-                            .fontWeight(.semibold)
-                            .font(.title3)
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
-                    .padding(5)
-                    .foregroundColor(.white)
-                    .background(Color(red: 234 / 255, green: 201 / 255, blue: 169 / 255))
-                    .cornerRadius(15)
+                    // Risk Level
+                    Button(action: {
+                        
+                    }) {
+                        HStack{
+                            Text("Risk Level: ")
+                            Spacer()
+                            Text( "MEDIUM")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
+                    // Cases
+                    Button(action: {
+                        
+                    }) {
+                        HStack{
+                            Text("Cases: ")
+                            Spacer()
+                            Text( "\(covidFetch.totalData.confirmed)")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
+                    // Deaths
+                    Button(action: {
+                        
+                    }) {
+                        HStack{
+                            Text("Deaths: ")
+                            Spacer()
+                            Text( "\(covidFetch.totalData.deaths)")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
+                    // Recovery
+                    Button(action: {
+                        
+                    }) {
+                        HStack{
+                            Text("Recovery: ")
+                            Spacer()
+                            Text( "\(covidFetch.totalData.recovered)")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
+                    // Critical
+                    Button(action: {
+                        
+                    }) {
+                        HStack{
+                            Text("Critical: ")
+                            Spacer()
+                            Text( "\(covidFetch.totalData.critical)")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }
-                
-                // MARK: Deaths
-                HStack {
-                    Text("Total Critical: \(covidFetch.totalData.critical)")
-                        .fontWeight(.semibold)
-                        .font(.title3)
-                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
-                .padding(5)
-                .foregroundColor(.white)
-                .background(Color(red: 171 / 255, green: 110 / 255, blue: 193 / 255))
-                .cornerRadius(15)
-                
-                // MARK: Check-in
-                HStack {
-                    Text("Total Deaths: \(covidFetch.totalData.deaths)")
-                        .fontWeight(.semibold)
-                        .font(.title3)
-                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 40, alignment: .center)
-                .padding(5)
-                .foregroundColor(.white)
-                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                .cornerRadius(15)
-            }.padding()
-            .frame(minHeight: 0, maxHeight: 800 )
+            }
         }.navigationBarTitle("Area Statistics")
-        //        }.edgesIgnoringSafeArea(.all)
-        //        .navigationBarHidden(true)
     }
     
     struct AreaStatsView_Previews: PreviewProvider {

@@ -1,13 +1,13 @@
 //
-//  PrivacyPolicyView.swift
+//  HowAppWorksView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 12/02/2021.
+//  Created by Stanford L. Khumalo on 23/02/2021.
 //
 
 import SwiftUI
 
-struct PrivacyPolicyView: View {
+struct HowAppWorksView: View {
     var body: some View {
         ZStack
         {
@@ -22,12 +22,12 @@ struct PrivacyPolicyView: View {
                 Spacer()
             }.padding(5)
             .frame(minHeight: 0, maxHeight: 800 )
-        }.navigationBarTitle("Privacy Policy").navigationBarHidden(false)
+        }.navigationBarTitle("How CoviTrace works").navigationBarHidden(false)
     }
-    
-    struct PrivacyPolicyView_Previews: PreviewProvider {
-        static var previews: some View {
-            PrivacyPolicyView()
-        }
+}
+
+struct HowAppWorksView_Previews: PreviewProvider {
+    static var previews: some View {
+        HowAppWorksView()
     }
 }

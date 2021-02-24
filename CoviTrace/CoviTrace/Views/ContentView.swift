@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
+    @ObservedObject private var resultsViewModel = testResultViewModel()
     var testResult = "Negative"
     
     var body: some View {
@@ -23,7 +24,7 @@ struct ContentView: View {
                             .navigationBarItems(trailing:
                                                     NavigationLink(
                                                         destination: InformationView()){
-                                                        Image(systemName: "line.horizontal.3.circle.fill")
+                                                        Image(systemName: "info.circle.fill")
                                                             .foregroundColor(.white)
                                                             .font(.largeTitle)
                                                     }
@@ -31,12 +32,12 @@ struct ContentView: View {
                         
                         // MARK: Shield & Status
                         VStack(alignment:.center){
-                            Image(systemName: "checkmark.shield.fill")
+                            Image(systemName: "checkmark.shield")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 300, height: 150)
                                 .foregroundColor(.white)
-                            Text("You are currenly Covid-19:")
+                            Text("Latest Covid-19 Result:")
                                 .foregroundColor(.white)
                                 .font(.title3)
                                 .fontWeight(.semibold)
@@ -46,6 +47,7 @@ struct ContentView: View {
                                 .font(.title2)
                             //                    Text("Last test results: 01.01.21")
                             //                        .foregroundColor(.white)
+                            
                             
                             NavigationLink(
                                 destination: AreaStatsView()){
@@ -137,7 +139,7 @@ struct ContentView: View {
                                 .background(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
                                 .cornerRadius(15)
                             }
-//                            Spacer()
+                            Spacer()
                         }.padding()
                         .frame(minHeight: 0, maxHeight: 800)
                         Spacer()

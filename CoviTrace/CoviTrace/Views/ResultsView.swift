@@ -14,11 +14,6 @@ struct ResultsView: View {
     @State var testResult = ""
     @ObservedObject private var resultsViewModel = testResultViewModel()
     
-    init(){
-        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    }
-    
     var body: some View {
         ZStack{
             ResultsTopView()
@@ -33,13 +28,11 @@ struct ResultsView: View {
                 
                 // MARK: Test Centre
                 SimpleTextField(text: $testCentre, placeholder: Text("Enter Test Centre"))
-//                    .padding(5)
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK:
                 HStack{
                     // MARK: Test Date
                     SimpleTextField(text: $testDate, placeholder: Text("Test Date"))
@@ -55,9 +48,10 @@ struct ResultsView: View {
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
                 }
+                
                 // MARK: "Upload Certificate" Button
                 Button(action: {
-                   
+                    
                 }, label: {
                     Text("UPLOAD CERTIFICATE")
                         .font(.subheadline)
@@ -66,11 +60,11 @@ struct ResultsView: View {
                     
                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 246 / 255, green: 245 / 255, blue: 243 / 255))
-                .cornerRadius(30)
+                .cornerRadius(15)
                 
                 // MARK: "Check-In" Button
                 Button(action: {
-                   
+                    
                 }, label: {
                     Text("LOG RESULTS")
                         .font(.subheadline)
@@ -79,14 +73,12 @@ struct ResultsView: View {
                     
                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                .cornerRadius(30)
+                .cornerRadius(15)
                 .padding(.top, 2)
-//                    Spacer()
             }.frame(minHeight: 0, maxHeight: 300, alignment: .top)
-            
-//        }
         }.navigationBarTitle("Test Results")
         
+        // MARK: Results List
         VStack{
             ResultsListView()
         }.frame(minHeight: 0, maxHeight: 400, alignment: .bottom)

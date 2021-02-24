@@ -22,16 +22,17 @@ struct LoginView: View {
                 // MARK: BACKGROUND COLOUR CODE:
                 Background()
                 
-                VStack(alignment:.center){
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .padding()
-                    Spacer()
-                }
+                
                 
                 VStack (alignment: .center){
+                    VStack(alignment:.center){
+                        Image("logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                            .padding()
+                        Spacer()
+                    }
                     Spacer()
                     
                     // MARK: User Email Text
@@ -62,7 +63,7 @@ struct LoginView: View {
                         
                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 10)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(30)
+                    .cornerRadius(15)
                     
                     // MARK: "No Account"
                     NavigationLink(

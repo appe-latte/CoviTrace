@@ -34,6 +34,7 @@
 		2F682BB925DEDD4B00873C15 /* LogCovidExposure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */; };
 		2F682BCD25DEEEB200873C15 /* testResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */; };
 		2F682BE825DEFA3C00873C15 /* ResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BE725DEFA3C00873C15 /* ResultsListView.swift */; };
+		2F77961A25E5B5D000E30128 /* HowAppWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77961925E5B5D000E30128 /* HowAppWorksView.swift */; };
 		2F80847A25D6D872000A50B6 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847925D6D872000A50B6 /* InformationView.swift */; };
 		2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */; };
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
@@ -86,6 +87,7 @@
 		2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCovidExposure.swift; sourceTree = "<group>"; };
 		2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testResultViewModel.swift; sourceTree = "<group>"; };
 		2F682BE725DEFA3C00873C15 /* ResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListView.swift; sourceTree = "<group>"; };
+		2F77961925E5B5D000E30128 /* HowAppWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowAppWorksView.swift; sourceTree = "<group>"; };
 		2F80847925D6D872000A50B6 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		2F80848125D6E847000A50B6 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				2F80847925D6D872000A50B6 /* InformationView.swift */,
 				2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */,
 				2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */,
+				2F77961925E5B5D000E30128 /* HowAppWorksView.swift */,
 			);
 			path = "Useful Information";
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
+				2F77961A25E5B5D000E30128 /* HowAppWorksView.swift in Sources */,
 				2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */,
 				2F682BB925DEDD4B00873C15 /* LogCovidExposure.swift in Sources */,
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
@@ -622,7 +626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -647,7 +651,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
