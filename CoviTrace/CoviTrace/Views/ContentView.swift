@@ -59,7 +59,6 @@ struct ContentView: View {
                                 NavigationLink(
                                     destination: AreaStatsView()){
                                     Image(systemName: "map")
-                                        //                                        .font(.title3)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Text("Area Statistics")
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

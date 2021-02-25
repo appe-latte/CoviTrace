@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 //import Combine
 
 struct LoginView: View {
@@ -21,9 +22,7 @@ struct LoginView: View {
             {
                 // MARK: BACKGROUND COLOUR CODE:
                 Background()
-                
-                
-                
+    
                 VStack (alignment: .center){
                     VStack(alignment:.center){
                         Image("logo")

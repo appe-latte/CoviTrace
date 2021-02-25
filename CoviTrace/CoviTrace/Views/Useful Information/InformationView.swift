@@ -45,7 +45,7 @@ struct InformationView: View {
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     
-                    // How It Works
+                    // MARK: How It Works
                     NavigationLink(
                         destination: HealthTipsPageView()){
                         Image(systemName: "hand.tap.fill")
@@ -54,7 +54,7 @@ struct InformationView: View {
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     
-                    // Share The App
+                    // MARK: Share The App
                     Button(action: shareSheet) {
                         HStack{
                             Image(systemName: "square.and.arrow.up")
@@ -65,13 +65,14 @@ struct InformationView: View {
                 
                 // MARK: Privacy Section
                 Section(header: Text("Permissions & Privacy")){
-                    // Toggle Button - Exposure
+                    // MARK: Toggle Button - Exposure
                     Toggle(isOn: $exposureEnabled){
                         Image(systemName:"figure.stand.line.dotted.figure.stand")
                         Text("Exposure Logging")
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
                     
-                    // Privacy Policy
+                    // MARK: Privacy Policy
                     NavigationLink(
                         destination: PrivacyPolicyView()){
                         Image(systemName: "hand.raised.fill")
@@ -84,6 +85,7 @@ struct InformationView: View {
                 
                 // MARK: Important Information
                 Section(header: Text("Important Information")){
+                    // MARK: 999
                     Button(action: {
                         callNumber(phoneNumber: emergencyNumber)
                     }) {
@@ -95,6 +97,7 @@ struct InformationView: View {
                                 .fontWeight(.semibold)
                         }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
+                    // MARK: 111
                     Button(action: {
                         callNumber(phoneNumber: enquiryNumber)
                     }) {
@@ -106,6 +109,32 @@ struct InformationView: View {
                                 .fontWeight(.semibold)
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
+                    // MARK: NHS Weblink
+                    Button(action: {
+                        openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!)
+                        
+                    }) {
+                        HStack{
+                            Image(systemName: "globe")
+                            Text("NHS.UK")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
+                    // MARK: WHO Weblink
+                    Button(action: {
+                        openURL(URL(string: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019")!)
+                    }) {
+                        HStack{
+                            Image(systemName: "globe")
+                            Text("WHO.INT")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
                 }.foregroundColor(.white)
                 
                 // MARK: Sign Out
@@ -142,14 +171,14 @@ struct InformationView: View {
                 if #available(iOS 10.0, *) {
                     application.open(phoneCallURL, options: [:], completionHandler: nil)
                 } else {
-                    // Fallback on earlier versions
+                    // MARK: Fallback on earlier versions
                     application.openURL(phoneCallURL as URL)
                 }
             }
         }
     }
     
-    // MARK: Share App
+    // MARK: Share app function
     func shareSheet() {
         guard let data = URL(string: "https://www.appe-latte.co.uk") else { return }
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)

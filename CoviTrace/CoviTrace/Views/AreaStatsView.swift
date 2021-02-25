@@ -29,7 +29,7 @@ struct AreaStatsView: View {
         ZStack
         {
             Form {
-                // MARK: Map
+                // MARK: MapView
                 Section {
                     Button(action: {
                         
@@ -47,7 +47,7 @@ struct AreaStatsView: View {
                 // MARK: Statistics
                 Section(header: Text("Statistics:")) {
                     
-                    // Risk Level
+                    // MARK: Risk Level
                     Button(action: {
                         
                     }) {
@@ -58,7 +58,7 @@ struct AreaStatsView: View {
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
-                    // Cases
+                    // MARK: Cases
                     Button(action: {
                         
                     }) {
@@ -69,7 +69,7 @@ struct AreaStatsView: View {
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
-                    // Deaths
+                    // MARK: Deaths
                     Button(action: {
                         
                     }) {
@@ -80,7 +80,7 @@ struct AreaStatsView: View {
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
-                    // Recovery
+                    // MARK: Recovery
                     Button(action: {
                         
                     }) {
@@ -91,7 +91,7 @@ struct AreaStatsView: View {
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
-                    // Critical
+                    // MARK: Critical
                     Button(action: {
                         
                     }) {
@@ -102,8 +102,7 @@ struct AreaStatsView: View {
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
-                    // Global Stats
-                    
+                    // MARK: Global Stats
                     NavigationLink(
                         destination: GlobalStatsView()){
                         Image(systemName: "globe")

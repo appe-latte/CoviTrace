@@ -57,7 +57,6 @@ struct ResultsView: View {
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    
                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 246 / 255, green: 245 / 255, blue: 243 / 255))
                 .cornerRadius(15)
