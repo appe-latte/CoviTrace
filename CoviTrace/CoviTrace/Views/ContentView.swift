@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     @ObservedObject private var resultsViewModel = testResultViewModel()
-    var testResult = "Negative"
+    var testResult = "NEGATIVE"
     
     var body: some View {
         Group {
@@ -24,104 +24,90 @@ struct ContentView: View {
                             .navigationBarItems(trailing:
                                                     NavigationLink(
                                                         destination: InformationView()){
-                                                        Image(systemName: "info.circle.fill")
-                                                            .foregroundColor(.white)
-                                                            .font(.largeTitle)
+                                                        HStack{
+                                                            Image(systemName: "info.circle")
+                                                            Text("information")
+                                                        }
+                                                        .foregroundColor(.white)
+                                                        .font(.subheadline)
                                                     }
                             )
                         
                         // MARK: Shield & Status
-                        VStack(alignment:.center){
-                            Image(systemName: "checkmark.shield")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 300, height: 150)
-                                .foregroundColor(.white)
-                            Text("Latest Covid-19 Result:")
-                                .foregroundColor(.white)
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                            Text(testResult)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .font(.title2)
-                            //                    Text("Last test results: 01.01.21")
-                            //                        .foregroundColor(.white)
-                            
-                            
-                            NavigationLink(
-                                destination: AreaStatsView()){
-                                Image(systemName: "map.fill")
-                                    .font(.title3)
-                                Text("AREA STATISTICS")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
+                        Form {
+                            Section {
+                                VStack(alignment:.center){
+                                    Image(systemName: "checkmark.shield")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 300, height: 150)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Latest Covid-19 Result:")
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                    Text(testResult)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .font(.title2)
+                                }
+                                .padding(10)
                             }
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
                             
-                            // MARK: Symptom Checker
-                            NavigationLink(
-                                destination: SymptomPageView()){
-                                Image(systemName: "stethoscope")
-                                    .font(.title3)
-                                Text("SYMPTOM CHECKER")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
+                            // MARK: Map
+                            Section {
+                                NavigationLink(
+                                    destination: AreaStatsView()){
+                                    Image(systemName: "map")
+                                        //                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Area Statistics")
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .fontWeight(.semibold)
+                                }
+                                
+                                // MARK: Symptom Checker
+                                NavigationLink(
+                                    destination: SymptomPageView()){
+                                    Image(systemName: "stethoscope")
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Check Symptoms")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
+                                // MARK: Check-in
+                                NavigationLink(
+                                    destination: CheckInView()){
+                                    Image(systemName: "scope")
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Location Check-in")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
+                                // MARK: Test Results
+                                NavigationLink(
+                                    destination: ResultsView()){
+                                    Image(systemName: "folder")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Test Results")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
+                                // MARK: Hygiene Tips
+                                NavigationLink(
+                                    destination: HealthTipsPageView()){
+                                    Image(systemName: "bell")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Health Tips")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
                             }
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
-                            
-                            // MARK: Check-in
-                            NavigationLink(
-                                destination: CheckInView()){
-                                Image(systemName: "scope")
-                                    .font(.title3)
-                                Text("LOCATION CHECK-IN")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
-                            }
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
-                            
-                            // MARK: Test Results
-                            NavigationLink(
-                                destination: ResultsView()){
-                                Image(systemName: "folder.fill")
-                                    .font(.title3)
-                                Text("COVID RESULTS")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
-                            }
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
-                            
-                            // MARK: Hygiene Tips
-                            NavigationLink(
-                                destination: HealthTipsPageView()){
-                                Image(systemName: "bell.fill")
-                                    .font(.title3)
-                                Text("HEALTH ADVICE")
-                                    .fontWeight(.semibold)
-                                    .font(.title3)
-                            }
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
                             
                             // MARK: Exposure
                             Button(action: {
@@ -130,19 +116,15 @@ struct ContentView: View {
                                 HStack {
                                     Image(systemName: "exclamationmark.triangle.fill")
                                         .font(.title3)
+                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
                                     Text("LOG EXPOSURE")
                                         .fontWeight(.semibold)
                                         .font(.title3)
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .leading)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-                                .cornerRadius(15)
+                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
+                                }
+                                .padding(.leading, 65)
                             }
-                            Spacer()
-                        }.padding()
-                        .frame(minHeight: 0, maxHeight: 800)
-                        Spacer()
+                        }
                     }
                 }
             } else {

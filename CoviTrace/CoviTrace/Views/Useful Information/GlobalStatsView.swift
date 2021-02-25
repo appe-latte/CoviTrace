@@ -23,6 +23,7 @@ struct GlobalStatsView: View {
             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
             .cornerRadius(30)
         }
+        .navigationBarTitle("Global Statistics").navigationBarHidden(false)
     }
 }
 

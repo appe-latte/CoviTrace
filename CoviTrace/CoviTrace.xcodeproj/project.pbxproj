@@ -207,6 +207,7 @@
 				2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */,
 				2F5956E025D1B635004D1F53 /* AuthViewModel.swift */,
 				2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */,
+				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -273,7 +274,6 @@
 				2F337E4525B88872009AC0A2 /* AreaStatsView.swift */,
 				2F1217E825D5C4C300D62B18 /* ResultsView.swift */,
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
-				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
 				2FD53F8425D48EAD00D5594B /* Symptoms */,
@@ -630,7 +630,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -655,7 +655,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

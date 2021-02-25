@@ -29,6 +29,7 @@ struct AreaStatsView: View {
         ZStack
         {
             Form {
+                // MARK: Map
                 Section {
                     Button(action: {
                         
@@ -36,11 +37,15 @@ struct AreaStatsView: View {
                         HStack{
                             MapView(centerCoordinate: $centerCoordinate).cornerRadius(5)
                                 .frame(height: 300)
-                                .padding(.top, 10)
-                                .padding(.bottom, 10)
+                                .padding(.top, 15)
+                                .padding(.bottom, 15)
                             
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                }
+                
+                // MARK: Statistics
+                Section(header: Text("Statistics:")) {
                     
                     // Risk Level
                     Button(action: {
@@ -96,7 +101,17 @@ struct AreaStatsView: View {
                             Text( "\(covidFetch.totalData.critical)")
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                }
+                    
+                    // Global Stats
+                    
+                    NavigationLink(
+                        destination: GlobalStatsView()){
+                        Image(systemName: "globe")
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        Text("Global Statistics")
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    }
+                }.foregroundColor(.white)
             }
         }.navigationBarTitle("Area Statistics")
     }

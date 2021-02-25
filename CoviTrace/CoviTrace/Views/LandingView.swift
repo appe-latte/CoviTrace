@@ -19,10 +19,17 @@ struct LandingView: View {
                 Background()
                 
                 VStack(alignment:.center){
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 300, height: 300)
+                    VStack{
+                        Image("logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .cornerRadius(30)
+                        Text("CoviTrace")
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                    }
                     Spacer()
                 }
                 

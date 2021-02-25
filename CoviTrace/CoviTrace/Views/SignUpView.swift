@@ -23,11 +23,13 @@ struct SignUpView: View {
                 Background()
                 VStack (alignment: .center){
                     VStack(alignment:.center){
+                        HStack{
                         Image("logo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 200, height: 200)
-                            .padding()
+                            .frame(width: 150, height: 150)
+                            .cornerRadius(30)
+                        }
                         Spacer()
                     }
                     Spacer()
