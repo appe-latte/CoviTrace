@@ -48,39 +48,40 @@ struct ResultsView: View {
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
                 }
-                
+                HStack {
                 // MARK: "Upload Certificate" Button
                 Button(action: {
                     
                 }, label: {
-                    Text("UPLOAD CERTIFICATE")
-                        .font(.subheadline)
+                    Text("+ CERTIFICATE")
+                        .font(.footnote)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 180, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 246 / 255, green: 245 / 255, blue: 243 / 255))
                 .cornerRadius(15)
                 
-                // MARK: "Check-In" Button
+                // MARK: "SAVE" Button
                 Button(action: {
                     
                 }, label: {
-                    Text("LOG RESULTS")
-                        .font(.subheadline)
+                    Text("SAVE")
+                        .font(.footnote)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 100, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,8)
                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 .cornerRadius(15)
                 .padding(.top, 2)
-            }.frame(minHeight: 0, maxHeight: 300, alignment: .top)
+                }
+            }.frame(minHeight: 0, maxHeight: 200, alignment: .top)
         }.navigationBarTitle("Test Results")
         
         // MARK: Results List
         VStack{
             ResultsListView()
-        }.frame(minHeight: 0, maxHeight: 400, alignment: .bottom)
+        }.frame(minHeight: 0, maxHeight: 500, alignment: .bottom)
     }
 }
 struct ResultsView_Previews: PreviewProvider {

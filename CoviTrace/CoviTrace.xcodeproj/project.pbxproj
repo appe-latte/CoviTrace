@@ -21,6 +21,7 @@
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
 		2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337E4525B88872009AC0A2 /* AreaStatsView.swift */; };
+		2F3F7E4725E81F6500AF1FC7 /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */; };
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
 		2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
@@ -74,6 +75,7 @@
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F337E4525B88872009AC0A2 /* AreaStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaStatsView.swift; sourceTree = "<group>"; };
+		2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Certificates/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */,
 				2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */,
 				2F77961925E5B5D000E30128 /* HowAppWorksView.swift */,
+				2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */,
 			);
 			path = "Useful Information";
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
+				2F3F7E4725E81F6500AF1FC7 /* AboutAppView.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
 				2F77961A25E5B5D000E30128 /* HowAppWorksView.swift in Sources */,
 				2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */,

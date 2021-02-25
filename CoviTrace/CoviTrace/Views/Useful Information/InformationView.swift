@@ -38,7 +38,7 @@ struct InformationView: View {
                     //                        }
                     //                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     NavigationLink(
-                        destination: HealthTipsPageView()){
+                        destination: AboutAppView()){
                         Image(systemName: "app.badge")
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         Text("About This App")
@@ -47,7 +47,7 @@ struct InformationView: View {
                     
                     // MARK: How It Works
                     NavigationLink(
-                        destination: HealthTipsPageView()){
+                        destination: HowAppWorksView()){
                         Image(systemName: "hand.tap.fill")
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         Text("How CoviTrace Works")
@@ -116,7 +116,7 @@ struct InformationView: View {
                         
                     }) {
                         HStack{
-                            Image(systemName: "globe")
+                            Image(systemName: "link")
                             Text("NHS.UK")
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -128,7 +128,7 @@ struct InformationView: View {
                         openURL(URL(string: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019")!)
                     }) {
                         HStack{
-                            Image(systemName: "globe")
+                            Image(systemName: "link")
                             Text("WHO.INT")
                             Spacer()
                             Image(systemName: "chevron.right")

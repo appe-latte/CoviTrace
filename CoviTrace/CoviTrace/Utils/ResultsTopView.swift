@@ -15,7 +15,7 @@ struct ResultsTopView: View {
             VStack{
                 Rectangle()
                     .fill(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                    .frame(height: 450, alignment: .top)
+                    .frame(height: 410, alignment: .top)
                     .edgesIgnoringSafeArea(.all)
                 Spacer()
             }
