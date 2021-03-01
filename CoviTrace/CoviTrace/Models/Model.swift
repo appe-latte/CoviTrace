@@ -9,7 +9,7 @@ import Foundation
 
 struct TestResults: Identifiable {
     var id : String = UUID().uuidString
-    var refNum : String
+    var testRefNum : String
     var testCentre : String
     var testDate : String
     var testResult : String

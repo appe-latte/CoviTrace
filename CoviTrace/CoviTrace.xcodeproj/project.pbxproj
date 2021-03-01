@@ -15,7 +15,6 @@
 		2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F2A7425B5BD4A00103879 /* CoviTrace.xcdatamodeld */; };
 		2F1217E125D5B88B00D62B18 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E025D5B88B00D62B18 /* Background.swift */; };
 		2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */; };
-		2F1217E925D5C4C300D62B18 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E825D5C4C300D62B18 /* ResultsView.swift */; };
 		2F167DAF25E3DA6C00304F9F /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */; };
 		2F31980725B5C2DE00AB182C /* CovidFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980625B5C2DE00AB182C /* CovidFetchRequest.swift */; };
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
@@ -23,6 +22,8 @@
 		2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337E4525B88872009AC0A2 /* AreaStatsView.swift */; };
 		2F3F7E4725E81F6500AF1FC7 /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */; };
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
+		2F4E5E7525ED744A000B965D /* HealthTipsMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E7425ED744A000B965D /* HealthTipsMaskView.swift */; };
+		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
 		2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
 		2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150E925D1A438003AAB52 /* TextArea.swift */; };
@@ -33,13 +34,10 @@
 		2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9725DEC14F00873C15 /* LocationFetch.swift */; };
 		2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9E25DEDA1F00873C15 /* LocationManager.swift */; };
 		2F682BB925DEDD4B00873C15 /* LogCovidExposure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */; };
-		2F682BCD25DEEEB200873C15 /* testResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */; };
-		2F682BE825DEFA3C00873C15 /* ResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BE725DEFA3C00873C15 /* ResultsListView.swift */; };
 		2F77961A25E5B5D000E30128 /* HowAppWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77961925E5B5D000E30128 /* HowAppWorksView.swift */; };
 		2F80847A25D6D872000A50B6 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847925D6D872000A50B6 /* InformationView.swift */; };
 		2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */; };
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
-		2F80848525D6EDEA000A50B6 /* ResultsTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848425D6EDEA000A50B6 /* ResultsTopView.swift */; };
 		2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848825D75775000A50B6 /* SimpleTextField.swift */; };
 		2F8084AE25D7798E000A50B6 /* GlobalStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */; };
 		2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */; };
@@ -69,7 +67,6 @@
 		2F0F2A7725B5BD4A00103879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F1217E025D5B88B00D62B18 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTopView.swift; sourceTree = "<group>"; };
-		2F1217E825D5C4C300D62B18 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		2F31980625B5C2DE00AB182C /* CovidFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFetchRequest.swift; sourceTree = "<group>"; };
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -77,6 +74,8 @@
 		2F337E4525B88872009AC0A2 /* AreaStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaStatsView.swift; sourceTree = "<group>"; };
 		2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2F4E5E7425ED744A000B965D /* HealthTipsMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsMaskView.swift; sourceTree = "<group>"; };
+		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddResultsView.swift; sourceTree = "<group>"; };
 		2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Certificates/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
@@ -87,13 +86,10 @@
 		2F682B9725DEC14F00873C15 /* LocationFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetch.swift; sourceTree = "<group>"; };
 		2F682B9E25DEDA1F00873C15 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCovidExposure.swift; sourceTree = "<group>"; };
-		2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testResultViewModel.swift; sourceTree = "<group>"; };
-		2F682BE725DEFA3C00873C15 /* ResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListView.swift; sourceTree = "<group>"; };
 		2F77961925E5B5D000E30128 /* HowAppWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowAppWorksView.swift; sourceTree = "<group>"; };
 		2F80847925D6D872000A50B6 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		2F80848125D6E847000A50B6 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
-		2F80848425D6EDEA000A50B6 /* ResultsTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTopView.swift; sourceTree = "<group>"; };
 		2F80848825D75775000A50B6 /* SimpleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
 		2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoviTrace.entitlements; sourceTree = "<group>"; };
 		2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsView.swift; sourceTree = "<group>"; };
@@ -197,8 +193,6 @@
 				2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */,
 				2F1217E025D5B88B00D62B18 /* Background.swift */,
 				2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */,
-				2F80848425D6EDEA000A50B6 /* ResultsTopView.swift */,
-				2F682BE725DEFA3C00873C15 /* ResultsListView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -208,7 +202,6 @@
 			children = (
 				2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */,
 				2F5956E025D1B635004D1F53 /* AuthViewModel.swift */,
-				2F682BCC25DEEEB200873C15 /* testResultViewModel.swift */,
 				2F4404CB25B87C0C00C82A99 /* MapView.swift */,
 			);
 			path = ViewModel;
@@ -275,7 +268,7 @@
 				2F3307EA25D1AAC1009CD715 /* LoginView.swift */,
 				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
 				2F337E4525B88872009AC0A2 /* AreaStatsView.swift */,
-				2F1217E825D5C4C300D62B18 /* ResultsView.swift */,
+				2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */,
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
@@ -303,6 +296,7 @@
 				2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */,
 				2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */,
 				2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */,
+				2F4E5E7425ED744A000B965D /* HealthTipsMaskView.swift */,
 				2FD53F9425D4952D00D5594B /* HealthTipsCoverView.swift */,
 				2FD53F9725D495F900D5594B /* HealthTipsSanitiseView.swift */,
 				2FD53FA025D4978E00D5594B /* HealthTipsFoodView.swift */,
@@ -374,7 +368,7 @@
 			);
 			mainGroup = 2F0F2A5D25B5BD4A00103879;
 			packageReferences = (
-				2F59570725D1C0A6004D1F53 /* RemoteSwiftPackageReference */,
+				2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2F0F2A6725B5BD4A00103879 /* Products */;
 			projectDirPath = "";
@@ -450,11 +444,11 @@
 				2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */,
 				2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */,
 				2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */,
-				2F682BE825DEFA3C00873C15 /* ResultsListView.swift in Sources */,
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
 				2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */,
+				2F4E5E7525ED744A000B965D /* HealthTipsMaskView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F3F7E4725E81F6500AF1FC7 /* AboutAppView.swift in Sources */,
@@ -463,7 +457,6 @@
 				2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */,
 				2F682BB925DEDD4B00873C15 /* LogCovidExposure.swift in Sources */,
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
-				2F1217E925D5C4C300D62B18 /* ResultsView.swift in Sources */,
 				2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */,
 				2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */,
 				2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */,
@@ -474,15 +467,14 @@
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */,
 				2F8084AE25D7798E000A50B6 /* GlobalStatsView.swift in Sources */,
+				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* Background.swift in Sources */,
 				2F31980725B5C2DE00AB182C /* CovidFetchRequest.swift in Sources */,
 				2FD53FA425D49AB000D5594B /* HealthTipsRestView.swift in Sources */,
 				2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
-				2F682BCD25DEEEB200873C15 /* testResultViewModel.swift in Sources */,
 				2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */,
 				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
-				2F80848525D6EDEA000A50B6 /* ResultsTopView.swift in Sources */,
 				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
 				2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */,
 				2F167DAF25E3DA6C00304F9F /* KeyboardAdaptive.swift in Sources */,
@@ -685,7 +677,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2F59570725D1C0A6004D1F53 /* RemoteSwiftPackageReference */ = {
+		2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {

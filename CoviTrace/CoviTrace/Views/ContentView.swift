@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
-    @ObservedObject private var resultsViewModel = testResultViewModel()
     var testResult = "NEGATIVE"
     
     var body: some View {
@@ -87,7 +86,7 @@ struct ContentView: View {
                                 
                                 // MARK: Test Results
                                 NavigationLink(
-                                    destination: ResultsView()){
+                                    destination: CheckInView()){
                                     Image(systemName: "folder")
                                         .font(.title3)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

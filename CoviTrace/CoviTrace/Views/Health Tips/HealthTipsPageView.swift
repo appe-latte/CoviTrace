@@ -16,6 +16,7 @@ struct HealthTipsPageView: View {
             
             TabView() {
                 HealthTipsWashView()
+                HealthTipsMaskView()
                 HealthTipsDistanceView()
                 HealthTipsCoverView()
                 HealthTipsSanitiseView()
