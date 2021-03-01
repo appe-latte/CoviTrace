@@ -21,7 +21,7 @@ struct HealthTipsCoverView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("sneeze")
+                        Image("tissue")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)

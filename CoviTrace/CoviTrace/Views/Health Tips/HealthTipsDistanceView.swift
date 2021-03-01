@@ -21,7 +21,7 @@ struct HealthTipsDistanceView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("mask")
+                        Image("face-mask")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)

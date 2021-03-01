@@ -17,11 +17,11 @@ struct HealthTipsFoodView: View {
                 
                 VStack(alignment:.center){
                     VStack{
-                        Text("EAT HEALTHY")
+                        Text("EAT HEALTHY FOODS")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("eat")
+                        Image("food")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)

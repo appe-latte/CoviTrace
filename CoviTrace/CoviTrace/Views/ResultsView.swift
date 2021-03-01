@@ -16,7 +16,7 @@ struct ResultsView: View {
     
     var body: some View {
         ZStack{
-            ResultsTopView()
+            Background()
             
             VStack{
                 // MARK: Test Reference Number

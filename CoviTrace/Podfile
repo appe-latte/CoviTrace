@@ -4,13 +4,13 @@
 target 'CoviTrace' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for CoviTrace
   
-   pod 'Alamofire'
-   pod 'SwiftyJSON'
-   pod 'Firebase/Auth'
-   pod 'Firebase/Firestore'
-   pod 'Firebase/Core'
-
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
+  
 end

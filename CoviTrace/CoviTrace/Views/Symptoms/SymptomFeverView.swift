@@ -19,7 +19,7 @@ struct SymptomFeverView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("hot")
+                        Image("fever")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)

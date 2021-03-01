@@ -22,7 +22,7 @@ struct HealthTipsWashView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("wash")
+                        Image("wash-hands")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)

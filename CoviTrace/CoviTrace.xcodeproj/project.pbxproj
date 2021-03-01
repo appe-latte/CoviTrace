@@ -339,15 +339,13 @@
 				2F0F2A6225B5BD4A00103879 /* Sources */,
 				2F0F2A6325B5BD4A00103879 /* Frameworks */,
 				2F0F2A6425B5BD4A00103879 /* Resources */,
-				E2B1F51119FC85C850B81D9B /* [CP] Embed Pods Frameworks */,
+				592ECA4BE7B9B952FEF35EE2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CoviTrace;
-			packageProductDependencies = (
-			);
 			productName = CoviTrace;
 			productReference = 2F0F2A6625B5BD4A00103879 /* CoviTrace.app */;
 			productType = "com.apple.product-type.application";
@@ -376,7 +374,7 @@
 			);
 			mainGroup = 2F0F2A5D25B5BD4A00103879;
 			packageReferences = (
-				2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2F59570725D1C0A6004D1F53 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 2F0F2A6725B5BD4A00103879 /* Products */;
 			projectDirPath = "";
@@ -423,7 +421,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E2B1F51119FC85C850B81D9B /* [CP] Embed Pods Frameworks */ = {
+		592ECA4BE7B9B952FEF35EE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -687,7 +685,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		2F59570725D1C0A6004D1F53 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {

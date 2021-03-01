@@ -13,7 +13,7 @@ struct CheckInView: View {
     
     var body: some View {
         ZStack{
-            CheckInTopView()
+            Background()
             
             VStack{
                 // MARK: "Check-In" Button

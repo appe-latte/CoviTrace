@@ -17,11 +17,11 @@ struct HealthTipsSanitiseView: View {
                 
                 VStack(alignment:.center){
                     VStack{
-                        Text("COVER UP WHEN YOU SNEEZE")
+                        Text("USE HAND SANITISER")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("shield")
+                        Image("sanitise")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)

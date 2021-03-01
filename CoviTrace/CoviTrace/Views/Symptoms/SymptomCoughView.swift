@@ -23,7 +23,7 @@ struct SymptomCoughView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("cough")
+                        Image("cough-hand")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)
