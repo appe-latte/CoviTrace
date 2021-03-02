@@ -29,7 +29,8 @@ struct LoginView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
-                            .cornerRadius(30)
+                            .frame(width: 150, height: 150)
+                            .clipShape(Circle())
                         Spacer()
                     }
                     Spacer()

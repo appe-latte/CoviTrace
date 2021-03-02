@@ -24,7 +24,7 @@ struct LandingView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
-                            .cornerRadius(30)
+                            .clipShape(Circle())
                         Text("CoviTrace")
                             .foregroundColor(.white)
                             .font(.largeTitle)

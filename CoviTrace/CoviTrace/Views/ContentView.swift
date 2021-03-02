@@ -19,7 +19,6 @@ struct ContentView: View {
                     {
                         // MARK: BACKGROUND COLOUR CODE:
                         Background()
-                            
                             .navigationBarItems(trailing:
                                                     NavigationLink(
                                                         destination: InformationView()){

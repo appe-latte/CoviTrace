@@ -23,7 +23,7 @@ struct AboutAppView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100, height: 100)
-                            .cornerRadius(15)
+                            .clipShape(Circle())
                         
                         VStack(alignment: .leading) {
                             Text("Location Check-in")
