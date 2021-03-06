@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     var testResult = "NEGATIVE"
+//    var isNegative: Bool
     
     var body: some View {
         Group {
@@ -108,7 +109,7 @@ struct ContentView: View {
                             
                             // MARK: Exposure
                             Button(action: {
-                                
+                                AnyView(CheckInView())
                             }) {
                                 HStack {
                                     Image(systemName: "exclamationmark.triangle.fill")

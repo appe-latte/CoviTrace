@@ -10,7 +10,6 @@ import MapKit
 import CoreLocation
 
 struct AreaStatsView: View {
-    
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [MKPointAnnotation]()
     @ObservedObject var covidFetch = CovidFetchRequest()
@@ -18,7 +17,6 @@ struct AreaStatsView: View {
     @State var currentCases: Int = 0
     @State var deaths : Int = 0
     @State var checkIn = ""
-    
     
     init(){
         UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
