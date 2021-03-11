@@ -1,19 +1,21 @@
 //
-//  AddResultsView.swift
+//  AddVaccinationDataView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 11/02/2021.
+//  Created by Stanford L. Khumalo on 11/03/2021.
 //
 
 import SwiftUI
 
-struct AddResultsView: View {
-    @State private var testRefNum = ""
+struct AddVaccinationDataView: View {
+    @State private var vaccRefNum = ""
     @State private var labRefNum = ""
     @State private var hospitalNum = ""
-    @State private var testDate = Date()
-    @State private var testResult = ""
-    @State private var testLocation = ""
+    @State private var vaccDate = Date()
+    @State private var vaccCentre = ""
+    @State private var vaccType = ""
+    @State private var firstDosageDate = Date()
+    @State private var secondDosageDate = Date()
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -25,8 +27,8 @@ struct AddResultsView: View {
         ZStack{
             Background()
             VStack{
-                // MARK: Test Reference Number
-                SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
+                // MARK: Vaccination Reference Number
+                SimpleTextField(text: $vaccRefNum, placeholder: Text("Enter Vaccination Reference number"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -47,16 +49,16 @@ struct AddResultsView: View {
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK: Test Location
-                SimpleTextField(text: $testLocation, placeholder: Text("Enter Test Location"))
+                // MARK: Vaccination Location
+                SimpleTextField(text: $vaccCentre, placeholder: Text("Enter Test Location"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK: Test Date
-                DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
-                    Text("Test / Vaccination Date")
+                // MARK: Vaccination Date
+                DatePicker(selection: $vaccDate, in: ...Date(), displayedComponents: .date) {
+                    Text("Vaccination Date")
                         .padding(.leading, 15)
                 }
                 .foregroundColor(Color(.white))
@@ -65,12 +67,35 @@ struct AddResultsView: View {
                 .cornerRadius(15)
                 .font(.footnote)
                 
-                // MARK: Test Result
-                SimpleTextField(text: $testResult, placeholder: Text("Test Result"))
+                // MARK: Vaccination Make
+                SimpleTextField(text: $vaccType, placeholder: Text("Vaccine Make"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 10)
+                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
+                
+                // MARK: First Dose Date
+                DatePicker(selection: $firstDosageDate, in: ...Date(), displayedComponents: .date) {
+                    Text("First Dosage Date")
+                        .padding(.leading, 15)
+                }
+                .foregroundColor(Color(.white))
+                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(.white).opacity(0.1))
+                .cornerRadius(15)
+                .font(.footnote)
+                
+                // MARK: Second Dose Date
+                DatePicker(selection: $secondDosageDate, in: ...Date(), displayedComponents: .date) {
+                    Text("Second Dosage Date")
+                        .padding(.leading, 15)
+                }
+                .foregroundColor(Color(.white))
+                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(.white).opacity(0.1))
+                .cornerRadius(15)
+                .font(.footnote)
+                
                 
                 // MARK: "Log Results" Button
                 Button(action: {
@@ -91,8 +116,9 @@ struct AddResultsView: View {
         }.navigationBarHidden(false)
     }
 }
-struct ResultsView_Previews: PreviewProvider {
+
+struct AddVaccinationDataView_Previews: PreviewProvider {
     static var previews: some View {
-        AddResultsView()
+        AddVaccinationDataView()
     }
 }

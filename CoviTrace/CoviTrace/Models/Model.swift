@@ -23,7 +23,6 @@ struct DailyCovidData {
 }
 
 struct TotalData {
-    
     let confirmed : Int
     let critical : Int
     let deaths : Int

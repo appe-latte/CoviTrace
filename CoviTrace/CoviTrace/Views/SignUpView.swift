@@ -13,8 +13,15 @@ struct SignUpView: View {
     @State var userPassword = ""
     @State var lastName = ""
     @State var firstName = ""
+    @State var dob = Date()
     @EnvironmentObject var viewModel : AuthViewModel
     @State private var keyboardHeight: CGFloat = 0
+    
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }()
     
     var body: some View {
         NavigationView{
@@ -24,12 +31,12 @@ struct SignUpView: View {
                 VStack (alignment: .center){
                     VStack(alignment:.center){
                         HStack{
-                        Image("logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 150, height: 150)
-                            .frame(width: 150, height: 150)
-                            .clipShape(Circle())
+                            Image("logo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150, height: 150)
+                                .frame(width: 150, height: 150)
+                                .clipShape(Circle())
                         }
                         Spacer()
                     }
@@ -53,6 +60,22 @@ struct SignUpView: View {
                         .cornerRadius(15)
                         .textContentType(.name)
                         .keyboardType(.default)
+                    
+                    // MARK: Date of Birth
+                    DatePicker(selection: $dob, in: ...Date(), displayedComponents: .date) {
+                        HStack{
+                            Image(systemName: "calendar")
+                                .font(.title3)
+                                .padding(.leading, 5)
+                            Text("Date of Birth")
+                                .padding(.leading, 10)
+                        }
+                    }
+                    .foregroundColor(Color(.white))
+                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .background(Color(.white).opacity(0.1))
+                    .cornerRadius(15)
+                    .font(.footnote)
                     
                     // MARK: User Email Text
                     CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")

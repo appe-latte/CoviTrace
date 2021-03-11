@@ -86,11 +86,22 @@ struct ContentView: View {
                                 
                                 // MARK: Test Results
                                 NavigationLink(
-                                    destination: CheckInView()){
+                                    destination: TestResultView()){
                                     Image(systemName: "folder")
                                         .font(.title3)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Text("Test Results")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
+                                // MARK: Vaccination Information
+                                NavigationLink(
+                                    destination: VaccCertView()){
+                                    Image(systemName: "doc")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Vaccination Information")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
