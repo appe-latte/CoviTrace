@@ -12,12 +12,10 @@ struct VaccCertView: View {
     @State private var lastName = "Bloggingson"
     @State private var firstName = "Joel"
     @State private var dob = "01/01/90"
-    @State private var vaccRefNum = "0224"
-    @State private var labRefNum = "40T019961"
-    @State private var hospitalNum = ""
+    @State private var batchNum = "L620224"
     @State private var vaccDate = "02/02/2020"
     @State private var vaccCentre = "xPress Labs, Reading"
-    @State private var vaccType = "Pfizer"
+    @State private var vaccType = "Pfizer-BioNTech"
     @State private var firstDosageDate = "02/02/2020"
     @State private var secondDosageDate = ""
     @State var showSheetView = false
@@ -48,7 +46,7 @@ struct VaccCertView: View {
                     VStack(alignment: .leading){
                         Text("Name: \(firstName)" + " " + "\(lastName)")
                         Text("DOB: \(dob)")
-                        Text("Vaccine Type: \(vaccType)")
+                        Text("Vaccine: \(vaccType)")
                         Text("Location: \(vaccCentre)")
                         Spacer()
                     }.font(.title3)
@@ -56,7 +54,7 @@ struct VaccCertView: View {
                 }
                 Section {
                     VStack(alignment: .center){
-                        Image(uiImage: generateQRCode(from: "First Name: \(firstName)\n Last Name: \(lastName)\n DOB: \(dob)\n Ref No.: \(vaccRefNum)\n Lab Ref No. \(labRefNum)\n Hospital No. \(hospitalNum)\n Vaccination Date: \(vaccDate)\n Vaccine Type: \(vaccType)\n First Dose: \(firstDosageDate)\n Second Dose: \(secondDosageDate)\n Location: \(vaccCentre)"))
+                        Image(uiImage: generateQRCode(from: " First Name: \(firstName)\n Last Name: \(lastName)\n DOB: \(dob)\n Batch Number: \(batchNum)\n Vaccination Date: \(vaccDate)\n Vaccine: \(vaccType)\n First Dose: \(firstDosageDate)\n Second Dose: \(secondDosageDate)\n Location: \(vaccCentre)"))
                             .interpolation(.none)
                             .resizable()
                             .scaledToFit()
@@ -79,7 +77,6 @@ struct VaccCertView: View {
                 return UIImage(cgImage: cgimg)
             }
         }
-        
         return UIImage(systemName: "xmark.circle") ?? UIImage()
     }
 }

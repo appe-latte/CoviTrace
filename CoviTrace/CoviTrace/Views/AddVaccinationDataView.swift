@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct AddVaccinationDataView: View {
-    @State private var vaccRefNum = ""
-    @State private var labRefNum = ""
-    @State private var hospitalNum = ""
+    @State private var batchNum = ""
     @State private var vaccDate = Date()
     @State private var vaccCentre = ""
     @State private var vaccType = ""
-    @State private var firstDosageDate = Date()
+    @State private var firstDosageDate = Date() // Same date as the vaccDate
     @State private var secondDosageDate = Date()
+    
+    // MARK: Vaccines
+    var vaccineTypes = ["Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johson", "Novavax"]
+    @State private var selectedVaccine = "Select Vaccine type"
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -27,23 +29,8 @@ struct AddVaccinationDataView: View {
         ZStack{
             Background()
             VStack{
-                // MARK: Vaccination Reference Number
-                SimpleTextField(text: $vaccRefNum, placeholder: Text("Enter Vaccination Reference number"))
-                    .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
-                
-                // MARK: Lab Ref Number
-                SimpleTextField(text: $labRefNum, placeholder: Text("Enter Lab Reference Number"))
-                    //                    .padding(5)
-                    .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
-                
-                // MARK: Hospital Ref Number
-                SimpleTextField(text: $hospitalNum, placeholder: Text("Enter Hospital Number"))
+                // MARK: Batch Number
+                SimpleTextField(text: $batchNum, placeholder: Text("Enter Batch number"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -68,11 +55,18 @@ struct AddVaccinationDataView: View {
                 .font(.footnote)
                 
                 // MARK: Vaccination Make
-                SimpleTextField(text: $vaccType, placeholder: Text("Vaccine Make"))
-                    .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
+                VStack{
+                    Picker("Vaccine Type", selection: $selectedVaccine) {
+                        ForEach(vaccineTypes, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                }
+                .foregroundColor(Color(.white))
+                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(.white).opacity(0.1))
+                .cornerRadius(15)
+                .font(.footnote)
                 
                 // MARK: First Dose Date
                 DatePicker(selection: $firstDosageDate, in: ...Date(), displayedComponents: .date) {
@@ -111,7 +105,7 @@ struct AddVaccinationDataView: View {
                 .cornerRadius(30)
                 .padding(.top, 2)
                 
-                Spacer()
+                //                Spacer()
             }
         }.navigationBarHidden(false)
     }

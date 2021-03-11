@@ -41,34 +41,9 @@ struct TestResultView: View {
                                         }
                 )
             // MARK: Test Result Info
-            Form {
-                Section(header: Text("Test Information")){
-                    VStack(alignment: .leading){
-                        Text("Name: \(firstName)" + " " + "\(lastName)")
-                        Text("DOB: \(dob)")
-                        Text("Reference #: \(testRefNum)")
-                        Text("Location: \(testLocation)")
-                        Text("Result: \(testResult)")
-                        Spacer()
-                    }.font(.title3)
-                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                }
-                Section {
-                    VStack(alignment: .center){
-                        Image(uiImage: generateQRCode(from: "\(firstName)\n\(lastName)\n\(dob)\n\(testRefNum)\n\(labRefNum)\n\(hospitalNum)\n\(testDate)\n\(testResult)"))
-                            .interpolation(.none)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 300, height: 300)
-                            .padding(10)
-                    }
-                }
-            }.foregroundColor(.white)
-            Spacer()
-            Spacer()
+          
         }
     }
-    
     
     func generateQRCode(from string: String) -> UIImage {
         let data = Data(string.utf8)
