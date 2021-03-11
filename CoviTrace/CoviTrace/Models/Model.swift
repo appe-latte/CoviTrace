@@ -10,9 +10,21 @@ import Foundation
 struct TestResults: Identifiable {
     var id : String = UUID().uuidString
     var testRefNum : String
-    var testCentre : String
-    var testDate : String
-    var testResult : String
+    var labRefNum : String
+    var hospitalNum : String
+    var testDate : Date
+    var testResult : Date
+    var testLocation : String
+}
+
+struct VaccineData: Identifiable {
+    var id: String = UUID().uuidString
+    var batchNum : String
+    var vaccDate : Date
+    var vaccCentre : String
+    var vaccType : String
+    var firstDosageDate : Date
+    var secondDosageDate : Date
 }
 
 struct DailyCovidData {
