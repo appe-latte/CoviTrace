@@ -6,25 +6,30 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AddResultsView: View {
+    @State private var isPresented = true
     @State private var testRefNum = ""
     @State private var labRefNum = ""
     @State private var hospitalNum = ""
     @State private var testDate = Date()
     @State private var testResult = ""
     @State private var testLocation = ""
+    @Environment(\.presentationMode) var presentationMode
+    
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter
     }()
-    
+ 
     var body: some View {
         ZStack{
             Background()
             VStack{
+                Spacer()
                 // MARK: Test Reference Number
                 SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
                     .foregroundColor(Color(.white))
@@ -74,7 +79,8 @@ struct AddResultsView: View {
                 
                 // MARK: "Log Results" Button
                 Button(action: {
-                    
+                    upload_data()
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("LOG RESULTS")
                         .font(.subheadline)
@@ -89,6 +95,11 @@ struct AddResultsView: View {
                 Spacer()
             }
         }.navigationBarHidden(false)
+    }
+    
+    func upload_data(){
+        let db = Firestore.firestore()
+        db.collection("results").document().setData(["Test Reference No.": testRefNum, "Lab Reference No.": labRefNum, "Hospital / Clinic No.": hospitalNum, "Test Location": testLocation, "Test Date": testDate, "Test Result": testResult])
     }
 }
 struct ResultsView_Previews: PreviewProvider {
