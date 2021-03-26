@@ -119,20 +119,20 @@ struct ContentView: View {
                             }
                             
                             // MARK: Exposure
-                            Button(action: {
-                                AnyView(CheckInView())
-                            }) {
-                                HStack {
-                                    Image(systemName: "exclamationmark.triangle.fill")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-                                    Text("LOG EXPOSURE")
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-                                }
-                                .padding(.leading, 65)
-                            }
+//                            Button(action: {
+//                                AnyView(CheckInView())
+//                            }) {
+//                                HStack {
+//                                    Image(systemName: "exclamationmark.triangle.fill")
+//                                        .font(.title3)
+//                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
+//                                    Text("LOG EXPOSURE")
+//                                        .fontWeight(.semibold)
+//                                        .font(.title3)
+//                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
+//                                }
+//                                .padding(.leading, 65)
+//                            }
                         }
                     }
                 }

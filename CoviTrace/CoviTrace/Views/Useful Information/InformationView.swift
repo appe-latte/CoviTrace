@@ -66,11 +66,11 @@ struct InformationView: View {
                 // MARK: Privacy Section
                 Section(header: Text("Permissions & Privacy")){
                     // MARK: Toggle Button - Exposure
-                    Toggle(isOn: $exposureEnabled){
-                        Image(systemName:"figure.stand.line.dotted.figure.stand")
-                        Text("Exposure Logging")
-                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
+//                    Toggle(isOn: $exposureEnabled){
+//                        Image(systemName:"figure.stand.line.dotted.figure.stand")
+//                        Text("Exposure Logging")
+//                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+//                    .toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
                     
                     // MARK: Privacy Policy
                     NavigationLink(

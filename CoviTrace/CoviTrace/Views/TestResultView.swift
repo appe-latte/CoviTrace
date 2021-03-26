@@ -9,16 +9,14 @@ import SwiftUI
 import Firebase
 
 struct TestResultView: View {
-    @State private var lastName = ""
-    @State private var firstName = ""
-    @State private var dob = ""
     @State private var testRefNum = ""
     @State private var labRefNum = ""
-    @State private var hospitalNum = ""
-    @State private var testDate = Date()
+    @State private var testDate = ""
     @State private var testResult = ""
     @State private var testLocation = ""
     @State var showSheetView = false
+    
+    @ObservedObject private var viewModel = ResultsViewModel()
     
     var body: some View {
         ZStack
@@ -38,16 +36,39 @@ struct TestResultView: View {
                 )
             
             // MARK: Test Result Information
-            
+            NavigationView {
+                List(viewModel.results) { results in
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text(results.testDate)
+                                .font(.subheadline)
+                            Text(results.testRefNum)
+                                .font(.subheadline)
+                            Spacer()
+                            Text(results.testResult)
+                                .font(.subheadline)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .bold()
+                        }
+                        Text(results.testLocation)
+                            .font(.subheadline)
+                    }
+                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                }
+                .onAppear() {
+                    print("Show Results List")
+                    self.viewModel.fetchData()
+                }
+            }
         }
     }
 }
 
-struct TestResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestResultView()
-    }
-}
+//struct TestResultView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TestResultView()
+//    }
+//}
 
 struct SheetView: View {
     @Binding var showSheetView: Bool

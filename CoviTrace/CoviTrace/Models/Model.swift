@@ -6,16 +6,25 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-struct TestResults: Identifiable {
-    var id : String?
+struct TestResults: Identifiable, Codable {
+    var id : String? = UUID().uuidString
     var testRefNum : String
     var labRefNum : String
-    var hospitalNum : String
-    var testDate : Date
-    var testResult : Date
+    var testDate : String
+    var testResult : String
     var testLocation : String
-    var userId: String?
+    //    var userId: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case testRefNum
+        case labRefNum
+        case testDate
+        case testLocation
+        case testResult
+    }
 }
 
 struct VaccineData: Identifiable {
