@@ -18,26 +18,24 @@ struct AddResultsView: View {
     @State private var testLocation = ""
     @Environment(\.presentationMode) var presentationMode
     
-    
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter
     }()
- 
+    
     var body: some View {
         ZStack{
             Background()
             VStack{
-                Spacer()
-                // MARK: Test Reference Number
+                // MARK: Test Reference Number TextField
                 SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK: Lab Ref Number
+                // MARK: Lab Ref Number TextField
                 SimpleTextField(text: $labRefNum, placeholder: Text("Enter Lab Reference Number"))
                     //                    .padding(5)
                     .foregroundColor(Color(.white))
@@ -45,21 +43,21 @@ struct AddResultsView: View {
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK: Hospital Ref Number
+                // MARK: Hospital Ref Number TextField
                 SimpleTextField(text: $hospitalNum, placeholder: Text("Enter Hospital Number"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK: Test Location
+                // MARK: Test Location TextField
                 SimpleTextField(text: $testLocation, placeholder: Text("Enter Test Location"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK: Test Date
+                // MARK: Test Date TextField
                 DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
                     Text("Test / Vaccination Date")
                         .padding(.leading, 15)
@@ -70,7 +68,7 @@ struct AddResultsView: View {
                 .cornerRadius(15)
                 .font(.footnote)
                 
-                // MARK: Test Result
+                // MARK: Test Result TextField
                 SimpleTextField(text: $testResult, placeholder: Text("Test Result"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 10)
@@ -94,14 +92,16 @@ struct AddResultsView: View {
                 
                 Spacer()
             }
+            .padding(.top, 15)
         }.navigationBarHidden(false)
     }
-    
+    // MARK: Upload to "Results" DB
     func upload_data(){
         let db = Firestore.firestore()
         db.collection("results").document().setData(["Test Reference No.": testRefNum, "Lab Reference No.": labRefNum, "Hospital / Clinic No.": hospitalNum, "Test Location": testLocation, "Test Date": testDate, "Test Result": testResult])
     }
 }
+
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
         AddResultsView()
