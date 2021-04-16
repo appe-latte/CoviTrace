@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     var testResult = "NEGATIVE"
+    var userName = "Joe"
 //    var isNegative: Bool
     
     var body: some View {
@@ -24,8 +25,7 @@ struct ContentView: View {
                                                     NavigationLink(
                                                         destination: InformationView()){
                                                         HStack{
-                                                            Image(systemName: "info.circle")
-                                                            Text("information")
+                                                            Image(systemName: "gearshape.fill")
                                                         }
                                                         .foregroundColor(.white)
                                                         .font(.subheadline)
@@ -41,6 +41,10 @@ struct ContentView: View {
                                         .scaledToFit()
                                         .frame(width: 300, height: 150)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Hello, \(userName)")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .font(.title2)
                                     Text("Latest Covid-19 Result:")
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .font(.title3)

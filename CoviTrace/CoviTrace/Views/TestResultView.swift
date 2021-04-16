@@ -56,7 +56,6 @@ struct TestResultView: View {
                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }
                 .onAppear() {
-                    print("Show Results List")
                     self.viewModel.fetchData()
                 }
             }

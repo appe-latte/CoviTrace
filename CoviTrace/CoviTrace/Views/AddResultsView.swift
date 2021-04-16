@@ -22,12 +22,6 @@ struct AddResultsView: View {
     var results = ["Select Result", "Negative", "Positive"]
     @State private var selectedResult = ""
     
-//    let dateFormatter: DateFormatter = {
-//        let formatter = DateFormatter()
-//        formatter.dateStyle = .long
-//        return formatter
-//    }()
-    
     var body: some View {
         ZStack{
             Background()

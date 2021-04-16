@@ -7,21 +7,25 @@
 
 import SwiftUI
 import Combine
+import UIKit
 
 struct SignUpView: View {
-    @State var userEmail = ""
-    @State var userPassword = ""
     @State var lastName = ""
     @State var firstName = ""
-    @State var dob = Date()
-    @EnvironmentObject var viewModel : AuthViewModel
+    @State var userEmail = ""
+    @State var userPassword = ""
+    //    @State var confirmedPassword = ""
+    @State var selectedUIImage: UIImage?
+    @State var image: Image?
     @State private var keyboardHeight: CGFloat = 0
+    @State var showImagePicker = false
+    @EnvironmentObject var viewModel : AuthViewModel
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        return formatter
-    }()
+    func loadImage(){
+        guard let selectedImage = selectedUIImage else {return}
+        image = Image(uiImage: selectedImage)
+    }
     
     var body: some View {
         NavigationView{
@@ -30,14 +34,30 @@ struct SignUpView: View {
                 Background()
                 VStack (alignment: .center){
                     VStack(alignment:.center){
-                        HStack{
-                            Image("logo")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 150, height: 150)
-                                .frame(width: 150, height: 150)
-                                .clipShape(Circle())
-                        }
+                        Button(action: {showImagePicker.toggle()}, label: {
+                            ZStack {
+                                if let image = image {
+                                    image
+                                        .resizable()
+                                        .clipShape(Circle())
+                                        .frame(width: 150, height: 150)
+                                        .padding(.top, 80)
+                                        .padding(.bottom, 16)
+                                } else {
+                                    Image(systemName: "person.crop.circle.fill.badge.plus")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .scaledToFill()
+                                        .frame(width: 150, height: 150)
+                                        .foregroundColor(.white)
+                                        .padding(.top, 80)
+                                        .padding(.bottom, 16)
+                                }
+                            }
+                        }).sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
+                            ImagePicker(image: $selectedUIImage)
+                        })
+                        
                         Spacer()
                     }
                     Spacer()
@@ -61,22 +81,6 @@ struct SignUpView: View {
                         .textContentType(.name)
                         .keyboardType(.default)
                     
-                    // MARK: Date of Birth
-                    DatePicker(selection: $dob, in: ...Date(), displayedComponents: .date) {
-                        HStack{
-                            Image(systemName: "calendar")
-                                .font(.title3)
-                                .padding(.leading, 5)
-                            Text("Date of Birth")
-                                .padding(.leading, 10)
-                        }
-                    }
-                    .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
-                    .font(.footnote)
-                    
                     // MARK: User Email Text
                     CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
                         .padding(5)
@@ -94,9 +98,18 @@ struct SignUpView: View {
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
                     
+                    // MARK: Confirm Password Text
+                    //                    CustomSecureTextField(text: $confirmPassword, placeholder: Text("Confirm Password"))
+                    //                        .padding(5)
+                    //                        .foregroundColor(Color(.white))
+                    //                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                    //                        .background(Color(.white).opacity(0.1))
+                    //                        .cornerRadius(15)
+                    
                     // MARK: "Sign Up" Button
                     Button(action: {
-                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword)
+                        guard let image = selectedUIImage else {return}
+                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, profileImage: image)
                     }, label: {
                         Text("Sign Up")
                             .font(.title3)
@@ -117,7 +130,8 @@ struct SignUpView: View {
                     }
                 }.font(.subheadline)
                 .padding(10)
-                .padding(.bottom, keyboardHeight)                        .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                .padding(.bottom, keyboardHeight)
+                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
             }
         }.navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)

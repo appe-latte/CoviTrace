@@ -52,7 +52,7 @@ struct AreaStatsView: View {
                         HStack{
                             Text("Risk Level: ")
                             Spacer()
-                            Text( "MEDIUM")
+                            Text( "LOW")
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
@@ -63,7 +63,8 @@ struct AreaStatsView: View {
                         HStack{
                             Text("Cases: ")
                             Spacer()
-                            Text( "\(covidFetch.dailyData.confirmed)")
+//                            Text( "\(covidFetch.dailyData.confirmed)")
+                            Text("623")
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
@@ -74,7 +75,8 @@ struct AreaStatsView: View {
                         HStack{
                             Text("Deaths: ")
                             Spacer()
-                            Text( "\(covidFetch.dailyData.deaths)")
+//                            Text( "\(covidFetch.dailyData.deaths)")
+                            Text("35")
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
@@ -85,7 +87,8 @@ struct AreaStatsView: View {
                         HStack{
                             Text("Recovery: ")
                             Spacer()
-                            Text( "\(covidFetch.dailyData.recovered)")
+//                            Text( "\(covidFetch.dailyData.recovered)")
+                            Text("453")
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
@@ -96,7 +99,8 @@ struct AreaStatsView: View {
                         HStack{
                             Text("Critical: ")
                             Spacer()
-                            Text( "\(covidFetch.dailyData.critical)")
+//                            Text( "\(covidFetch.dailyData.critical)")
+                            Text("120")
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     

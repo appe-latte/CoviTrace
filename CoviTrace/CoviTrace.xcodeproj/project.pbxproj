@@ -40,6 +40,7 @@
 		2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9E25DEDA1F00873C15 /* LocationManager.swift */; };
 		2F682BB925DEDD4B00873C15 /* LogCovidExposure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */; };
 		2F77961A25E5B5D000E30128 /* HowAppWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77961925E5B5D000E30128 /* HowAppWorksView.swift */; };
+		2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8043B52620A0F4004949B2 /* ImagePicker.swift */; };
 		2F80847A25D6D872000A50B6 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847925D6D872000A50B6 /* InformationView.swift */; };
 		2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */; };
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
@@ -99,6 +100,7 @@
 		2F682B9E25DEDA1F00873C15 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2F682BB825DEDD4B00873C15 /* LogCovidExposure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCovidExposure.swift; sourceTree = "<group>"; };
 		2F77961925E5B5D000E30128 /* HowAppWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowAppWorksView.swift; sourceTree = "<group>"; };
+		2F8043B52620A0F4004949B2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2F80847925D6D872000A50B6 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		2F80848125D6E847000A50B6 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				2F1217E025D5B88B00D62B18 /* Background.swift */,
 				2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */,
 				2F9F744B25F2ADFF00BB56A5 /* LoadingSpinner.swift */,
+				2F8043B52620A0F4004949B2 /* ImagePicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -269,8 +272,8 @@
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
-				2F77959E25E5795500E30128 /* Onboarding */,
 				2FD53F8425D48EAD00D5594B /* Symptoms */,
+				2F77959E25E5795500E30128 /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */,
 				2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */,
 				2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */,
+				2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */,
 				2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */,
 				2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */,
 				2FD53F9825D495F900D5594B /* HealthTipsSanitiseView.swift in Sources */,
@@ -624,7 +628,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -649,7 +653,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
