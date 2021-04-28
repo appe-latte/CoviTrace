@@ -55,6 +55,7 @@ struct CovidData: Identifiable {
     var cumDeathsByDeathDate : String?
 }
 
+
 struct VaccineData: Identifiable {
     var id: String?
     var batchNum : String
@@ -110,3 +111,4 @@ struct CountryData {
 let testDailyCovidData = DailyCovidData(confirmed: 0, deaths: 0, recovered: 0, critical: 0)
 let testTotalData = TotalData(confirmed: 0, critical: 0, deaths: 1, recovered: 0)
 let testCountryData = CountryData(country: "Test", critical: 1, deaths: 0, recovered: 0, longitude: 0, latitude: 0, confirmed: 0)
+let testcovidData = [CovidData(date: "date", areaName: "England", areaCode: "E92000001", newCasesByPublishDate: "2550", cumCasesByPublishDate: "3836833", newDeathsByDeathDate: "71", cumDeathsByDeathDate: "145557")]

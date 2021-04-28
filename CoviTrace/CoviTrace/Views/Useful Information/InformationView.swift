@@ -112,8 +112,7 @@ struct InformationView: View {
                     
                     // MARK: NHS Weblink
                     Button(action: {
-                        openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!)
-                        
+                        openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!) 
                     }) {
                         HStack{
                             Image(systemName: "link")
@@ -158,7 +157,7 @@ struct InformationView: View {
                 }
             }
         }
-        .navigationBarTitle("Useful Information").navigationBarHidden(false)
+        .navigationBarTitle("").navigationBarHidden(false)
     }
     
     // MARK: Function for calling feature
@@ -180,7 +179,7 @@ struct InformationView: View {
     
     // MARK: Share app function
     func shareSheet() {
-        guard let data = URL(string: "https://www.appe-latte.co.uk") else { return }
+        guard let data = URL(string: "http://www.getcovitrace.com") else { return }
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }

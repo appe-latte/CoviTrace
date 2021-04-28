@@ -19,7 +19,7 @@ struct CoviTraceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LandingView().environmentObject(AuthViewModel())
+            ContentView().environmentObject(AuthViewModel())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .preferredColorScheme(.light)
 //            ContentView().environmentObject(AuthViewModel())

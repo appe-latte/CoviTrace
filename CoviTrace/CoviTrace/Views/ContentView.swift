@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
-    var testResult = "NEGATIVE"
-    //    var userName = "Joe"
-    //    var isNegative: Bool
+    @State private var firstName = "Demo"
+    @State private var lastName = "Surname"
     
     init() {
         UINavigationBar.appearance().backgroundColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
@@ -36,61 +35,30 @@ struct ContentView: View {
                                                     }
                             )
                         
-                        // MARK: Shield & Status
+                        // MARK: User Profile
                         Form {
-                            Section {
+                            Section(header: Text("User Informarion:")) {
                                 VStack(alignment:.center){
-                                    Image(systemName: "checkmark.shield")
+                                    Image(systemName: "person.crop.circle.fill")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 300, height: 150)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    //                                    Text("Hello, \(userName)")
-                                    //                                        .fontWeight(.semibold)
-                                    //                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    //                                        .font(.title2)
-                                    Text("Latest Covid-19 Result:")
+            
+                                    Text("Hello,")
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .font(.title3)
                                         .fontWeight(.semibold)
-                                    Text(testResult)
+                                    Text(firstName + " " + lastName)
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .font(.title2)
                                 }
                                 .padding(10)
-                            }
+                            }.foregroundColor(.white)
                             
-                            // MARK: Map
-                            Section {
-                                NavigationLink(
-                                    destination: AreaStatsView()){
-                                    Image(systemName: "map")
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Area Statistics")
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .fontWeight(.semibold)
-                                }
-                                
-                                // MARK: Symptom Checker
-                                NavigationLink(
-                                    destination: SymptomPageView()){
-                                    Image(systemName: "stethoscope")
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Check Symptoms")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                }
-                                
-                                // MARK: Check-in
-                                NavigationLink(
-                                    destination: CheckInView()){
-                                    Image(systemName: "scope")
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Location Check-in")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                }
+                            // MARK: Test Results & Vaccination Information
+                            Section(header: Text("Information:")) {
                                 
                                 // MARK: Test Results
                                 NavigationLink(
@@ -114,12 +82,59 @@ struct ContentView: View {
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
                                 
-                                // MARK: UK Covid Data
+                                // MARK: Check-in
                                 NavigationLink(
-                                    destination: NHSDataView()){
-                                    Image(systemName: "doc")
+                                    destination: CheckInView()){
+                                    Image(systemName: "scope")
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("UK Covid Statistics")
+                                    Text("Location Check-in")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+
+                                // MARK: England Data
+                                NavigationLink(
+                                    destination: EnglandCovidStatsView()){
+                                    Image(systemName: "map")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Covid England")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
+                                // MARK: Scotland Data
+                                NavigationLink(
+                                    destination: ScotlandCovidStatsView()){
+                                    Image(systemName: "map")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Covid Scotland")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
+                                // MARK: Wales Data
+                                NavigationLink(
+                                    destination: WalesCovidStatsView()){
+                                    Image(systemName: "map")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Covid Wales")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                               
+                            }.foregroundColor(.white)
+                            
+                            Section(header: Text("Useful Information:")) {
+                                
+                                // MARK: Symptom Checker
+                                NavigationLink(
+                                    destination: SymptomPageView()){
+                                    Image(systemName: "stethoscope")
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Check Symptoms")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
@@ -134,23 +149,7 @@ struct ContentView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
-                            }
-                            
-                            // MARK: Exposure
-                            //                            Button(action: {
-                            //                                AnyView(CheckInView())
-                            //                            }) {
-                            //                                HStack {
-                            //                                    Image(systemName: "exclamationmark.triangle.fill")
-                            //                                        .font(.title3)
-                            //                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-                            //                                    Text("LOG EXPOSURE")
-                            //                                        .fontWeight(.semibold)
-                            //                                        .font(.title3)
-                            //                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-                            //                                }
-                            //                                .padding(.leading, 65)
-                            //                            }
+                            }.foregroundColor(.white)
                         }
                     }
                 }

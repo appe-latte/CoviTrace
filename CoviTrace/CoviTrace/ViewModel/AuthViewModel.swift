@@ -30,7 +30,7 @@ class AuthViewModel: ObservableObject {
     }
     
     // MARK: User Registration
-    func userSignUp(firstName: String, lastName: String, email: String, password: String, profileImage: UIImage){
+    func userSignUp(firstName: String, lastName: String, email: String, password: String){
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("DEBUG: Error \(error.localizedDescription)")

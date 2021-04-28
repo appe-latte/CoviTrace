@@ -108,8 +108,9 @@ struct SignUpView: View {
                     
                     // MARK: "Sign Up" Button
                     Button(action: {
-                        guard let image = selectedUIImage else {return}
-                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, profileImage: image)
+//                        guard let image = selectedUIImage else {return}
+//                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, profileImage: image)
+                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword)
                     }, label: {
                         Text("Sign Up")
                             .font(.title3)
