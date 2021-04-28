@@ -17,6 +17,7 @@
 		2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */; };
 		2F167DAF25E3DA6C00304F9F /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */; };
 		2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B361825FA676E004140D4 /* TestResultView.swift */; };
+		2F2B47EC263981F200E19A1F /* NHSDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B47EB263981F200E19A1F /* NHSDataView.swift */; };
 		2F2C84A925FA9C290002F2C3 /* VaccCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */; };
 		2F2C84AC25FA9DB90002F2C3 /* AddVaccinationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C84AB25FA9DB90002F2C3 /* AddVaccinationDataView.swift */; };
 		2F31980725B5C2DE00AB182C /* CovidFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980625B5C2DE00AB182C /* CovidFetchRequest.swift */; };
@@ -77,6 +78,7 @@
 		2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTopView.swift; sourceTree = "<group>"; };
 		2F167DAE25E3DA6C00304F9F /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		2F2B361825FA676E004140D4 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
+		2F2B47EB263981F200E19A1F /* NHSDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHSDataView.swift; sourceTree = "<group>"; };
 		2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCertView.swift; sourceTree = "<group>"; };
 		2F2C84AB25FA9DB90002F2C3 /* AddVaccinationDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationDataView.swift; sourceTree = "<group>"; };
 		2F31980625B5C2DE00AB182C /* CovidFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFetchRequest.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				2F2B361825FA676E004140D4 /* TestResultView.swift */,
 				2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */,
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
+				2F2B47EB263981F200E19A1F /* NHSDataView.swift */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
 				2FD53F8425D48EAD00D5594B /* Symptoms */,
@@ -479,6 +482,7 @@
 				2F31980725B5C2DE00AB182C /* CovidFetchRequest.swift in Sources */,
 				2FD53FA425D49AB000D5594B /* HealthTipsRestView.swift in Sources */,
 				2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */,
+				2F2B47EC263981F200E19A1F /* NHSDataView.swift in Sources */,
 				2F9F744C25F2ADFF00BB56A5 /* LoadingSpinner.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
 				2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */,

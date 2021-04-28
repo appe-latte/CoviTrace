@@ -17,7 +17,8 @@ struct TestResultView: View {
     @State var showSheetView = false
     
     @ObservedObject private var viewModel = ResultsViewModel()
-    
+    @ObservedObject private var authModel = AuthViewModel()
+
     var body: some View {
         ZStack
         {
@@ -56,7 +57,7 @@ struct TestResultView: View {
                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }
                 .onAppear() {
-                    self.viewModel.fetchData()
+                    self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
             }
         }

@@ -10,8 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     var testResult = "NEGATIVE"
-    var userName = "Joe"
-//    var isNegative: Bool
+    //    var userName = "Joe"
+    //    var isNegative: Bool
+    
+    init() {
+        UINavigationBar.appearance().backgroundColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
+    }
     
     var body: some View {
         Group {
@@ -41,10 +45,10 @@ struct ContentView: View {
                                         .scaledToFit()
                                         .frame(width: 300, height: 150)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Hello, \(userName)")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .font(.title2)
+                                    //                                    Text("Hello, \(userName)")
+                                    //                                        .fontWeight(.semibold)
+                                    //                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    //                                        .font(.title2)
                                     Text("Latest Covid-19 Result:")
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .font(.title3)
@@ -110,6 +114,16 @@ struct ContentView: View {
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
                                 
+                                // MARK: UK Covid Data
+                                NavigationLink(
+                                    destination: NHSDataView()){
+                                    Image(systemName: "doc")
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("UK Covid Statistics")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
                                 // MARK: Hygiene Tips
                                 NavigationLink(
                                     destination: HealthTipsPageView()){
@@ -123,20 +137,20 @@ struct ContentView: View {
                             }
                             
                             // MARK: Exposure
-//                            Button(action: {
-//                                AnyView(CheckInView())
-//                            }) {
-//                                HStack {
-//                                    Image(systemName: "exclamationmark.triangle.fill")
-//                                        .font(.title3)
-//                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-//                                    Text("LOG EXPOSURE")
-//                                        .fontWeight(.semibold)
-//                                        .font(.title3)
-//                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
-//                                }
-//                                .padding(.leading, 65)
-//                            }
+                            //                            Button(action: {
+                            //                                AnyView(CheckInView())
+                            //                            }) {
+                            //                                HStack {
+                            //                                    Image(systemName: "exclamationmark.triangle.fill")
+                            //                                        .font(.title3)
+                            //                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
+                            //                                    Text("LOG EXPOSURE")
+                            //                                        .fontWeight(.semibold)
+                            //                                        .font(.title3)
+                            //                                        .foregroundColor(Color(red: 255 / 255, green: 109 / 255, blue: 90 / 255))
+                            //                                }
+                            //                                .padding(.leading, 65)
+                            //                            }
                         }
                     }
                 }

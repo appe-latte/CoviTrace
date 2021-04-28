@@ -16,11 +16,21 @@ struct AddResultsView: View {
     @State private var testDate = ""
     @State private var testResult = ""
     @State private var testLocation = ""
+    @State private var userId = ""
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var authModel = AuthViewModel()
     
     // MARK: Results
     var results = ["Select Result", "Negative", "Positive"]
     @State private var selectedResult = ""
+    @State private var selectedDate = Date()
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/YYYY"
+        return formatter
+    }
+    
+    @State private var birthDate = Date()
     
     var body: some View {
         ZStack{
@@ -49,16 +59,19 @@ struct AddResultsView: View {
                     .cornerRadius(15)
                 
                 // MARK: Test Date TextField
-                SimpleTextField(text: $testDate, placeholder: Text("DD/MM/YYYY"))
-                    .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
+                DatePicker(selection: $selectedDate, in: ...Date(), displayedComponents: .date) {
+                    Text("Select a date")
+                        .padding(.leading)
+                        .foregroundColor(Color(.white)).font(.system(size: 14))
+                }.foregroundColor(Color(.white))
+                
+                
+                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(.white).opacity(0.1)).font(.system(size: 14))
+                .cornerRadius(15)
                 
                 // MARK: Test Result Picker
-                Text("Select Test Result:")
-                    .padding(.trailing, 200)
-                    .font(.footnote)
+                
                 VStack {
                     Picker("Test Result", selection: $selectedResult) {
                         ForEach(results, id: \.self) {
@@ -96,7 +109,8 @@ struct AddResultsView: View {
     // MARK: Upload to "Results" DB
     func upload_data(){
         let db = Firestore.firestore()
-        db.collection("results").document().setData(["test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_location": testLocation, "date": testDate, "test_result": selectedResult])
+        let date = dateFormatter.string(from: selectedDate)
+        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_location": testLocation, "date": date, "test_result": selectedResult])
     }
 }
 
