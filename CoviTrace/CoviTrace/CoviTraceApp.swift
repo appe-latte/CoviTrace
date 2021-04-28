@@ -19,8 +19,9 @@ struct CoviTraceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SignUpView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            LandingView().environmentObject(AuthViewModel())
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .preferredColorScheme(.light)
 //            ContentView().environmentObject(AuthViewModel())
 //                .preferredColorScheme(.light)
         }

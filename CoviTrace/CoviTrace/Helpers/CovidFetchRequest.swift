@@ -13,6 +13,7 @@ class CovidFetchRequest: ObservableObject {
     @Published var allCountries: [CountryData] = []
     @Published var totalData: TotalData = testTotalData
     @Published var dailyData: DailyCovidData = testDailyCovidData
+    @Published var covidData: [CovidData] = []
     
     let headers: HTTPHeaders = [
         "x-rapidapi-key": "821059debfmsh17dd5446e54ea65p1d449fjsn6706c09ba882",
@@ -21,8 +22,7 @@ class CovidFetchRequest: ObservableObject {
     
     init(){
         
-                getCovidTotals()
-//        getAllCountries()
+        getCovidTotals()
     }
     
     func getCovidTotals() {
@@ -48,17 +48,44 @@ class CovidFetchRequest: ObservableObject {
         }
     }
     
-//    func getAllCountries() {
-//        AF.request( "https://covid-19-data.p.rapidapi.com/country/all?format=undefined", headers: headers).responseJSON { response in
-//
-//            let result = response.value
-//            if result != nil{
-//                let dataDictionary = result as! [Dictionary<String, AnyObject>]
-//                for countryData in dataDictionary {
-//                    print(countryData)
-//                }
-//            }
-//        }
-//    }
+    func getCovidData()
+    {
+        let queryParams: [String: String] = [
+            "filters": "areaType=nation;areaName=england",
+            "structure": "{\"date\": \"date\",\"areaName\": \"areaName\",\"areaCode\": \"areaCode\",\"newCasesByPublishDate\": \"newCasesByPublishDate\",\"cumCasesByPublishDate\": \"cumCasesByPublishDate\",\"newDeathsByDeathDate\": \"newDeathsByDeathDate\",\"cumDeathsByDeathDate\": \"cumDeathsByDeathDate\"}"
+        ]
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.coronavirus.data.gov.uk"
+        urlComponents.path = "/v1/data"
+        urlComponents.setQueryItems(with: queryParams)
+        
+        AF.request(urlComponents.url!.absoluteString).responseJSON { response in
+            if response != nil {
+                let json = JSON(response.data)
+                let arr = json["data"]
+                for i in 0..<arr.count  {
+                    let date = json["data"][i]["date"].stringValue
+                    let areaName = json["data"][i]["areaName"].stringValue
+                    let areaCode = json["data"][i]["areaCode"].stringValue
+                    let newCasesByPublishDate = json["data"][i]["newCasesByPublishDate"].stringValue
+                    let cumCasesByPublishDate = json["data"][i]["cumCasesByPublishDate"].stringValue
+                    let newDeathsByDeathDate = json["data"][i]["newDeathsByDeathDate"].stringValue
+                    let cumDeathsByDeathDate = json["data"][i]["cumDeathsByDeathDate"].stringValue
+                    self.covidData.append(CovidData(date: date, areaName: areaName, areaCode: areaCode, newCasesByPublishDate: newCasesByPublishDate, cumCasesByPublishDate: cumCasesByPublishDate, newDeathsByDeathDate: newDeathsByDeathDate, cumDeathsByDeathDate: cumDeathsByDeathDate))
+                }
+            }
+        }
+    }
 }
+
+extension URLComponents {
+    
+    mutating func setQueryItems(with parameters: [String: String]) {
+        self.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+    }
+    
+}
+
 

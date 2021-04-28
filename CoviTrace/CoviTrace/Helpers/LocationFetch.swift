@@ -12,6 +12,7 @@ class LocationFetch: NSObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var lastLocation: CLLocationCoordinate2D?
     let objectWillChange = PassthroughSubject<Void, Never>()
+    var locationdetails: [CLLocation]?
 
     @Published var status: CLAuthorizationStatus?{
         willSet { objectWillChange.send() }

@@ -15,7 +15,7 @@ struct TestResults: Identifiable, Codable {
     var testDate : String
     var testResult : String
     var testLocation : String
-    //    var userId: String?
+    var userId: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -24,7 +24,35 @@ struct TestResults: Identifiable, Codable {
         case testDate
         case testLocation
         case testResult
+        case userId
     }
+}
+
+struct LocationResults: Identifiable, Codable {
+    var id : String? = UUID().uuidString
+    var latitude : String
+    var longitude : String
+    var date : String
+    var address: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case latitude
+        case longitude
+        case date
+        case address
+    }
+}
+
+struct CovidData: Identifiable {
+    var id : String? = UUID().uuidString
+    var date: String?
+    var areaName : String?
+    var areaCode : String?
+    var newCasesByPublishDate : String?
+    var cumCasesByPublishDate : String?
+    var newDeathsByDeathDate : String?
+    var cumDeathsByDeathDate : String?
 }
 
 struct VaccineData: Identifiable {
