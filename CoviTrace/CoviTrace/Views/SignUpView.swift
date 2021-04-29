@@ -14,10 +14,9 @@ struct SignUpView: View {
     @State var firstName = ""
     @State var userEmail = ""
     @State var userPassword = ""
-    //    @State var confirmedPassword = ""
+    @State private var keyboardHeight: CGFloat = 0
     @State var selectedUIImage: UIImage?
     @State var image: Image?
-    @State private var keyboardHeight: CGFloat = 0
     @State var showImagePicker = false
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -36,6 +35,7 @@ struct SignUpView: View {
                     VStack(alignment:.center){
                         Button(action: {showImagePicker.toggle()}, label: {
                             ZStack {
+                                
                                 if let image = image {
                                     image
                                         .resizable()
@@ -44,7 +44,7 @@ struct SignUpView: View {
                                         .padding(.top, 80)
                                         .padding(.bottom, 16)
                                 } else {
-                                    Image(systemName: "person.crop.circle.fill.badge.plus")
+                                    Image(systemName: "person.crop.circle.fill")
                                         .resizable()
                                         .renderingMode(.template)
                                         .scaledToFill()
@@ -57,6 +57,9 @@ struct SignUpView: View {
                         }).sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
                             ImagePicker(image: $selectedUIImage)
                         })
+                        Text("Add Profile Image")
+                            .foregroundColor(.white)
+                            .padding()
                         
                         Spacer()
                     }
@@ -97,20 +100,12 @@ struct SignUpView: View {
                         .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
-                    
-                    // MARK: Confirm Password Text
-                    //                    CustomSecureTextField(text: $confirmPassword, placeholder: Text("Confirm Password"))
-                    //                        .padding(5)
-                    //                        .foregroundColor(Color(.white))
-                    //                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
-                    //                        .background(Color(.white).opacity(0.1))
-                    //                        .cornerRadius(15)
-                    
+
                     // MARK: "Sign Up" Button
                     Button(action: {
-//                        guard let image = selectedUIImage else {return}
-//                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, profileImage: image)
-                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword)
+                        guard let image = selectedUIImage else {return}
+                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, profileImage: image)
+//                        viewModel.userSignUp(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword)
                     }, label: {
                         Text("Sign Up")
                             .font(.title3)

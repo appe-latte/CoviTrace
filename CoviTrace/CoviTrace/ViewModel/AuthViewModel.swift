@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import UIKit
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
@@ -18,7 +19,8 @@ class AuthViewModel: ObservableObject {
         userSession = Auth.auth().currentUser
     }
     
-    // MARK: User Login
+    // MARK: User Login function
+    
     func userLogin(withEmail email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -29,28 +31,23 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    // MARK: User Registration
-    func userSignUp(firstName: String, lastName: String, email: String, password: String){
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+    // MARK: User Registration function
+    
+    func userRegistration(email: String, userPwd: String, firstName: String, lastName: String, profileImage: UIImage) {
+        Auth.auth().createUser(withEmail: email, password: userPwd) { result, error in
             if let error = error {
-                print("DEBUG: Error \(error.localizedDescription)")
+                print("DEBUG: Registration Error \(error.localizedDescription)")
                 return
             }
-            // MARK: User data upload
-            guard let user = result?.user else {return}
             
-            let data = ["Email": email,
-                        "First Name": firstName,
-                        "Last Name": lastName,
-                        "uid": user.uid]
+            guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
+            let filename = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child(filename)
             
-            Firestore.firestore().collection("users").document(user.uid).setData(data){ _ in
-                self.userSession = result?.user // moves to main screen after authentication
-                
-            }
         }
     }
-    
+
+    // MARK:  Sign Out function
     func signOut() {
         userSession = nil
         try? Auth.auth().signOut()
