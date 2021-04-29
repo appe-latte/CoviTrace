@@ -16,6 +16,7 @@ class AuthViewModel: ObservableObject {
     
     init(){
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     
     // MARK: User Login function
@@ -30,7 +31,6 @@ class AuthViewModel: ObservableObject {
             
             // MARK: Shows Content View after successful login
             self.userSession = result?.user
-            
         }
     }
     
@@ -79,5 +79,16 @@ class AuthViewModel: ObservableObject {
     func signOut() {
         userSession = nil
         try? Auth.auth().signOut()
+    }
+    
+    // MARK: Fetch User function
+    func fetchUser() {
+        guard let uid = userSession?.uid else { return }
+        
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, _ in
+            guard let data = snapshot?.data() else { return }
+            let user = User(dictionary: data)
+            print("DEBUG: The user is: \(user.fName)")
+        }
     }
 }

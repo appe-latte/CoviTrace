@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
-    @State private var firstName : String
-        @State private var lastName : String
+    @State private var firstName = ""
+    @State private var lastName = ""
     
     init() {
         UINavigationBar.appearance().backgroundColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
