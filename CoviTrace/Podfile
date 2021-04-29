@@ -13,5 +13,6 @@ target 'CoviTrace' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'Kingfisher'
   
 end
