@@ -1,6 +1,0 @@
-framework module Pods_CoviTrace {
-  umbrella header "Pods-CoviTrace-umbrella.h"
-
-  export *
-  module * { export * }
-}
