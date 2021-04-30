@@ -27,7 +27,7 @@ class AuthViewModel: ObservableObject {
                 print("DEBUG: Login Failed: \(error.localizedDescription)!")
                 return
             }
-//            print("DEBUG: Successfully logged in!")
+            //            print("DEBUG: Successfully logged in!")
             
             // MARK: Shows Content View after successful login
             self.userSession = result?.user
@@ -66,7 +66,7 @@ class AuthViewModel: ObservableObject {
                                 "uid": user.uid]
                     
                     Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
-//                        print("DEBUG: Successfully uploaded user data!")
+                        //                        print("DEBUG: Successfully uploaded user data!")
                         // MARK: Moves to Content View after registration
                         self.userSession = result?.user
                     }

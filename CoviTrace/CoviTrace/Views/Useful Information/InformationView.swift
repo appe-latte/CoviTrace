@@ -73,13 +73,28 @@ struct InformationView: View {
 //                    .toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
                     
                     // MARK: Privacy Policy
-                    NavigationLink(
-                        destination: PrivacyPolicyView()){
-                        Image(systemName: "hand.raised.fill")
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        Text("Privacy Policy")
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    }
+                    Button(action: {
+                        openURL(URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
+                    }) {
+                        HStack{
+                            Image(systemName: "hand.raised.fill")
+                            Text("Privacy Policy")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    
+                    // MARK: Terms and Conditions
+                    Button(action: {
+                        openURL(URL(string: "https://www.iubenda.com/terms-and-conditions/52172420")!)
+                    }) {
+                        HStack{
+                            Image(systemName: "hand.raised.fill")
+                            Text("T&C's")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     
                 }.foregroundColor(.white)
                 

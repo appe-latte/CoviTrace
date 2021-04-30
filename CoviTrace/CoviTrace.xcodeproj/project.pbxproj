@@ -29,6 +29,9 @@
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
 		2F4E5E7525ED744A000B965D /* HealthTipsMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E7425ED744A000B965D /* HealthTipsMaskView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
+		2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524190263B37A00016D87D /* ProfileHeaderView.swift */; };
+		2F524193263B38CB0016D87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524192263B38CB0016D87D /* Constants.swift */; };
+		2F524195263B3E810016D87D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524194263B3E810016D87D /* UserProfileView.swift */; };
 		2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
 		2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5DAFA225F3D1D300BF87AC /* Subview.swift */; };
@@ -93,6 +96,9 @@
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F4E5E7425ED744A000B965D /* HealthTipsMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsMaskView.swift; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddResultsView.swift; sourceTree = "<group>"; };
+		2F524190263B37A00016D87D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		2F524192263B38CB0016D87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2F524194263B3E810016D87D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Certificates/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2F5DAFA225F3D1D300BF87AC /* Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subview.swift; sourceTree = "<group>"; };
@@ -209,6 +215,15 @@
 			path = Exposure;
 			sourceTree = "<group>";
 		};
+		2F52418F263B378E0016D87D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2F524190263B37A00016D87D /* ProfileHeaderView.swift */,
+				2F524194263B3E810016D87D /* UserProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		2F6150E825D1A424003AAB52 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +235,7 @@
 				2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */,
 				2F9F744B25F2ADFF00BB56A5 /* LoadingSpinner.swift */,
 				2F8043B52620A0F4004949B2 /* ImagePicker.swift */,
+				2F524192263B38CB0016D87D /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -282,6 +298,7 @@
 				2F2B47EB263981F200E19A1F /* ScotlandCovidStatsView.swift */,
 				2FF660F62639B60E00BE8443 /* EnglandCovidStatsView.swift */,
 				2FF660F82639B6BB00BE8443 /* WalesCovidStatsView.swift */,
+				2F52418F263B378E0016D87D /* Profile */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
 				2FD53F8425D48EAD00D5594B /* Symptoms */,
@@ -345,7 +362,7 @@
 				2F0F2A6225B5BD4A00103879 /* Sources */,
 				2F0F2A6325B5BD4A00103879 /* Frameworks */,
 				2F0F2A6425B5BD4A00103879 /* Resources */,
-				8A68CE3D0F513E9BC38186F2 /* [CP] Embed Pods Frameworks */,
+				D8617788732E54B16685FC93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -427,7 +444,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A68CE3D0F513E9BC38186F2 /* [CP] Embed Pods Frameworks */ = {
+		D8617788732E54B16685FC93 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,6 +470,7 @@
 			files = (
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
+				2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */,
 				2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */,
 				2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */,
 				2F5DAFA725F3D29E00BF87AC /* OnboardingView.swift in Sources */,
@@ -489,9 +507,11 @@
 				2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */,
 				2F8084AE25D7798E000A50B6 /* GlobalStatsView.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
+				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* Background.swift in Sources */,
 				2F31980725B5C2DE00AB182C /* CovidFetchRequest.swift in Sources */,
 				2FD53FA425D49AB000D5594B /* HealthTipsRestView.swift in Sources */,
+				2F524195263B3E810016D87D /* UserProfileView.swift in Sources */,
 				2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */,
 				2F2B47EC263981F200E19A1F /* ScotlandCovidStatsView.swift in Sources */,
 				2F9F744C25F2ADFF00BB56A5 /* LoadingSpinner.swift in Sources */,
