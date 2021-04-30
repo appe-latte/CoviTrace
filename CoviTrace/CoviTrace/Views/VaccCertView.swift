@@ -11,7 +11,6 @@ import CoreImage.CIFilterBuiltins
 struct VaccCertView: View {
     @State private var lastName = "Bloggingson"
     @State private var firstName = "Joel"
-    @State private var dob = "01/01/90"
     @State private var batchNum = "L620224"
     @State private var vaccDate = "02/02/2020"
     @State private var vaccCentre = "xPress Labs, Reading"
@@ -19,6 +18,7 @@ struct VaccCertView: View {
     @State private var firstDosageDate = "02/02/2020"
     @State private var secondDosageDate = ""
     @State var showSheetView = false
+    @EnvironmentObject var viewModel : AuthViewModel
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -42,25 +42,22 @@ struct VaccCertView: View {
                 )
             // MARK: Test Result Info
             Form {
-                Section(header: Text("Vaccination Information")){
+                Section(header: Text("Vaccination Information:")){
                     VStack(alignment: .leading){
                         Text("Name: \(firstName)" + " " + "\(lastName)")
-                        Text("DOB: \(dob)")
                         Text("Vaccine: \(vaccType)")
+                        Text("1st Dose: \(firstDosageDate)")
+                        Text("2nd Dose: \(secondDosageDate)")
                         Text("Location: \(vaccCentre)")
                         Spacer()
-                    }.font(.title3)
-                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                }
-                Section {
-                    VStack(alignment: .center){
-                        Image(uiImage: generateQRCode(from: " First Name: \(firstName)\n Last Name: \(lastName)\n DOB: \(dob)\n Batch Number: \(batchNum)\n Vaccination Date: \(vaccDate)\n Vaccine: \(vaccType)\n First Dose: \(firstDosageDate)\n Second Dose: \(secondDosageDate)\n Location: \(vaccCentre)"))
+                        Image(uiImage: generateQRCode(from: " First Name: \(firstName)\n Last Name: \(lastName)\n Batch Number: \(batchNum)\n Vaccination Date: \(vaccDate)\n Vaccine: \(vaccType)\n First Dose: \(firstDosageDate)\n Second Dose: \(secondDosageDate)\n Location: \(vaccCentre)"))
                             .interpolation(.none)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)
                             .padding(10)
-                    }
+                    }.font(.title3)
+                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }
             }.foregroundColor(.white)
             Spacer()

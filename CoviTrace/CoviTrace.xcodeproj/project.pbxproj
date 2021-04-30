@@ -47,7 +47,6 @@
 		2F77961A25E5B5D000E30128 /* HowAppWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77961925E5B5D000E30128 /* HowAppWorksView.swift */; };
 		2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8043B52620A0F4004949B2 /* ImagePicker.swift */; };
 		2F80847A25D6D872000A50B6 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847925D6D872000A50B6 /* InformationView.swift */; };
-		2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */; };
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
 		2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848825D75775000A50B6 /* SimpleTextField.swift */; };
 		2F8084AE25D7798E000A50B6 /* GlobalStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */; };
@@ -114,7 +113,6 @@
 		2F77961925E5B5D000E30128 /* HowAppWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowAppWorksView.swift; sourceTree = "<group>"; };
 		2F8043B52620A0F4004949B2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2F80847925D6D872000A50B6 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
-		2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		2F80848125D6E847000A50B6 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		2F80848825D75775000A50B6 /* SimpleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
 		2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoviTrace.entitlements; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				2F80847925D6D872000A50B6 /* InformationView.swift */,
-				2F80847D25D6E0FA000A50B6 /* PrivacyPolicyView.swift */,
 				2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */,
 				2F77961925E5B5D000E30128 /* HowAppWorksView.swift */,
 				2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */,
@@ -516,7 +513,6 @@
 				2F2B47EC263981F200E19A1F /* ScotlandCovidStatsView.swift in Sources */,
 				2F9F744C25F2ADFF00BB56A5 /* LoadingSpinner.swift in Sources */,
 				2F337E4625B88872009AC0A2 /* AreaStatsView.swift in Sources */,
-				2F80847E25D6E0FA000A50B6 /* PrivacyPolicyView.swift in Sources */,
 				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
 				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
 				2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */,

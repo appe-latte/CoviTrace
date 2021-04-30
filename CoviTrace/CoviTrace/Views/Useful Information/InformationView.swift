@@ -90,7 +90,7 @@ struct InformationView: View {
                     }) {
                         HStack{
                             Image(systemName: "hand.raised.fill")
-                            Text("T&C's")
+                            Text("Terms & Condition's")
                             Spacer()
                             Image(systemName: "chevron.right")
                         }

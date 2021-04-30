@@ -78,14 +78,15 @@ struct ContentView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
+                            }.foregroundColor(.white)
+                            
+                            // MARK: Test Results & Vaccination Information
+                            Section(header: Text("UK Covid Statistics:")) {
                                 
                                 // MARK: England Data
                                 NavigationLink(
                                     destination: EnglandCovidStatsView()){
-                                    Image(systemName: "map")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Covid England")
+                                    Text("England")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
@@ -93,10 +94,7 @@ struct ContentView: View {
                                 // MARK: Scotland Data
                                 NavigationLink(
                                     destination: ScotlandCovidStatsView()){
-                                    Image(systemName: "map")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Covid Scotland")
+                                    Text("Scotland")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
@@ -104,10 +102,7 @@ struct ContentView: View {
                                 // MARK: Wales Data
                                 NavigationLink(
                                     destination: WalesCovidStatsView()){
-                                    Image(systemName: "map")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Covid Wales")
+                                    Text("Wales")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
