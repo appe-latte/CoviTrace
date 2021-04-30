@@ -40,10 +40,19 @@ struct VaccCertView: View {
                                             AddVaccinationDataView()
                                         }
                 )
-            // MARK: Test Result Info
+            // MARK: Vaccine Information
             Form {
                 Section(header: Text("Vaccination Information:")){
                     VStack(alignment: .leading){
+                        Image(systemName: "person.crop.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .frame(width: 300, height: 150)
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            //                            .shadow(color: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255), radius: 2, x: 0.0, y: 0.0)
+                            .padding(.top, 5)
+                            .padding(.bottom, 5)
                         Text("Name: \(firstName)" + " " + "\(lastName)")
                         Text("Vaccine: \(vaccType)")
                         Text("1st Dose: \(firstDosageDate)")
