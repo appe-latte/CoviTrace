@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct AddVaccinationDataView: View {
     @State private var batchNum = ""
     @State private var vaccDate = Date()
     @State private var vaccCentre = ""
     @State private var vaccType = ""
-    @State private var firstDosageDate = Date() // Same date as the vaccDate
+    @State private var firstDosageDate = Date()
     @State private var secondDosageDate = Date()
-    
-    // MARK: Vaccines
-    var vaccineTypes = ["Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johson", "Novavax"]
-    @State private var selectedVaccine = "Select Vaccine type"
+    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var authModel = AuthViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -55,18 +56,11 @@ struct AddVaccinationDataView: View {
                 .font(.footnote)
                 
                 // MARK: Vaccination Make
-                VStack{
-                    Picker("Vaccine Type", selection: $selectedVaccine) {
-                        ForEach(vaccineTypes, id: \.self) {
-                            Text($0)
-                        }
-                    }
-                }
-                .foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                .background(Color(.white).opacity(0.1))
-                .cornerRadius(15)
-                .font(.footnote)
+                SimpleTextField(text: $vaccType, placeholder: Text("Enter Vaccine Type"))
+                    .foregroundColor(Color(.white))
+                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .background(Color(.white).opacity(0.1))
+                    .cornerRadius(15)
                 
                 // MARK: First Dose Date
                 DatePicker(selection: $firstDosageDate, in: ...Date(), displayedComponents: .date) {
@@ -90,12 +84,12 @@ struct AddVaccinationDataView: View {
                 .cornerRadius(15)
                 .font(.footnote)
                 
-                
-                // MARK: "Log Results" Button
+                // MARK: "Upload" button
                 Button(action: {
-                    
+                    upload_data()
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Text("LOG RESULTS")
+                    Text("Upload")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -108,6 +102,12 @@ struct AddVaccinationDataView: View {
                 //                Spacer()
             }
         }.navigationBarHidden(false)
+    }
+    
+    // MARK: Upload to "Vaccinations" DB
+    func upload_data(){
+        let db = Firestore.firestore()
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "vacc_batch_num": batchNum, "vaccination_date": vaccDate, "vaccine_centre": vaccCentre, "vaccine_type": vaccType, "first_dosage": firstDosageDate, "second_dosage": secondDosageDate])
     }
 }
 

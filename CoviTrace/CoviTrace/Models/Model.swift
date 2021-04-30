@@ -28,6 +28,28 @@ struct TestResults: Identifiable, Codable {
     }
 }
 
+struct VaccineData: Identifiable, Codable {
+    var id : String? = UUID().uuidString
+    var batchNum : String
+    var vaccDate : String
+    var vaccCentre : String
+    var vaccType : String
+    var firstDosageDate : String
+    var secondDosageDate : String
+    var userId: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case batchNum
+        case vaccDate
+        case vaccCentre
+        case vaccType
+        case firstDosageDate
+        case secondDosageDate
+        case userId
+    }
+}
+
 struct LocationResults: Identifiable, Codable {
     var id : String? = UUID().uuidString
     var latitude : String
@@ -55,18 +77,6 @@ struct CovidData: Identifiable {
     var cumDeathsByDeathDate : String?
 }
 
-
-struct VaccineData: Identifiable {
-    var id: String?
-    var batchNum : String
-    var vaccDate : Date
-    var vaccCentre : String
-    var vaccType : String
-    var firstDosageDate : Date
-    var secondDosageDate : Date
-    var userId: String?
-}
-
 struct DailyCovidData {
     let confirmed : Int
     let deaths : Int
@@ -90,7 +100,6 @@ struct TotalData {
 }
 
 struct CountryData {
-    
     let country : String
     let critical : Int64
     let deaths : Int64

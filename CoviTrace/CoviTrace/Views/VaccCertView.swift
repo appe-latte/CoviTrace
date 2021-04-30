@@ -7,18 +7,20 @@
 
 import SwiftUI
 import CoreImage.CIFilterBuiltins
+import Firebase
 
 struct VaccCertView: View {
     @State private var lastName = "Bloggingson"
     @State private var firstName = "Joel"
     @State private var batchNum = "L620224"
-    @State private var vaccDate = "02/02/2020"
+    @State private var vaccDate = "09/02/2021"
     @State private var vaccCentre = "xPress Labs, Reading"
     @State private var vaccType = "Pfizer-BioNTech"
-    @State private var firstDosageDate = "02/02/2020"
-    @State private var secondDosageDate = ""
+    @State private var firstDosageDate = "09/02/2021"
+    @State private var secondDosageDate = "15/04/2021"
     @State var showSheetView = false
-    @EnvironmentObject var viewModel : AuthViewModel
+    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var authModel = AuthViewModel()
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -53,11 +55,14 @@ struct VaccCertView: View {
                             //                            .shadow(color: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255), radius: 2, x: 0.0, y: 0.0)
                             .padding(.top, 5)
                             .padding(.bottom, 5)
-                        Text("Name: \(firstName)" + " " + "\(lastName)")
-                        Text("Vaccine: \(vaccType)")
-                        Text("1st Dose: \(firstDosageDate)")
-                        Text("2nd Dose: \(secondDosageDate)")
-                        Text("Location: \(vaccCentre)")
+                        
+                        // MARK: Vaccination "card"
+                        
+                        let fullName = firstName + " " + lastName
+                        Text("Name: \(fullName)")
+                        Text("Vaccine Make: \(vaccType)")
+                        Text("First Dosage Date: \(firstDosageDate)")
+                        Text("Vaccination Centre: \(vaccCentre)").multilineTextAlignment(.leading)
                         Spacer()
                         Image(uiImage: generateQRCode(from: " First Name: \(firstName)\n Last Name: \(lastName)\n Batch Number: \(batchNum)\n Vaccination Date: \(vaccDate)\n Vaccine: \(vaccType)\n First Dose: \(firstDosageDate)\n Second Dose: \(secondDosageDate)\n Location: \(vaccCentre)"))
                             .interpolation(.none)
@@ -65,7 +70,7 @@ struct VaccCertView: View {
                             .scaledToFit()
                             .frame(width: 300, height: 300)
                             .padding(10)
-                    }.font(.title3)
+                    }.font(.body)
                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }
             }.foregroundColor(.white)

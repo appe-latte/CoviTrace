@@ -64,12 +64,6 @@ struct TestResultView: View {
     }
 }
 
-//struct TestResultView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TestResultView()
-//    }
-//}
-
 struct SheetView: View {
     @Binding var showSheetView: Bool
     
