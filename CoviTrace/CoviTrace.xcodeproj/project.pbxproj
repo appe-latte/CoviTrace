@@ -26,6 +26,8 @@
 		2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3D8B23263B2CA7005D91D6 /* User.swift */; };
 		2F3F7E4725E81F6500AF1FC7 /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */; };
 		2F41EC8B2641C69C00643C8A /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8A2641C69C00643C8A /* AppointmentView.swift */; };
+		2F41EC8D2641C8D000643C8A /* AppointmentVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8C2641C8D000643C8A /* AppointmentVIewModel.swift */; };
+		2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */; };
 		2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4404CB25B87C0C00C82A99 /* MapView.swift */; };
 		2F4E5E7525ED744A000B965D /* HealthTipsMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E7425ED744A000B965D /* HealthTipsMaskView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
@@ -96,6 +98,8 @@
 		2F3D8B23263B2CA7005D91D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
 		2F41EC8A2641C69C00643C8A /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
+		2F41EC8C2641C8D000643C8A /* AppointmentVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVIewModel.swift; sourceTree = "<group>"; };
+		2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppointmentView.swift; sourceTree = "<group>"; };
 		2F4404CB25B87C0C00C82A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F4E5E7425ED744A000B965D /* HealthTipsMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsMaskView.swift; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddResultsView.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				2F5DAFA225F3D1D300BF87AC /* Subview.swift */,
 				2F96097E260E21A700D0090B /* ResultsViewModel.swift */,
 				2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */,
+				2F41EC8C2641C8D000643C8A /* AppointmentVIewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
 				2FA3552126416583005A1806 /* UKCovidStatsView.swift */,
 				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
+				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
 				2F2B47EB263981F200E19A1F /* ScotlandCovidStatsView.swift */,
 				2FF660F62639B60E00BE8443 /* EnglandCovidStatsView.swift */,
 				2FF660F82639B6BB00BE8443 /* WalesCovidStatsView.swift */,
@@ -488,6 +494,7 @@
 				2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
 				2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */,
+				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
 				2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */,
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
@@ -537,6 +544,7 @@
 				2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */,
 				2FF660F72639B60E00BE8443 /* EnglandCovidStatsView.swift in Sources */,
 				2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */,
+				2F41EC8D2641C8D000643C8A /* AppointmentVIewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

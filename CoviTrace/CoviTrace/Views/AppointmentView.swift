@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct AppointmentView: View {
+    @StateObject var appointmentData = AppointmentViewModel()
+    
     var body: some View {
         ZStack {
             Background()
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.white)
+            Button(action: {},
+                   label: {
+                    Text("Button")
+                   })
+                .sheet(isPresented: $appointmentData.newAppointment, content: {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+                })
         }
         
     }
