@@ -77,6 +77,7 @@ struct VaccCertView: View {
             Spacer()
             Spacer()
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func generateQRCode(from string: String) -> UIImage {

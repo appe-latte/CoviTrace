@@ -25,11 +25,13 @@ struct SymptomCheckIntroView: View {
                         .font(.title3)
                         .padding(5)
                 }
+                Spacer()
             }.padding(5)
             .frame(minHeight: 0, maxHeight: 800 )
+
             Spacer()
         }.navigationBarTitle("Covid-19 Symptoms").navigationBarHidden(false)
-        //        }.edgesIgnoringSafeArea(.all)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     struct SymptomCheckIntroView_Previews: PreviewProvider {

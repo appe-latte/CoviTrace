@@ -60,7 +60,9 @@ struct TestResultView: View {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
             }
+            
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

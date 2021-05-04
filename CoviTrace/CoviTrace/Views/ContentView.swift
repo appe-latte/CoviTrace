@@ -29,23 +29,21 @@ struct ContentView: View {
                                                     NavigationLink(
                                                         destination: InformationView()){
                                                         HStack{
-                                                            Image(systemName: "gearshape.fill")
+                                                            Image(systemName: "ellipsis")
                                                         }
                                                         .foregroundColor(.white)
-                                                        .font(.subheadline)
+                                                        .font(.body)
                                                     }
                             )
                         
                         Form {
-                            Section(header: Text("User Information:")) {
-                                
-                                // MARK: User Profile
+                            // MARK: User:
+                            Section {
                                 ProfileHeaderView()
-                                
                             }.foregroundColor(.white)
                             
-                            // MARK: Test Results & Vaccination Information
-                            Section(header: Text("Information:")) {
+                            // MARK: Navigation
+                            Section {
                                 
                                 // MARK: Test Results
                                 NavigationLink(
@@ -78,38 +76,6 @@ struct ContentView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
-                            }.foregroundColor(.white)
-                            
-                            // MARK: Test Results & Vaccination Information
-                            Section(header: Text("UK Covid Statistics:")) {
-                                
-                                // MARK: England Data
-                                NavigationLink(
-                                    destination: EnglandCovidStatsView()){
-                                    Text("England")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                }
-                                
-                                // MARK: Scotland Data
-                                NavigationLink(
-                                    destination: ScotlandCovidStatsView()){
-                                    Text("Scotland")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                }
-                                
-                                // MARK: Wales Data
-                                NavigationLink(
-                                    destination: WalesCovidStatsView()){
-                                    Text("Wales")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                }
-                                
-                            }.foregroundColor(.white)
-                            
-                            Section(header: Text("Useful Information:")) {
                                 
                                 // MARK: Symptom Checker
                                 NavigationLink(
@@ -131,6 +97,18 @@ struct ContentView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
+                                
+                                // MARK: UK Data
+                                NavigationLink(
+                                    destination: UKCovidStatsView()){
+                                    Image(systemName: "chart.bar")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("UK Covid Statistics")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
                             }.foregroundColor(.white)
                         }
                     }

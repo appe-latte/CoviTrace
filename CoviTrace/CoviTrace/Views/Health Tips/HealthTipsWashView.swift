@@ -36,6 +36,7 @@ struct HealthTipsWashView: View {
                 }.padding(5)
                 .frame(minHeight: 0, maxHeight: 800 )
             }.navigationBarTitle("Health Tips").navigationBarHidden(false)
+            .navigationBarTitleDisplayMode(.inline)
 //        }.edgesIgnoringSafeArea(.all)
         }
     }
