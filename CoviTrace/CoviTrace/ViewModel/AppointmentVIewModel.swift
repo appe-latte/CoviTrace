@@ -1,5 +1,5 @@
 //
-//  AppointmentVIewModel.swift
+//  AppointmentViewModel.swift
 //  CoviTrace
 //
 //  Created by Stanford L. Khumalo on 04/05/2021.

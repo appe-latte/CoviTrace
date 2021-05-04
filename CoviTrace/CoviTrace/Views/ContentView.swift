@@ -33,7 +33,7 @@ struct ContentView: View {
                                                         }
                                                         .foregroundColor(.white)
                                                         .font(.largeTitle)
-                                                    
+                                                        
                                                     }
                             )
                         
@@ -43,7 +43,7 @@ struct ContentView: View {
                                 ProfileHeaderView()
                             }.foregroundColor(.white)
                             
-                            // MARK: Navigation
+                            // MARK: Main Menu
                             Section {
                                 
                                 // MARK: Test Results
@@ -78,6 +78,16 @@ struct ContentView: View {
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
                                 
+                                // MARK: Appointment
+                                NavigationLink(
+                                    destination: AppointmentView()){
+                                    Image(systemName: "calendar")
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Text("Appointments")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                }
+                                
                                 // MARK: Symptom Checker
                                 NavigationLink(
                                     destination: SymptomPageView()){
@@ -102,7 +112,7 @@ struct ContentView: View {
                                 // MARK: UK Data
                                 NavigationLink(
                                     destination: UKCovidStatsView()){
-                                    Image(systemName: "chart.bar")
+                                    Image(systemName: "chart.bar.fill")
                                         .font(.title3)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Text("UK Covid Statistics")
@@ -118,12 +128,6 @@ struct ContentView: View {
                 LandingView()
             }
         }.accentColor(.white)
-    }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
     }
 }
 

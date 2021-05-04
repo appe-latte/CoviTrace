@@ -12,7 +12,7 @@ struct NewAppointmentView: View {
     
     var body: some View {
         VStack {
-            Background()
+//            Background()
             
             HStack {
                 
@@ -25,22 +25,26 @@ struct NewAppointmentView: View {
             }
             .padding()
             
+            
+            // MARK: Appointment text entry
             TextEditor(text: $appointmentData.content)
-                .padding()
+                .foregroundColor(.white)
+                .cornerRadius(15)
             
             Divider()
                 .padding(.horizontal)
             
             HStack {
-                Text("When")
+                Text("Date")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                 
                 Spacer(minLength: 0)
             }
             Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
         }
+        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
     }
 }
 

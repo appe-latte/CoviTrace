@@ -29,39 +29,50 @@ struct AddVaccinationDataView: View {
     
     var body: some View {
         ZStack{
-            Background()
-            VStack{
+            bgGreen()
+            
+            
+            VStack {
+                VStack{
+                    Text("Add Vaccination Data")
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                .padding(.top, 15)
+                
                 // MARK: First Dose Date
                 DatePicker(selection: $firstDosageDate, in: ...Date(), displayedComponents: .date) {
                     Text("First Dose Date")
                         .padding(.leading, 15)
+                        .foregroundColor(.white)
                 }
                 .foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                 .background(Color(.white).opacity(0.1))
-                .cornerRadius(15)
+                .cornerRadius(10)
                 .font(.footnote)
                 
                 // MARK: Firdt Dose Batch Number
                 SimpleTextField(text: $firstDosebatchNum, placeholder: Text("Enter 1st dose batch no."))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
+                    .cornerRadius(10)
                 
                 // MARK: Vaccination Location
                 SimpleTextField(text: $vaccCentre, placeholder: Text("Enter test location"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
+                    .cornerRadius(10)
                 
                 // MARK: First Dose Vaccination Make
                 SimpleTextField(text: $vaccTypeFirstDose, placeholder: Text("Enter first vaccine dose make"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
+                    .cornerRadius(10)
                 
                 // MARK: Second Dose Date
                 DatePicker(selection: $secondDosageDate, in: ...Date(), displayedComponents: .date) {
@@ -69,24 +80,24 @@ struct AddVaccinationDataView: View {
                         .padding(.leading, 15)
                 }
                 .foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                 .background(Color(.white).opacity(0.1))
-                .cornerRadius(15)
+                .cornerRadius(10)
                 .font(.footnote)
                 
                 // MARK: Second Dose Batch Number
                 SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Enter second dose batch no."))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
+                    .cornerRadius(10)
                 
                 // MARK: Second Dose Vaccination Make
                 SimpleTextField(text: $vaccTypeSecondDose, placeholder: Text("Enter second vaccine dose make"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
+                    .cornerRadius(10)
                 
                 // MARK: "Upload" button
                 Button(action: {
@@ -98,12 +109,12 @@ struct AddVaccinationDataView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 325, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
-                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 325, minHeight: 0, maxHeight: 40, alignment: .center).padding(.leading,10)
+                .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 .cornerRadius(30)
                 .padding(.top, 2)
                 
-                //                Spacer()
+                Spacer()
             }
         }.navigationTitle("Add Vaccination Information")
         .navigationBarTitleDisplayMode(.inline)

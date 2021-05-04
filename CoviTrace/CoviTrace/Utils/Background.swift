@@ -14,9 +14,3 @@ struct Background: View {
             .edgesIgnoringSafeArea(.all)
     }
 }
-
-struct Background_Previews: PreviewProvider {
-    static var previews: some View {
-        Background()
-    }
-}

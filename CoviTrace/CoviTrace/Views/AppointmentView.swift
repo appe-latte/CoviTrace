@@ -13,20 +13,15 @@ struct AppointmentView: View {
     var body: some View {
         ZStack {
             Background()
-            Button(action: {},
+            Button(action: {appointmentData.newAppointment.toggle()},
                    label: {
-                    Text("Button")
+                    Text("New Appointment")
                    })
                 .sheet(isPresented: $appointmentData.newAppointment, content: {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+                    
+                    NewAppointmentView(appointmentData: appointmentData)
                 })
         }
         
-    }
-}
-
-struct AppointmentView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppointmentView()
     }
 }
