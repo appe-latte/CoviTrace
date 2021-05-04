@@ -53,6 +53,8 @@
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
 		2F9F744C25F2ADFF00BB56A5 /* LoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F744B25F2ADFF00BB56A5 /* LoadingSpinner.swift */; };
 		2FA3552226416583005A1806 /* UKCovidStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552126416583005A1806 /* UKCovidStatsView.swift */; };
+		2FA3552426418773005A1806 /* HealthTipsCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552326418773005A1806 /* HealthTipsCleanView.swift */; };
+		2FA355262641881D005A1806 /* HealthTipsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA355252641881D005A1806 /* HealthTipsTestView.swift */; };
 		2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */; };
 		2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */; };
 		2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952625BF539E005E6000 /* SymptomPageView.swift */; };
@@ -122,6 +124,8 @@
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		2F9F744B25F2ADFF00BB56A5 /* LoadingSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSpinner.swift; sourceTree = "<group>"; };
 		2FA3552126416583005A1806 /* UKCovidStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKCovidStatsView.swift; sourceTree = "<group>"; };
+		2FA3552326418773005A1806 /* HealthTipsCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsCleanView.swift; sourceTree = "<group>"; };
+		2FA355252641881D005A1806 /* HealthTipsTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsTestView.swift; sourceTree = "<group>"; };
 		2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckIntroView.swift; sourceTree = "<group>"; };
 		2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCoughView.swift; sourceTree = "<group>"; };
 		2FD2952625BF539E005E6000 /* SymptomPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomPageView.swift; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 				2FD53F9725D495F900D5594B /* HealthTipsSanitiseView.swift */,
 				2FD53FA025D4978E00D5594B /* HealthTipsFoodView.swift */,
 				2FD53FA325D49AB000D5594B /* HealthTipsRestView.swift */,
+				2FA3552326418773005A1806 /* HealthTipsCleanView.swift */,
+				2FA355252641881D005A1806 /* HealthTipsTestView.swift */,
 			);
 			path = "Health Tips";
 			sourceTree = "<group>";
@@ -510,6 +516,8 @@
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */,
 				2F8084AE25D7798E000A50B6 /* GlobalStatsView.swift in Sources */,
+				2FA3552426418773005A1806 /* HealthTipsCleanView.swift in Sources */,
+				2FA355262641881D005A1806 /* HealthTipsTestView.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* Background.swift in Sources */,

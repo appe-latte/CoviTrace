@@ -20,6 +20,8 @@ struct HealthTipsPageView: View {
                 HealthTipsDistanceView()
                 HealthTipsCoverView()
                 HealthTipsSanitiseView()
+                HealthTipsTestView()
+                HealthTipsCleanView()
                 HealthTipsFoodView()
                 HealthTipsRestView()
             }.tabViewStyle(PageTabViewStyle())

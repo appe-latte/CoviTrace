@@ -28,6 +28,7 @@ struct HealthTipsSanitiseView: View {
                         Text("Along with practicing good hygiene, keep all surfaces and places that you touch are disinfected as regularly as possible. Establish a routine for wiping down door handles, kitchen counter-tops and fridge handles with a disinfectant spray or wipes.")
                             .foregroundColor(.white)
                             .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
                             .font(.title3)
                             .padding(5)
                     }

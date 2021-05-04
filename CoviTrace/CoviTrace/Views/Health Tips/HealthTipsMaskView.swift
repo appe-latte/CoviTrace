@@ -28,6 +28,7 @@ struct HealthTipsMaskView: View {
                         Text("Always wear your face mask when travelling outside and in all public spaces. Follow your local council or government regulations on social distancing by allowing at least a minimum of 1.5m between you and other people.")
                             .foregroundColor(.white)
                             .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
                             .font(.title3)
                             .padding(5)
                     }

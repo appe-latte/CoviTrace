@@ -1,13 +1,13 @@
 //
-//  HealthTipsDistanceView.swift
+//  HealthTipsTestView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 10/02/2021.
+//  Created by Stanford L. Khumalo on 04/05/2021.
 //
 
 import SwiftUI
 
-struct HealthTipsDistanceView: View {
+struct HealthTipsTestView: View {
     var body: some View {
         ScrollView(.vertical) {
             ZStack
@@ -17,19 +17,19 @@ struct HealthTipsDistanceView: View {
                 
                 VStack(alignment:.center){
                     VStack{
-                        Text("WEAR YOUR MASK & PRACTICE SOCIAL DISTANCING")
+                        Text("TAKE REGULAR COVID TESTS")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("distance")
+                        Image("test")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)
-                        Text("Always wear your face mask when travelling outside and in all public spaces. Follow your local council or government regulations on social distancing by allowing at least a minimum of 1.5m between you and other people.")
+                        Text("If you have not been vaccinated, getting regular testing and following government guidelines on keeping safe will go a long way in ensuring you remain safe. ")
                             .foregroundColor(.white)
                             .lineLimit(nil)
-                            .font(.title3)
                             .multilineTextAlignment(.leading)
+                            .font(.title3)
                             .padding(5)
                     }
                     Spacer()
@@ -38,11 +38,10 @@ struct HealthTipsDistanceView: View {
             }.navigationBarTitle("Health Tips").navigationBarHidden(false)
         }
     }
-    
-    struct HealthTipsDistanceView_Previews: PreviewProvider {
-        static var previews: some View {
-            HealthTipsDistanceView()
-        }
-    }
 }
 
+struct HealthTipsTestView_Previews: PreviewProvider {
+    static var previews: some View {
+        HealthTipsTestView()
+    }
+}

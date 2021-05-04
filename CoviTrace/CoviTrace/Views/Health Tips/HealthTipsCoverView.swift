@@ -28,6 +28,7 @@ struct HealthTipsCoverView: View {
                         Text("If you have to sneeze or cough, use some tissue paper and then dispose of it straight away. If you do not have tissue at hand, use the inside of your forearm. It is best not to cough into your hand, unless your are able to wash them immediately, as the bacteria may be spread when you touch objects soon after.")
                             .foregroundColor(.white)
                             .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
                             .font(.title3)
                             .padding(5)
                     }

@@ -28,6 +28,7 @@ struct HealthTipsFoodView: View {
                         Text("To give your immune system a boost, eat healthy as much as possible. Foods with Vitamins (C, D & E), Zinc, Protein and all green vegetables. Drinking a mixture of Lemon, Ginger & Honey or Black Seed Oil in a glass of warm water is said to be helpful in the prevention of mucus development and boosts your immune system.")
                             .foregroundColor(.white)
                             .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
                             .font(.title3)
                             .padding(5)
                     }

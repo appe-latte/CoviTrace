@@ -44,7 +44,7 @@ struct VaccCertView: View {
                 )
             // MARK: Vaccine Information
             Form {
-                Section(header: Text("Vaccination Information:")){
+                Section {
                     VStack(alignment: .leading){
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
@@ -77,6 +77,7 @@ struct VaccCertView: View {
             Spacer()
             Spacer()
         }
+        .navigationBarTitle("Vaccination Information")
         .navigationBarTitleDisplayMode(.inline)
     }
     

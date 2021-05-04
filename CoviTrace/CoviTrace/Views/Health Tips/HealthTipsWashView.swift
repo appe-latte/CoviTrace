@@ -29,6 +29,7 @@ struct HealthTipsWashView: View {
                         Text("To aide in the prevention of virus transmission, it is advisable to constantly wash your hands with soap and water. A good 20 second wash will do and do make sure you wash between your fingers and the back of your hand properly.")
                             .foregroundColor(.white)
                             .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
                             .font(.title3)
                             .padding(5)
                     }

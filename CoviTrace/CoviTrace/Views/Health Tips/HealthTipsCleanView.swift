@@ -1,13 +1,13 @@
 //
-//  HealthTipsDistanceView.swift
+//  HealthTipsCleanView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 10/02/2021.
+//  Created by Stanford L. Khumalo on 04/05/2021.
 //
 
 import SwiftUI
 
-struct HealthTipsDistanceView: View {
+struct HealthTipsCleanView: View {
     var body: some View {
         ScrollView(.vertical) {
             ZStack
@@ -17,15 +17,15 @@ struct HealthTipsDistanceView: View {
                 
                 VStack(alignment:.center){
                     VStack{
-                        Text("WEAR YOUR MASK & PRACTICE SOCIAL DISTANCING")
+                        Text("KEEP ALL SURFACES AND CONTACT AREAS CLEAN")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .padding()
-                        Image("distance")
+                        Image("clean")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)
-                        Text("Always wear your face mask when travelling outside and in all public spaces. Follow your local council or government regulations on social distancing by allowing at least a minimum of 1.5m between you and other people.")
+                        Text("Keeping all surfaces and contact areas such as door handles and light switches clean will go a long way in stemming any potential spread or contraction of the virus.")
                             .foregroundColor(.white)
                             .lineLimit(nil)
                             .font(.title3)
@@ -37,12 +37,10 @@ struct HealthTipsDistanceView: View {
                 .frame(minHeight: 0, maxHeight: 800 )
             }.navigationBarTitle("Health Tips").navigationBarHidden(false)
         }
-    }
-    
-    struct HealthTipsDistanceView_Previews: PreviewProvider {
-        static var previews: some View {
-            HealthTipsDistanceView()
-        }
+    }}
+
+struct HealthTipsCleanView_Previews: PreviewProvider {
+    static var previews: some View {
+        HealthTipsCleanView()
     }
 }
-

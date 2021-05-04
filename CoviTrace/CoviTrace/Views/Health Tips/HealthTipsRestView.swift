@@ -25,10 +25,11 @@ struct HealthTipsRestView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)
-                        Text("....")
+                        Text("Make sure you find time to rest and relax in order to maintain your body's health and mental wellbeing. As well finding time to rest, make sure you include some light physical activities such as going for walks to get you out of the house and improve your fitness at the same. ")
                             .foregroundColor(.white)
                             .lineLimit(nil)
                             .font(.title3)
+                            .multilineTextAlignment(.leading)
                             .padding(5)
                     }
                     Spacer()
