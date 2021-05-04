@@ -32,7 +32,8 @@ struct ContentView: View {
                                                             Image(systemName: "ellipsis")
                                                         }
                                                         .foregroundColor(.white)
-                                                        .font(.body)
+                                                        .font(.largeTitle)
+                                                    
                                                     }
                             )
                         

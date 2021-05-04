@@ -251,8 +251,7 @@ struct UKCovidStatsView: View {
                 
             }
             .padding(.top, 100)
-        }.navigationBarTitle("UK Covid Statistics")
-        .navigationBarTitleDisplayMode(.inline)
+        }.navigationBarTitle("UK Covid Statistics", displayMode: .inline)
         .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
         .ignoresSafeArea()
     }

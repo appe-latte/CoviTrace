@@ -105,7 +105,8 @@ struct AddVaccinationDataView: View {
                 
                 //                Spacer()
             }
-        }.navigationBarHidden(false)
+        }.navigationTitle("Add Vaccination Information")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: Upload to "Vaccinations" DB

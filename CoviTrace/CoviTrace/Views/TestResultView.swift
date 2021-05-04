@@ -18,7 +18,7 @@ struct TestResultView: View {
     
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
-
+    
     var body: some View {
         ZStack
         {
@@ -60,9 +60,7 @@ struct TestResultView: View {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
             }
-            
-        }
-        .navigationBarTitleDisplayMode(.inline)
+        }.navigationBarTitle("Test Results", displayMode: .inline)
     }
 }
 

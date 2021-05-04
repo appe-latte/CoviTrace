@@ -119,7 +119,7 @@ struct CheckInView: View {
                     }
                 }.background(Color.white)
             }
-        }.navigationBarTitle("LOCATION CHECK-IN", displayMode: .inline)
+        }.navigationBarTitle("Location Check-in", displayMode: .inline)
     }
 }
 

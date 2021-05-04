@@ -25,6 +25,10 @@ struct VaccCertView: View {
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
     
+    init() {
+        UINavigationBar.appearance().tintColor = UIColor.init(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+    }
+    
     var body: some View {
         
         ZStack
@@ -77,8 +81,7 @@ struct VaccCertView: View {
             Spacer()
             Spacer()
         }
-        .navigationBarTitle("Vaccination Information")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("Vaccination Information", displayMode: .inline)
     }
     
     func generateQRCode(from string: String) -> UIImage {
