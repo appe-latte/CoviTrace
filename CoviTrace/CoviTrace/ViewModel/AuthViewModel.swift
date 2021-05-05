@@ -88,7 +88,7 @@ class AuthViewModel: ObservableObject {
         Firestore.firestore().collection("users").document(uid).getDocument { snapshot, _ in
             guard let data = snapshot?.data() else { return }
             let user = User(dictionary: data)
-            print("DEBUG: The user is: \(user.fName)")
+//            print("DEBUG: The user is: \(user.fName)")
         }
     }
 }

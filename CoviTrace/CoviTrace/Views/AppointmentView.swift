@@ -39,10 +39,10 @@ struct AppointmentView: View {
                                     })
                                     
                                     Button(action: {
-                                        context.delete(Appointment)
+                                        context.delete(task)
                                         try! context.save()
                                     }, label: {
-                                        
+                                        Text("Delete")
                                     })
                                 }
                             }
