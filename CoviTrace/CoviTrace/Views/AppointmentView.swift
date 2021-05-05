@@ -34,21 +34,18 @@ struct AppointmentView: View {
                                 })
                                 .foregroundColor(.white)
                                 .contextMenu {
-                                    Button(action: {}, label: {
-                                        Text("Edit")
-                                    })
-                                    
+                                    // MARK: Delete "appointment"
                                     Button(action: {
                                         context.delete(task)
                                         try! context.save()
                                     }, label: {
-                                        Text("Delete")
+                                        Text("Delete Appointment")
                                     })
                                 }
                             }
                         }
                     })
-                                        .padding()
+                    .padding()
                 }
                 
                 Button(action: {appointmentData.newAppointment.toggle()}, label: {

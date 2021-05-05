@@ -44,7 +44,7 @@ struct NewAppointmentView: View {
                 
                 Spacer(minLength: 0)
             }
-//            .padding()
+            //            .padding()
             
             HStack {
                 Text("Select Date:")
@@ -61,21 +61,15 @@ struct NewAppointmentView: View {
             
             Button(action: {appointmentData.writeData(context: context)}, label: {
                 
-                Label(
-                    title: {Text("Add")
-                        .font(.body)
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                    },
-                    icon:{Image(systemName: "plus")
-                        .font(.title)
-                        .foregroundColor(.white)
-                    })
-                    .padding(.vertical)
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 325, minHeight: 0, maxHeight: 40, alignment: .center).padding(.leading,10)
-                    .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                    .cornerRadius(30)
+                Text("Add Appointment")
+                    .font(.body)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
             })
+            .padding(.vertical)
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 325, minHeight: 0, maxHeight: 40, alignment: .center).padding(.leading,10)
+            .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+            .cornerRadius(30)
             .padding()
             
             // MARK: button disabled when Text Editor empty

@@ -12,17 +12,18 @@ class AppointmentViewModel : ObservableObject {
     @Published var content = ""
     @Published var date = Date()
     @Published var newAppointment = false
+    @Published var updateItem : Appointment!
     
     let calendar = Calendar.current
     
-//    func checkDate() -> String {
-//        return "Date"
-//    }
+    //    func checkDate() -> String {
+    //        return "Date"
+    //    }
     
     func updateDate(value: String) {
         if value == "Date"
         {
-
+            
         }
     }
     
@@ -45,6 +46,9 @@ class AppointmentViewModel : ObservableObject {
     }
     
     func EditItem(item: Appointment){
-        
+        updateItem = item
+        date = item.date!
+        content = item.content!
+        newAppointment.toggle()
     }
 }
