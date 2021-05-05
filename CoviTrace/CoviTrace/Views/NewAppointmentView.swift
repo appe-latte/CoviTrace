@@ -26,7 +26,6 @@ struct NewAppointmentView: View {
             }
             .padding()
             
-            
             // MARK: Appointment text entry
             TextEditor(text: $appointmentData.content)
                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -51,7 +50,6 @@ struct NewAppointmentView: View {
                 Spacer()
                 
                 // MARK: Date Picker
-                
                 DatePicker("", selection: $appointmentData.date, displayedComponents: .date)
                     .labelsHidden()
             }

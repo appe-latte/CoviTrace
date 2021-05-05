@@ -26,7 +26,7 @@ struct UKCovidStatsView: View {
                             HStack {
                                 Text("Date:")
                                     .font(.body)
-           
+                                
                                 Text("2021-05-03")
                                     .font(.body)
                                     .bold()
@@ -102,7 +102,7 @@ struct UKCovidStatsView: View {
                             HStack {
                                 Text("Date:")
                                     .font(.body)
-           
+                                
                                 Text("2021-05-03")
                                     .font(.body)
                                     .bold()
@@ -171,14 +171,14 @@ struct UKCovidStatsView: View {
                             }
                         }
                     }
-                
+                    
                     // MARK: Covid Stats Wales
                     Section(header: Text("Wales").fontWeight(.bold)){
                         VStack(alignment: .leading) {
                             HStack {
                                 Text("Date:")
                                     .font(.body)
-           
+                                
                                 Text("2021-05-03")
                                     .font(.body)
                                     .bold()
