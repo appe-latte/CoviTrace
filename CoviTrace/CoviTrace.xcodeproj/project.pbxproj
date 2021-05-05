@@ -54,6 +54,7 @@
 		2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848825D75775000A50B6 /* SimpleTextField.swift */; };
 		2F8084AE25D7798E000A50B6 /* GlobalStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */; };
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
+		2F9F0C402642C16F000C43E2 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F0C3F2642C16F000C43E2 /* DateButton.swift */; };
 		2F9F744C25F2ADFF00BB56A5 /* LoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F744B25F2ADFF00BB56A5 /* LoadingSpinner.swift */; };
 		2FA3552226416583005A1806 /* UKCovidStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552126416583005A1806 /* UKCovidStatsView.swift */; };
 		2FA3552426418773005A1806 /* HealthTipsCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552326418773005A1806 /* HealthTipsCleanView.swift */; };
@@ -128,6 +129,7 @@
 		2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoviTrace.entitlements; sourceTree = "<group>"; };
 		2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsView.swift; sourceTree = "<group>"; };
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
+		2F9F0C3F2642C16F000C43E2 /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
 		2F9F744B25F2ADFF00BB56A5 /* LoadingSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSpinner.swift; sourceTree = "<group>"; };
 		2FA3552126416583005A1806 /* UKCovidStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKCovidStatsView.swift; sourceTree = "<group>"; };
 		2FA3552326418773005A1806 /* HealthTipsCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsCleanView.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				2F9F744B25F2ADFF00BB56A5 /* LoadingSpinner.swift */,
 				2F8043B52620A0F4004949B2 /* ImagePicker.swift */,
 				2F524192263B38CB0016D87D /* Constants.swift */,
+				2F9F0C3F2642C16F000C43E2 /* DateButton.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */,
 				2FD53F9825D495F900D5594B /* HealthTipsSanitiseView.swift in Sources */,
 				2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */,
+				2F9F0C402642C16F000C43E2 /* DateButton.swift in Sources */,
 				2F80847A25D6D872000A50B6 /* InformationView.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */,

@@ -9,10 +9,11 @@ import SwiftUI
 
 struct NewAppointmentView: View {
     @ObservedObject var appointmentData : AppointmentViewModel
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         VStack {
-//            Background()
+            //            Background()
             
             HStack {
                 
@@ -28,23 +29,61 @@ struct NewAppointmentView: View {
             
             // MARK: Appointment text entry
             TextEditor(text: $appointmentData.content)
-                .foregroundColor(.white)
-                .cornerRadius(15)
+                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                .padding()
             
             Divider()
                 .padding(.horizontal)
             
             HStack {
-                Text("Date")
+                Text("Appointment Date:")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
+                    .padding()
                 
                 Spacer(minLength: 0)
             }
-            Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
+//            .padding()
+            
+            HStack {
+                Text("Select Date:")
+                Spacer()
+                
+                // MARK: Date Picker
+                
+                DatePicker("", selection: $appointmentData.date, displayedComponents: .date)
+                    .labelsHidden()
+            }
+            .padding()
+            
+            // MARK: "Add" button
+            
+            Button(action: {appointmentData.writeData(context: context)}, label: {
+                
+                Label(
+                    title: {Text("Add")
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                    },
+                    icon:{Image(systemName: "plus")
+                        .font(.title)
+                        .foregroundColor(.white)
+                    })
+                    .padding(.vertical)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 325, minHeight: 0, maxHeight: 40, alignment: .center).padding(.leading,10)
+                    .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    .cornerRadius(30)
+            })
+            .padding()
+            
+            // MARK: button disabled when Text Editor empty
+            .disabled(appointmentData.content == "" ? true : false)
+            .opacity(appointmentData.content == "" ? 0.5 : 1)
+            
         }
-        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255).ignoresSafeArea(.all, edges: .bottom))
     }
 }
 
