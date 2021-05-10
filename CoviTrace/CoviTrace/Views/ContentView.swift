@@ -28,19 +28,19 @@ struct ContentView: View {
                     {
                         // MARK: BACKGROUND COLOUR CODE:
                         Background()
-                            .navigationBarItems(trailing:
-                                                    NavigationLink(
-                                                        destination: InformationView()){
-                                                        HStack{
-                                                            Image("settings")
-                                                                .resizable()
-                                                                .frame(width: 20, height: 20)
-                                                        }
-                                                        .foregroundColor(.white)
-                                                        .font(.largeTitle)
-                                                        
-                                                    }
-                            )
+//                            .navigationBarItems(trailing:
+//                                                    NavigationLink(
+//                                                        destination: InformationView()){
+//                                                        HStack{
+//                                                            Image("settings")
+//                                                                .resizable()
+//                                                                .frame(width: 20, height: 20)
+//                                                        }
+//                                                        .foregroundColor(.white)
+//                                                        .font(.largeTitle)
+//
+//                                                    }
+//                            )
                         
                         Form {
                             // MARK: User:
@@ -71,6 +71,7 @@ struct ContentView: View {
                                         .resizable()
                                         .frame(width: 30, height: 30)
                                         .padding(5)
+                                        .scaledToFit()
                                     Text("Vaccination Card")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -136,6 +137,7 @@ struct ContentView: View {
                                         .resizable()
                                         .frame(width: 30, height: 30)
                                         .padding(5)
+                                        .scaledToFit()
                                     Text("Settings")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -143,9 +145,10 @@ struct ContentView: View {
                                 }
 
                             }.foregroundColor(.white)
-                            
                         }
                     }
+                    .navigationBarHidden(true)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
             } else {
                 LandingView()

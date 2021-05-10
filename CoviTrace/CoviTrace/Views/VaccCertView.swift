@@ -81,7 +81,7 @@ struct VaccCertView: View {
             Spacer()
             Spacer()
         }
-        .navigationBarTitle("Vaccination Information", displayMode: .inline)
+        .navigationBarTitle("Vaccination Card", displayMode: .inline)
     }
     
     func generateQRCode(from string: String) -> UIImage {

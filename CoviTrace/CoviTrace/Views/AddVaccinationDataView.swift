@@ -104,12 +104,19 @@ struct AddVaccinationDataView: View {
                     upload_data()
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Text("Upload")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 325, minHeight: 0, maxHeight: 40, alignment: .center).padding(.leading,10)
+                    HStack {
+                        Image("upload")
+                            .resizable()
+                            .frame(width: 30, height: 25)
+                            .scaledToFit()
+                        Text("Upload")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
+
+                })
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 .cornerRadius(30)
                 .padding(.top, 2)
