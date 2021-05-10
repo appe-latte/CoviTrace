@@ -59,11 +59,6 @@
 		2FA3552226416583005A1806 /* UKCovidStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552126416583005A1806 /* UKCovidStatsView.swift */; };
 		2FA3552426418773005A1806 /* HealthTipsCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552326418773005A1806 /* HealthTipsCleanView.swift */; };
 		2FA355262641881D005A1806 /* HealthTipsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA355252641881D005A1806 /* HealthTipsTestView.swift */; };
-		2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */; };
-		2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */; };
-		2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952625BF539E005E6000 /* SymptomPageView.swift */; };
-		2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952925BF5877005E6000 /* SymptomFeverView.swift */; };
-		2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */; };
 		2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */; };
 		2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */; };
 		2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */; };
@@ -134,11 +129,6 @@
 		2FA3552126416583005A1806 /* UKCovidStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKCovidStatsView.swift; sourceTree = "<group>"; };
 		2FA3552326418773005A1806 /* HealthTipsCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsCleanView.swift; sourceTree = "<group>"; };
 		2FA355252641881D005A1806 /* HealthTipsTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsTestView.swift; sourceTree = "<group>"; };
-		2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckIntroView.swift; sourceTree = "<group>"; };
-		2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCoughView.swift; sourceTree = "<group>"; };
-		2FD2952625BF539E005E6000 /* SymptomPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomPageView.swift; sourceTree = "<group>"; };
-		2FD2952925BF5877005E6000 /* SymptomFeverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomFeverView.swift; sourceTree = "<group>"; };
-		2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomSmellView.swift; sourceTree = "<group>"; };
 		2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsPageView.swift; sourceTree = "<group>"; };
 		2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsWashView.swift; sourceTree = "<group>"; };
 		2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsDistanceView.swift; sourceTree = "<group>"; };
@@ -320,22 +310,9 @@
 				2F52418F263B378E0016D87D /* Profile */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
-				2FD53F8425D48EAD00D5594B /* Symptoms */,
 				2F77959E25E5795500E30128 /* Onboarding */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		2FD53F8425D48EAD00D5594B /* Symptoms */ = {
-			isa = PBXGroup;
-			children = (
-				2FD2952625BF539E005E6000 /* SymptomPageView.swift */,
-				2FD2951A25BF3AC0005E6000 /* SymptomCheckIntroView.swift */,
-				2FD2952925BF5877005E6000 /* SymptomFeverView.swift */,
-				2FD2951F25BF41C8005E6000 /* SymptomCoughView.swift */,
-				2FD2952E25BF59D0005E6000 /* SymptomSmellView.swift */,
-			);
-			path = Symptoms;
 			sourceTree = "<group>";
 		};
 		2FD53F8925D48F7300D5594B /* Health Tips */ = {
@@ -493,19 +470,16 @@
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
 				2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */,
 				2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */,
-				2FD2952025BF41C8005E6000 /* SymptomCoughView.swift in Sources */,
 				2F5DAFA725F3D29E00BF87AC /* OnboardingView.swift in Sources */,
 				2F41EC8B2641C69C00643C8A /* AppointmentView.swift in Sources */,
 				2F2C84AC25FA9DB90002F2C3 /* AddVaccinationDataView.swift in Sources */,
 				2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
-				2FD2951B25BF3AC0005E6000 /* SymptomCheckIntroView.swift in Sources */,
 				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
 				2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */,
 				2F4404CC25B87C0C00C82A99 /* MapView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
-				2FD2952725BF539E005E6000 /* SymptomPageView.swift in Sources */,
 				2F4E5E7525ED744A000B965D /* HealthTipsMaskView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
@@ -519,8 +493,6 @@
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
 				2F2C84A925FA9C290002F2C3 /* VaccCertView.swift in Sources */,
 				2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */,
-				2FD2952F25BF59D0005E6000 /* SymptomSmellView.swift in Sources */,
-				2FD2952A25BF5877005E6000 /* SymptomFeverView.swift in Sources */,
 				2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */,
 				2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */,
 				2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */,

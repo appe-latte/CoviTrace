@@ -32,7 +32,9 @@ struct ContentView: View {
                                                     NavigationLink(
                                                         destination: InformationView()){
                                                         HStack{
-                                                            Image(systemName: "ellipsis")
+                                                            Image("settings")
+                                                                .resizable()
+                                                                .frame(width: 20, height: 20)
                                                         }
                                                         .foregroundColor(.white)
                                                         .font(.largeTitle)
@@ -45,85 +47,103 @@ struct ContentView: View {
                             Section {
                                 ProfileHeaderView()
                             }.foregroundColor(.white)
-                            
+   
                             // MARK: Main Menu
                             Section {
-                                
+
                                 // MARK: Test Results
                                 NavigationLink(
                                     destination: TestResultView()){
                                     Image(systemName: "folder")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .font(.title)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 5)
                                     Text("Test Results")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 10)
                                 }
-                                
+
                                 // MARK: Vaccination Information
                                 NavigationLink(
                                     destination: VaccCertView()){
-                                    Image(systemName: "doc")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Vaccination Information")
+                                    Image("barcode")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .padding(5)
+                                    Text("Vaccination Card")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 15)
                                 }
-                                
+
                                 // MARK: Check-in
                                 NavigationLink(
                                     destination: CheckInView()){
                                     Image(systemName: "scope")
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .font(.title)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 5)
                                     Text("Location Check-in")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 10)
                                 }
-                                
+
                                 // MARK: Appointment
                                 NavigationLink(
                                     destination: AppointmentView()){
                                     Image(systemName: "calendar")
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .font(.title)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 5)
                                     Text("Appointments")
                                         .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .padding(.leading, 15)
                                 }
-                                
-                                // MARK: Symptom Checker
-                                NavigationLink(
-                                    destination: SymptomPageView()){
-                                    Image(systemName: "stethoscope")
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    Text("Check Symptoms")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                }
-                                
+
                                 // MARK: Hygiene Tips
                                 NavigationLink(
                                     destination: HealthTipsPageView()){
                                     Image(systemName: "bell")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .font(.title)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 5)
                                     Text("Health Tips")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 15)
                                 }
-                                
+
                                 // MARK: UK Data
                                 NavigationLink(
                                     destination: UKCovidStatsView()){
-                                    Image(systemName: "chart.bar.fill")
-                                        .font(.title3)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    Image(systemName: "chart.bar")
+                                        .font(.title)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 5)
                                     Text("UK Covid Statistics")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 5)
                                 }
                                 
+                                // MARK: Settings
+                                NavigationLink(
+                                    destination: InformationView()){
+                                    Image("settings")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .padding(5)
+                                    Text("Settings")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 15)
+                                }
+
                             }.foregroundColor(.white)
+                            
                         }
                     }
                 }
