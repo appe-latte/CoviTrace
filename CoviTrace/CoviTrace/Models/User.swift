@@ -8,11 +8,12 @@
 import Firebase
 
 struct User: Identifiable {
-    let id: String
-    let fName: String
-    let lName: String
-    let email: String
-    let profileImageUrl: String
+    let id : String
+    let fName : String
+    let lName : String
+    let email : String
+    let profileImageUrl : String
+    let verified : String
     
     var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == self.id }
     
@@ -22,6 +23,7 @@ struct User: Identifiable {
         self.lName = dictionary["Surname"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
         self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
+        self.verified = dictionary["verified"] as? String ?? ""
     }
 }
 

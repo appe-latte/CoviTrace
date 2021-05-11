@@ -14,6 +14,7 @@ struct SignUpView: View {
     @State var firstName = ""
     @State var userEmail = ""
     @State var userPassword = ""
+    @State var verified = "not verified"
     @State private var keyboardHeight: CGFloat = 0
     @State var selectedUIImage: UIImage?
     @State var image: Image?
@@ -104,7 +105,7 @@ struct SignUpView: View {
                     // MARK: "Sign Up" Button
                     Button(action: {
                         guard let image = selectedUIImage else {return}
-                        viewModel.userRegistration(email: userEmail, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image)
+                        viewModel.userRegistration(email: userEmail, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified)
                     }, label: {
                         Text("Sign Up")
                             .font(.title3)

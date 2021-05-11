@@ -60,6 +60,9 @@ struct ContentView: View {
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                             .font(.title2)
+                                        Text(viewModel.user!.verified)
+                                            .font(.footnote)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     }
                                     .padding(10)
                                 }

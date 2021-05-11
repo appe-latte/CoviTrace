@@ -10,16 +10,16 @@ import CoreImage.CIFilterBuiltins
 import Firebase
 
 struct VaccCertView: View {
-    @State private var lastName = "Bloggingson"
-    @State private var firstName = "Joel"
-    @State private var batchNum = "L620224"
-    @State private var vaccDate = "09/02/2021"
-    @State private var vaccCentre = "xPress Labs, Reading"
-    @State private var vaccType = "Pfizer-BioNTech"
-    @State private var firstDosageDate = "09/02/2021"
-    @State private var secondDosageDate = "15/04/2021"
-    @State private var vaccStatus = "Fully Vaccinated"
-    @State private var vaccExpiry = "10/05/2022"
+    @State private var lastName = ""
+    @State private var firstName = ""
+    @State private var batchNum = ""
+    @State private var vaccDate = ""
+    @State private var vaccCentre = ""
+    @State private var vaccType = ""
+    @State private var firstDosageDate = ""
+    @State private var secondDosageDate = ""
+    @State private var vaccStatus = ""
+    @State private var vaccExpiry = ""
     @State var showSheetView = false
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -70,7 +70,7 @@ struct VaccCertView: View {
                             Text("Name: \(fullName)")
                                 .bold()
                                 .font(.body)
-                            Text("Status: \(vaccStatus)")
+                            Text("Status: \(results.vaccStatus)")
                                 .bold()
                                 .font(.body)
                             Spacer()
