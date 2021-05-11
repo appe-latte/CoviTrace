@@ -46,10 +46,17 @@ struct VaccCertView: View {
                                             AddVaccinationDataView()
                                         }
                 )
+            VStack {
+                Text("* Email vaccination details with a copy of your relevant Government ID for validation.")
+                    .foregroundColor(.white)
+                    .font(.footnote)
+                    .multilineTextAlignment(.center)
+                    .padding(5)
+            
             // MARK: Vaccine Information
             Form {
                 Section {
-                    VStack(alignment: .leading){
+                    VStack(alignment: .center){
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
                             .scaledToFit()
@@ -64,9 +71,8 @@ struct VaccCertView: View {
                         
                         let fullName = firstName + " " + lastName
                         Text("Name: \(fullName)")
-                        Text("Vaccine Make: \(vaccType)")
-                        Text("First Dosage Date: \(firstDosageDate)")
-                        Text("Vaccination Centre: \(vaccCentre)").multilineTextAlignment(.leading)
+                            .bold()
+                            .font(.body)
                         Spacer()
                         Image(uiImage: generateQRCode(from: " First Name: \(firstName)\n Last Name: \(lastName)\n Batch Number: \(batchNum)\n Vaccination Date: \(vaccDate)\n Vaccine: \(vaccType)\n First Dose: \(firstDosageDate)\n Second Dose: \(secondDosageDate)\n Location: \(vaccCentre)"))
                             .interpolation(.none)
@@ -74,12 +80,16 @@ struct VaccCertView: View {
                             .scaledToFit()
                             .frame(width: 300, height: 300)
                             .padding(10)
+                        Spacer()
+                        Text("Valid Until: \(vaccDate)")
+                            .bold()
                     }.font(.body)
                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }
             }.foregroundColor(.white)
             Spacer()
             Spacer()
+            }
         }
         .navigationBarTitle("Vaccination Card", displayMode: .inline)
     }
