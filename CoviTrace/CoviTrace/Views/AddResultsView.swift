@@ -17,6 +17,7 @@ struct AddResultsView: View {
     @State private var testResult = ""
     @State private var testLocation = ""
     @State private var userId = ""
+    @State private var testVerified = "verification pending"
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
     @State private var selectedDate = Date()
@@ -108,7 +109,7 @@ struct AddResultsView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let date = dateFormatter.string(from: selectedDate)
-        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_location": testLocation, "date": date, "test_result": testResult])
+        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_location": testLocation, "date": date, "test_result": testResult, "test_verified": testVerified])
     }
 }
 

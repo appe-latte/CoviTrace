@@ -28,19 +28,6 @@ struct ContentView: View {
                     {
                         // MARK: BACKGROUND COLOUR CODE:
                         Background()
-//                            .navigationBarItems(trailing:
-//                                                    NavigationLink(
-//                                                        destination: InformationView()){
-//                                                        HStack{
-//                                                            Image("settings")
-//                                                                .resizable()
-//                                                                .frame(width: 20, height: 20)
-//                                                        }
-//                                                        .foregroundColor(.white)
-//                                                        .font(.largeTitle)
-//
-//                                                    }
-//                            )
                         
                         Form {
                             // MARK: User:

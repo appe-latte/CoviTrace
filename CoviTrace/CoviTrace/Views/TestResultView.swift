@@ -14,6 +14,7 @@ struct TestResultView: View {
     @State private var testDate = ""
     @State private var testResult = ""
     @State private var testLocation = ""
+    @State private var testVerified = ""
     @State var showSheetView = false
     
     @ObservedObject private var viewModel = ResultsViewModel()
@@ -23,20 +24,6 @@ struct TestResultView: View {
         ZStack
         {
             VStack {
-                // MARK: BACKGROUND COLOUR CODE:
-                //            Background()
-                //                .navigationBarItems(trailing:
-                //                                        Button(action: {
-                //                                            self.showSheetView.toggle()
-                //                                        }) {
-                //                                            Image(systemName: "plus.circle.fill")
-                //                                                .foregroundColor(.white)
-                //                                                .font(.title3)
-                //                                        }.sheet(isPresented: $showSheetView) {
-                //                                            AddResultsView()
-                //                                        }
-                //                )
-                
                 VStack{
                     
                     // MARK: "Check-In" Button
@@ -84,8 +71,14 @@ struct TestResultView: View {
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .bold()
                             }
-                            Text(results.testLocation)
-                                .font(.subheadline)
+                            HStack {
+                                Text(results.testLocation)
+                                    .font(.subheadline)
+                                Spacer()
+                                Text(results.testVerified)
+                                    .font(.footnote)
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            }
                         }
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }

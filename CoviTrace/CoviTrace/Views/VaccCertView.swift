@@ -18,6 +18,8 @@ struct VaccCertView: View {
     @State private var vaccType = "Pfizer-BioNTech"
     @State private var firstDosageDate = "09/02/2021"
     @State private var secondDosageDate = "15/04/2021"
+    @State private var vaccStatus = "Fully Vaccinated"
+    @State private var vaccExpiry = "10/05/2022"
     @State var showSheetView = false
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -26,7 +28,7 @@ struct VaccCertView: View {
     let filter = CIFilter.qrCodeGenerator()
     
     init() {
-        UINavigationBar.appearance().tintColor = UIColor.init(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+        UINavigationBar.appearance().tintColor = UIColor.white
     }
     
     var body: some View {
@@ -46,24 +48,17 @@ struct VaccCertView: View {
                                             AddVaccinationDataView()
                                         }
                 )
-            VStack {
-                Text("* Email vaccination details with a copy of your relevant Government ID for validation.")
-                    .foregroundColor(.white)
-                    .font(.footnote)
-                    .multilineTextAlignment(.center)
-                    .padding(5)
             
             // MARK: Vaccine Information
             Form {
                 Section {
-                    VStack(alignment: .center){
+                    VStack(alignment: .leading){
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
                             .frame(width: 300, height: 150)
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                            .shadow(color: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255), radius: 2, x: 0.0, y: 0.0)
                             .padding(.top, 5)
                             .padding(.bottom, 5)
                         
@@ -71,6 +66,9 @@ struct VaccCertView: View {
                         
                         let fullName = firstName + " " + lastName
                         Text("Name: \(fullName)")
+                            .bold()
+                            .font(.body)
+                        Text("Vaccination Status: \(vaccStatus)")
                             .bold()
                             .font(.body)
                         Spacer()
@@ -81,15 +79,15 @@ struct VaccCertView: View {
                             .frame(width: 300, height: 300)
                             .padding(10)
                         Spacer()
-                        Text("Valid Until: \(vaccDate)")
+                        Text("Valid Until: \(vaccExpiry)")
                             .bold()
+                            .padding(.leading, 75)
                     }.font(.body)
                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }
             }.foregroundColor(.white)
             Spacer()
             Spacer()
-            }
         }
         .navigationBarTitle("Vaccination Card", displayMode: .inline)
     }

@@ -29,8 +29,9 @@ class ResultsViewModel: ObservableObject {
                 let testResult = data["test_result"] as? String ?? ""
                 let testLocation = data["test_location"]  as? String ?? ""
                 let labRefNum = data["lab_ref_num"]  as? String ?? ""
+                let testVerified = data["test_verified"] as? String ?? ""
                 
-                return TestResults(testRefNum: testRefNum, labRefNum: labRefNum, testDate: testDate, testResult: testResult, testLocation: testLocation, userId: userid)
+                return TestResults(testRefNum: testRefNum, labRefNum: labRefNum, testDate: testDate, testResult: testResult, testLocation: testLocation, userId: userid, testVerified: testVerified)
             }
         }
     }

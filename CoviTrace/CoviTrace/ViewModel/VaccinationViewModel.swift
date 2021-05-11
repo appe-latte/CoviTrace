@@ -27,11 +27,13 @@ class VaccinationViewModel: ObservableObject {
                 let batchNum = data["vacc_batch_num"] as? String ?? ""
                 let vaccDate = data["vaccination_date"] as? String ?? ""
                 let vaccCentre = data["vaccine_centre"] as? String ?? ""
-                let vaccType = data["vaccine_type"]  as? String ?? ""
-                let firstDosageDate = data["first_dosage"]  as? String ?? ""
-                let secondDosageDate = data["second_dosage"]  as? String ?? ""
+                let vaccType = data["vaccine_type"] as? String ?? ""
+                let firstDosageDate = data["first_dosage"] as? String ?? ""
+                let secondDosageDate = data["second_dosage"] as? String ?? ""
+                let vaccStatus = data["vacc_status"] as? String ?? ""
+                let vaccExpiry = data["vacc_expiry"] as? String ?? ""
                                 
-                return VaccineData(batchNum: batchNum, vaccDate: vaccDate, vaccCentre: vaccCentre, vaccType: vaccType, firstDosageDate: firstDosageDate, secondDosageDate: secondDosageDate, userId: userid)
+                return VaccineData(id: batchNum, batchNum: vaccDate, vaccDate: vaccCentre, vaccCentre: vaccType, vaccType: firstDosageDate, firstDosageDate: secondDosageDate, secondDosageDate: userid, userId: vaccStatus, vaccStatus: vaccExpiry, vaccExpiry: vaccExpiry)
             }
         }
     }

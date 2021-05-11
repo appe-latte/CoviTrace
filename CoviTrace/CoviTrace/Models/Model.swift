@@ -16,6 +16,7 @@ struct TestResults: Identifiable, Codable {
     var testResult : String
     var testLocation : String
     var userId: String?
+    var testVerified: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,6 +26,7 @@ struct TestResults: Identifiable, Codable {
         case testLocation
         case testResult
         case userId
+        case testVerified
     }
 }
 
@@ -37,6 +39,8 @@ struct VaccineData: Identifiable, Codable {
     var firstDosageDate : String
     var secondDosageDate : String
     var userId: String?
+    var vaccStatus : String
+    var vaccExpiry : String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -47,6 +51,8 @@ struct VaccineData: Identifiable, Codable {
         case firstDosageDate
         case secondDosageDate
         case userId
+        case vaccStatus
+        case vaccExpiry
     }
 }
 

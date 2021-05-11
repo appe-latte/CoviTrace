@@ -17,6 +17,7 @@ struct AddVaccinationDataView: View {
     @State private var firstDosebatchNum = ""
     @State private var secondDosageDate = Date()
     @State private var secondDosebatchNum = ""
+    @State private var vaccStatus = "verification pending"
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -114,7 +115,7 @@ struct AddVaccinationDataView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                     }
-
+                    
                 })
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -130,7 +131,8 @@ struct AddVaccinationDataView: View {
     // MARK: Upload to "Vaccinations" DB
     func upload_data(){
         let db = Firestore.firestore()
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "vacc_location": vaccCentre,"1st_dose_date": firstDosageDate, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": vaccTypeFirstDose, "2nd_dose_date":secondDosageDate, "2nd_dose_batch_num":secondDosebatchNum, "2nd_dose_vacc_type":vaccTypeSecondDose])
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "vacc_location": vaccCentre,"1st_dose_date": firstDosageDate, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": vaccTypeFirstDose, "2nd_dose_date":secondDosageDate, "2nd_dose_batch_num":secondDosebatchNum, "2nd_dose_vacc_type":vaccTypeSecondDose,
+            "vacc_status":vaccStatus])
     }
 }
 
