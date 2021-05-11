@@ -52,40 +52,47 @@ struct VaccCertView: View {
             // MARK: Vaccine Information
             Form {
                 Section {
-                    VStack(alignment: .leading){
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(Circle())
-                            .frame(width: 300, height: 150)
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .padding(.top, 5)
-                            .padding(.bottom, 5)
-                        
-                        // MARK: Vaccination "card"
-                        
-                        let fullName = firstName + " " + lastName
-                        Text("Name: \(fullName)")
-                            .bold()
-                            .font(.body)
-                        Text("Vaccination Status: \(vaccStatus)")
-                            .bold()
-                            .font(.body)
-                        Spacer()
-                        Image(uiImage: generateQRCode(from: " First Name: \(firstName)\n Last Name: \(lastName)\n Batch Number: \(batchNum)\n Vaccination Date: \(vaccDate)\n Vaccine: \(vaccType)\n First Dose: \(firstDosageDate)\n Second Dose: \(secondDosageDate)\n Location: \(vaccCentre)"))
-                            .interpolation(.none)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 300, height: 300)
-                            .padding(10)
-                        Spacer()
-                        Text("Valid Until: \(vaccExpiry)")
-                            .bold()
-                            .padding(.leading, 75)
-                    }.font(.body)
-                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    List(viewModel.results) { results in
+                        VStack(alignment: .center){
+                            Image(systemName: "person.crop.circle.fill")
+                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(Circle())
+                                .frame(width: 300, height: 150)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.top, 5)
+                                .padding(.bottom, 5)
+                            
+                            // MARK: Vaccination "card"
+                            
+                            let fullName = authModel.user!.fName + " " + authModel.user!.lName
+                            Text("Name: \(fullName)")
+                                .bold()
+                                .font(.body)
+                            Text("Status: \(vaccStatus)")
+                                .bold()
+                                .font(.body)
+                            Spacer()
+                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Location: \(results.vaccCentre)"))
+                                
+                                .interpolation(.none)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 300, height: 300)
+                                .padding(10)
+                            Spacer()
+                            Text("Valid Until: \(results.vaccExpiry)")
+                                .bold()
+//                                .padding(.leading, 75)
+                        }.font(.body)
+                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    }
                 }
             }.foregroundColor(.white)
+            .onAppear() {
+                self.viewModel.fetchData(id: authModel.userSession!.uid)
+            }
             Spacer()
             Spacer()
         }

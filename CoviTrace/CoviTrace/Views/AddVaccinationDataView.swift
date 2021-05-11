@@ -13,9 +13,9 @@ struct AddVaccinationDataView: View {
     @State private var vaccCentre = ""
     @State private var vaccTypeFirstDose = ""
     @State private var vaccTypeSecondDose = ""
-    @State private var firstDosageDate = Date()
+    @State private var firstDoseDate = Date()
     @State private var firstDosebatchNum = ""
-    @State private var secondDosageDate = Date()
+    @State private var secondDoseDate = Date()
     @State private var secondDosebatchNum = ""
     @State private var vaccStatus = "verification pending"
     @ObservedObject private var viewModel = VaccinationViewModel()
@@ -24,7 +24,7 @@ struct AddVaccinationDataView: View {
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
+        formatter.dateStyle = .short
         return formatter
     }()
     
@@ -43,7 +43,7 @@ struct AddVaccinationDataView: View {
                 .padding(.top, 15)
                 
                 // MARK: First Dose Date
-                DatePicker(selection: $firstDosageDate, in: ...Date(), displayedComponents: .date) {
+                DatePicker(selection: $firstDoseDate, in: ...Date(), displayedComponents: .date) {
                     Text("First Dose Date")
                         .padding(.leading, 15)
                         .foregroundColor(.white)
@@ -76,7 +76,7 @@ struct AddVaccinationDataView: View {
                     .cornerRadius(10)
                 
                 // MARK: Second Dose Date
-                DatePicker(selection: $secondDosageDate, in: ...Date(), displayedComponents: .date) {
+                DatePicker(selection: $secondDoseDate, in: ...Date(), displayedComponents: .date) {
                     Text("Select second dose date")
                         .padding(.leading, 15)
                 }
@@ -131,7 +131,7 @@ struct AddVaccinationDataView: View {
     // MARK: Upload to "Vaccinations" DB
     func upload_data(){
         let db = Firestore.firestore()
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "vacc_location": vaccCentre,"1st_dose_date": firstDosageDate, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": vaccTypeFirstDose, "2nd_dose_date":secondDosageDate, "2nd_dose_batch_num":secondDosebatchNum, "2nd_dose_vacc_type":vaccTypeSecondDose,
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "vacc_location": vaccCentre,"1st_dose_date": firstDoseDate, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": vaccTypeFirstDose, "2nd_dose_date":secondDoseDate, "2nd_dose_batch_num":secondDosebatchNum, "2nd_dose_vacc_type":vaccTypeSecondDose,
             "vacc_status":vaccStatus])
     }
 }

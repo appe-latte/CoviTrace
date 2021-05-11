@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
-    @State var firstName = "nameFirst"
-    @State var lastName = "nameSecond"
+    @State var firstName = ""
+    @State var lastName = ""
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {

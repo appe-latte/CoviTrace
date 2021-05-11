@@ -5,7 +5,7 @@
 //  Created by Stanford L. Khumalo on 30/04/2021.
 //
 
-import SwiftUI
+import Foundation
 import Firebase
 import FirebaseFirestore
 
@@ -24,16 +24,17 @@ class VaccinationViewModel: ObservableObject {
             self.results = documents.map { queryDocumentSnapshot -> VaccineData in
                 let data = queryDocumentSnapshot.data()
                 let userid = data["userId"] as? String ?? ""
-                let batchNum = data["vacc_batch_num"] as? String ?? ""
-                let vaccDate = data["vaccination_date"] as? String ?? ""
-                let vaccCentre = data["vaccine_centre"] as? String ?? ""
-                let vaccType = data["vaccine_type"] as? String ?? ""
-                let firstDosageDate = data["first_dosage"] as? String ?? ""
-                let secondDosageDate = data["second_dosage"] as? String ?? ""
+                let firstDosebatchNum = data["1st_dose_batch_num"] as? String ?? ""
+                let secondDosebatchNum = data["2nd_dose_batch_num"] as? String ?? ""
+                let vaccCentre = data["vacc_location"] as? String ?? ""
+                let firstDoseVaccType = data["1st_dose_vacc_type"] as? String ?? ""
+                let secondDoseVaccType = data["2nd_dose_vacc_type"] as? String ?? ""
+                let firstDoseDate = data["1st_dose_date"] as? String ?? ""
+                let secondDoseDate = data["2nd_dose_date"] as? String ?? ""
                 let vaccStatus = data["vacc_status"] as? String ?? ""
                 let vaccExpiry = data["vacc_expiry"] as? String ?? ""
-                                
-                return VaccineData(id: batchNum, batchNum: vaccDate, vaccDate: vaccCentre, vaccCentre: vaccType, vaccType: firstDosageDate, firstDosageDate: secondDosageDate, secondDosageDate: userid, userId: vaccStatus, vaccStatus: vaccExpiry, vaccExpiry: vaccExpiry)
+                                                
+                return VaccineData(id: userid, firstDosebatchNum: firstDosebatchNum, secondDosebatchNum: secondDosebatchNum, vaccCentre: vaccCentre, firstDoseVaccType: firstDoseVaccType, secondDoseVaccType: secondDoseVaccType, firstDoseDate: firstDoseDate, secondDoseDate: secondDoseDate, vaccStatus: vaccStatus, vaccExpiry: vaccExpiry)
             }
         }
     }
