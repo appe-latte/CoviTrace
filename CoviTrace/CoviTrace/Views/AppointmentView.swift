@@ -44,6 +44,15 @@ struct AppointmentView: View {
                 
                 // MARK: Appointment List
                 VStack {
+                    HStack{
+                        Text("Upcoming Appointments")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 12))
+                            .padding(5)
+                        
+                        Spacer()
+                    }
+                    Divider()
                     List(viewModel.appointments) { appointments in
                         VStack(alignment: .leading) {
                             HStack {

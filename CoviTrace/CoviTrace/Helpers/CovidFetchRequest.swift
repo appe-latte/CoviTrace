@@ -52,8 +52,10 @@ class CovidFetchRequest: ObservableObject {
     
     func getCovidDataEngland()
     {
+        self.covidDataEngland = []
+        
         let queryParams: [String: String] = [
-            "filters": "areaType=nation;areaName=england",
+            "filters": "areaType=nation;areaName=england;date=" + yesterDay(),
             "structure": "{\"date\": \"date\",\"areaName\": \"areaName\",\"areaCode\": \"areaCode\",\"newCasesByPublishDate\": \"newCasesByPublishDate\",\"cumCasesByPublishDate\": \"cumCasesByPublishDate\",\"newDeathsByDeathDate\": \"newDeathsByDeathDate\",\"cumDeathsByDeathDate\": \"cumDeathsByDeathDate\"}"
         ]
         
@@ -83,8 +85,9 @@ class CovidFetchRequest: ObservableObject {
     
     func getCovidDataScotland()
     {
+        self.covidDataScotland = []
         let queryParams: [String: String] = [
-            "filters": "areaType=nation;areaName=scotland",
+            "filters": "areaType=nation;areaName=scotland;date=" + yesterDay(),
             "structure": "{\"date\": \"date\",\"areaName\": \"areaName\",\"areaCode\": \"areaCode\",\"newCasesByPublishDate\": \"newCasesByPublishDate\",\"cumCasesByPublishDate\": \"cumCasesByPublishDate\",\"newDeathsByDeathDate\": \"newDeathsByDeathDate\",\"cumDeathsByDeathDate\": \"cumDeathsByDeathDate\"}"
         ]
         
@@ -114,8 +117,9 @@ class CovidFetchRequest: ObservableObject {
     
     func getCovidDataWales()
     {
+        self.covidDataWales = []
         let queryParams: [String: String] = [
-            "filters": "areaType=nation;areaName=Wales",
+            "filters": "areaType=nation;areaName=Wales;date=" + yesterDay(),
             "structure": "{\"date\": \"date\",\"areaName\": \"areaName\",\"areaCode\": \"areaCode\",\"newCasesByPublishDate\": \"newCasesByPublishDate\",\"cumCasesByPublishDate\": \"cumCasesByPublishDate\",\"newDeathsByDeathDate\": \"newDeathsByDeathDate\",\"cumDeathsByDeathDate\": \"cumDeathsByDeathDate\"}"
         ]
         
@@ -141,6 +145,17 @@ class CovidFetchRequest: ObservableObject {
                 }
             }
         }
+    }
+    
+    func yesterDay() -> String {
+        var dayComponent = DateComponents()
+        dayComponent.day = -1
+        let calendar = Calendar.current
+        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
+        let formatter = DateFormatter()
+        formatter.locale = .current
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: nextDay)
     }
 }
 

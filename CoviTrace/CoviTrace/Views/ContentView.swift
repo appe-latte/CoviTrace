@@ -135,19 +135,6 @@ struct ContentView: View {
                                         .padding(.leading, 15)
                                 }
                                 
-                                // MARK: UK Data
-                                NavigationLink(
-                                    destination: UKCovidStatsView()){
-                                    Image(systemName: "chart.pie.fill")
-                                        .font(.title)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("UK Covid Statistics")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 5)
-                                }
-                                
                                 // MARK: Settings
                                 NavigationLink(
                                     destination: InformationView()){
