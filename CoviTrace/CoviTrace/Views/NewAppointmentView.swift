@@ -10,8 +10,6 @@ import Firebase
 import FirebaseFirestore
 
 struct NewAppointmentView: View {
-    //    @ObservedObject var appointments : AppointmentViewModel
-    @Environment(\.managedObjectContext) var context
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
     @State private var appointDate = Date()
@@ -58,7 +56,6 @@ struct NewAppointmentView: View {
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
-                
                 
                 // MARK: "Log Results" Button
                 Button(action: {

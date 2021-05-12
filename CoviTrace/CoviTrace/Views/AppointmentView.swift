@@ -7,21 +7,14 @@
 
 import SwiftUI
 import Firebase
-import FirebaseFirestore
 
 struct AppointmentView: View {
     @State private var appointDate = ""
     @State private var appointTitle = ""
     @State private var appointLocation = ""
+    @State var showSheetView = false
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var viewModel = AppointmentViewModel()
-    @State var showSheetView = false
-    
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/YYYY"
-        return formatter
-    }
     
     var body: some View {
         ZStack
@@ -49,18 +42,8 @@ struct AppointmentView: View {
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
                 
-                // MARK: Test Result Information
-                
+                // MARK: Appointment List
                 VStack {
-                    HStack{
-                        Text("Appointments")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 12))
-                            .padding(5)
-                        
-                        Spacer()
-                    }
-                    Divider()
                     List(viewModel.appointments) { appointments in
                         VStack(alignment: .leading) {
                             HStack {
@@ -78,13 +61,13 @@ struct AppointmentView: View {
                                 .font(.subheadline)
                         }
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     .onAppear() {
                         self.viewModel.fetchData(id: authModel.userSession!.uid)
                     }
                 }
                 
-                //            }
             }.navigationBarTitle("Appointments", displayMode: .inline)
         }
     }

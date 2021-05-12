@@ -16,7 +16,6 @@ struct TestResultView: View {
     @State private var testLocation = ""
     @State private var testVerified = ""
     @State var showSheetView = false
-    
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     

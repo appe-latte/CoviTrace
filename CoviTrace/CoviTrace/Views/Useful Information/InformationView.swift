@@ -27,16 +27,6 @@ struct InformationView: View {
             Form {
                 // MARK: Information
                 Section(header: Text("App Information")){
-                    //                    Button(action: {
-                    //
-                    //                    }) {
-                    //                        HStack{
-                    //                            Image(systemName: "app.badge")
-                    //                            Text("About This App")
-                    //                            Spacer()
-                    //                            Image(systemName: "chevron.right")
-                    //                        }
-                    //                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     NavigationLink(
                         destination: AboutAppView()){
                         Image(systemName: "app.badge")
@@ -72,13 +62,6 @@ struct InformationView: View {
                 
                 // MARK: Privacy Section
                 Section(header: Text("Permissions & Privacy")){
-                    // MARK: Toggle Button - Exposure
-                    //                    Toggle(isOn: $exposureEnabled){
-                    //                        Image(systemName:"figure.stand.line.dotted.figure.stand")
-                    //                        Text("Exposure Logging")
-                    //                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    //                    .toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
-                    
                     // MARK: Privacy Policy
                     Button(action: {
                         openURL(URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
