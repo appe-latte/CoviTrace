@@ -60,6 +60,22 @@ struct VaccineData: Identifiable, Codable {
     }
 }
 
+struct AppointData: Identifiable, Codable {
+    var id: String? = UUID().uuidString
+    var appointDate : String
+    var appointTitle : String
+    var appointLocation : String
+    var userId: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case appointDate
+        case appointTitle
+        case appointLocation
+        case userId
+    }
+}
+
 struct LocationResults: Identifiable, Codable {
     var id : String? = UUID().uuidString
     var latitude : String

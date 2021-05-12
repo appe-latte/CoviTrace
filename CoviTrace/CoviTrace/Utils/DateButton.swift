@@ -12,7 +12,8 @@ struct DateButton: View {
     @ObservedObject var appointmentData : AppointmentViewModel
     
     var body: some View {
-        Button(action: {appointmentData.updateDate(value: title)}, label: {
+//        Button(action: {appointmentData.updateDate(value: title)}, label: {
+        Button(action: {}, label: { 
             
             Text(title)
                 .padding(.vertical, 10)

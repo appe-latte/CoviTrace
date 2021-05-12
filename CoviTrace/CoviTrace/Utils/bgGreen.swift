@@ -14,4 +14,3 @@ struct bgGreen: View {
             .edgesIgnoringSafeArea(.all)
     }
 }
-

@@ -44,32 +44,30 @@ struct AddVaccinationDataView: View {
                 
                 // MARK: First Dose Date
                 DatePicker(selection: $firstDoseDate, in: ...Date(), displayedComponents: .date) {
-                    Text("First Dose Date")
-                        .padding(.leading, 15)
-                        .foregroundColor(.white)
-                }
-                .foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
-                .background(Color(.white).opacity(0.1))
-                .cornerRadius(10)
-                .font(.footnote)
+                    Text("Choose Date:")
+                        .padding(.leading)
+                        .foregroundColor(Color(.white)).font(.system(size: 14))
+                }.foregroundColor(Color(.white))
+                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(.white).opacity(0.1)).font(.system(size: 14))
+                .cornerRadius(15)
                 
                 // MARK: Firdt Dose Batch Number
-                SimpleTextField(text: $firstDosebatchNum, placeholder: Text("Enter 1st dose batch no."))
+                SimpleTextField(text: $firstDosebatchNum, placeholder: Text("First Dosage Batch No."))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(10)
                 
                 // MARK: Vaccination Location
-                SimpleTextField(text: $vaccCentre, placeholder: Text("Enter test location"))
+                SimpleTextField(text: $vaccCentre, placeholder: Text("Test Location"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(10)
                 
                 // MARK: First Dose Vaccination Make
-                SimpleTextField(text: $vaccTypeFirstDose, placeholder: Text("Enter first vaccine dose make"))
+                SimpleTextField(text: $vaccTypeFirstDose, placeholder: Text("First Dosage Vaccine Make"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -77,24 +75,23 @@ struct AddVaccinationDataView: View {
                 
                 // MARK: Second Dose Date
                 DatePicker(selection: $secondDoseDate, in: ...Date(), displayedComponents: .date) {
-                    Text("Select second dose date")
-                        .padding(.leading, 15)
-                }
-                .foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
-                .background(Color(.white).opacity(0.1))
-                .cornerRadius(10)
-                .font(.footnote)
+                    Text("Choose Date:")
+                        .padding(.leading)
+                        .foregroundColor(Color(.white)).font(.system(size: 14))
+                }.foregroundColor(Color(.white))
+                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(.white).opacity(0.1)).font(.system(size: 14))
+                .cornerRadius(15)
                 
                 // MARK: Second Dose Batch Number
-                SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Enter second dose batch no."))
+                SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Second Dosage Batch No."))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(10)
                 
                 // MARK: Second Dose Vaccination Make
-                SimpleTextField(text: $vaccTypeSecondDose, placeholder: Text("Enter second vaccine dose make"))
+                SimpleTextField(text: $vaccTypeSecondDose, placeholder: Text("Second Dosage Vaccine Make"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -131,8 +128,10 @@ struct AddVaccinationDataView: View {
     // MARK: Upload to "Vaccinations" DB
     func upload_data(){
         let db = Firestore.firestore()
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "vacc_location": vaccCentre,"1st_dose_date": firstDoseDate, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": vaccTypeFirstDose, "2nd_dose_date":secondDoseDate, "2nd_dose_batch_num":secondDosebatchNum, "2nd_dose_vacc_type":vaccTypeSecondDose,
-            "vacc_status":vaccStatus])
+        let dose1 = dateFormatter.string(from: firstDoseDate)
+        let dose2 = dateFormatter.string(from: secondDoseDate)
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "vacc_location": vaccCentre,"1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": vaccTypeFirstDose, "2nd_dose_date":dose2, "2nd_dose_batch_num":secondDosebatchNum, "2nd_dose_vacc_type":vaccTypeSecondDose,
+                                                          "vacc_status":vaccStatus])
     }
 }
 

@@ -9,9 +9,6 @@ import SwiftUI
 import Kingfisher
 
 struct ContentView: View {
-    //    @EnvironmentObject var viewModel : AuthViewModel
-    //    @State private var firstName = ""
-    //    @State private var lastName = ""
     @ObservedObject private var viewModel = AuthViewModel()
     @State var showSecondView = false
     
@@ -32,14 +29,9 @@ struct ContentView: View {
                         Background()
                         
                         Form {
-                            // MARK: User:
-                            //                            Section {
-                            //                                ProfileHeaderView()
-                            //                            }.foregroundColor(.white)
                             Section {
                                 
                                 // MARK: User Profile
-                                
                                 if showSecondView {
                                     
                                     VStack(alignment:.center){
@@ -50,7 +42,7 @@ struct ContentView: View {
                                             .clipShape(Circle())
                                             .frame(width: 300, height: 100)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                            .shadow(color: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255), radius: 2, x: 0.0, y: 0.0)
+                                            .shadow(color: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255), radius: 4, x: 0.0, y: 0.0)
                                         
                                         Text("Hello,")
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

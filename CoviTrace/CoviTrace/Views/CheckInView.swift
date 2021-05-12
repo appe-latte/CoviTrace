@@ -33,7 +33,7 @@ struct CheckInView: View {
                     // MARK: "Check-In" Button
                     Button(action: {
                         if let locationCheckin = self.locationFetch.lastLocation{
-                            print("Your location is: \(locationCheckin)")
+//                            print("Your location is: \(locationCheckin)")
                             var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
                             let ceo: CLGeocoder = CLGeocoder()
                             center.latitude = locationCheckin.latitude
@@ -87,11 +87,11 @@ struct CheckInView: View {
                     .cornerRadius(12)
                     .padding()
                     
-                    Text("*Check-in data is only stored for a maximum of 14 days and is automatically deleted from our servers.")
-                        .foregroundColor(.white)
-                        .font(.footnote)
-                        .multilineTextAlignment(.center)
-                        .padding(5)
+//                    Text("*Check-in data is only stored for a maximum of 14 days and is automatically deleted from our servers.")
+//                        .foregroundColor(.white)
+//                        .font(.footnote)
+//                        .multilineTextAlignment(.center)
+//                        .padding(5)
                 }
                 .padding(5.0)
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

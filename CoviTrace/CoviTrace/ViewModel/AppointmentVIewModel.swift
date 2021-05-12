@@ -6,49 +6,29 @@
 //
 
 import SwiftUI
-import CoreData
+import FirebaseFirestore
+import Firebase
 
 class AppointmentViewModel : ObservableObject {
-    @Published var content = ""
-    @Published var date = Date()
-    @Published var newAppointment = false
-    @Published var updateItem : Appointment!
+    @Published var appointments = [AppointData]()
     
-    let calendar = Calendar.current
-    
-    //    func checkDate() -> String {
-    //        return "Date"
-    //    }
-    
-    func updateDate(value: String) {
-        if value == "Date"
-        {
-            
+    private var db = Firestore.firestore()
+        
+    func fetchData(id: String) {
+        db.collection("appointments").whereField("userId", in: [id]).addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("No records")
+                return
+            }
+            self.appointments = documents.map { queryDocumentSnapshot -> AppointData in
+                let data = queryDocumentSnapshot.data()
+                let userid = data["userId"] as? String ?? ""
+                let appointDate = data["appoint_date"] as? String ?? ""
+                let appointTitle = data["appoint_title"] as? String ?? ""
+                let appointLocation = data["appoint_location"] as? String ?? ""
+                
+                return AppointData(id: userid, appointDate: appointDate, appointTitle: appointTitle, appointLocation: appointLocation)
+            }
         }
-    }
-    
-    func writeData(context: NSManagedObjectContext) {
-        
-        let newAppt = Appointment(context: context)
-        newAppt.date = date
-        newAppt.content = content
-        
-        // MARK: Save the data
-        
-        do {
-            try context.save()
-            newAppointment.toggle()
-        }
-        catch {
-            print(error.localizedDescription)
-        }
-        
-    }
-    
-    func EditItem(item: Appointment){
-        updateItem = item
-        date = item.date!
-        content = item.content!
-        newAppointment.toggle()
     }
 }

@@ -6,64 +6,86 @@
 //
 
 import SwiftUI
-import CoreData
+import Firebase
+import FirebaseFirestore
 
 struct AppointmentView: View {
-    @StateObject var appointmentData = AppointmentViewModel()
+    @State private var appointDate = ""
+    @State private var appointTitle = ""
+    @State private var appointLocation = ""
+    @ObservedObject private var authModel = AuthViewModel()
+    @ObservedObject private var viewModel = AppointmentViewModel()
+    @State var showSheetView = false
     
-    // MARK: Fetching Appointment Data
-    @FetchRequest(entity: Appointment.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: true)], animation: .spring()) var results : FetchedResults<Appointment>
-    @Environment(\.managedObjectContext) var context
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/YYYY"
+        return formatter
+    }
     
     var body: some View {
-        ZStack {
-            Background()
-            ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
-                VStack(spacing: 0) {
-                    ScrollView(.vertical, showsIndicators: false, content: {
-                        LazyVStack(alignment: .leading, spacing: 20){
-                            ForEach(results) { task in
-                                VStack(alignment: .leading, spacing: 5, content: {
-                                    Text(task.content ?? "")
-                                        .font(.body)
-                                        .fontWeight(.bold)
-                                    
-                                    Text(task.date ?? Date(), style: .date)
-                                        .fontWeight(.semibold)
-                                        .font(.body)
-                                })
-                                .foregroundColor(.white)
-                                .contextMenu {
-                                    // MARK: Delete "appointment"
-                                    Button(action: {
-                                        context.delete(task)
-                                        try! context.save()
-                                    }, label: {
-                                        Text("Delete Appointment")
-                                    })
-                                }
-                            }
-                        }
-                    })
+        ZStack
+        {
+            VStack {
+                VStack{
+                    
+                    // MARK: "Add Appointment" Button
+                    Button(action: {
+                        self.showSheetView.toggle()
+                    }, label: {
+                        Text("Add Appointment")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .cornerRadius(12)
                     .padding()
+                    .sheet(isPresented: $showSheetView) {
+                        NewAppointmentView()
+                    }
+                }
+                .padding(5.0)
+                .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
+                
+                // MARK: Test Result Information
+                
+                VStack {
+                    HStack{
+                        Text("Appointments")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 12))
+                            .padding(5)
+                        
+                        Spacer()
+                    }
+                    Divider()
+                    List(viewModel.appointments) { appointments in
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text(appointments.appointDate)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                Spacer()
+                                Text(appointments.appointTitle)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .fontWeight(.semibold)
+                            }
+                            Text(appointments.appointLocation)
+                                .font(.subheadline)
+                        }
+                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    }
+                    .onAppear() {
+                        self.viewModel.fetchData(id: authModel.userSession!.uid)
+                    }
                 }
                 
-                Button(action: {appointmentData.newAppointment.toggle()}, label: {
-                    Image(systemName: "plus")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        .padding(20)
-                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .clipShape(Circle())
-                })
-                .padding()
-                
-            })
-            .sheet(isPresented: $appointmentData.newAppointment, content: {
-                
-                NewAppointmentView(appointmentData: appointmentData)
-            })
-        }.navigationBarTitle("Appointments", displayMode: .inline)
-        
+                //            }
+            }.navigationBarTitle("Appointments", displayMode: .inline)
+        }
     }
 }

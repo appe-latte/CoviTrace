@@ -40,7 +40,9 @@ struct InformationView: View {
                     NavigationLink(
                         destination: AboutAppView()){
                         Image(systemName: "app.badge")
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .font(.title3)
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            .padding(.trailing, 5)
                         Text("About This App")
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
@@ -49,7 +51,9 @@ struct InformationView: View {
                     NavigationLink(
                         destination: HowAppWorksView()){
                         Image(systemName: "hand.tap.fill")
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .font(.title3)
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            .padding(.trailing, 5)
                         Text("How CoviTrace Works")
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
@@ -58,6 +62,9 @@ struct InformationView: View {
                     Button(action: shareSheet) {
                         HStack{
                             Image(systemName: "square.and.arrow.up")
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
                             Text("Share This App")
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -66,18 +73,23 @@ struct InformationView: View {
                 // MARK: Privacy Section
                 Section(header: Text("Permissions & Privacy")){
                     // MARK: Toggle Button - Exposure
-//                    Toggle(isOn: $exposureEnabled){
-//                        Image(systemName:"figure.stand.line.dotted.figure.stand")
-//                        Text("Exposure Logging")
-//                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-//                    .toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
+                    //                    Toggle(isOn: $exposureEnabled){
+                    //                        Image(systemName:"figure.stand.line.dotted.figure.stand")
+                    //                        Text("Exposure Logging")
+                    //                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    //                    .toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
                     
                     // MARK: Privacy Policy
                     Button(action: {
                         openURL(URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
                     }) {
                         HStack{
-                            Image(systemName: "hand.raised.fill")
+                            Image("help")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .padding(5)
+                                .scaledToFit()
+                                .padding(.trailing, 5)
                             Text("Privacy Policy")
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -89,7 +101,11 @@ struct InformationView: View {
                         openURL(URL(string: "https://www.iubenda.com/terms-and-conditions/52172420")!)
                     }) {
                         HStack{
-                            Image(systemName: "hand.raised.fill")
+                            Image("help")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .padding(5)
+                                .scaledToFit()
                             Text("Terms & Condition's")
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -106,6 +122,9 @@ struct InformationView: View {
                     }) {
                         HStack{
                             Image(systemName: "phone.fill.arrow.up.right")
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
                             Text("NHS Emergency")
                             Spacer()
                             Text("999")
@@ -118,6 +137,9 @@ struct InformationView: View {
                     }) {
                         HStack{
                             Image(systemName: "phone.fill.arrow.up.right")
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
                             Text("NHS General Enquiries")
                             Spacer()
                             Text("111")
@@ -131,6 +153,9 @@ struct InformationView: View {
                     }) {
                         HStack{
                             Image(systemName: "link")
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
                             Text("NHS.UK")
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -143,6 +168,9 @@ struct InformationView: View {
                     }) {
                         HStack{
                             Image(systemName: "link")
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
                             Text("WHO.INT")
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -158,7 +186,11 @@ struct InformationView: View {
                     }) {
                         HStack{
                             Image(systemName: "tray.and.arrow.up")
+                                .font(.title3)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
                             Text("Sign Out")
+                                .font(.body)
                                 .fontWeight(.semibold)
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

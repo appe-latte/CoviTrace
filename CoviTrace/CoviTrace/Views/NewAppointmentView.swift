@@ -6,76 +6,92 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct NewAppointmentView: View {
-    @ObservedObject var appointmentData : AppointmentViewModel
+    //    @ObservedObject var appointments : AppointmentViewModel
     @Environment(\.managedObjectContext) var context
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var authModel = AuthViewModel()
+    @State private var appointDate = Date()
+    @State private var appointTitle = ""
+    @State private var appointLocation = ""
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/YYYY"
+        return formatter
+    }
     
     var body: some View {
-        VStack {
-            //            Background()
-            
-            HStack {
+        
+        ZStack{
+            bgGreen()
+            VStack{
                 
-                Text("Add New Appointment")
+                Text("Add Appointments")
                     .font(.body)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.white)
-                
-                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
-            }
-            .padding()
-            
-            // MARK: Appointment text entry
-            TextEditor(text: $appointmentData.content)
-                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                .padding()
-            
-            Divider()
-                .padding(.horizontal)
-            
-            HStack {
-                Text("Appointment Date:")
-                    .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .padding()
                 
-                Spacer(minLength: 0)
-            }
-            //            .padding()
-            
-            HStack {
-                Text("Select Date:")
+                // MARK: Appointment Date
+                DatePicker(selection: $appointDate, displayedComponents: .date) {
+                    Text("Select a date")
+                        .padding(.leading)
+                        .foregroundColor(Color(.white)).font(.system(size: 14))
+                }.foregroundColor(Color(.white))
+                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(.white).opacity(0.1)).font(.system(size: 14))
+                .cornerRadius(15)
+                
+                // MARK: Appointment Title
+                SimpleTextField(text: $appointTitle, placeholder: Text("Appointment Title"))
+                    .foregroundColor(Color(.white))
+                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .background(Color(.white).opacity(0.1))
+                    .cornerRadius(15)
+                
+                // MARK: Appointment Location
+                SimpleTextField(text: $appointLocation, placeholder: Text("Appointment Location"))
+                    .foregroundColor(Color(.white))
+                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .background(Color(.white).opacity(0.1))
+                    .cornerRadius(15)
+                
+                
+                // MARK: "Log Results" Button
+                Button(action: {
+                    upload_data()
+                    self.presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    HStack {
+                        Image("upload")
+                            .resizable()
+                            .frame(width: 30, height: 25)
+                            .scaledToFit()
+                        Text("Upload")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
+                    
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
+                .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                .cornerRadius(30)
+                .padding(.top, 2)
+                
                 Spacer()
-                
-                // MARK: Date Picker
-                DatePicker("", selection: $appointmentData.date, displayedComponents: .date)
-                    .labelsHidden()
             }
-            .padding()
-            
-            // MARK: "Add" button
-            
-            Button(action: {appointmentData.writeData(context: context)}, label: {
-                
-                Text("Add Appointment")
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-            })
-            .padding(.vertical)
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 325, minHeight: 0, maxHeight: 40, alignment: .center).padding(.leading,10)
-            .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-            .cornerRadius(30)
-            .padding()
-            
-            // MARK: button disabled when Text Editor empty
-            .disabled(appointmentData.content == "" ? true : false)
-            .opacity(appointmentData.content == "" ? 0.5 : 1)
-            
-        }
-        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255).ignoresSafeArea(.all, edges: .bottom))
+            .padding(.top, 15)
+        }.navigationBarHidden(false)
+    }
+    
+    // MARK: Upload to "Appointment" DB
+    func upload_data(){
+        let db = Firestore.firestore()
+        let date = dateFormatter.string(from: appointDate)
+        db.collection("appointments").document().setData(["userId": authModel.userSession!.uid, "appoint_date" : date, "appoint_title" : appointTitle, "appoint_location": appointLocation])
     }
 }
 

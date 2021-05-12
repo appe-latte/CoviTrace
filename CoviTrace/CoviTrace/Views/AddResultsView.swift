@@ -13,15 +13,13 @@ struct AddResultsView: View {
     @State private var isPresented = true
     @State private var testRefNum = ""
     @State private var labRefNum = ""
-    @State private var testDate = ""
+    @State private var testDate = Date()
     @State private var testResult = ""
     @State private var testLocation = ""
     @State private var userId = ""
     @State private var testVerified = "verification pending"
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
-    @State private var selectedDate = Date()
-    @State private var birthDate = Date()
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -61,8 +59,8 @@ struct AddResultsView: View {
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
-                // MARK: Test Date TextField
-                DatePicker(selection: $selectedDate, in: ...Date(), displayedComponents: .date) {
+                // MARK: Test Date Picker
+                DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
                     Text("Select a date")
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
@@ -108,7 +106,7 @@ struct AddResultsView: View {
     // MARK: Upload to "Results" DB
     func upload_data(){
         let db = Firestore.firestore()
-        let date = dateFormatter.string(from: selectedDate)
+        let date = dateFormatter.string(from: testDate)
         db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_location": testLocation, "date": date, "test_result": testResult, "test_verified": testVerified])
     }
 }
