@@ -48,8 +48,8 @@ struct AddVaccinationDataView: View {
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
                 }.foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                .background(Color(.white).opacity(0.1)).font(.system(size: 14))
+                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
+                .background(Color(.white).opacity(0.1)).font(.system(size: 12))
                 .cornerRadius(15)
                 
                 // MARK: Firdt Dose Batch Number
@@ -77,9 +77,9 @@ struct AddVaccinationDataView: View {
                 DatePicker(selection: $secondDoseDate, in: ...Date(), displayedComponents: .date) {
                     Text("Choose Date:")
                         .padding(.leading)
-                        .foregroundColor(Color(.white)).font(.system(size: 14))
+                        .foregroundColor(Color(.white)).font(.system(size: 12))
                 }.foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                 .background(Color(.white).opacity(0.1)).font(.system(size: 14))
                 .cornerRadius(15)
                 

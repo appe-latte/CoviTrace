@@ -35,6 +35,7 @@ struct ContentView: View {
                                 if showSecondView {
                                     
                                     VStack(alignment:.center){
+                                        let fullName = ("\(viewModel.user!.fName)" + " " + "\(viewModel.user!.lName)")
                                         Image(systemName: "person.crop.circle.fill")
                                             .data(url: URL(string: "\(viewModel.user!.profileImageUrl)")!)
                                             .resizable()
@@ -48,10 +49,10 @@ struct ContentView: View {
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                             .font(.title3)
                                             .fontWeight(.semibold)
-                                        Text("\(viewModel.user!.fName)")
+                                        Text("\(fullName)")
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            .font(.title2)
+                                            .font(.title)
                                         Text(viewModel.user!.verified)
                                             .font(.footnote)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
