@@ -139,12 +139,11 @@ struct ContentView: View {
                                 // MARK: Settings
                                 NavigationLink(
                                     destination: InformationView()){
-                                    Image("settings")
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .padding(5)
-                                        .scaledToFill()
-                                    Text("Settings")
+                                    Image(systemName: "info.circle")
+                                        .font(.title)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 5)
+                                    Text("Useful Information")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                         .padding(.leading, 15)

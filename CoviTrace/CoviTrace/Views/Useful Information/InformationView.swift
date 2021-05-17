@@ -48,6 +48,17 @@ struct InformationView: View {
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     
+                    // MARK: Results Submission
+                    NavigationLink(
+                        destination: UploadResultsView()){
+                        Image(systemName: "plus.app.fill")
+                            .font(.title3)
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            .padding(.trailing, 5)
+                        Text("How to Verify Information")
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    }
+                    
                     // MARK: Share The App
                     Button(action: shareSheet) {
                         HStack{
@@ -90,71 +101,6 @@ struct InformationView: View {
                                 .padding(5)
                                 .scaledToFit()
                             Text("Terms & Condition's")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }
-                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    
-                }.foregroundColor(.white)
-                
-                // MARK: Important Information
-                Section(header: Text("Important Information")){
-                    // MARK: 999
-                    Button(action: {
-                        callNumber(phoneNumber: emergencyNumber)
-                    }) {
-                        HStack{
-                            Image(systemName: "phone.fill.arrow.up.right")
-                                .font(.title3)
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                .padding(.trailing, 5)
-                            Text("NHS Emergency")
-                            Spacer()
-                            Text("999")
-                                .fontWeight(.semibold)
-                        }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    }
-                    // MARK: 111
-                    Button(action: {
-                        callNumber(phoneNumber: enquiryNumber)
-                    }) {
-                        HStack{
-                            Image(systemName: "phone.fill.arrow.up.right")
-                                .font(.title3)
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                .padding(.trailing, 5)
-                            Text("NHS General Enquiries")
-                            Spacer()
-                            Text("111")
-                                .fontWeight(.semibold)
-                        }
-                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    
-                    // MARK: NHS Weblink
-                    Button(action: {
-                        openURL(URL(string: "https://www.nhs.uk/conditions/coronavirus-covid-19/")!) 
-                    }) {
-                        HStack{
-                            Image(systemName: "link")
-                                .font(.title3)
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                .padding(.trailing, 5)
-                            Text("NHS.UK")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }
-                    }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    
-                    // MARK: WHO Weblink
-                    Button(action: {
-                        openURL(URL(string: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019")!)
-                    }) {
-                        HStack{
-                            Image(systemName: "link")
-                                .font(.title3)
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                .padding(.trailing, 5)
-                            Text("WHO.INT")
                             Spacer()
                             Image(systemName: "chevron.right")
                         }

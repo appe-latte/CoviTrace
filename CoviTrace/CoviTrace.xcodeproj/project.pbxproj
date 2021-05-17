@@ -61,6 +61,7 @@
 		2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53FA025D4978E00D5594B /* HealthTipsFoodView.swift */; };
 		2FD53FA425D49AB000D5594B /* HealthTipsRestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53FA325D49AB000D5594B /* HealthTipsRestView.swift */; };
 		2FD683C72652E3B5005222FB /* VaccUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD683C62652E3B5005222FB /* VaccUploadView.swift */; };
+		2FD683C92652FFD4005222FB /* UploadResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD683C82652FFD4005222FB /* UploadResultsView.swift */; };
 		2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */; };
 		8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,7 @@
 		2FD53FA025D4978E00D5594B /* HealthTipsFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsFoodView.swift; sourceTree = "<group>"; };
 		2FD53FA325D49AB000D5594B /* HealthTipsRestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsRestView.swift; sourceTree = "<group>"; };
 		2FD683C62652E3B5005222FB /* VaccUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccUploadView.swift; sourceTree = "<group>"; };
+		2FD683C82652FFD4005222FB /* UploadResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadResultsView.swift; sourceTree = "<group>"; };
 		2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationViewModel.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				2F8084AD25D7798E000A50B6 /* GlobalStatsView.swift */,
 				2F77961925E5B5D000E30128 /* HowAppWorksView.swift */,
 				2F3F7E4625E81F6500AF1FC7 /* AboutAppView.swift */,
+				2FD683C82652FFD4005222FB /* UploadResultsView.swift */,
 			);
 			path = "Useful Information";
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
 				2F4E5E7525ED744A000B965D /* HealthTipsMaskView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
+				2FD683C92652FFD4005222FB /* UploadResultsView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F3F7E4725E81F6500AF1FC7 /* AboutAppView.swift in Sources */,
 				2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */,

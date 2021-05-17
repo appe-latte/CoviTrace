@@ -97,6 +97,12 @@ struct AddResultsView: View {
                 .cornerRadius(30)
                 .padding(.top, 2)
                 
+                VStack {
+                Text("Once you've uploaded your results email a copy for verification to: ") + Text("results@covitrace.co.uk").bold()
+                }.font(.footnote)
+                .padding(10)
+                .multilineTextAlignment(.leading)
+                
                 Spacer()
             }
             .padding(.top, 15)
