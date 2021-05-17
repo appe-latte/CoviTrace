@@ -44,7 +44,6 @@ struct ContentView: View {
                                             .frame(width: 300, height: 100)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                             .shadow(color: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255), radius: 4, x: 0.0, y: 0.0)
-                                        
                                         Text("Hello,")
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                             .font(.title3)
@@ -56,6 +55,7 @@ struct ContentView: View {
                                         Text(viewModel.user!.verified)
                                             .font(.footnote)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .bold()
                                     }
                                     .padding(10)
                                 }

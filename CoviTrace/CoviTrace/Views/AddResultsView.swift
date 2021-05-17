@@ -15,9 +15,9 @@ struct AddResultsView: View {
     @State private var labRefNum = ""
     @State private var testDate = Date()
     @State private var testResult = ""
-    @State private var testLocation = ""
+    @State private var testProvider = ""
     @State private var userId = ""
-    @State private var testVerified = "verification pending"
+    @State private var testVerified = "pending"
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
     
@@ -26,7 +26,7 @@ struct AddResultsView: View {
         formatter.dateFormat = "dd/MM/YYYY"
         return formatter
     }
-  
+    
     var body: some View {
         ZStack{
             bgGreen()
@@ -53,7 +53,7 @@ struct AddResultsView: View {
                     .cornerRadius(15)
                 
                 // MARK: Test Location TextField
-                SimpleTextField(text: $testLocation, placeholder: Text("Enter Test Location"))
+                SimpleTextField(text: $testProvider, placeholder: Text("Enter Test Provider"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -61,7 +61,7 @@ struct AddResultsView: View {
                 
                 // MARK: Test Date Picker
                 DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
-                    Text("Select a date")
+                    Text("Choose Date:")
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
                 }.foregroundColor(Color(.white))
@@ -107,7 +107,7 @@ struct AddResultsView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let date = dateFormatter.string(from: testDate)
-        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_location": testLocation, "date": date, "test_result": testResult, "test_verified": testVerified])
+        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified])
     }
 }
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 struct AppointmentView: View {
     @State private var appointDate = ""

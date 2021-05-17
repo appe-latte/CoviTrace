@@ -45,7 +45,7 @@ struct VaccCertView: View {
                     Button(action: {
                         self.showSheetView.toggle()
                     }, label: {
-                        Text("Add Vaccination Information")
+                        Text("Upload Information")
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
@@ -54,7 +54,7 @@ struct VaccCertView: View {
                     .cornerRadius(12)
                     .padding()
                     .sheet(isPresented: $showSheetView) {
-                        AddVaccinationDataView()
+                        VaccUploadView()
                     }
                 }
                 .padding(5.0)
@@ -87,17 +87,17 @@ struct VaccCertView: View {
                                 .bold()
                                 .font(.body)
                             Spacer()
-                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Location: \(results.vaccCentre)"))
-                                
+                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Location: \(results.vaccCentre)\n Expiry: \(results.vaccExpiry)"))
                                 .interpolation(.none)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 300, height: 300)
-                                .padding(10)
+                                .padding(5)
                             Spacer()
                             Text("Valid Until: \(results.vaccExpiry)")
+                                .font(.footnote)
                                 .bold()
-//                                .padding(.leading, 75)
+                                .padding(.bottom, 10)
                         }.font(.body)
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }

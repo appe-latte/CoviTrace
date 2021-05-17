@@ -34,8 +34,8 @@ struct NewAppointmentView: View {
                     .foregroundColor(.white)
                 
                 // MARK: Appointment Date
-                DatePicker(selection: $appointDate, displayedComponents: .date) {
-                    Text("Select a date")
+                DatePicker(selection: $appointDate,  displayedComponents: .date) {
+                    Text("Choose Date:")
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
                 }.foregroundColor(Color(.white))

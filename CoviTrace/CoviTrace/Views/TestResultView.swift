@@ -10,7 +10,7 @@ import Firebase
 
 struct TestResultView: View {
     @State private var testRefNum = ""
-    @State private var labRefNum = ""
+    @State private var testProvider = ""
     @State private var testDate = ""
     @State private var testResult = ""
     @State private var testLocation = ""
@@ -25,7 +25,7 @@ struct TestResultView: View {
             VStack {
                 VStack{
                     
-                    // MARK: "Check-In" Button
+                    // MARK: "Upload" Button
                     Button(action: {
                         self.showSheetView.toggle()
                     }, label: {
@@ -46,7 +46,6 @@ struct TestResultView: View {
                 .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
                 
                 // MARK: Test Result Information
-                //            NavigationView {
                 VStack {
                     HStack{
                         Text("Previous Results")
@@ -61,22 +60,39 @@ struct TestResultView: View {
                         VStack(alignment: .leading) {
                             HStack {
                                 Text(results.testDate)
-                                    .font(.subheadline)
-                                Text(results.testRefNum)
-                                    .font(.subheadline)
-                                Spacer()
-                                Text(results.testResult)
-                                    .font(.subheadline)
+                                    .font(.footnote)
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .bold()
                             }
                             HStack {
-                                Text(results.testLocation)
+                                Text("Reference Number:")
+                                    .font(.footnote)
+                                Spacer()
+                                Text(results.testRefNum)
+                                    .font(.footnote)
+                            }
+                            HStack {
+                                Text("Test Provider:")
+                                    .font(.footnote)
+                                Spacer()
+                                Text(results.testProvider)
+                                    .font(.footnote)
+                            }
+                            HStack {
+                                Text("Test Result:")
+                                    .font(.footnote)
+                                Spacer()
+                                Text(results.testResult)
                                     .font(.subheadline)
+                                    .bold()
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            }
+                            HStack {
+                                Text("Verification Status:")
+                                    .font(.footnote)
                                 Spacer()
                                 Text(results.testVerified)
                                     .font(.footnote)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             }
                         }
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -86,7 +102,6 @@ struct TestResultView: View {
                     }
                 }
                 
-                //            }
             }.navigationBarTitle("Test Results", displayMode: .inline)
         }
     }

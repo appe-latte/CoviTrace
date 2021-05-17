@@ -14,7 +14,7 @@ struct TestResults: Identifiable, Codable {
     var labRefNum : String
     var testDate : String
     var testResult : String
-    var testLocation : String
+    var testProvider : String
     var userId: String?
     var testVerified: String
     var image: String?
@@ -24,7 +24,7 @@ struct TestResults: Identifiable, Codable {
         case testRefNum
         case labRefNum
         case testDate
-        case testLocation
+        case testProvider
         case testResult
         case userId
         case testVerified
