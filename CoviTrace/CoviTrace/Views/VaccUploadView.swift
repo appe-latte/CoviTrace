@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct VaccUploadView: View {
+    @Environment(\.openURL) var openURL
+    
     var body: some View {
         ZStack{
             bgGreen()
@@ -37,17 +39,36 @@ struct VaccUploadView: View {
                             Text("")
                             Text("Please allow upto 48hrs before your Vaccination QR Code is ready for use.")
                             Text("")
-                            Text("If you require your QR code urgently, we offer a Priority service where your results will be processed within 4 hrs. The fee for this service is £5.99 and should be paid through PayPal to: ") + Text("paypal.me/covitrace").bold()
+                            Text("If you require your QR code urgently, we offer a Priority service where your results will be processed within 4hrs. The fee for this service is £5.99 and can be made using the button below:")
                             Text("")
-                            Text("To use our Priority Service send an email with the subject line: ") + Text("Priority Vaccination Verification - xxx xxx (Full Name)").bold()
                         }.font(.footnote)
-                        Spacer(minLength: 1)
                         
-                        //MARK: Disclaimer
-                        VStack(alignment: .leading) {
-                            Text("* Please Note: ").bold() + Text("All Govt ID documents are deleted immediately after verification of the results and will not be stored on any of our systems.")
+                        // MARK: Paypal
+                        VStack(alignment: .center){
+                            Button(action: {
+                                openURL(URL(string: "https://paypal.me/covitrace?locale.x=en_GB")!)
+                            }) {
+                                HStack{
+                                    Text("Pay with")
+                                        .font(.footnote)
+                                    Image("paypal-logo")
+                                        .resizable()
+                                        .frame(width: 65, height: 50)
+                                        .scaledToFit()
+                                }
+                            }
+                            .foregroundColor(Color(red: 41 / 255, green: 151 / 255, blue: 216 / 255))
+                            .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 50)
+                            .background(Color(.white))
+                            .cornerRadius(30)
+                        }
+                        
+                        VStack {
                             Text("")
-                        }.font(.footnote)
+                            Text("When paying for the Priority Service please include the following reference to you payment. ") + Text("Priority Vaccination Verification - xxx xxx (Full Name)").bold()
+                            Text("")
+                        }
+                        Spacer()
                     }.foregroundColor(.white)
                     .lineLimit(nil)
                     .font(.footnote)
@@ -67,3 +88,5 @@ struct VaccUploadView_Previews: PreviewProvider {
         VaccUploadView()
     }
 }
+
+

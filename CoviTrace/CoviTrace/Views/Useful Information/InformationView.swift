@@ -155,7 +155,7 @@ struct InformationView: View {
     
     // MARK: Share app function
     func shareSheet() {
-        guard let data = URL(string: "http://www.getcovitrace.com") else { return }
+        guard let data = URL(string: "https://www.covitrace.co.uk") else { return }
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
