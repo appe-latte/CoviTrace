@@ -53,6 +53,7 @@ struct AppointmentView: View {
                         
                         Spacer()
                     }
+                    
                     Divider()
                     List(viewModel.appointments) { appointments in
                         VStack(alignment: .leading) {
@@ -70,7 +71,6 @@ struct AppointmentView: View {
                             Text(appointments.appointLocation)
                                 .font(.subheadline)
                         }
-                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     .onAppear() {

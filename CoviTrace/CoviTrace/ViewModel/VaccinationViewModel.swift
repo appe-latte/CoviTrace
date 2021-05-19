@@ -9,7 +9,6 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-
 class VaccinationViewModel: ObservableObject {
     @Published var results = [VaccineData]()
     

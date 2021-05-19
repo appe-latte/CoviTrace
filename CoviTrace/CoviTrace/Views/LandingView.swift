@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LandingView: View {
-    @ObservedObject var dataFetch = CovidFetchRequest()
     
     var body: some View {
         

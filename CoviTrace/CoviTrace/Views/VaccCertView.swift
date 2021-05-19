@@ -60,55 +60,55 @@ struct VaccCertView: View {
                 .padding(5.0)
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
-            
-            
-            // MARK: Vaccine Information
-            Form {
-                Section {
-                    List(viewModel.results) { results in
-                        VStack(alignment: .center){
-                            Image(systemName: "person.crop.circle.fill")
-                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(Circle())
-                                .frame(width: 300, height: 150)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.top, 5)
-                                .padding(.bottom, 5)
-                            
-                            // MARK: Vaccination "card"
-                            
-                            let fullName = authModel.user!.fName + " " + authModel.user!.lName
-                            Text("Name: \(fullName)")
-                                .bold()
-                                .font(.body)
-                            Text("Status: \(results.vaccStatus)")
-                                .bold()
-                                .font(.body)
-                            Spacer()
-                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Location: \(results.vaccCentre)\n Expiry: \(results.vaccExpiry)"))
-                                .interpolation(.none)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 300, height: 300)
-                                .padding(5)
-                            Spacer()
-                            Text("Valid Until: \(results.vaccExpiry)")
-                                .font(.footnote)
-                                .bold()
-                                .padding(.bottom, 10)
-                        }.font(.body)
-                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                
+                
+                // MARK: Vaccine Information
+                Form {
+                    Section {
+                        List(viewModel.results) { results in
+                            VStack(alignment: .center){
+                                Image(systemName: "person.crop.circle.fill")
+                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(Circle())
+                                    .frame(width: 300, height: 150)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.top, 5)
+                                    .padding(.bottom, 5)
+                                
+                                // MARK: Vaccination "card"
+                                
+                                let fullName = authModel.user!.fName + " " + authModel.user!.lName
+                                Text("Name: \(fullName)")
+                                    .bold()
+                                    .font(.title3)
+                                Text("Status: \(results.vaccStatus)")
+                                    .bold()
+                                    .font(.body)
+                                Spacer()
+                                Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Location: \(results.vaccCentre)\n Expiry: \(results.vaccExpiry)"))
+                                    .interpolation(.none)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 300, height: 300)
+                                    .padding(5)
+                                Spacer()
+                                Text("Valid Until: \(results.vaccExpiry)")
+                                    .font(.body)
+                                    .bold()
+                                    .padding(.bottom, 10)
+                            }.font(.body)
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        }
                     }
+                }.foregroundColor(.white)
+                .onAppear() {
+                    self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
-            }.foregroundColor(.white)
-            .onAppear() {
-                self.viewModel.fetchData(id: authModel.userSession!.uid)
+                Spacer()
+                Spacer()
             }
-            Spacer()
-            Spacer()
-        }
         }
         .navigationBarTitle("Vaccination Card", displayMode: .inline)
     }

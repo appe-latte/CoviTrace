@@ -51,9 +51,10 @@ struct VaccUploadView: View {
                                 HStack{
                                     Text("Pay with")
                                         .font(.footnote)
+                                        .fontWeight(.semibold)
                                     Image("paypal-logo")
                                         .resizable()
-                                        .frame(width: 65, height: 50)
+                                        .frame(width: 65, height: 45)
                                         .scaledToFit()
                                 }
                             }

@@ -27,46 +27,43 @@ struct InformationView: View {
             Form {
                 // MARK: Information
                 Section(header: Text("App Information")){
-                    NavigationLink(
-                        destination: AboutAppView()){
-                        Image(systemName: "app.badge")
-                            .font(.title3)
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .padding(.trailing, 5)
-                        Text("About This App")
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    }
-                    
                     // MARK: How It Works
                     NavigationLink(
-                        destination: HowAppWorksView()){
+                        destination: HowPageView()){
                         Image(systemName: "hand.tap.fill")
-                            .font(.title3)
+                            .font(.title)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .padding(.trailing, 5)
                         Text("How CoviTrace Works")
+                            .fontWeight(.semibold)
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .padding(.leading, 15)
                     }
                     
                     // MARK: Results Submission
                     NavigationLink(
                         destination: UploadResultsView()){
                         Image(systemName: "plus.app.fill")
-                            .font(.title3)
+                            .font(.title)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .padding(.trailing, 5)
                         Text("How to Verify Information")
+                            .fontWeight(.semibold)
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .padding(.leading, 15)
                     }
                     
                     // MARK: Share The App
                     Button(action: shareSheet) {
                         HStack{
                             Image(systemName: "square.and.arrow.up")
-                                .font(.title3)
+                                .font(.title)
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 .padding(.trailing, 5)
                             Text("Share This App")
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
                         }
                     }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }.foregroundColor(.white)
@@ -85,6 +82,9 @@ struct InformationView: View {
                                 .scaledToFit()
                                 .padding(.trailing, 5)
                             Text("Privacy Policy")
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
                             Spacer()
                             Image(systemName: "chevron.right")
                         }
@@ -101,6 +101,9 @@ struct InformationView: View {
                                 .padding(5)
                                 .scaledToFit()
                             Text("Terms & Condition's")
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
                             Spacer()
                             Image(systemName: "chevron.right")
                         }

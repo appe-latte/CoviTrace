@@ -62,7 +62,8 @@ struct UploadResultsView: View {
                 }.padding(5)
                 .frame(minHeight: 0, maxHeight: 800 )
             }
-        }
+        }.navigationBarTitle("How to Verify Information").navigationBarHidden(false)
+        .navigationBarTitleDisplayMode(.inline)
     }
 
 }

@@ -13,7 +13,7 @@ class AppointmentViewModel : ObservableObject {
     @Published var appointments = [AppointData]()
     
     private var db = Firestore.firestore()
-        
+    
     func fetchData(id: String) {
         db.collection("appointments").whereField("userId", in: [id]).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
@@ -27,7 +27,7 @@ class AppointmentViewModel : ObservableObject {
                 let appointTitle = data["appoint_title"] as? String ?? ""
                 let appointLocation = data["appoint_location"] as? String ?? ""
                 
-                return AppointData(id: userid, appointDate: appointDate, appointTitle: appointTitle, appointLocation: appointLocation)
+                return AppointData(appointDate: appointDate, appointTitle: appointTitle, appointLocation: appointLocation, userId: userid)
             }
         }
     }

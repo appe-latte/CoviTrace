@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import Combine
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User? // tracks if user is logged in

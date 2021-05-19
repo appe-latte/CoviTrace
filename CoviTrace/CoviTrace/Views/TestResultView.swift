@@ -60,27 +60,27 @@ struct TestResultView: View {
                         VStack(alignment: .leading) {
                             HStack {
                                 Text(results.testDate)
-                                    .font(.footnote)
+                                    .font(.subheadline)
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .bold()
                             }
                             HStack {
                                 Text("Reference Number:")
-                                    .font(.footnote)
+                                    .font(.subheadline)
                                 Spacer()
                                 Text(results.testRefNum)
-                                    .font(.footnote)
+                                    .font(.subheadline)
                             }
                             HStack {
                                 Text("Test Provider:")
-                                    .font(.footnote)
+                                    .font(.subheadline)
                                 Spacer()
                                 Text(results.testProvider)
-                                    .font(.footnote)
+                                    .font(.subheadline)
                             }
                             HStack {
                                 Text("Test Result:")
-                                    .font(.footnote)
+                                    .font(.subheadline)
                                 Spacer()
                                 Text(results.testResult)
                                     .font(.subheadline)
@@ -89,10 +89,10 @@ struct TestResultView: View {
                             }
                             HStack {
                                 Text("Verification Status:")
-                                    .font(.footnote)
+                                    .font(.subheadline)
                                 Spacer()
                                 Text(results.testVerified)
-                                    .font(.footnote)
+                                    .font(.subheadline)
                             }
                         }
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -101,7 +101,6 @@ struct TestResultView: View {
                         self.viewModel.fetchData(id: authModel.userSession!.uid)
                     }
                 }
-                
             }.navigationBarTitle("Test Results", displayMode: .inline)
         }
     }
