@@ -52,6 +52,7 @@
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
 		2FA3552426418773005A1806 /* HealthTipsCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552326418773005A1806 /* HealthTipsCleanView.swift */; };
 		2FA355262641881D005A1806 /* HealthTipsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA355252641881D005A1806 /* HealthTipsTestView.swift */; };
+		2FB43480265AF4FD00ECF9C5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4347F265AF4FD00ECF9C5 /* MainView.swift */; };
 		2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */; };
 		2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */; };
 		2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */; };
@@ -115,6 +116,7 @@
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		2FA3552326418773005A1806 /* HealthTipsCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsCleanView.swift; sourceTree = "<group>"; };
 		2FA355252641881D005A1806 /* HealthTipsTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsTestView.swift; sourceTree = "<group>"; };
+		2FB4347F265AF4FD00ECF9C5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsPageView.swift; sourceTree = "<group>"; };
 		2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsWashView.swift; sourceTree = "<group>"; };
 		2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsDistanceView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
 				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
 				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
+				2FB4347F265AF4FD00ECF9C5 /* MainView.swift */,
 				2F52418F263B378E0016D87D /* Profile */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
@@ -447,6 +450,7 @@
 				2F2C84AC25FA9DB90002F2C3 /* AddVaccinationDataView.swift in Sources */,
 				2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
+				2FB43480265AF4FD00ECF9C5 /* MainView.swift in Sources */,
 				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
 				2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
