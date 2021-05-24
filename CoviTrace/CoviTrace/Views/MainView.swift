@@ -6,31 +6,44 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct MainView: View {
-    @EnvironmentObject var viewModel : AuthViewModel
     @State private var selectedItem = 0
+    @State var showSheetView = false
+    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var authModel = AuthViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     init() {
         UITabBar.appearance().barTintColor = UIColor.white
-        UITabBar.appearance().tintColor = .black
+        UITabBar.appearance().tintColor = .white
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
     }
     
     var body: some View {
         TabView(selection: $selectedItem) {
-            
             // MARK: Home View Tab
-            ContentView()
+                CheckInView()
                 .tabItem {
                     if selectedItem == 0 {
                         VStack{
-                            Image(systemName: "house")
+                            Image("barcode")
+                                .frame(width: 30, height: 30)
+                                .aspectRatio(contentMode: .fill)
+//                                .resizable()
+                                .scaledToFit()
+                                .padding(5)
                             Text("Home")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "house.fill")
+                            Image("barcode")
+                                .frame(width: 30, height: 30)
+                                .aspectRatio(contentMode: .fill)
+//                                .resizable()
+                                .scaledToFit()
+                                .padding(5)
                             Text("Home")
                         }
                     }
@@ -42,11 +55,13 @@ struct MainView: View {
                     if selectedItem == 1 {
                         VStack{
                             Image(systemName: "folder")
+                                .padding(5)
                             Text("Test Results")
                         }
                     } else {
                         VStack{
                             Image(systemName: "folder.fill")
+                                .padding(5)
                             Text("Test Results")
                         }
                     }
@@ -58,11 +73,13 @@ struct MainView: View {
                     if selectedItem == 2 {
                         VStack{
                             Image(systemName: "calendar")
+                                .padding(5)
                             Text("Appointments")
                         }
                     } else {
                         VStack{
                             Image(systemName: "calendar")
+                                .padding(5)
                             Text("Appointments")
                         }
                     }
@@ -74,11 +91,13 @@ struct MainView: View {
                     if selectedItem == 3 {
                         VStack{
                             Image(systemName: "scope")
+                                .padding(5)
                             Text("Check-In")
                         }
                     } else {
                         VStack{
                             Image(systemName: "scope")
+                                .padding(5)
                             Text("Check-In")
                         }
                     }
@@ -90,16 +109,17 @@ struct MainView: View {
                     if selectedItem == 4 {
                         VStack{
                             Image(systemName: "line.horizontal.3")
+                                .padding(5)
                             Text("Settings")
                         }
                     } else {
                         VStack{
                             Image(systemName: "line.horizontal.3")
+                                .padding(5)
                             Text("Settings")
                         }
                     }
                 }.tag(4)
-            
         }
     }
 }

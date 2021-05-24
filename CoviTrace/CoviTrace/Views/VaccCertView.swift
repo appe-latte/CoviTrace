@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import CoreImage.CIFilterBuiltins
 import Firebase
+import CoreImage.CIFilterBuiltins
 
 struct VaccCertView: View {
     @State private var lastName = ""

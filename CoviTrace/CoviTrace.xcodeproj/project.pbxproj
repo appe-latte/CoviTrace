@@ -50,9 +50,10 @@
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
 		2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848825D75775000A50B6 /* SimpleTextField.swift */; };
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
+		2F9908CD265BCB68006D977D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CC265BCB68006D977D /* MainView.swift */; };
+		2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CE265BD1DB006D977D /* PasswordResetView.swift */; };
 		2FA3552426418773005A1806 /* HealthTipsCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3552326418773005A1806 /* HealthTipsCleanView.swift */; };
 		2FA355262641881D005A1806 /* HealthTipsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA355252641881D005A1806 /* HealthTipsTestView.swift */; };
-		2FB43480265AF4FD00ECF9C5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4347F265AF4FD00ECF9C5 /* MainView.swift */; };
 		2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */; };
 		2FD53F8F25D4905500D5594B /* HealthTipsWashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */; };
 		2FD53F9225D493A800D5594B /* HealthTipsDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */; };
@@ -114,9 +115,10 @@
 		2F80848825D75775000A50B6 /* SimpleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
 		2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoviTrace.entitlements; sourceTree = "<group>"; };
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
+		2F9908CC265BCB68006D977D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2F9908CE265BD1DB006D977D /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
 		2FA3552326418773005A1806 /* HealthTipsCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsCleanView.swift; sourceTree = "<group>"; };
 		2FA355252641881D005A1806 /* HealthTipsTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsTestView.swift; sourceTree = "<group>"; };
-		2FB4347F265AF4FD00ECF9C5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FD53F8A25D48F9600D5594B /* HealthTipsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsPageView.swift; sourceTree = "<group>"; };
 		2FD53F8E25D4905500D5594B /* HealthTipsWashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsWashView.swift; sourceTree = "<group>"; };
 		2FD53F9125D493A800D5594B /* HealthTipsDistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsDistanceView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				2F6150F925D1A4FA003AAB52 /* LandingView.swift */,
 				2F6150F625D1A4D5003AAB52 /* SignUpView.swift */,
 				2F3307EA25D1AAC1009CD715 /* LoginView.swift */,
+				2F9908CE265BD1DB006D977D /* PasswordResetView.swift */,
 				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
 				2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */,
 				2F2C84AB25FA9DB90002F2C3 /* AddVaccinationDataView.swift */,
@@ -281,7 +284,7 @@
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
 				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
 				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
-				2FB4347F265AF4FD00ECF9C5 /* MainView.swift */,
+				2F9908CC265BCB68006D977D /* MainView.swift */,
 				2F52418F263B378E0016D87D /* Profile */,
 				2F80847C25D6E0D4000A50B6 /* Useful Information */,
 				2FD53F8925D48F7300D5594B /* Health Tips */,
@@ -450,7 +453,7 @@
 				2F2C84AC25FA9DB90002F2C3 /* AddVaccinationDataView.swift in Sources */,
 				2FD53F8B25D48F9600D5594B /* HealthTipsPageView.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
-				2FB43480265AF4FD00ECF9C5 /* MainView.swift in Sources */,
+				2F9908CD265BCB68006D977D /* MainView.swift in Sources */,
 				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
 				2FD53F9525D4952E00D5594B /* HealthTipsCoverView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
@@ -491,6 +494,7 @@
 				2F41EC912642042700643C8A /* bgGreen.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
 				2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */,
+				2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */,
 				2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */,
 				2F41EC8D2641C8D000643C8A /* AppointmentViewModel.swift in Sources */,
 			);
@@ -632,7 +636,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -657,7 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

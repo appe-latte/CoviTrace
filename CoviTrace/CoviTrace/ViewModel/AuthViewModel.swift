@@ -71,6 +71,7 @@ class AuthViewModel: ObservableObject {
                         //                        print("DEBUG: Successfully uploaded user data!")
                         // MARK: Moves to Content View after registration
                         self.userSession = result?.user
+                        
                     }
                 }
             }

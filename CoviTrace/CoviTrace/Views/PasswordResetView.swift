@@ -1,18 +1,17 @@
 //
-//  LoginView.swift
+//  PasswordResetView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 08/02/2021.
+//  Created by Stanford L. Khumalo on 24/05/2021.
 //
 
 import SwiftUI
+import Firebase
 import os
 import Combine
 
-struct LoginView: View {
+struct PasswordResetView: View {
     @State var userEmail = ""
-    @State var userPassword = ""
-    @State private var isLoggedIn : Bool = false
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
@@ -43,30 +42,12 @@ struct LoginView: View {
                         .cornerRadius(15)
                         .keyboardType(.emailAddress).autocapitalization(.none)
                     
-                    // MARK: User Password Text
-                    CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
-                        .padding(5)
-                        .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
-                        .background(Color(.white).opacity(0.1))
-                        .cornerRadius(15)
                     
-                    // MARK: "Password Recovery"
-                    NavigationLink(
-                        destination: PasswordResetView()){
-                        Text("Forgot Password?")
-                            .font(.footnote)
-//                            .bold()
-                            .foregroundColor(Color(.white))
-                            .padding(2)
-                            .padding(.leading, 175)
-                    }
-                    
-                    // MARK: "Login" Button
+                    // MARK: "Reset" Button
                     Button(action: {
-                        viewModel.userLogin(withEmail: userEmail, password: userPassword)
+                        
                     }, label: {
-                        Text("Login")
+                        Text("Reset Password")
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
@@ -75,15 +56,6 @@ struct LoginView: View {
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(15)
                     
-                    // MARK: "No Account"
-                    NavigationLink(
-                        destination: SignUpView()){
-                        Text("Don't have an account?")
-                            .font(.footnote)
-                            .bold()
-                            .foregroundColor(Color(.white))
-                            .padding(.top, 2)
-                    }
                 }.font(.subheadline)
                 .padding(10)
             }
@@ -92,8 +64,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct PasswordResetView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        PasswordResetView()
     }
 }

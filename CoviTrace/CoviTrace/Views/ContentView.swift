@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-import Kingfisher
 import Combine
+import Kingfisher
+import CoreImage.CIFilterBuiltins
 
 struct ContentView: View {
-    @ObservedObject private var viewModel = AuthViewModel()
+    @EnvironmentObject var viewModel : AuthViewModel
     @State var showSecondView = false
     
     init() {
