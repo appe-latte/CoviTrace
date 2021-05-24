@@ -68,91 +68,106 @@ struct ContentView: View {
                                     }
                                 }
                             }
-                            
-                            // MARK: Main Menu
-                            Section {
-                                
+                        }
+                        Spacer(minLength: 10)
+                        
+                        // MARK: Selection Buttons
+                        VStack(alignment: .center) {
+                            Spacer(minLength: 5)
+                            HStack {
                                 // MARK: Test Results
                                 NavigationLink(
                                     destination: TestResultView()){
-                                    Image(systemName: "folder")
-                                        .font(.title)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("Test Results")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 10)
-                                }
+                                    VStack {
+                                        Image(systemName: "folder")
+                                            .font(.largeTitle)
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        Text("Test Results")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .padding(.top, 5)
+                                    }
+                                }.frame(width: 150, height: 150)
+                                .padding(5)
+                                .background(Color(.white))
+                                .cornerRadius(15)
                                 
-                                // MARK: Vaccination Information
+                                // MARK: Vaccination Card
                                 NavigationLink(
                                     destination: VaccCertView()){
-                                    Image("barcode")
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .padding(5)
-                                        .scaledToFit()
-                                    Text("Vaccination Card")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 15)
-                                }
-                                
+                                    VStack {
+                                        Image("barcode")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 35, height: 35)
+                                        Text("Vaccination")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .padding(.top, 5)
+                                    }
+                                }.frame(width: 150, height: 150)
+                                .padding(5)
+                                .background(Color(.white))
+                                .cornerRadius(15)
+                            }
+                            
+                            HStack(alignment: .center) {
                                 // MARK: Check-in
                                 NavigationLink(
                                     destination: CheckInView()){
-                                    Image(systemName: "scope")
-                                        .font(.title)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("Location Check-in")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 10)
-                                }
+                                    VStack {
+                                        Image(systemName: "scope")
+                                            .font(.largeTitle)
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        Text("Check-In")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .padding(.top, 5)
+                                    }
+                                }.frame(width: 150, height: 150)
+                                .padding(5)
+                                .background(Color(.white))
+                                .cornerRadius(15)
                                 
                                 // MARK: Appointment
                                 NavigationLink(
                                     destination: AppointmentView()){
-                                    Image(systemName: "calendar")
-                                        .font(.title)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("Appointments")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 15)
-                                }
-                                
-                                // MARK: Hygiene Tips
-                                NavigationLink(
-                                    destination: HealthTipsPageView()){
-                                    Image(systemName: "bell")
-                                        .font(.title)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("Health Tips")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 15)
-                                }
-                                
+                                    VStack {
+                                        Image(systemName: "calendar")
+                                            .font(.largeTitle)
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        Text("Appointments")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .padding(.top, 5)
+                                    }
+                                }.frame(width: 150, height: 150)
+                                .padding(5)
+                                .background(Color(.white))
+                                .cornerRadius(15)
+                            }
+                            
+                            HStack {
                                 // MARK: Settings
                                 NavigationLink(
                                     destination: InformationView()){
-                                    Image(systemName: "info.circle")
-                                        .font(.title)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("Useful Information")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 15)
-                                }
-                                
-                            }.foregroundColor(.white)
-                        }
+                                    HStack {
+                                        Image(systemName: "line.horizontal.3")
+                                            .font(.largeTitle)
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        Text("Settings")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .padding(.leading, 15)
+                                    }
+                                }.frame(width: 315, height: 30)
+                                .padding(5)
+                                .background(Color(.white))
+                                .cornerRadius(10)
+                            }
+                        }.padding()
+                        Spacer()
+                        
                     }
                     .navigationBarHidden(true)
                     .navigationBarTitleDisplayMode(.inline)
@@ -160,7 +175,7 @@ struct ContentView: View {
             } else {
                 LandingView()
             }
-        }.accentColor(.white)
+        }
     }
 }
 

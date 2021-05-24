@@ -24,16 +24,18 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $selectedItem) {
             // MARK: Home View Tab
-                CheckInView()
+                ContentView()
                 .tabItem {
                     if selectedItem == 0 {
                         VStack{
                             Image("barcode")
-                                .frame(width: 30, height: 30)
+                                .resizable()
                                 .aspectRatio(contentMode: .fill)
-//                                .resizable()
-                                .scaledToFit()
-                                .padding(5)
+                                .scaledToFill()
+                                .frame(width: 30, height: 30)
+
+//                                .scaledToFit()
+//                                .padding(5)
                             Text("Home")
                         }
                     } else {
