@@ -36,7 +36,6 @@ struct VaccineData: Identifiable, Codable {
     var id : String? = UUID().uuidString
     var firstDosebatchNum : String
     var secondDosebatchNum : String
-    var vaccCentre : String
     var firstDoseVaccType : String
     var secondDoseVaccType : String
     var firstDoseDate : String
@@ -44,12 +43,13 @@ struct VaccineData: Identifiable, Codable {
     var userId: String?
     var vaccStatus : String
     var vaccExpiry : String
+    var firstDosageLocation : String
+    var secondDosageLocation : String
     
     enum CodingKeys: String, CodingKey {
         case id
         case firstDosebatchNum
         case secondDosebatchNum
-        case vaccCentre
         case firstDoseVaccType
         case secondDoseVaccType
         case firstDoseDate
@@ -57,6 +57,8 @@ struct VaccineData: Identifiable, Codable {
         case userId
         case vaccStatus
         case vaccExpiry
+        case firstDosageLocation
+        case secondDosageLocation
     }
 }
 

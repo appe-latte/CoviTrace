@@ -25,15 +25,16 @@ class VaccinationViewModel: ObservableObject {
                 let userid = data["userId"] as? String ?? ""
                 let firstDosebatchNum = data["1st_dose_batch_num"] as? String ?? ""
                 let secondDosebatchNum = data["2nd_dose_batch_num"] as? String ?? ""
-                let vaccCentre = data["vacc_location"] as? String ?? ""
                 let firstDoseVaccType = data["1st_dose_vacc_type"] as? String ?? ""
                 let secondDoseVaccType = data["2nd_dose_vacc_type"] as? String ?? ""
                 let firstDoseDate = data["1st_dose_date"] as? String ?? ""
                 let secondDoseDate = data["2nd_dose_date"] as? String ?? ""
                 let vaccStatus = data["vacc_status"] as? String ?? ""
                 let vaccExpiry = data["vacc_expiry"] as? String ?? ""
+                let firstDosageLocation = data["1st_issued_by"] as? String ?? ""
+                let secondDosageLocation = data["2nd_issued_by"] as? String ?? ""
                                                 
-                return VaccineData(id: userid, firstDosebatchNum: firstDosebatchNum, secondDosebatchNum: secondDosebatchNum, vaccCentre: vaccCentre, firstDoseVaccType: firstDoseVaccType, secondDoseVaccType: secondDoseVaccType, firstDoseDate: firstDoseDate, secondDoseDate: secondDoseDate, vaccStatus: vaccStatus, vaccExpiry: vaccExpiry)
+                return VaccineData(id: userid, firstDosebatchNum: firstDosebatchNum, secondDosebatchNum: secondDosebatchNum, firstDoseVaccType: firstDoseVaccType, secondDoseVaccType: secondDoseVaccType, firstDoseDate: firstDoseDate, secondDoseDate: secondDoseDate, vaccStatus: vaccStatus, vaccExpiry: vaccExpiry, firstDosageLocation: firstDosageLocation, secondDosageLocation: secondDosageLocation)
             }
         }
     }

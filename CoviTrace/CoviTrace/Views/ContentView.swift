@@ -12,6 +12,7 @@ import CoreImage.CIFilterBuiltins
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
+    @State private var vaccStatus = ""
     @State var showSecondView = false
     
     init() {
@@ -30,46 +31,68 @@ struct ContentView: View {
                         // MARK: BACKGROUND COLOUR CODE:
                         Background()
                         
-                        Form {
-                            Section {
-                                
-                                // MARK: User Profile
-                                if showSecondView {
-                                    
-                                    VStack(alignment:.center){
-                                        let fullName = ("\(viewModel.user!.fName)" + " " + "\(viewModel.user!.lName)")
-                                        Image(systemName: "person.crop.circle.fill")
-                                            .data(url: URL(string: "\(viewModel.user!.profileImageUrl)")!)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .clipShape(Circle())
-                                            .frame(width: 300, height: 100)
-                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                            .shadow(color: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255), radius: 4, x: 0.0, y: 0.0)
-                                        Text("Hello,")
-                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            .font(.title3)
-                                            .fontWeight(.semibold)
+                        // MARK: Profile Summary
+                        VStack(alignment: .center){
+                            
+                            if showSecondView {
+                                VStack(alignment:.center){
+                                    let fullName = ("\(viewModel.user!.fName)" + " " + "\(viewModel.user!.lName)")
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .data(url: URL(string: "\(viewModel.user!.profileImageUrl)")!)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .clipShape(Circle())
+                                        .frame(width: 300, height: 200)
+                                        .foregroundColor(Color(.white))
+                                        .padding()
+                                    VStack(alignment: .leading) {
                                         Text("\(fullName)")
+                                            .font(.title)
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            .font(.title)
-                                        Text(viewModel.user!.verified)
-                                            .font(.footnote)
-                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                            .bold()
+                                        
+                                        // MARK: DOB
+                                        HStack {
+                                            Text("DOB: ")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            Text(viewModel.user!.dob)
+                                                .fontWeight(.semibold)
+                                                .font(.body)
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                        
+                                        // MARK: Verification Status
+                                        HStack{
+                                            Text("Status: ")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            Text(viewModel.user!.verified)
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                        Spacer()
                                     }
-                                    .padding(10)
                                 }
-                            }.onAppear() {
-                                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
-                                    withAnimation {
-                                        self.showSecondView = true
-                                    }
+                                .frame(width: 325, height: 325)
+                                .background(Color(.white))
+                                .cornerRadius(15)
+                                .padding(5)
+                            }
+                            Spacer(minLength: 5)
+                        }.onAppear() {
+                            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+                                withAnimation {
+                                    self.showSecondView = true
                                 }
                             }
+                            
                         }
-                        Spacer(minLength: 10)
+                        
+                        Spacer(minLength: 20)
                         
                         // MARK: Selection Buttons
                         VStack(alignment: .center) {
@@ -100,10 +123,15 @@ struct ContentView: View {
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 35, height: 35)
-                                        Text("Vaccination")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                            .padding(.top, 5)
+                                        VStack{
+                                            Text("Vaccination")
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                .padding(.top, 5)
+                                            Text("Card")
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
                                     }
                                 }.frame(width: 150, height: 150)
                                 .padding(5)

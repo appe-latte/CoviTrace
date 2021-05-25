@@ -63,11 +63,7 @@ struct NewAppointmentView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     HStack {
-                        Image("upload")
-                            .resizable()
-                            .frame(width: 30, height: 25)
-                            .scaledToFit()
-                        Text("Upload")
+                        Text("SUBMIT")
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
@@ -75,7 +71,7 @@ struct NewAppointmentView: View {
                     
                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                .cornerRadius(30)
+                .cornerRadius(15)
                 .padding(.top, 2)
                 
                 Spacer()

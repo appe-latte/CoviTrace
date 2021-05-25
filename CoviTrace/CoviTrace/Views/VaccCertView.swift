@@ -14,10 +14,11 @@ struct VaccCertView: View {
     @State private var firstName = ""
     @State private var batchNum = ""
     @State private var vaccDate = ""
-    @State private var vaccCentre = ""
     @State private var vaccType = ""
     @State private var firstDosageDate = ""
+    @State private var firstDosageLocation = ""
     @State private var secondDosageDate = ""
+    @State private var secondDosageLocation = ""
     @State private var vaccStatus = ""
     @State private var vaccExpiry = ""
     @State var showSheetView = false
@@ -77,17 +78,32 @@ struct VaccCertView: View {
                                     .padding(.top, 5)
                                     .padding(.bottom, 5)
                                 
-                                // MARK: Vaccination "card"
-                                
                                 let fullName = authModel.user!.fName + " " + authModel.user!.lName
-                                Text("Name: \(fullName)")
-                                    .bold()
-                                    .font(.title3)
-                                Text("Status: \(results.vaccStatus)")
-                                    .bold()
-                                    .font(.body)
+                                
+                                // MARK: Vaccination "card"
+                                VStack(alignment: .leading){
+                                    HStack{
+                                        Text("Name: ")
+                                            .font(.body)
+                                            .fontWeight(.semibold)
+                                        Text(fullName)
+                                            .font(.body)
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    }
+                                    HStack{
+                                        Text("Vaccination Status: ")
+                                            .font(.body)
+                                            .fontWeight(.semibold)
+                                        Text(results.vaccStatus)
+                                            .font(.body)
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    }
+                                }
+                                
                                 Spacer()
-                                Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Location: \(results.vaccCentre)\n Expiry: \(results.vaccExpiry)"))
+                                Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Issued By: \(results.firstDosageLocation)\n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Issued By: \(results.secondDosageLocation)\n Expiry: \(results.vaccExpiry)"))
                                     .interpolation(.none)
                                     .resizable()
                                     .scaledToFit()
@@ -123,11 +139,5 @@ struct VaccCertView: View {
             }
         }
         return UIImage(systemName: "xmark.circle") ?? UIImage()
-    }
-}
-
-struct VaccinationCertView_Previews: PreviewProvider {
-    static var previews: some View {
-        VaccCertView()
     }
 }
