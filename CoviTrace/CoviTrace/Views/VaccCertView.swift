@@ -62,10 +62,68 @@ struct VaccCertView: View {
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
                 
-                
                 // MARK: Vaccine Information
-                Form {
-                    Section {
+//                Form {
+//                    Section {
+//                        List(viewModel.results) { results in
+//                            VStack(alignment: .center){
+//                                Image(systemName: "person.crop.circle.fill")
+//                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .clipShape(Circle())
+//                                    .frame(width: 300, height: 150)
+//                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+//                                    .padding(.top, 5)
+//                                    .padding(.bottom, 5)
+//
+//                                let fullName = authModel.user!.fName + " " + authModel.user!.lName
+//
+//                                // MARK: Vaccination "card"
+//                                VStack(alignment: .leading){
+//                                    HStack{
+//                                        Text("Name: ")
+//                                            .font(.body)
+//                                            .fontWeight(.semibold)
+//                                        Text(fullName)
+//                                            .font(.body)
+//                                            .fontWeight(.semibold)
+//                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+//                                    }
+//                                    HStack{
+//                                        Text("Vaccination Status: ")
+//                                            .font(.body)
+//                                            .fontWeight(.semibold)
+//                                        Text(results.vaccStatus)
+//                                            .font(.body)
+//                                            .fontWeight(.semibold)
+//                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+//                                    }
+//                                }
+//
+//                                Spacer()
+//                                Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Issued By: \(results.firstDosageLocation)\n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Issued By: \(results.secondDosageLocation)\n Expiry: \(results.vaccExpiry)"))
+//                                    .interpolation(.none)
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 300, height: 300)
+//                                    .padding(5)
+//                                Spacer()
+//                                Text("Valid Until: \(results.vaccExpiry)")
+//                                    .font(.body)
+//                                    .bold()
+//                                    .padding(.bottom, 10)
+//                            }.font(.body)
+//                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+//                        }
+//                    }
+//                }.foregroundColor(.white)
+//                .onAppear() {
+//                    self.viewModel.fetchData(id: authModel.userSession!.uid)
+//                }
+                
+                VStack {
+                    VStack {
                         List(viewModel.results) { results in
                             VStack(alignment: .center){
                                 Image(systemName: "person.crop.circle.fill")
@@ -73,7 +131,7 @@ struct VaccCertView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .clipShape(Circle())
-                                    .frame(width: 300, height: 150)
+                                    .frame(width: 275, height: 150)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     .padding(.top, 5)
                                     .padding(.bottom, 5)
@@ -107,7 +165,7 @@ struct VaccCertView: View {
                                     .interpolation(.none)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 300, height: 300)
+                                    .frame(width: 250, height: 250)
                                     .padding(5)
                                 Spacer()
                                 Text("Valid Until: \(results.vaccExpiry)")
@@ -118,8 +176,11 @@ struct VaccCertView: View {
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                     }
-                }.foregroundColor(.white)
-                .onAppear() {
+                    .frame(width: 325, height: 525)
+                    .background(Color(.white))
+                    .cornerRadius(15)
+                    .padding(5)
+                }.onAppear() {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
                 Spacer()
