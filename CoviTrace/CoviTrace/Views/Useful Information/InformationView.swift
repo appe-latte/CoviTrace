@@ -138,24 +138,7 @@ struct InformationView: View {
         }
         .navigationBarTitle("").navigationBarHidden(false)
     }
-    
-    // MARK: Function for calling feature
-    private func callNumber(phoneNumber:String) {
         
-        if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
-            
-            let application:UIApplication = UIApplication.shared
-            if (application.canOpenURL(phoneCallURL)) {
-                if #available(iOS 10.0, *) {
-                    application.open(phoneCallURL, options: [:], completionHandler: nil)
-                } else {
-                    // MARK: Fallback on earlier versions
-                    application.openURL(phoneCallURL as URL)
-                }
-            }
-        }
-    }
-    
     // MARK: Share app function
     func shareSheet() {
         guard let data = URL(string: "https://www.covitrace.co.uk") else { return }
