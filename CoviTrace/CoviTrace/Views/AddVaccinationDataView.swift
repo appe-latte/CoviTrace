@@ -30,9 +30,7 @@ struct AddVaccinationDataView: View {
     
     var body: some View {
         ZStack{
-            bgGreen()
-            
-            
+            Background()
             VStack {
                 VStack{
                     Text("Add Vaccination Data")
@@ -53,7 +51,7 @@ struct AddVaccinationDataView: View {
                 .cornerRadius(15)
                 
                 // MARK: Firdt Dose Batch Number
-                SimpleTextField(text: $firstDosebatchNum, placeholder: Text("First Dosage Batch No."))
+                SimpleTextField(text: $firstDosebatchNum, placeholder: Text("Batch Number (first)"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -67,7 +65,7 @@ struct AddVaccinationDataView: View {
                     .cornerRadius(10)
                 
                 // MARK: First Dose Vaccination Make
-                SimpleTextField(text: $vaccTypeFirstDose, placeholder: Text("First Dosage Vaccine Make"))
+                SimpleTextField(text: $vaccTypeFirstDose, placeholder: Text("Vaccine Make (first)"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -84,14 +82,14 @@ struct AddVaccinationDataView: View {
                 .cornerRadius(15)
                 
                 // MARK: Second Dose Batch Number
-                SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Second Dosage Batch No."))
+                SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Batch Number (second)"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(10)
                 
                 // MARK: Second Dose Vaccination Make
-                SimpleTextField(text: $vaccTypeSecondDose, placeholder: Text("Second Dosage Vaccine Make"))
+                SimpleTextField(text: $vaccTypeSecondDose, placeholder: Text("Vaccine Make (second)"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: 0, maxWidth: 325, minHeight: 0, maxHeight: 40).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -102,21 +100,14 @@ struct AddVaccinationDataView: View {
                     upload_data()
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    HStack {
-                        Image("upload")
-                            .resizable()
-                            .frame(width: 30, height: 25)
-                            .scaledToFit()
-                        Text("Upload")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                    }
-                    
+                    Text("Upload Information")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
                 })
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
-                .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                .cornerRadius(30)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                .cornerRadius(15)
                 .padding(.top, 2)
                 
                 Spacer()

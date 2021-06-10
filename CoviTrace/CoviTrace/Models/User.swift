@@ -15,6 +15,7 @@ struct User: Identifiable {
     let profileImageUrl : String
     let verified : String
     let dob : String
+    let patientNumber : String
     
     var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == self.id }
     
@@ -26,6 +27,7 @@ struct User: Identifiable {
         self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
         self.verified = dictionary["verified"] as? String ?? ""
         self.dob = dictionary["dob"] as? String ?? ""
+        self.patientNumber = dictionary["patientNum"] as? String ?? ""
     }
 }
 

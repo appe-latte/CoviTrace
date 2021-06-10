@@ -13,6 +13,7 @@ import CoreImage.CIFilterBuiltins
 struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     @State private var vaccStatus = ""
+    @State private var patientNumber = ""
     @State var showSecondView = false
     
     init() {
@@ -51,9 +52,21 @@ struct ContentView: View {
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         
+                                        // MARK: Patient Number
+                                        HStack{
+                                            Text("NHS Number: ")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            Text(viewModel.user!.patientNumber)
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                        
                                         // MARK: Verification Status
                                         HStack{
-                                            Text("Status: ")
+                                            Text("Profile: ")
                                                 .font(.body)
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -90,9 +103,9 @@ struct ContentView: View {
                                 NavigationLink(
                                     destination: VaccCertView()){
                                     HStack {
-                                    Image(systemName: "qrcode")
-                                        .padding(.leading, 5)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        Image(systemName: "qrcode")
+                                            .padding(.leading, 5)
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         Text("QR Code")
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -115,6 +128,20 @@ struct ContentView: View {
                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                 .padding(5)
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .cornerRadius(10)
+                            }
+                            
+                            // MARK: Vaccination Card upload
+                            HStack {
+                                NavigationLink(
+                                    destination: AddVaccinationDataView()){
+                                    Text("Upload Vaccination Card")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.leading, 15)
+                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                .padding(5)
+                                .background(Color(.white))
                                 .cornerRadius(10)
                             }
                             //                            HStack {

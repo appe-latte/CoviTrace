@@ -33,19 +33,16 @@ struct MainView: View {
                 .tabItem {
                     if selectedItem == 0 {
                         VStack{
-                            Image(systemName: "house")
+                            Image(systemName: "person.crop.square")
                                 .padding(5)
-                            
-                            //                                .scaledToFit()
-                            //                                .padding(5)
-                            Text("Home")
+                            Text("Card")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "house.fill")
+                            Image(systemName: "person.crop.square.fill")
                                 .padding(5)
                                 .padding(5)
-                            Text("Home")
+                            Text("Card")
                         }
                     }
                 }.tag(0)
@@ -73,13 +70,13 @@ struct MainView: View {
                 .tabItem {
                     if selectedItem == 2 {
                         VStack{
-                            Image(systemName: "calendar.circle")
+                            Image(systemName: "pin")
                                 .padding(5)
                             Text("Appointments")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "calendar.circle.fill")
+                            Image(systemName: "pin.fill")
                                 .padding(5)
                             Text("Appointments")
                         }
@@ -91,13 +88,13 @@ struct MainView: View {
                 .tabItem {
                     if selectedItem == 3 {
                         VStack{
-                            Image(systemName: "scope")
+                            Image(systemName: "mappin.circle")
                                 .padding(5)
                             Text("Check-In")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "scope")
+                            Image(systemName: "mappin.circle.fill")
                                 .padding(5)
                             Text("Check-In")
                         }
@@ -109,13 +106,13 @@ struct MainView: View {
                 .tabItem {
                     if selectedItem == 4 {
                         VStack{
-                            Image(systemName: "line.horizontal.3")
+                            Image(systemName: "gearshape")
                                 .padding(5)
                             Text("Settings")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "line.horizontal.3")
+                            Image(systemName: "gearshape.fill")
                                 .padding(5)
                             Text("Settings")
                         }
