@@ -19,9 +19,11 @@ struct TestResultView: View {
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     
+ 
     var body: some View {
         ZStack
         {
+            Background()
             VStack {
                 VStack{
                     
@@ -102,6 +104,8 @@ struct TestResultView: View {
                     }
                 }
             }.navigationBarTitle("Test Results", displayMode: .inline)
+            
+
         }
     }
 }

@@ -20,6 +20,8 @@ struct AppointmentView: View {
     var body: some View {
         ZStack
         {
+            Background()
+            
             VStack {
                 VStack{
                     

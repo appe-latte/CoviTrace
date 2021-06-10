@@ -49,6 +49,7 @@
 		2F80847A25D6D872000A50B6 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80847925D6D872000A50B6 /* InformationView.swift */; };
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
 		2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848825D75775000A50B6 /* SimpleTextField.swift */; };
+		2F81DCFC26726E7900897201 /* VaccCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F81DCFB26726E7900897201 /* VaccCardView.swift */; };
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
 		2F9908CD265BCB68006D977D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CC265BCB68006D977D /* MainView.swift */; };
 		2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CE265BD1DB006D977D /* PasswordResetView.swift */; };
@@ -114,6 +115,7 @@
 		2F80848125D6E847000A50B6 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		2F80848825D75775000A50B6 /* SimpleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
 		2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoviTrace.entitlements; sourceTree = "<group>"; };
+		2F81DCFB26726E7900897201 /* VaccCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCardView.swift; sourceTree = "<group>"; };
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		2F9908CC265BCB68006D977D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2F9908CE265BD1DB006D977D /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				2F2B361825FA676E004140D4 /* TestResultView.swift */,
 				2FD683C62652E3B5005222FB /* VaccUploadView.swift */,
 				2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */,
+				2F81DCFB26726E7900897201 /* VaccCardView.swift */,
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
 				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
 				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
@@ -372,7 +375,7 @@
 			);
 			mainGroup = 2F0F2A5D25B5BD4A00103879;
 			packageReferences = (
-				2F59570725D1C0A6004D1F53 /* RemoteSwiftPackageReference */,
+				2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2F0F2A6725B5BD4A00103879 /* Products */;
 			projectDirPath = "";
@@ -489,6 +492,7 @@
 				2F524195263B3E810016D87D /* UserProfileView.swift in Sources */,
 				2FD53FA125D4978E00D5594B /* HealthTipsFoodView.swift in Sources */,
 				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
+				2F81DCFC26726E7900897201 /* VaccCardView.swift in Sources */,
 				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
 				2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */,
 				2F41EC912642042700643C8A /* bgGreen.swift in Sources */,
@@ -636,7 +640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9;
+				MARKETING_VERSION = 0.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -661,7 +665,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9;
+				MARKETING_VERSION = 0.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -693,7 +697,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2F59570725D1C0A6004D1F53 /* RemoteSwiftPackageReference */ = {
+		2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {

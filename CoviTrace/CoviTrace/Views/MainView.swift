@@ -7,13 +7,18 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
+import CoreImage.CIFilterBuiltins
 
 struct MainView: View {
     @State private var selectedItem = 0
     @State var showSheetView = false
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
+    @ObservedObject private var resultsModel = ResultsViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    let context = CIContext()
+    let filter = CIFilter.qrCodeGenerator()
     
     init() {
         UITabBar.appearance().barTintColor = UIColor.white
@@ -24,27 +29,21 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $selectedItem) {
             // MARK: Home View Tab
-                ContentView()
+            ContentView()
                 .tabItem {
                     if selectedItem == 0 {
                         VStack{
-                            Image("barcode")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .scaledToFill()
-                                .frame(width: 30, height: 30)
-
-//                                .scaledToFit()
-//                                .padding(5)
+                            Image(systemName: "house")
+                                .padding(5)
+                            
+                            //                                .scaledToFit()
+                            //                                .padding(5)
                             Text("Home")
                         }
                     } else {
                         VStack{
-                            Image("barcode")
-                                .frame(width: 30, height: 30)
-                                .aspectRatio(contentMode: .fill)
-//                                .resizable()
-                                .scaledToFit()
+                            Image(systemName: "house.fill")
+                                .padding(5)
                                 .padding(5)
                             Text("Home")
                         }
@@ -74,13 +73,13 @@ struct MainView: View {
                 .tabItem {
                     if selectedItem == 2 {
                         VStack{
-                            Image(systemName: "calendar")
+                            Image(systemName: "calendar.circle")
                                 .padding(5)
                             Text("Appointments")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "calendar")
+                            Image(systemName: "calendar.circle.fill")
                                 .padding(5)
                             Text("Appointments")
                         }

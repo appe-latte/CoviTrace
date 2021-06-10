@@ -45,6 +45,8 @@ struct VaccineData: Identifiable, Codable {
     var vaccExpiry : String
     var firstDosageLocation : String
     var secondDosageLocation : String
+    var firstDoseVaccProvider : String
+    var secondDoseVaccProvider : String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -59,6 +61,8 @@ struct VaccineData: Identifiable, Codable {
         case vaccExpiry
         case firstDosageLocation
         case secondDosageLocation
+        case firstDoseVaccProvider
+        case secondDoseVaccProvider
     }
 }
 
