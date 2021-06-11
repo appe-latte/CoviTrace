@@ -40,14 +40,14 @@ struct VaccCertView: View {
         ZStack
         {
             // MARK: BACKGROUND COLOUR CODE:
-            Background()
+//            Background()
             
             VStack{
                 VStack {
                     Text("Scan the QR code below for information")
                         .font(.subheadline)
                         .bold()
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                     VStack {
                         List(viewModel.results) { results in
                             VStack {
