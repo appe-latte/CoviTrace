@@ -102,7 +102,7 @@ struct MainView: View {
                 }.tag(3)
             
             // MARK: Settings Tab
-            InformationView()
+            SettingsView()
                 .tabItem {
                     if selectedItem == 4 {
                         VStack{

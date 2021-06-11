@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UploadResultsView: View {
+struct HowToVerifyView: View {
     var body: some View {
         
         ZStack
@@ -70,6 +70,6 @@ struct UploadResultsView: View {
 
 struct UploadResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadResultsView()
+        HowToVerifyView()
     }
 }

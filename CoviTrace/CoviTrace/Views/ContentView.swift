@@ -104,12 +104,9 @@ struct ContentView: View {
                                     destination: VaccCertView()){
                                     HStack {
                                         Image(systemName: "qrcode")
-                                            .padding(.leading, 5)
+                                            .font(.system(size: 36))
+                                            //                                            .padding(.leading, 5)
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        Text("QR Code")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            .padding(.leading, 15)
                                     }
                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                 .padding(5)
@@ -130,119 +127,6 @@ struct ContentView: View {
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .cornerRadius(10)
                             }
-                            
-                            // MARK: Vaccination Card upload
-                            HStack {
-                                NavigationLink(
-                                    destination: AddVaccinationDataView()){
-                                    Text("Upload Vaccination Card")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.leading, 15)
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                                .padding(5)
-                                .background(Color(.white))
-                                .cornerRadius(10)
-                            }
-                            //                            HStack {
-                            //                                // MARK: Test Results
-                            //                                NavigationLink(
-                            //                                    destination: TestResultView()){
-                            //                                    VStack {
-                            //                                        Image(systemName: "folder")
-                            //                                            .font(.largeTitle)
-                            //                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            //                                        Text("Covid Test")
-                            //                                            .fontWeight(.semibold)
-                            //                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                                            .padding(.top, 5)
-                            //                                        Text("Certificates")
-                            //                                            .fontWeight(.semibold)
-                            //                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                                    }
-                            //                                }.frame(width: 150, height: 150)
-                            //                                .padding(5)
-                            //                                .background(Color(.white))
-                            //                                .cornerRadius(15)
-                            //
-                            //                                // MARK: Vaccination Card
-                            //                                NavigationLink(
-                            //                                    destination: VaccCardView()){
-                            //                                    VStack {
-                            //                                        Image("barcode")
-                            //                                            .resizable()
-                            //                                            .aspectRatio(contentMode: .fit)
-                            //                                            .frame(width: 35, height: 35)
-                            //                                        VStack{
-                            //                                            Text("Vaccination")
-                            //                                                .fontWeight(.semibold)
-                            //                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                                                .padding(.top, 5)
-                            //                                            Text("Card")
-                            //                                                .fontWeight(.semibold)
-                            //                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                                        }
-                            //                                    }
-                            //                                }.frame(width: 150, height: 150)
-                            //                                .padding(5)
-                            //                                .background(Color(.white))
-                            //                                .cornerRadius(15)
-                            //                            }
-                            
-                            //                            HStack(alignment: .center) {
-                            //                                // MARK: Check-in
-                            //                                NavigationLink(
-                            //                                    destination: CheckInView()){
-                            //                                    VStack {
-                            //                                        Image(systemName: "scope")
-                            //                                            .font(.largeTitle)
-                            //                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            //                                        Text("Check-In")
-                            //                                            .fontWeight(.semibold)
-                            //                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                                            .padding(.top, 5)
-                            //                                    }
-                            //                                }.frame(width: 150, height: 150)
-                            //                                .padding(5)
-                            //                                .background(Color(.white))
-                            //                                .cornerRadius(15)
-                            //
-                            //                                // MARK: Appointment
-                            //                                NavigationLink(
-                            //                                    destination: AppointmentView()){
-                            //                                    VStack {
-                            //                                        Image(systemName: "calendar")
-                            //                                            .font(.largeTitle)
-                            //                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            //                                        Text("Appointments")
-                            //                                            .fontWeight(.semibold)
-                            //                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                                            .padding(.top, 5)
-                            //                                    }
-                            //                                }.frame(width: 150, height: 150)
-                            //                                .padding(5)
-                            //                                .background(Color(.white))
-                            //                                .cornerRadius(15)
-                            //                            }
-                            
-                            //                            HStack {
-                            //                                // MARK: Settings
-                            //                                NavigationLink(
-                            //                                    destination: InformationView()){
-                            //                                    HStack {
-                            //                                        Image(systemName: "line.horizontal.3")
-                            //                                            .font(.largeTitle)
-                            //                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            //                                        Text("Settings")
-                            //                                            .fontWeight(.semibold)
-                            //                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            //                                            .padding(.leading, 15)
-                            //                                    }
-                            //                                }.frame(width: 315, height: 30)
-                            //                                .padding(5)
-                            //                                .background(Color(.white))
-                            //                                .cornerRadius(10)
-                            //                            }
                         }.padding()
                         Spacer()
                         
