@@ -81,50 +81,36 @@ struct SettingsView: View {
                             }
                             
                             // MARK: Privacy Policy
-                            Button(action: {
-                                openURL(URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
-                            }) {
-                                HStack{
-                                    Image(systemName: "arrow.right.square.fill")
-                                        .font(.system(size: 26))
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("Privacy Policy")
-                                        .font(.custom("Avenir", size: 17))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 15)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.gray).opacity(0.5)
-                                        .font(.system(size: 16))
-                                }
-                            }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            NavigationLink(
+                                destination: PrivacyView()){
+                                Image(systemName: "arrow.right.square.fill")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Privacy Policy")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
                             
                             // MARK: Terms and Conditions
-                            Button(action: {
-                                openURL(URL(string: "https://www.iubenda.com/terms-and-conditions/52172420")!)
-                            }) {
-                                HStack{
-                                    Image(systemName: "arrow.right.square.fill")
-                                        .font(.system(size: 26))
-                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        .padding(.trailing, 5)
-                                    Text("Terms & Conditions")
-                                        .font(.custom("Avenir", size: 17))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 15)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.gray).opacity(0.5)
-                                        .font(.system(size: 16))
-                                }
-                            }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            NavigationLink(
+                                destination: TermsView()){
+                                Image(systemName: "arrow.right.square.fill")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Terms & Conditions")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
                             
                             // MARK: Feedback
                             NavigationLink(
-                                destination: HowToVerifyView()){
+                                destination: PrivacyView()){
                                 Image(systemName: "message")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -181,7 +167,7 @@ struct SettingsView: View {
     
     // MARK: Share app function
     func shareSheet() {
-        guard let data = URL(string: "https://www.covitrace.co.uk") else { return }
+        guard let data = URL(string: "https://apps.apple.com/us/app/covitrace/id1553975926") else { return }
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }

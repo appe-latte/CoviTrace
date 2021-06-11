@@ -54,7 +54,7 @@ struct ContentView: View {
                                         
                                         // MARK: Patient Number
                                         HStack{
-                                            Text("NHS Number: ")
+                                            Text("ID Number: ")
                                                 .font(.body)
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
