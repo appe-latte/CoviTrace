@@ -24,7 +24,7 @@ struct VaccCertView: View {
     @State private var secondDosageLocation = ""
     @State private var firstDoseVaccProvider = ""
     @State private var secondDoseVaccProvider = ""
-    @State var testName = "Victos Calvert-Lewington"
+    @State var testName = "VictosCalvert-Lewingtonkjnskjn"
     @State var showSheetView = false
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -50,10 +50,10 @@ struct VaccCertView: View {
                             HStack {
                                 Image(systemName: "info.circle")
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            Text("Vaccination Information")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                Text("Vaccination Information")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             }
                         }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                         .background(Color.white)
@@ -67,21 +67,32 @@ struct VaccCertView: View {
                     
                     Text("Certificate of Vaccination")
                         .multilineTextAlignment(.leading)
-                        .font(.system(size: 26).bold())
+                        .font(.system(size: 30).bold())
                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                     
                     let fullName = authModel.user!.fName + " " + authModel.user!.lName
                     
-                    // MARK: User Name
-                    Text(fullName)
-                        .font(.system(size: 15))
-                        .bold()
-                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    // MARK: User name & ID Number
+                    HStack {
+                        
+                        Text(authModel.user!.lName)
+                            .font(.system(size: 12))
+                            .bold()
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        
+                        Spacer()
+                        
+                        Text(authModel.user!.patientNumber)
+                            .font(.system(size: 12))
+                            .bold()
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    }.padding(.leading, 30)
+                    .padding(.trailing, 30)
                     
                     VStack {
                         List(viewModel.results) { results in
                             VStack {
-                                Text("This is to certify that the user's Covid-19 vaccination has been verified as legitimate and this certificate eligible for use as proof for the purpose of travel.")
+                                Text("This is to certify the user's vaccination status has been verified as legitimate. This digital certificate contains details of these vaccinations and may be used as evidence for the purpose of travel.")
                                     .frame(width: 300, height: 150)
                                 
                                 HStack{
@@ -96,9 +107,7 @@ struct VaccCertView: View {
                                     
                                     // MARK: User Details
                                     VStack(alignment: .leading) {
-//                                        Text(testName)
-//                                            .font(.system(size: 15))
-//                                            .bold()
+                                        
                                         VStack(alignment: .leading){
                                             Text("Profile Status:")
                                                 .font(.system(size: 15))
@@ -145,30 +154,38 @@ struct VaccCertView: View {
                                         .font(.system(size: 15))
                                     Spacer()
                                     HStack {
-                                    Text("Data Protection Officer")
-                                        .font(.system(size: 13))
-                                        .fontWeight(.semibold)
-                                        Text("| Covitrace Ltd.")
-                                            .font(.system(size: 14))
-                                    }
-                                    HStack {
-                                    Image("ico-logo")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 50, height: 40)
-                                        .scaledToFit()
-                                        Text("Registration Number: ZB074608")
+                                        Text("Data Protection Officer")
+                                            .font(.system(size: 12))
+                                            .fontWeight(.semibold)
+                                        Text(" Covitrace Ltd.")
                                             .font(.system(size: 13))
                                     }
+                                    HStack {
+                                        Image("ico-logo")
+                                            .renderingMode(.template)
+                                            .resizable()
+                                            .frame(width: 55, height: 40)
+                                            .scaledToFit()
+                                        Text("Registration Number: ZB074608")
+                                            .font(.system(size: 12))
+                                    }
+                                }
+                                
+                                VStack(alignment: .leading) {
+                                Text("Disclaimer:")
+                                    .font(.system(size: 8))
+                                    .fontWeight(.semibold)
+                                Text("The information stored within this app is from the documentation provided by the user for verification to our Data Officer. These results are then matched against the Government ID provided by the user for the purposes of authentication. Covitrace is not responsible for the production of these results and you may seek further clarification about this information from the vaccination issuing provider.")
+                                        .font(.system(size: 8))
                                 }
                             }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()
                         }
                         Spacer()
                     }.multilineTextAlignment(.leading)
-                    .font(.system(size: 18))
-                    .lineLimit(6)
-                    .frame(width: 350, height: 400)
+                    .font(.system(size: 16))
+                    .lineLimit(10)
+                    .frame(width: 350, height: 450)
                     .background(Color(.white))
                 }.onAppear() {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
