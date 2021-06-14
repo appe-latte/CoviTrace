@@ -35,14 +35,14 @@ struct MainView: View {
                         VStack{
                             Image(systemName: "person.crop.square")
                                 .padding(5)
-                            Text("Card")
+                            Text("Pass")
                         }
                     } else {
                         VStack{
                             Image(systemName: "person.crop.square.fill")
                                 .padding(5)
                                 .padding(5)
-                            Text("Card")
+                            Text("Pass")
                         }
                     }
                 }.tag(0)
@@ -84,19 +84,19 @@ struct MainView: View {
                 }.tag(2)
             
             // MARK: Check-in Tab
-            CheckInView()
+            NotificationsView()
                 .tabItem {
                     if selectedItem == 3 {
                         VStack{
-                            Image(systemName: "mappin.circle")
+                            Image(systemName: "bell")
                                 .padding(5)
-                            Text("Check-In")
+                            Text("Notifications")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "mappin.circle.fill")
+                            Image(systemName: "bell.fill")
                                 .padding(5)
-                            Text("Check-In")
+                            Text("Notifications")
                         }
                     }
                 }.tag(3)

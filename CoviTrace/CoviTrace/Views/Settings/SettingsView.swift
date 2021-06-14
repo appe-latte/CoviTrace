@@ -110,7 +110,7 @@ struct SettingsView: View {
                             
                             // MARK: Feedback
                             NavigationLink(
-                                destination: PrivacyView()){
+                                destination: FeedbackView()){
                                 Image(systemName: "message")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

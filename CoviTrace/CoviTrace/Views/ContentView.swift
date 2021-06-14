@@ -98,30 +98,36 @@ struct ContentView: View {
                         // MARK: Options
                         VStack(alignment: .center) {
                             Spacer(minLength: 5)
+                            // MARK: Check-in
                             HStack {
-                                // MARK: Barcode
                                 NavigationLink(
-                                    destination: VaccCertView()){
+                                    destination: CheckInView()){
                                     HStack {
-                                        Image(systemName: "qrcode")
-                                            .font(.system(size: 36))
-                                            //                                            .padding(.leading, 5)
+                                        Image(systemName: "mappin.circle")
+                                            .font(.system(size: 24))
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        Text("Venue Check-in")
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            .fontWeight(.semibold)
                                     }
                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                 .padding(5)
                                 .background(Color(.white))
                                 .cornerRadius(10)
                             }
-                            
+       
                             // MARK: Vaccination Information
                             HStack {
                                 NavigationLink(
-                                    destination: VaccCardView()){
-                                    Text("Vaccination Information")
+                                    destination: VaccCertView()){
+                                    HStack {
+                                        Image(systemName: "qrcode")
+                                            .font(.system(size: 24))
+                                            .foregroundColor(Color(.white))
+                                    Text("Vaccination Pass")
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(.white))
-                                        .padding(.leading, 15)
+                                    }
                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                 .padding(5)
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

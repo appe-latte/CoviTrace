@@ -34,9 +34,8 @@ struct AddVaccinationDataView: View {
             VStack {
                 VStack{
                     Text("Add Vaccination Data")
-                        .font(.body)
-                        .fontWeight(.bold)
                         .foregroundColor(.white)
+                        .font(.system(size: 16))
                 }
                 .padding(.top, 15)
                 

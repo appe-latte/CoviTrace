@@ -20,6 +20,8 @@
 		2F2C84AC25FA9DB90002F2C3 /* AddVaccinationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C84AB25FA9DB90002F2C3 /* AddVaccinationDataView.swift */; };
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
+		2F3487032677B2CE0026D0D7 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487022677B2CE0026D0D7 /* NotificationsView.swift */; };
+		2F3487052677B3A40026D0D7 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487042677B3A40026D0D7 /* FeedbackView.swift */; };
 		2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3D8B23263B2CA7005D91D6 /* User.swift */; };
 		2F40129426738E2B00AFA9E5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40129326738E2B00AFA9E5 /* SettingsView.swift */; };
 		2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012952673A68C00AFA9E5 /* PrivacyView.swift */; };
@@ -77,6 +79,8 @@
 		2F2C84AB25FA9DB90002F2C3 /* AddVaccinationDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationDataView.swift; sourceTree = "<group>"; };
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2F3487022677B2CE0026D0D7 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		2F3487042677B3A40026D0D7 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		2F3D8B23263B2CA7005D91D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F40129326738E2B00AFA9E5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2F4012952673A68C00AFA9E5 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
 				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
 				2F9908CC265BCB68006D977D /* MainView.swift */,
+				2F3487022677B2CE0026D0D7 /* NotificationsView.swift */,
+				2F3487042677B3A40026D0D7 /* FeedbackView.swift */,
 				2F40129226738E1100AFA9E5 /* Settings */,
 				2F52418F263B378E0016D87D /* Profile */,
 			);
@@ -308,7 +314,7 @@
 				2F0F2A6225B5BD4A00103879 /* Sources */,
 				2F0F2A6325B5BD4A00103879 /* Frameworks */,
 				2F0F2A6425B5BD4A00103879 /* Resources */,
-				A1958B55F364F2F700342B55 /* [CP] Embed Pods Frameworks */,
+				64FE704DD2A7CEE96339BD7C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,7 +396,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A1958B55F364F2F700342B55 /* [CP] Embed Pods Frameworks */ = {
+		64FE704DD2A7CEE96339BD7C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -414,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3487052677B3A40026D0D7 /* FeedbackView.swift in Sources */,
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
 				2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */,
@@ -437,6 +444,7 @@
 				2F4F5741265524E500EFB454 /* HowRegistrationView.swift in Sources */,
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
 				2F2C84A925FA9C290002F2C3 /* VaccCertView.swift in Sources */,
+				2F3487032677B2CE0026D0D7 /* NotificationsView.swift in Sources */,
 				2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */,
 				2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */,
 				2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */,

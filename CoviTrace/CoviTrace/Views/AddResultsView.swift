@@ -33,9 +33,8 @@ struct AddResultsView: View {
             VStack{
                 
                 Text("Add Test Results")
-                    .font(.body)
-                    .fontWeight(.bold)
                     .foregroundColor(.white)
+                    .font(.system(size: 16))
                 
                 // MARK: Test Reference Number TextField
                 SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))

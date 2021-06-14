@@ -42,6 +42,7 @@ struct VaccCardView: View {
                     Text("Vaccination Information")
                         .foregroundColor(.white)
                         .font(.system(size: 16))
+                        .padding(.leading, 100)
                         .padding(5)
                     
                     Spacer()
