@@ -91,7 +91,16 @@ struct SettingsView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     //                                    .padding(.leading, 15)
-                                }
+                                }.onChange(of: notifOn) { value in
+                                    if notifOn == true {
+                                        // Set action to turn on notifications
+                                        print("Notifications On")
+                                    } else {
+                                        // Set action to turn off notifications
+                                        print("Notifications Off")
+                                    }
+                                    
+                                }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
                             }
                             
                             // MARK: Privacy Policy
