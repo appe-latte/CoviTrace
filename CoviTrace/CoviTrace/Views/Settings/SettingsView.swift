@@ -12,6 +12,7 @@ struct SettingsView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.openURL) var openURL
     let appVersion = ""
+    @State var notifOn : Bool = false
     
     init(){
         UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -67,17 +68,30 @@ struct SettingsView: View {
                             }
                             
                             // MARK: Notifications
-                            NavigationLink(
-                                destination: HowToVerifyView()){
+                            //                            NavigationLink(
+                            //                                destination: HowToVerifyView()){
+                            //                                Image(systemName: "app.badge")
+                            //                                    .font(.system(size: 26))
+                            //                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            //                                    .padding(.trailing, 5)
+                            //                                Text("Notifications")
+                            //                                    .font(.custom("Avenir", size: 17))
+                            //                                    .fontWeight(.bold)
+                            //                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            //                                    .padding(.leading, 15)
+                            //                            }
+                            HStack {
                                 Image(systemName: "app.badge")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
-                                Text("Notifications")
-                                    .font(.custom("Avenir", size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
+                                Toggle(isOn: $notifOn) {
+                                    Text("Notifications")
+                                        .font(.custom("Avenir", size: 17))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    //                                    .padding(.leading, 15)
+                                }
                             }
                             
                             // MARK: Privacy Policy
