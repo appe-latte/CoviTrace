@@ -67,7 +67,7 @@ struct VaccCertView: View {
                     
                     Text("Certificate of Vaccination")
                         .multilineTextAlignment(.leading)
-                        .font(.system(size: 30).bold())
+                        .font(.system(size: 28).bold())
                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                     
                     let fullName = authModel.user!.fName + " " + authModel.user!.lName
@@ -160,6 +160,8 @@ struct VaccCertView: View {
                                         Text(" Covitrace Ltd.")
                                             .font(.system(size: 13))
                                     }
+                                    
+                                    // MARK: ICO Logo
                                     HStack {
                                         Image("ico-logo")
                                             .renderingMode(.template)
