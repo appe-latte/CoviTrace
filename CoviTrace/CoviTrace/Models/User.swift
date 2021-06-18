@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import SwiftUI
 
 struct User: Identifiable {
     let id : String

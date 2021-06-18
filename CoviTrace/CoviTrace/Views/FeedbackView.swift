@@ -19,12 +19,12 @@ struct FeedbackView: View {
             VStack {
                 Form {
                     Section {
-                        TextField("Full Name", text: $fullName)
-                        TextField("Email", text: $email)
+                        TextField("Full Name", text: self.$fullName)
+                        TextField("Email", text: self.$email)
                     }
                     
                     Section {
-                        TextArea("Leave Feedback", text: $feedback).frame(height: 250)
+                        TextArea("Leave Feedback", text: self.$feedback).frame(height: 250)
                             .multilineTextAlignment(.leading)
                             .lineLimit(nil)
                     }
