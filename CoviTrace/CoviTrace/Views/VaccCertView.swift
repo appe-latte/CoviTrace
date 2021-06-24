@@ -163,11 +163,6 @@ struct VaccCertView: View {
                                     
                                     // MARK: ICO Logo
                                     HStack {
-                                        Image("ico-logo")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .frame(width: 55, height: 40)
-                                            .scaledToFit()
                                         Text("Registration Number: ZB074608")
                                             .font(.system(size: 12))
                                     }
