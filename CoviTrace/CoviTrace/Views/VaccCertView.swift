@@ -28,6 +28,7 @@ struct VaccCertView: View {
     @State var showSheetView = false
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -166,7 +167,7 @@ struct VaccCertView: View {
                                         Text("Registered with the Information Commissioner's Office | Registration Number: ZB074608")
                                         //                                        Text("Registration Number: ZB074608")
                                     }
-                                    .font(.system(size: 12))
+                                    .font(.system(size: 10))
                                 }
                                 
                                 VStack(alignment: .leading) {

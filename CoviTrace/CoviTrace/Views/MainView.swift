@@ -16,7 +16,7 @@ struct MainView: View {
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var resultsModel = ResultsViewModel()
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
     

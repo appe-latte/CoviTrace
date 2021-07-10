@@ -55,7 +55,7 @@ struct SettingsView: View {
                             
                             // MARK: Privacy Settings
                             NavigationLink(
-                                destination: HowToVerifyView()){
+                                destination: PrivacySettingsView()){
                                 Image(systemName: "lock")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

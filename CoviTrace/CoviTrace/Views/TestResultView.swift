@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct TestResultView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var testRefNum = ""
     @State private var testProvider = ""
     @State private var testDate = ""

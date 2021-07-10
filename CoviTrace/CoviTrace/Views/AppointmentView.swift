@@ -16,6 +16,7 @@ struct AppointmentView: View {
     @State var showSheetView = false
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var viewModel = AppointmentViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ZStack

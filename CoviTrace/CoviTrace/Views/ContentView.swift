@@ -11,6 +11,7 @@ import Kingfisher
 import CoreImage.CIFilterBuiltins
 
 struct ContentView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var viewModel : AuthViewModel
     @State private var vaccStatus = ""
     @State private var patientNumber = ""

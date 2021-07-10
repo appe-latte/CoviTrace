@@ -87,12 +87,6 @@ struct CheckInView: View {
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(12)
                     .padding()
-                    
-                    //                    Text("*Check-in data is only stored for a maximum of 14 days and is automatically deleted from our servers.")
-                    //                        .foregroundColor(.white)
-                    //                        .font(.footnote)
-                    //                        .multilineTextAlignment(.center)
-                    //                        .padding(5)
                 }
                 .padding(5.0)
                 .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
