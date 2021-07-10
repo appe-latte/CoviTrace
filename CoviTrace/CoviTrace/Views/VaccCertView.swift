@@ -162,19 +162,21 @@ struct VaccCertView: View {
                                     }
                                     
                                     // MARK: ICO Logo
-                                    HStack {
-                                        Text("Registration Number: ZB074608")
-                                            .font(.system(size: 12))
+                                    VStack {
+                                        Text("Registered with the Information Commissioner's Office | Registration Number: ZB074608")
+                                        //                                        Text("Registration Number: ZB074608")
                                     }
+                                    .font(.system(size: 12))
                                 }
                                 
                                 VStack(alignment: .leading) {
-                                Text("Disclaimer:")
-                                    .font(.system(size: 8))
-                                    .fontWeight(.semibold)
-                                Text("The information stored within this app is from the documentation provided by the user for verification to our Data Officer. These results are then matched against the Government ID provided by the user for the purposes of authentication. Covitrace is not responsible for the production of these results and you may seek further clarification about this information from the vaccination issuing provider.")
-                                        .font(.system(size: 8))
+                                    Text("Disclaimer:")
+                                    Text("The information stored within this app is from the documentation provided by the user for verification to our Data Officer. These results are then matched against the Government ID provided by the user for the purposes of authentication. Covitrace is not responsible for the production of these results and you may seek further clarification about this information from the vaccination issuing provider.")
+                                    
                                 }
+                                .font(.system(size: 8))
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(8)
                             }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()
                         }
