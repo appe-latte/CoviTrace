@@ -96,27 +96,11 @@ struct ContentView: View {
                         
                         Spacer(minLength: 20)
                         
-                        // MARK: Options
+                        // MARK: Menu Options
                         VStack(alignment: .center) {
                             Spacer(minLength: 5)
-                            // MARK: Check-in
+                            
                             HStack {
-                                NavigationLink(
-                                    destination: CheckInView()){
-                                    HStack {
-                                        Image(systemName: "mappin.circle")
-                                            .font(.system(size: 24))
-                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        Text("Venue Check-in")
-                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            .fontWeight(.semibold)
-                                    }
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                                .padding(5)
-                                .background(Color(.white))
-                                .cornerRadius(10)
-                            }
-       
                             // MARK: Vaccination Information
                             HStack {
                                 NavigationLink(
@@ -124,15 +108,71 @@ struct ContentView: View {
                                     HStack {
                                         Image(systemName: "qrcode")
                                             .font(.system(size: 24))
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        Text("Pass")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                .padding(5)
+                                .background(Color(.white))
+                                .cornerRadius(10)
+                            }
+                            
+                            // MARK: Check-in
+                            HStack {
+                                NavigationLink(
+                                    destination: CheckInView()){
+                                    HStack {
+                                        Image(systemName: "mappin.circle")
+                                            .font(.system(size: 24))
                                             .foregroundColor(Color(.white))
-                                    Text("Vaccination Pass")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(.white))
+                                        Text("Check-in")
+                                            .foregroundColor(Color(.white))
+                                            .fontWeight(.semibold)
                                     }
                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                 .padding(5)
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .cornerRadius(10)
+                            }
+                        }
+                            HStack {
+                            // MARK: Test Results
+                            HStack {
+                                NavigationLink(
+                                    destination: TestResultView()){
+                                    HStack {
+                                        Image(systemName: "folder")
+                                            .font(.system(size: 24))
+                                            .foregroundColor(Color(.white))
+                                        Text("Test Results")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(.white))
+                                    }
+                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                .padding(5)
+                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .cornerRadius(10)
+                            }
+                            
+                            // MARK: Appointments
+                            HStack {
+                                NavigationLink(
+                                    destination: SettingsView()){
+                                    HStack {
+                                        Image(systemName: "gearshape")
+                                            .font(.system(size: 24))
+                                            .foregroundColor(Color(.white))
+                                        Text("Settings")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color(.white))
+                                    }
+                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                .padding(5)
+                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .cornerRadius(10)
+                            }
                             }
                         }.padding()
                         Spacer()
