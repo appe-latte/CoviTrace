@@ -59,6 +59,8 @@
 		2FD683C92652FFD4005222FB /* HowToVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD683C82652FFD4005222FB /* HowToVerifyView.swift */; };
 		2FE301452699E63D0037DA47 /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE301442699E63D0037DA47 /* PrivacySettingsView.swift */; };
 		2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */; };
+		2FFE031B26B9BC9C00C9AE7C /* FirstVaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE031A26B9BC9C00C9AE7C /* FirstVaccineView.swift */; };
+		2FFE031D26B9BCB400C9AE7C /* SecondVaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE031C26B9BCB400C9AE7C /* SecondVaccineView.swift */; };
 		8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,8 @@
 		2FD683C82652FFD4005222FB /* HowToVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToVerifyView.swift; sourceTree = "<group>"; };
 		2FE301442699E63D0037DA47 /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
 		2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationViewModel.swift; sourceTree = "<group>"; };
+		2FFE031A26B9BC9C00C9AE7C /* FirstVaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVaccineView.swift; sourceTree = "<group>"; };
+		2FFE031C26B9BCB400C9AE7C /* SecondVaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVaccineView.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,6 +294,8 @@
 			children = (
 				2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */,
 				2F81DCFB26726E7900897201 /* VaccCardView.swift */,
+				2FFE031A26B9BC9C00C9AE7C /* FirstVaccineView.swift */,
+				2FFE031C26B9BCB400C9AE7C /* SecondVaccineView.swift */,
 			);
 			path = "Vaccination Card";
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				2F9908CD265BCB68006D977D /* MainView.swift in Sources */,
 				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
 				2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */,
+				2FFE031D26B9BCB400C9AE7C /* SecondVaccineView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
@@ -457,6 +464,7 @@
 				2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */,
 				2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */,
 				2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */,
+				2FFE031B26B9BC9C00C9AE7C /* FirstVaccineView.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
