@@ -34,6 +34,7 @@ struct VaccCertView: View {
     
     init() {
         UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Color.white]
     }
     
     var body: some View {
@@ -192,7 +193,7 @@ struct VaccCertView: View {
             }
             Spacer()
             
-        }
+        }.navigationBarTitle("Hello, \(authModel.user!.fName)",displayMode: .large)
         Spacer()
     }
     
