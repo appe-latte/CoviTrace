@@ -37,34 +37,9 @@ struct VaccCertView: View {
     }
     
     var body: some View {
-        ZStack
-        {
+        ZStack {
             VStack{
                 VStack {
-                    VStack{
-                        
-                        // MARK: Vaccination Information
-                        Button(action: {
-                            self.showSheetView.toggle()
-                        }, label: {
-                            HStack {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                Text("Vaccination Information")
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            }
-                        }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                            .background(Color.white)
-                            .cornerRadius(12)
-                            .padding()
-                            .sheet(isPresented: $showSheetView) {
-                                FirstVaccineView()
-                            }
-                    }
-                    .background(Color.white)
-                    
                     Text("Certificate of Vaccination")
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 28).bold())
@@ -87,7 +62,7 @@ struct VaccCertView: View {
                             .bold()
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                     }.padding(.leading, 30)
-                        .padding(.trailing, 30)
+                    .padding(.trailing, 30)
                     
                     VStack {
                         List(viewModel.results) { results in
@@ -182,10 +157,10 @@ struct VaccCertView: View {
                         }
                         Spacer()
                     }.multilineTextAlignment(.leading)
-                        .font(.system(size: 16))
-                        .lineLimit(10)
-                        .frame(width: 350, height: 450)
-                        .background(Color(.white))
+                    .font(.system(size: 16))
+                    .lineLimit(10)
+                    .frame(width: 350, height: 450)
+                    .background(Color(.white))
                 }.onAppear() {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
