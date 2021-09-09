@@ -26,7 +26,7 @@ struct TestResultView: View {
             VStack {
                 VStack{
                     
-                    // MARK: Upload Test Results sheet
+                    // MARK: "Upload" Button
                     Button(action: {
                         self.showSheetView.toggle()
                     }, label: {
