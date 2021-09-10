@@ -38,7 +38,7 @@ struct ContentView: View {
                             
                             if showSecondView {
                                 VStack(alignment:.center){
-                                    let fullName = ("\(viewModel.user!.fName)" + " " + "\(viewModel.user!.lName)")
+                                    let fullName = ("\(viewModel.user!.fName)" + " " + "\(viewModel.user!.lName)") // Fatal Error when data not loaded.
                                     Image(systemName: "person.crop.circle.fill")
                                         .data(url: URL(string: "\(viewModel.user!.profileImageUrl)")!)
                                         .resizable()
