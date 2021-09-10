@@ -29,8 +29,9 @@ struct NewAppointmentView: View {
             VStack{
                 
                 Text("Add Appointments")
+                    .font(.body)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .font(.system(size: 16))
                 
                 // MARK: Appointment Date
                 DatePicker(selection: $appointDate, in: Date()..., displayedComponents: .date) {

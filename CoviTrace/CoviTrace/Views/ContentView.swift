@@ -99,6 +99,7 @@ struct ContentView: View {
                         // MARK: Menu Options
                         VStack(alignment: .center) {
                             Spacer(minLength: 5)
+<<<<<<< HEAD
                             
                             HStack {
                             // MARK: Vaccination Information
@@ -120,22 +121,33 @@ struct ContentView: View {
                             }
                             
                             // MARK: Check-in
+=======
+>>>>>>> parent of fc885af (Vaccination Certificate)
                             HStack {
+                                // MARK: Barcode
                                 NavigationLink(
-                                    destination: CheckInView()){
+                                    destination: VaccCertView()){
                                     HStack {
+<<<<<<< HEAD
                                         Image(systemName: "mappin.circle")
                                             .font(.system(size: 24))
                                             .foregroundColor(Color(.white))
                                         Text("Check-in")
                                             .foregroundColor(Color(.white))
                                             .fontWeight(.semibold)
+=======
+                                        Image(systemName: "qrcode")
+                                            .font(.system(size: 36))
+                                            //                                            .padding(.leading, 5)
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+>>>>>>> parent of fc885af (Vaccination Certificate)
                                     }
                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                 .padding(5)
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .cornerRadius(10)
                             }
+<<<<<<< HEAD
                         }
                             HStack {
                             // MARK: Test Results
@@ -168,6 +180,17 @@ struct ContentView: View {
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color(.white))
                                     }
+=======
+                            
+                            // MARK: Vaccination Information
+                            HStack {
+                                NavigationLink(
+                                    destination: VaccCardView()){
+                                    Text("Vaccination Information")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(.white))
+                                        .padding(.leading, 15)
+>>>>>>> parent of fc885af (Vaccination Certificate)
                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                 .padding(5)
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

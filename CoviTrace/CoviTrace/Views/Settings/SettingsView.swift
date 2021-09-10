@@ -22,6 +22,7 @@ struct SettingsView: View {
         NavigationView {
             ZStack {
                 Background()
+<<<<<<< HEAD
                 VStack(alignment: .leading) {
                     
                     // MARK: How App Works
@@ -106,6 +107,138 @@ struct SettingsView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             .padding(.leading, 15)
+=======
+                VStack(alignment: .center) {
+                    Form {
+                        Section {
+                            // MARK: How App Works
+                            NavigationLink(destination: HowPageView()){
+                                Image(systemName: "info.circle")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("How Covitrace Works")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
+                            
+                            // MARK: Results Submission
+                            NavigationLink(
+                                destination: HowToVerifyView()){
+                                Image(systemName: "lifepreserver")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("How to Verify Information")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
+                            
+                            // MARK: Privacy Settings
+                            NavigationLink(
+                                destination: HowToVerifyView()){
+                                Image(systemName: "lock")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Privacy")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
+                            
+                            // MARK: Notifications
+                            NavigationLink(
+                                destination: HowToVerifyView()){
+                                Image(systemName: "app.badge")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Notifications")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
+                            
+                            // MARK: Privacy Policy
+                            NavigationLink(
+                                destination: PrivacyView()){
+                                Image(systemName: "arrow.right.square.fill")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Privacy Policy")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
+                            
+                            // MARK: Terms and Conditions
+                            NavigationLink(
+                                destination: TermsView()){
+                                Image(systemName: "arrow.right.square.fill")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Terms & Conditions")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
+                            
+                            // MARK: Feedback
+                            NavigationLink(
+                                destination: PrivacyView()){
+                                Image(systemName: "message")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Send Feedback")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
+                            
+                            // MARK: Share The App
+                            Button(action: shareSheet) {
+                                HStack{
+                                    Image(systemName: "square.and.arrow.up")
+                                        .font(.system(size: 26))
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 5)
+                                    Text("Share")
+                                        .font(.custom("Avenir", size: 17))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 15)
+                                }
+                            }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            
+                            // MARK: Sign Out
+                            Button(action: {
+                                viewModel.signOut()
+                            }) {
+                                HStack{
+                                    Text("Sign Out")
+                                        .font(.custom("Avenir", size: 17))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color(red: 249 / 255, green: 73 / 255, blue: 73 / 255))
+                                        .padding(.leading, 15)
+                                }
+                            }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .padding(.leading, 105)
+                            
+                        }.foregroundColor(.white)
+>>>>>>> parent of fc885af (Vaccination Certificate)
                     }
                     
                     // MARK: Terms and Conditions

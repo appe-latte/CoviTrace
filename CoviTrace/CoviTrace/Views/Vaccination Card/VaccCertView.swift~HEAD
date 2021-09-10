@@ -24,7 +24,10 @@ struct VaccCertView: View {
     @State private var secondDosageLocation = ""
     @State private var firstDoseVaccProvider = ""
     @State private var secondDoseVaccProvider = ""
+<<<<<<< HEAD:CoviTrace/CoviTrace/Views/Vaccination Card/VaccCertView.swift
     @State var testName = "VictosCalvert-Lewingtonkjnskjn"
+=======
+>>>>>>> parent of fc885af (Vaccination Certificate):CoviTrace/CoviTrace/Views/VaccCertView.swift
     @State var showSheetView = false
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -37,33 +40,10 @@ struct VaccCertView: View {
     }
     
     var body: some View {
+<<<<<<< HEAD:CoviTrace/CoviTrace/Views/Vaccination Card/VaccCertView.swift
         ZStack {
             VStack{
                 VStack {
-                    VStack {
-                        
-                        
-                        // MARK: Vaccination Information
-                        Button(action: {
-                            self.showSheetView.toggle()
-                        }, label: {
-                            HStack {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                Text("Vaccination Information")
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            }
-                        }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                        .background(Color.white)
-                        .cornerRadius(12)
-                        .padding()
-                        .sheet(isPresented: $showSheetView) {
-                            FirstDoseVaccineView()
-                        }
-                    }
-                    .background(Color.white)
                     Text("Certificate of Vaccination")
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 28).bold())
@@ -145,8 +125,27 @@ struct VaccCertView: View {
                                         }
                                     }
                                 }
+=======
+        
+        ZStack
+        {
+            // MARK: BACKGROUND COLOUR CODE:
+//            Background()
+            
+            VStack{
+                VStack {
+                    Text("Scan the QR code below for information")
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    VStack {
+                        List(viewModel.results) { results in
+                            VStack {
+>>>>>>> parent of fc885af (Vaccination Certificate):CoviTrace/CoviTrace/Views/VaccCertView.swift
                                 
+                                let fullName = authModel.user!.fName + " " + authModel.user!.lName
                                 Spacer()
+<<<<<<< HEAD:CoviTrace/CoviTrace/Views/Vaccination Card/VaccCertView.swift
                                 
                                 VStack(alignment: .center){
                                     Text("Vaccination Information verified by:")
@@ -184,15 +183,37 @@ struct VaccCertView: View {
                     .font(.system(size: 16))
                     .lineLimit(10)
                     .frame(width: 350, height: 450)
+=======
+                                Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n First Dosage Date: \(results.firstDoseDate)\n First Dose Batch No.: \(results.firstDosebatchNum)\n First Dosage Make: \(results.firstDoseVaccType) \n Issued By: \(results.firstDosageLocation)\n Provider: \(results.firstDoseVaccProvider)\n Second Dosage Date: \(results.secondDoseDate)\n Second Dosage Batch No.: \(results.secondDosebatchNum)\n Second Dosage Make: \(results.secondDoseVaccType)\n Issued By: \(results.secondDosageLocation)\n Provider: \(results.secondDoseVaccProvider)\n Expiry: \(results.vaccExpiry)"))
+                                    .interpolation(.none)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 300, height: 300)
+                                    .padding(.top, 5)
+                                    .padding(.bottom, 5)
+                                    .padding(.trailing, 5)
+                            }.font(.body)
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        }
+                    }
+                    .frame(width: 325, height: 325)
+>>>>>>> parent of fc885af (Vaccination Certificate):CoviTrace/CoviTrace/Views/VaccCertView.swift
                     .background(Color(.white))
+                    .cornerRadius(15)
+//                    .padding(5)
                 }.onAppear() {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
             }
+<<<<<<< HEAD:CoviTrace/CoviTrace/Views/Vaccination Card/VaccCertView.swift
             Spacer()
             
         }.navigationBarTitle("Hello, \(authModel.user!.fName)",displayMode: .large)
         Spacer()
+=======
+        }
+        .navigationBarTitle("Vaccination Card", displayMode: .inline)
+>>>>>>> parent of fc885af (Vaccination Certificate):CoviTrace/CoviTrace/Views/VaccCertView.swift
     }
     
     func generateQRCode(from string: String) -> UIImage {

@@ -50,6 +50,6 @@ struct VaccCardView: View {
 
 struct VaccCardView_Previews: PreviewProvider {
     static var previews: some View {
-        VaccCertView()
+        VaccCardView()
     }
 }
