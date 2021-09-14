@@ -72,11 +72,22 @@ struct VaccCertView: View {
                     
                     let fullName = authModel.user!.fName + " " + authModel.user!.lName
                     
-                    // MARK: User Name
+                    HStack {
+                        // MARK: ID Number
+                        Text(authModel.user!.patientNumber)
+                            .font(.system(size: 15))
+                            .bold()
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        
+                        Spacer()
+                        
+                    // MARK: User name
                     Text(fullName)
                         .font(.system(size: 15))
                         .bold()
                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        
+                    }.padding(.horizontal, 50)
                     
                     VStack {
                         List(viewModel.results) { results in
