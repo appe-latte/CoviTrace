@@ -12,6 +12,7 @@ import UIKit
 struct SignUpView: View {
     @State var lastName = ""
     @State var firstName = ""
+    @State var idNumber = ""
     @State var userEmail = ""
     @State var userPassword = ""
     @State var verified = "not verified"
@@ -76,7 +77,7 @@ struct SignUpView: View {
                         .keyboardType(.URL)
                     
                     // MARK: Last Name Text
-                    CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person")
+                    CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person.fill")
                         .padding(5)
                         .foregroundColor(Color(.white))
                         .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
@@ -84,6 +85,16 @@ struct SignUpView: View {
                         .cornerRadius(15)
                         .textContentType(.name)
                         .keyboardType(.default)
+                    
+                    // MARK: ID Number
+                    CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "number")
+                        .padding(5)
+                        .foregroundColor(Color(.white))
+                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .background(Color(.white).opacity(0.1))
+                        .cornerRadius(15)
+                        .textContentType(.none)
+                        .keyboardType(.URL)
                     
                     // MARK: User Email Text
                     CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
@@ -105,7 +116,7 @@ struct SignUpView: View {
                     // MARK: "Sign Up" Button
                     Button(action: {
                         guard let image = selectedUIImage else {return}
-                        viewModel.userRegistration(email: userEmail, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified)
+                        viewModel.userRegistration(email: userEmail, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber)
                     }, label: {
                         Text("Sign Up")
                             .font(.title3)

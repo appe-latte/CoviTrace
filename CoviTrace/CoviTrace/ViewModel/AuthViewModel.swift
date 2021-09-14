@@ -37,7 +37,7 @@ class AuthViewModel: ObservableObject {
     
     // MARK: User Registration function
     
-    func userRegistration(email: String, userPwd: String, firstName: String, lastName: String, profileImage: UIImage, verified: String) {
+    func userRegistration(email: String, userPwd: String, firstName: String, lastName: String, profileImage: UIImage, verified: String, idNumber: String) {
         guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
         let filename = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child(filename)
@@ -55,7 +55,7 @@ class AuthViewModel: ObservableObject {
                 
                 Auth.auth().createUser(withEmail: email, password: userPwd) { result, error in
                     if let error = error {
-                        print("DEBUG: Registration Error \(error.localizedDescription)!")
+                        print("DEBUG: Registration Error \(error.localizedDescription)!") // Console error message
                         return
                     }
                     guard let user = result?.user else { return }
@@ -65,7 +65,8 @@ class AuthViewModel: ObservableObject {
                                 "Surname": lastName,
                                 "profileImageUrl": profileImageUrl,
                                 "uid": user.uid,
-                                "verified": verified]
+                                "verified": verified,
+                                "ID_Number": idNumber]
                     
                     Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
                         //                        print("DEBUG: Successfully uploaded user data!")

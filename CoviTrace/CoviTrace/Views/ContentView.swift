@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var vaccStatus = ""
     @State private var patientNumber = ""
     @State var showSecondView = false
+    @State var showSheetView = false
     
     init() {
         UINavigationBar.appearance().backgroundColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
@@ -37,6 +38,7 @@ struct ContentView: View {
                             
                             if showSecondView {
                                 VStack(alignment:.center){
+                                    
                                     let fullName = ("\(viewModel.user!.fName)" + " " + "\(viewModel.user!.lName)")
                                     Image(systemName: "person.crop.circle.fill")
                                         .data(url: URL(string: "\(viewModel.user!.profileImageUrl)")!)
@@ -66,7 +68,7 @@ struct ContentView: View {
                                         
                                         // MARK: Verification Status
                                         HStack{
-                                            Text("Profile: ")
+                                            Text("Profile Status: ")
                                                 .font(.body)
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -75,10 +77,42 @@ struct ContentView: View {
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                         }
+                                        
+                                        // MARK: Vaccination Card Added
+                                        HStack{
+                                            Text("Govt. Vaccination Card: ")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            Text("yes")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                        
+                                        // MARK: Vaccination Information
+                                        HStack {
+                                            NavigationLink(
+                                                destination: VaccCertView()){
+                                                HStack {
+                                                    Image(systemName: "qrcode")
+                                                        .font(.system(size: 24))
+                                                        .foregroundColor(Color(.white))
+                                                    Text("Vaccination Pass")
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color(.white))
+                                                }
+                                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
+                                            .padding(5)
+                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .cornerRadius(10)
+                                            .padding(.top, 5)
+                                        }
+                                        
                                         Spacer()
                                     }
                                 }
-                                .frame(width: 325, height: 325)
+                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 425)
                                 .background(Color(.white))
                                 .cornerRadius(15)
                                 .padding(5)
@@ -96,44 +130,84 @@ struct ContentView: View {
                         Spacer(minLength: 20)
                         
                         // MARK: Options
-                        VStack(alignment: .center) {
-                            Spacer(minLength: 5)
-                            // MARK: Check-in
-                            HStack {
-                                NavigationLink(
-                                    destination: CheckInView()){
-                                    HStack {
-                                        Image(systemName: "mappin.circle")
-                                            .font(.system(size: 24))
-                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                        Text("Venue Check-in")
-                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            .fontWeight(.semibold)
+                        HStack {
+                            VStack(alignment: .center) {
+                                Spacer(minLength: 5)
+                                
+                                // MARK: Log Vaccinations
+                                HStack {
+                                    NavigationLink(
+                                        destination: VaccineDoseSelectionView()){
+                                        HStack {
+                                            Image(systemName: "plus.app")
+                                                .font(.system(size: 24))
+                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            Text("Log Vaccination")
+                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                                .fontWeight(.semibold)
+                                                .padding(.trailing, 20)
+                                        }
+                                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                    .padding(5)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
+                                }
+                                
+                                // MARK: PCR Test Upload
+                                HStack {
+                                    VStack{
+                                        
+                                        // MARK: Upload Test Results sheet
+                                        Button(action: {
+                                            self.showSheetView.toggle()
+                                        }, label: {
+                                            HStack {
+                                                Image(systemName: "plus.app")
+                                                    .font(.system(size: 24))
+                                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                                Text("Log PCR Results")
+                                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                                    .fontWeight(.semibold)
+                                                    .padding(.trailing, 20)
+                                            }
+                                            
+                                        }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                        .padding(5)
+                                        .background(Color(.white))
+                                        .cornerRadius(10)
+                                        .sheet(isPresented: $showSheetView) {
+                                            AddResultsView()
+                                        }
                                     }
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                                .padding(5)
-                                .background(Color(.white))
-                                .cornerRadius(10)
-                            }
-       
-                            // MARK: Vaccination Information
-                            HStack {
-                                NavigationLink(
-                                    destination: VaccCertView()){
-                                    HStack {
-                                        Image(systemName: "qrcode")
-                                            .font(.system(size: 24))
-                                            .foregroundColor(Color(.white))
-                                    Text("Vaccination Pass")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(.white))
-                                    }
-                                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                                .padding(5)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
-                            }
-                        }.padding()
+                                    //                                    .padding(5.0)
+                                    //                                    .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    //                                    .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
+                                }
+                                
+                                
+                                
+                                
+                                // MARK: Check-in Function
+                                HStack {
+                                    NavigationLink(
+                                        destination: CheckInView()){
+                                        HStack {
+                                            Image(systemName: "camera")
+                                                .font(.system(size: 24))
+                                                .foregroundColor(Color(.white))
+                                            Text("Venue Check-in")
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(Color(.white))
+                                                .padding(.trailing, 20)
+                                        }
+                                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                    .padding(5)
+                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .cornerRadius(10)
+                                    
+                                }
+                            }.padding()
+                        }
                         Spacer()
                         
                     }
@@ -153,5 +227,22 @@ extension Image {
             return Image(uiImage: UIImage(data: data)!).resizable()
         }
         return self.resizable()
+    }
+}
+
+struct SheetView: View {
+    @Binding var showSheetView: Bool
+    
+    var body: some View {
+        NavigationView {
+            Text("Test Results")
+                .navigationBarTitle(Text("Add Test Result"), displayMode: .inline)
+                .navigationBarItems(trailing: Button(action: {
+                    print("Dismissing sheet view...")
+                    self.showSheetView = false
+                }) {
+                    Text("Done").bold()
+                })
+        }
     }
 }

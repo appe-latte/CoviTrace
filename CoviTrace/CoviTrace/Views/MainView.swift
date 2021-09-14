@@ -13,9 +13,13 @@ import CoreImage.CIFilterBuiltins
 struct MainView: View {
     @State private var selectedItem = 0
     @State var showSheetView = false
-    @ObservedObject private var viewModel = VaccinationViewModel()
-    @ObservedObject private var authModel = AuthViewModel()
-    @ObservedObject private var resultsModel = ResultsViewModel()
+//    @ObservedObject private var viewModel = VaccinationViewModel()
+//    @ObservedObject private var authModel = AuthViewModel()
+//    @ObservedObject private var resultsModel = ResultsViewModel()
+    
+    @EnvironmentObject var authModel : AuthViewModel
+    @EnvironmentObject var resultsViewModel : ResultsViewModel
+    @EnvironmentObject var viewModel : VaccinationViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -33,16 +37,16 @@ struct MainView: View {
                 .tabItem {
                     if selectedItem == 0 {
                         VStack{
-                            Image(systemName: "person.crop.square")
+                            Image(systemName: "house.fill")
                                 .padding(5)
-                            Text("Pass")
+                            Text("Home")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "person.crop.square.fill")
+                            Image(systemName: "house.fill")
                                 .padding(5)
                                 .padding(5)
-                            Text("Pass")
+                            Text("Home")
                         }
                     }
                 }.tag(0)
@@ -84,19 +88,19 @@ struct MainView: View {
                 }.tag(2)
             
             // MARK: Check-in Tab
-            NotificationsView()
+            CheckInView()
                 .tabItem {
                     if selectedItem == 3 {
                         VStack{
-                            Image(systemName: "bell")
+                            Image(systemName: "mappin")
                                 .padding(5)
-                            Text("Notifications")
+                            Text("Check-Ins")
                         }
                     } else {
                         VStack{
-                            Image(systemName: "bell.fill")
+                            Image(systemName: "mappin")
                                 .padding(5)
-                            Text("Notifications")
+                            Text("Check-Ins")
                         }
                     }
                 }.tag(3)

@@ -108,20 +108,3 @@ struct TestResultView: View {
         }
     }
 }
-
-struct SheetView: View {
-    @Binding var showSheetView: Bool
-    
-    var body: some View {
-        NavigationView {
-            Text("Test Results")
-                .navigationBarTitle(Text("Add Test Result"), displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    print("Dismissing sheet view...")
-                    self.showSheetView = false
-                }) {
-                    Text("Done").bold()
-                })
-        }
-    }
-}

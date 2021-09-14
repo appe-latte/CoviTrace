@@ -144,7 +144,7 @@ final class WebViewWrapper : UIViewRepresentable {
 }
 
 extension WebViewWrapper.Coordinator: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigation, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    private func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigation, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if action == nil {
             decisionHandler(.allow)
         } else {
