@@ -1,5 +1,5 @@
 //
-//  AddSingleDoseView.swift
+//  AddSecondDoseView.swift
 //  CoviTrace
 //
 //  Created by Stanford L. Khumalo on 14/09/2021.
@@ -9,16 +9,16 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct AddSingleDoseView: View {
-    @State var firstDoseVaccType = ""
-    @State var firstDoseDate = Date()
-    @State var firstDosebatchNum = ""
-    @State var vaccDosageType = "Single"
+struct AddSecondDoseView: View {
+    @State var secondDoseVaccType = ""
+    @State var secondDoseDate = Date()
+    @State var secondDosebatchNum = ""
+    @State var vaccDosageType = "Second Dose"
     @State var vaccStatus = "Fully Vaccinated"
-    @State var firstDosageLocation = ""
-    @State var firstDoseVaccProvider = ""
+    @State var secondDosageLocation = ""
+    @State var secondDoseVaccProvider = ""
     @State var vaccDoseCountry = ""
-    @State var vaccCardVerified = "verification pending"
+    @State var vaccCardVerified = "Verification Pending"
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -34,15 +34,15 @@ struct AddSingleDoseView: View {
             Background()
             VStack {
                 VStack{
-                    Text("Log Single Dosage Information")
+                    Text("Log Second Dosage Information")
                         .foregroundColor(.white)
                         .bold()
                 }
-                .padding(.top, 15)                
+                .padding(.top, 15)
                 
                 VStack {
-                    // MARK: First Dose Date
-                    DatePicker(selection: $firstDoseDate, in: ...Date(), displayedComponents: .date) {
+                    // MARK: Second Dose Date
+                    DatePicker(selection: $secondDoseDate, in: ...Date(), displayedComponents: .date) {
                         Text("Choose Date:")
                             .padding(.leading)
                             .foregroundColor(Color(.white)).font(.system(size: 14))
@@ -51,29 +51,29 @@ struct AddSingleDoseView: View {
                     .background(Color(.white).opacity(0.1)).font(.system(size: 12))
                     .cornerRadius(10)
                     
-                    // MARK: Firdt Dose Batch Number
-                    SimpleTextField(text: $firstDosebatchNum, placeholder: Text("Batch Number"))
+                    // MARK: First Dose Batch Number
+                    SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Batch Number"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: First Dose Vaccination Make
-                    SimpleTextField(text: $firstDoseVaccType, placeholder: Text("Vaccine Make"))
+                    SimpleTextField(text: $secondDoseVaccType, placeholder: Text("Vaccine Make"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Single Dose Vaccination Provider
-                    SimpleTextField(text: $firstDoseVaccProvider, placeholder: Text("Vaccine Provider"))
+                    SimpleTextField(text: $secondDoseVaccProvider, placeholder: Text("Vaccine Provider"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Vaccination Location
-                    SimpleTextField(text: $firstDosageLocation, placeholder: Text("Vaccination Centre"))
+                    SimpleTextField(text: $secondDosageLocation, placeholder: Text("Vaccination Centre"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
@@ -112,13 +112,14 @@ struct AddSingleDoseView: View {
     // MARK: Upload to "Vaccinations" DB
     func upload_data(){
         let db = Firestore.firestore()
-        let dose1 = dateFormatter.string(from: firstDoseDate)
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified])
+        let dose2 = dateFormatter.string(from: secondDoseDate)
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified])
     }
 }
 
-struct AddSingleDoseView_Previews: PreviewProvider {
+
+struct AddSecondDoseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddSingleDoseView()
+        AddSecondDoseView()
     }
 }

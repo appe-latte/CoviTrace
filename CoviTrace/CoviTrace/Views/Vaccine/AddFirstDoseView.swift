@@ -1,5 +1,5 @@
 //
-//  AddSingleDoseView.swift
+//  AddFirstDoseView.swift
 //  CoviTrace
 //
 //  Created by Stanford L. Khumalo on 14/09/2021.
@@ -9,16 +9,16 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct AddSingleDoseView: View {
+struct AddFirstDoseView: View {
     @State var firstDoseVaccType = ""
     @State var firstDoseDate = Date()
     @State var firstDosebatchNum = ""
-    @State var vaccDosageType = "Single"
-    @State var vaccStatus = "Fully Vaccinated"
+    @State var vaccDosageType = "First Dose"
+    @State var vaccStatus = "First Dose Administered"
     @State var firstDosageLocation = ""
     @State var firstDoseVaccProvider = ""
     @State var vaccDoseCountry = ""
-    @State var vaccCardVerified = "verification pending"
+    @State var vaccCardVerified = "Verification Pending"
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -34,11 +34,11 @@ struct AddSingleDoseView: View {
             Background()
             VStack {
                 VStack{
-                    Text("Log Single Dosage Information")
+                    Text("Log First Dosage Information")
                         .foregroundColor(.white)
                         .bold()
                 }
-                .padding(.top, 15)                
+                .padding(.top, 15)
                 
                 VStack {
                     // MARK: First Dose Date
@@ -117,8 +117,8 @@ struct AddSingleDoseView: View {
     }
 }
 
-struct AddSingleDoseView_Previews: PreviewProvider {
+struct AddFirstDoseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddSingleDoseView()
+        AddFirstDoseView()
     }
 }

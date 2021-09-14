@@ -36,8 +36,10 @@ class VaccinationViewModel: ObservableObject {
                 let firstDoseVaccProvider = data["1st_provider"] as? String ?? ""
                 let secondDoseVaccProvider = data["2nd_provider"] as? String ?? ""
                 let vaccDosageType = data["vacc_dosage_type"] as? String ?? ""
+                let vaccDoseCountry = data["vacc_dose_country"] as? String ?? ""
+                let vaccCardVerified = data["vacc_card_verified"] as? String ?? ""
                                                 
-                return VaccineData(id: userid, firstDosebatchNum: firstDosebatchNum, secondDosebatchNum: secondDosebatchNum, firstDoseVaccType: firstDoseVaccType, secondDoseVaccType: secondDoseVaccType, firstDoseDate: firstDoseDate, secondDoseDate: secondDoseDate, vaccStatus: vaccStatus, vaccExpiry: vaccExpiry, firstDosageLocation: firstDosageLocation, secondDosageLocation: secondDosageLocation, firstDoseVaccProvider: firstDoseVaccProvider, secondDoseVaccProvider: secondDoseVaccProvider, vaccDosageType: vaccDosageType)
+                return VaccineData(id: userid, firstDosebatchNum: firstDosebatchNum, secondDosebatchNum: secondDosebatchNum, firstDoseVaccType: firstDoseVaccType, secondDoseVaccType: secondDoseVaccType, firstDoseDate: firstDoseDate, secondDoseDate: secondDoseDate, vaccStatus: vaccStatus, vaccExpiry: vaccExpiry, firstDosageLocation: firstDosageLocation, secondDosageLocation: secondDosageLocation, firstDoseVaccProvider: firstDoseVaccProvider, secondDoseVaccProvider: secondDoseVaccProvider, vaccDosageType: vaccDosageType, vaccDoseCountry: vaccDoseCountry, vaccCardVerified: vaccCardVerified)
             }
         }
     }

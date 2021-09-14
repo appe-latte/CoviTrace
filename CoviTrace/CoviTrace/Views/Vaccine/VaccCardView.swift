@@ -9,21 +9,24 @@ import SwiftUI
 import Firebase
 
 struct VaccCardView: View {
-    @State private var lastName = ""
-    @State private var firstName = ""
-    @State private var firstDosebatchNum = ""
-    @State private var secondDosebatchNum = ""
-    @State private var firstDoseVaccType = ""
-    @State private var secondDoseVaccType = ""
-    @State private var firstDoseDate = ""
-    @State private var secondDoseDate = ""
-    @State private var vaccStatus = ""
-    @State private var vaccExpiry = ""
-    @State private var firstDosageLocation = ""
-    @State private var secondDosageLocation = ""
-    @State private var firstDoseVaccProvider = ""
-    @State private var secondDoseVaccProvider = ""
+    @State var lastName = ""
+    @State var firstName = ""
+    @State var firstDosebatchNum = ""
+    @State var secondDosebatchNum = ""
+    @State var firstDoseVaccType = ""
+    @State var secondDoseVaccType = ""
+    @State var firstDoseDate = ""
+    @State var secondDoseDate = ""
+    @State var vaccStatus = ""
+    @State var vaccExpiry = ""
+    @State var firstDosageLocation = ""
+    @State var secondDosageLocation = ""
+    @State var firstDoseVaccProvider = ""
+    @State var secondDoseVaccProvider = ""
+    @State var vaccDoseCountry = ""
+    @State var vaccDosageType = ""
     @State var showSheetView = false
+    @State var vaccCardVerified = ""
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     
@@ -54,6 +57,19 @@ struct VaccCardView: View {
                         List(viewModel.results) { results in
                             VStack(alignment: .leading) {
                                 Section {
+                                    // MARK: Vaccination Types
+                                    HStack {
+                                        Text("Dosage Type:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.vaccDosageType)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    Divider()
+                                    
                                     // MARK: Vaccination Status
                                     HStack {
                                         Text("Vaccination Status:")
@@ -67,6 +83,19 @@ struct VaccCardView: View {
                                     }
                                     Divider()
                                     
+                                    // MARK: Vaccination Country
+                                    HStack {
+                                        Text("Country:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.vaccDoseCountry)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    Divider()
+                                    
                                     // MARK: Expiry
                                     HStack {
                                         Text("Vaccination Expiry:")
@@ -74,6 +103,19 @@ struct VaccCardView: View {
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                         Spacer()
                                         Text(results.vaccExpiry)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    Divider()
+                                    
+                                    // MARK: Vaccination Card Verified
+                                    HStack {
+                                        Text("Vaccination Verified:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.vaccCardVerified)
                                             .font(.subheadline)
                                             .bold()
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -152,6 +194,7 @@ struct VaccCardView: View {
                                             .bold()
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     }
+                                    
                                 }
                             }
                         }

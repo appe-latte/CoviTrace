@@ -24,6 +24,8 @@
 		2F3487052677B3A40026D0D7 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487042677B3A40026D0D7 /* FeedbackView.swift */; };
 		2F3680BC26F0E5710002F8A0 /* VaccineDoseSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BB26F0E5710002F8A0 /* VaccineDoseSelectionView.swift */; };
 		2F3680BE26F0EE320002F8A0 /* AddSingleDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */; };
+		2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */; };
+		2F3680C226F0FE840002F8A0 /* AddSecondDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680C126F0FE840002F8A0 /* AddSecondDoseView.swift */; };
 		2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3D8B23263B2CA7005D91D6 /* User.swift */; };
 		2F40129426738E2B00AFA9E5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40129326738E2B00AFA9E5 /* SettingsView.swift */; };
 		2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012952673A68C00AFA9E5 /* PrivacyView.swift */; };
@@ -85,6 +87,8 @@
 		2F3487042677B3A40026D0D7 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		2F3680BB26F0E5710002F8A0 /* VaccineDoseSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineDoseSelectionView.swift; sourceTree = "<group>"; };
 		2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingleDoseView.swift; sourceTree = "<group>"; };
+		2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFirstDoseView.swift; sourceTree = "<group>"; };
+		2F3680C126F0FE840002F8A0 /* AddSecondDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSecondDoseView.swift; sourceTree = "<group>"; };
 		2F3D8B23263B2CA7005D91D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F40129326738E2B00AFA9E5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2F4012952673A68C00AFA9E5 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				2F81DCFB26726E7900897201 /* VaccCardView.swift */,
 				2F3680BB26F0E5710002F8A0 /* VaccineDoseSelectionView.swift */,
 				2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */,
+				2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */,
+				2F3680C126F0FE840002F8A0 /* AddSecondDoseView.swift */,
 			);
 			path = Vaccine;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
 				2F9908CD265BCB68006D977D /* MainView.swift in Sources */,
 				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
+				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,
 				2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
@@ -481,6 +488,7 @@
 				2F41EC912642042700643C8A /* bgGreen.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
 				2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */,
+				2F3680C226F0FE840002F8A0 /* AddSecondDoseView.swift in Sources */,
 				2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */,
 				2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */,
 				2F4012982673B93800AFA9E5 /* TermsView.swift in Sources */,
@@ -624,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -649,7 +657,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appelatte.CoviTrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
