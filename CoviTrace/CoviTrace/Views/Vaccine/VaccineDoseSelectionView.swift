@@ -23,14 +23,9 @@ struct VaccineDoseSelectionView: View {
                 // MARK: BACKGROUND COLOUR CODE:
                 Background()
                 
-                // MARK: Profile Summary
                 VStack(alignment: .center){
-                    
-                    
-                    // MARK: Options
                     HStack {
                         VStack(alignment: .center) {
-                            Spacer(minLength: 5)
                             
                             // MARK: Log Single Dose
                             HStack {
@@ -116,12 +111,14 @@ struct VaccineDoseSelectionView: View {
                             
                         }.padding()
                         
+//                        Spacer()
                     }
                     Spacer()
                     
                 }
                 .navigationBarHidden(true)
                 .navigationBarTitleDisplayMode(.inline)
+                
             }
         }
     }
