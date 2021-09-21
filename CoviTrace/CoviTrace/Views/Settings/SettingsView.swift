@@ -12,14 +12,8 @@ struct SettingsView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.openURL) var openURL
     let appVersion = ""
-    
-    init(){
-        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    }
-    
+ 
     var body: some View {
-        NavigationView {
             ZStack {
                 Background()
                 VStack(alignment: .center) {
@@ -160,9 +154,8 @@ struct SettingsView: View {
                             .font(.footnote)
                     }.foregroundColor(Color(.gray))
                     Spacer()
-                }
+                }.navigationBarTitle("Settings", displayMode: .inline)
             }
-        }
     }
     
     // MARK: Share app function

@@ -24,17 +24,7 @@ struct TestResultView: View {
         {
             Background()
             VStack {
-                // MARK: Test Result Information
                 VStack {
-                    HStack{
-                        Text("Previous Results")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 12))
-                            .padding(5)
-                        
-                        Spacer()
-                    }
-                    Divider()
                     List(viewModel.results) { results in
                         VStack(alignment: .leading) {
                             HStack {
@@ -80,7 +70,7 @@ struct TestResultView: View {
                         self.viewModel.fetchData(id: authModel.userSession!.uid)
                     }
                 }
-            }.navigationBarTitle("Test Results", displayMode: .inline)
+            }.navigationBarTitle("Previous Test Results", displayMode: .inline)
             
             
         }

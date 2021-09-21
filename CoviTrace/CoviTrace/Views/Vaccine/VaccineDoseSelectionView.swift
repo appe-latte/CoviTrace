@@ -17,7 +17,7 @@ struct VaccineDoseSelectionView: View {
     @ObservedObject private var authModel = AuthViewModel()
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack
             {
                 // MARK: BACKGROUND COLOUR CODE:
@@ -116,11 +116,10 @@ struct VaccineDoseSelectionView: View {
                     Spacer()
                     
                 }
-                .navigationBarHidden(true)
-                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitle("Select Dose Type", displayMode: .inline)
                 
             }
-        }
+//        }
     }
 }
 

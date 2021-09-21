@@ -23,10 +23,17 @@ struct ContentView: View {
     @State var selectedItem = 0
     
     init() {
-        UINavigationBar.appearance().backgroundColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
+        let barTintColor = UINavigationBarAppearance()
+        barTintColor.configureWithOpaqueBackground()
+        barTintColor.backgroundColor = UIColor.init(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+        barTintColor.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barTintColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().backgroundColor = UIColor.init(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
         UITextView.appearance().backgroundColor = .white
         UIDatePicker.appearance().backgroundColor = UIColor.init(red: 46 / 255, green: 153 / 255, blue: 168 / 255, alpha: 1.0)
         UIDatePicker.appearance().tintColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
+        UINavigationBar.appearance().scrollEdgeAppearance = barTintColor
+        UINavigationBar.appearance().standardAppearance = barTintColor
     }
     
     var body: some View {
@@ -239,8 +246,23 @@ struct ContentView: View {
                         Spacer(minLength: 20)
                         
                     }
-                    .navigationBarHidden(true)
+                    .navigationBarHidden(false)
                     .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            // MARK: Settings Page
+                            HStack {
+                                NavigationLink(
+                                    destination: SettingsView()){
+                                    HStack {
+                                        Image(systemName: "gearshape")
+                                            .font(.system(size: 24))
+                                            .foregroundColor(Color(.white))
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             } else {
                 LandingView()

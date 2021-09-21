@@ -57,7 +57,6 @@
 		2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848825D75775000A50B6 /* SimpleTextField.swift */; };
 		2F81DCFC26726E7900897201 /* VaccCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F81DCFB26726E7900897201 /* VaccCardView.swift */; };
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
-		2F9908CD265BCB68006D977D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CC265BCB68006D977D /* MainView.swift */; };
 		2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CE265BD1DB006D977D /* PasswordResetView.swift */; };
 		2FD683C92652FFD4005222FB /* HowToVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD683C82652FFD4005222FB /* HowToVerifyView.swift */; };
 		2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */; };
@@ -119,7 +118,6 @@
 		2F80848C25D763FA000A50B6 /* CoviTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoviTrace.entitlements; sourceTree = "<group>"; };
 		2F81DCFB26726E7900897201 /* VaccCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCardView.swift; sourceTree = "<group>"; };
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
-		2F9908CC265BCB68006D977D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2F9908CE265BD1DB006D977D /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
 		2FD683C82652FFD4005222FB /* HowToVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToVerifyView.swift; sourceTree = "<group>"; };
 		2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationViewModel.swift; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 				2F3680BA26F0E5430002F8A0 /* Vaccine */,
 				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
 				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
-				2F9908CC265BCB68006D977D /* MainView.swift */,
 				2F3487022677B2CE0026D0D7 /* NotificationsView.swift */,
 				2F3487042677B3A40026D0D7 /* FeedbackView.swift */,
 				2F40129226738E1100AFA9E5 /* Settings */,
@@ -450,7 +447,6 @@
 				2F4F573F265524CF00EFB454 /* HowWorksView.swift in Sources */,
 				2F41EC8B2641C69C00643C8A /* AppointmentView.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
-				2F9908CD265BCB68006D977D /* MainView.swift in Sources */,
 				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
 				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,
 				2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */,

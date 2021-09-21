@@ -22,10 +22,6 @@ struct VaccCertView: View {
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
     
-    init() {
-        UINavigationBar.appearance().tintColor = UIColor.white
-    }
-    
     var body: some View {
         ZStack
         {
@@ -168,7 +164,7 @@ struct VaccCertView: View {
                 }.onAppear() {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
-            }
+            }.navigationBarTitle("Vaccination Certificate", displayMode: .inline)
             Spacer()
             
         }
