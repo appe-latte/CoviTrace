@@ -29,17 +29,17 @@ struct AddResultsView: View {
     
     var body: some View {
         ZStack{
-            bgGreen()
+            Background()
             VStack{
                 
                 Text("Add Test Results")
                     .foregroundColor(.white)
-                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
                 
                 // MARK: Test Reference Number TextField
                 SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
@@ -47,14 +47,14 @@ struct AddResultsView: View {
                 SimpleTextField(text: $labRefNum, placeholder: Text("Enter Lab Reference Number"))
                     //                    .padding(5)
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Test Location TextField
                 SimpleTextField(text: $testProvider, placeholder: Text("Enter Test Provider"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
@@ -64,14 +64,14 @@ struct AddResultsView: View {
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
                 }.foregroundColor(Color(.white))
-                .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                 .background(Color(.white).opacity(0.1)).font(.system(size: 14))
                 .cornerRadius(15)
                 
                 // MARK: Test Result Picker
                 SimpleTextField(text: $testResult, placeholder: Text("Enter Test Result"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
@@ -87,16 +87,10 @@ struct AddResultsView: View {
                             .foregroundColor(.white)
                     }
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading,10)
-                .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 .cornerRadius(15)
                 .padding(.top, 2)
-                
-                VStack {
-                Text("Once you've uploaded your results email a copy for verification to: ") + Text("results@covitrace.co.uk").bold()
-                }.font(.footnote)
-                .padding(10)
-                .multilineTextAlignment(.leading)
                 
                 Spacer()
             }

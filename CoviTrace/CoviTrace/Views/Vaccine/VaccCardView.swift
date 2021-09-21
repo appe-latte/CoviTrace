@@ -9,8 +9,6 @@ import SwiftUI
 import Firebase
 
 struct VaccCardView: View {
-    @State var lastName = ""
-    @State var firstName = ""
     @State var firstDosebatchNum = ""
     @State var secondDosebatchNum = ""
     @State var firstDoseVaccType = ""

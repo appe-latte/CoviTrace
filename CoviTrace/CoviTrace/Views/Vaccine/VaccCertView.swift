@@ -8,23 +8,13 @@
 import SwiftUI
 import Firebase
 import CoreImage.CIFilterBuiltins
+import Combine
 
 struct VaccCertView: View {
     @State var lastName = ""
     @State var firstName = ""
-    @State var firstDosebatchNum = ""
-    @State var secondDosebatchNum = ""
-    @State var firstDoseVaccType = ""
-    @State var secondDoseVaccType = ""
-    @State var firstDoseDate = ""
-    @State var secondDoseDate = ""
     @State var vaccStatus = ""
     @State var vaccExpiry = ""
-    @State var firstDosageLocation = ""
-    @State var secondDosageLocation = ""
-    @State var firstDoseVaccProvider = ""
-    @State var secondDoseVaccProvider = ""
-    @State var testName = ""
     @State var showSheetView = false
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -50,10 +40,10 @@ struct VaccCertView: View {
                             HStack {
                                 Image(systemName: "info.circle")
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            Text("Vaccination Information")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                Text("Vaccination Information")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             }
                         }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                         .background(Color.white)
@@ -81,11 +71,11 @@ struct VaccCertView: View {
                         
                         Spacer()
                         
-                    // MARK: User name
-                    Text(fullName)
-                        .font(.system(size: 15))
-                        .bold()
-                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        // MARK: User name
+                        Text(fullName)
+                            .font(.system(size: 15))
+                            .bold()
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         
                     }.padding(.horizontal, 50)
                     
@@ -107,9 +97,9 @@ struct VaccCertView: View {
                                     
                                     // MARK: User Details
                                     VStack(alignment: .leading) {
-//                                        Text(testName)
-//                                            .font(.system(size: 15))
-//                                            .bold()
+                                        //                                        Text(testName)
+                                        //                                            .font(.system(size: 15))
+                                        //                                            .bold()
                                         VStack(alignment: .leading){
                                             Text("Profile Status:")
                                                 .font(.system(size: 15))
@@ -156,21 +146,15 @@ struct VaccCertView: View {
                                         .font(.system(size: 15))
                                     Spacer()
                                     HStack {
-                                    Text("Data Protection Officer")
-                                        .font(.system(size: 13))
-                                        .fontWeight(.semibold)
+                                        Text("Data Protection Officer")
+                                            .font(.system(size: 13))
+                                            .fontWeight(.semibold)
                                         Text("| Covitrace Ltd.")
                                             .font(.system(size: 14))
                                     }
-                                    HStack {
-                                    Image("ico-logo")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 50, height: 40)
-                                        .scaledToFit()
-                                        Text("Registration Number: ZB074608")
-                                            .font(.system(size: 13))
-                                    }
+                                    
+                                    Text("Registration Number: ZB074608")
+                                        .font(.system(size: 13))
                                 }
                             }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()

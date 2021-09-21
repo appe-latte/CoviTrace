@@ -38,10 +38,10 @@ struct VaccineDoseSelectionView: View {
                                     Button(action: {
                                         self.showSingleDoseSheetView.toggle()
                                     }, label: {
-                                            Text("Log Single Dose Vaccination")
-                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                .fontWeight(.semibold)
-                                                .padding(.trailing, 20)
+                                        Text("Log Single Dose Vaccination")
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            .fontWeight(.semibold)
+                                            .padding(.trailing, 20)
                                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                     .padding(5)
                                     .background(Color(.white))
@@ -58,10 +58,10 @@ struct VaccineDoseSelectionView: View {
                                     Button(action: {
                                         self.showFirstDoseSheetView.toggle()
                                     }, label: {
-                                            Text("Log First Vaccination Dose")
-                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                .fontWeight(.semibold)
-                                                .padding(.trailing, 25)
+                                        Text("Log First Vaccination Dose")
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            .fontWeight(.semibold)
+                                            .padding(.trailing, 35)
                                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                     .padding(5)
                                     .background(Color(.white))
@@ -78,10 +78,10 @@ struct VaccineDoseSelectionView: View {
                                     Button(action: {
                                         self.showSecondDoseSheetView.toggle()
                                     }, label: {
-                                            Text("Log Second Vaccination Dose")
-                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                .fontWeight(.semibold)
-                                                .padding(.trailing, 20)
+                                        Text("Log Second Vaccination Dose")
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            .fontWeight(.semibold)
+                                            .padding(.trailing, 10)
                                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                     .padding(5)
                                     .background(Color(.white))
@@ -92,8 +92,28 @@ struct VaccineDoseSelectionView: View {
                                 }
                             }
                             
+                            // MARK: Upload Vaccination Card
+                            HStack {
+                                VStack{
+                                    Button(action: {
+                                        self.showSecondDoseSheetView.toggle()
+                                    }, label: {
+                                        Text("Upload Vaccination Card")
+                                            .foregroundColor(Color(.white))
+                                            .fontWeight(.semibold)
+                                            .padding(.trailing, 20)
+                                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                    .padding(5)
+                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .cornerRadius(10)
+                                    .sheet(isPresented: $showSecondDoseSheetView) {
+                                        AddSecondDoseView()
+                                    }
+                                }
+                            }
+                            
                             Spacer()
-
+                            
                         }.padding()
                         
                     }
@@ -106,10 +126,10 @@ struct VaccineDoseSelectionView: View {
         }
     }
 }
-    
-    struct VaccineDoseSelectionView_Previews: PreviewProvider {
-        static var previews: some View {
-            VaccineDoseSelectionView()
-        }
+
+struct VaccineDoseSelectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        VaccineDoseSelectionView()
     }
+}
 

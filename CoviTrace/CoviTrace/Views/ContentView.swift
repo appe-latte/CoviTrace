@@ -11,11 +11,16 @@ import Kingfisher
 import CoreImage.CIFilterBuiltins
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel : AuthViewModel
+    //    @EnvironmentObject var viewModel : AuthViewModel
+    //    @EnvironmentObject var resultsModel : ResultsViewModel
+    
+    @ObservedObject var viewModel = AuthViewModel()
+    @ObservedObject var resultsModel = ResultsViewModel()
     @State private var vaccStatus = ""
     @State private var patientNumber = ""
     @State var showSecondView = false
     @State var showSheetView = false
+    @State var selectedItem = 0
     
     init() {
         UINavigationBar.appearance().backgroundColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
@@ -76,7 +81,7 @@ struct ContentView: View {
                                                 .font(.body)
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        }
+                                        }.padding(.top, 0.25)
                                         
                                         // MARK: Vaccination Card Added
                                         HStack{
@@ -88,7 +93,7 @@ struct ContentView: View {
                                                 .font(.body)
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        }
+                                        }.padding(.top, 0.25)
                                         
                                         // MARK: Vaccination Information
                                         HStack {
@@ -106,17 +111,122 @@ struct ContentView: View {
                                             .padding(5)
                                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                             .cornerRadius(10)
-                                            .padding(.top, 5)
+                                            .padding(.top, 2)
                                         }
                                         
-                                        Spacer()
+                                        // MARK: Vaccination Upload
+                                        HStack {
+                                            NavigationLink(
+                                                destination: VaccineDoseSelectionView()){
+                                                HStack {
+                                                    Image(systemName: "plus.app")
+                                                        .font(.system(size: 24))
+                                                        .foregroundColor(Color(.white))
+                                                    Text("Log Vaccination")
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color(.white))
+                                                        .padding(.trailing, 25)
+                                                }
+                                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
+                                            .padding(5)
+                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .cornerRadius(10)
+                                            .padding(.top, 2)
+                                        }
+                                        
+                                        // MARK: Upload Test Results sheet
+                                        HStack {
+                                            VStack {
+                                                Button(action: {
+                                                    self.showSheetView.toggle()
+                                                }, label: {
+                                                    HStack {
+                                                        Image(systemName: "plus.app")
+                                                            .font(.system(size: 24))
+                                                            .foregroundColor(Color(.white))
+                                                        Text("Log PCR Results")
+                                                            .fontWeight(.semibold)
+                                                            .foregroundColor(Color(.white))
+                                                            .padding(.trailing, 25)
+                                                    }
+                                                    
+                                                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
+                                                .padding(5)
+                                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                .cornerRadius(10)
+                                                .padding(.top, 2)
+                                                .sheet(isPresented: $showSheetView) {
+                                                    AddResultsView()
+                                                }
+                                            }
+                                        }
+                                        
+                                        // MARK: Venue Check-In
+                                        HStack {
+                                            NavigationLink(
+                                                destination: CheckInView()){
+                                                HStack {
+                                                    Image(systemName: "qrcode")
+                                                        .font(.system(size: 24))
+                                                        .foregroundColor(Color(.white))
+                                                    Text("Scan Check-In Code")
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color(.white))
+//                                                        .padding(.trailing, 25)
+                                                }
+                                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
+                                            .padding(5)
+                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .cornerRadius(10)
+                                            .padding(.top, 2)
+                                        }
+                                        
+                                        // MARK: View Test Results
+                                        HStack {
+                                            NavigationLink(
+                                                destination: TestResultView()){
+                                                HStack {
+                                                    Image(systemName: "folder")
+                                                        .font(.system(size: 24))
+                                                        .foregroundColor(Color(.white))
+                                                    Text("Previous Results")
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color(.white))
+                                                        .padding(.trailing, 25)
+                                                }
+                                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
+                                            .padding(5)
+                                            .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            .cornerRadius(10)
+                                            .padding(.top, 2)
+                                        }
+                                        
+                                        // MARK: View Previous Check-ins
+                                        HStack {
+                                            NavigationLink(
+                                                destination: CheckInView()){
+                                                HStack {
+                                                    Image(systemName: "folder")
+                                                        .font(.system(size: 24))
+                                                        .foregroundColor(Color(.white))
+                                                    Text("Previous Check-ins")
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color(.white))
+                                                }
+                                            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
+                                            .padding(5)
+                                            .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                            .cornerRadius(10)
+                                            .padding(.top, 2)
+                                        }
                                     }
                                 }
-                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 425)
+                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 800)
                                 .background(Color(.white))
                                 .cornerRadius(15)
                                 .padding(5)
                             }
+                            
                             Spacer(minLength: 5)
                         }.onAppear() {
                             Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
@@ -124,91 +234,9 @@ struct ContentView: View {
                                     self.showSecondView = true
                                 }
                             }
-                            
                         }
                         
                         Spacer(minLength: 20)
-                        
-                        // MARK: Options
-                        HStack {
-                            VStack(alignment: .center) {
-                                Spacer(minLength: 5)
-                                
-                                // MARK: Log Vaccinations
-                                HStack {
-                                    NavigationLink(
-                                        destination: VaccineDoseSelectionView()){
-                                        HStack {
-                                            Image(systemName: "plus.app")
-                                                .font(.system(size: 24))
-                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            Text("Log Vaccination")
-                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                .fontWeight(.semibold)
-                                                .padding(.trailing, 20)
-                                        }
-                                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                                    .padding(5)
-                                    .background(Color(.white))
-                                    .cornerRadius(10)
-                                }
-                                
-                                // MARK: PCR Test Upload
-                                HStack {
-                                    VStack{
-                                        
-                                        // MARK: Upload Test Results sheet
-                                        Button(action: {
-                                            self.showSheetView.toggle()
-                                        }, label: {
-                                            HStack {
-                                                Image(systemName: "plus.app")
-                                                    .font(.system(size: 24))
-                                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                Text("Log PCR Results")
-                                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    .fontWeight(.semibold)
-                                                    .padding(.trailing, 20)
-                                            }
-                                            
-                                        }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                                        .padding(5)
-                                        .background(Color(.white))
-                                        .cornerRadius(10)
-                                        .sheet(isPresented: $showSheetView) {
-                                            AddResultsView()
-                                        }
-                                    }
-                                    //                                    .padding(5.0)
-                                    //                                    .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    //                                    .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
-                                }
-                                
-                                
-                                
-                                
-                                // MARK: Check-in Function
-                                HStack {
-                                    NavigationLink(
-                                        destination: CheckInView()){
-                                        HStack {
-                                            Image(systemName: "camera")
-                                                .font(.system(size: 24))
-                                                .foregroundColor(Color(.white))
-                                            Text("Venue Check-in")
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(Color(.white))
-                                                .padding(.trailing, 20)
-                                        }
-                                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                                    .padding(5)
-                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .cornerRadius(10)
-                                    
-                                }
-                            }.padding()
-                        }
-                        Spacer()
                         
                     }
                     .navigationBarHidden(true)
@@ -219,6 +247,7 @@ struct ContentView: View {
             }
         }
     }
+    
 }
 
 extension Image {

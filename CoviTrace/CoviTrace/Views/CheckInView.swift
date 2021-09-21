@@ -18,6 +18,7 @@ struct CheckInView: View {
 //    @ObservedObject private var authModel = AuthViewModel()
     @EnvironmentObject var viewModel : AuthViewModel
     @ObservedObject var resultsViewModel = ResultsViewModel()
+    @ObservedObject private var vaccModel = VaccinationViewModel()
     
     
     init() {
