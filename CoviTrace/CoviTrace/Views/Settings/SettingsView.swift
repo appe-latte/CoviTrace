@@ -146,7 +146,7 @@ struct SettingsView: View {
                             .padding(.leading, 105)
                             
                         }.foregroundColor(.white)
-                    }
+                    }.background(Color.black)
                     
                     // MARK: App Version Number
                     HStack{

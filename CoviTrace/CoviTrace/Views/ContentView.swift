@@ -249,8 +249,21 @@ struct ContentView: View {
                     .navigationBarHidden(false)
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
+                        // MARK: Log Vaccinations / Test Results
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                NavigationLink(
+                                    destination: VaccineDoseSelectionView()){
+                                    HStack {
+                                        Image(systemName: "plus")
+                                            .font(.system(size: 24))
+                                            .foregroundColor(Color(.white))
+                                    }
+                                }
+                            }
+                        }
+                        // MARK: Settings Page
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            // MARK: Settings Page
                             HStack {
                                 NavigationLink(
                                     destination: SettingsView()){

@@ -15,6 +15,7 @@ struct SignUpView: View {
     @State var idNumber = ""
     @State var userEmail = ""
     @State var userPassword = ""
+    @State var userMobile = ""
     @State var verified = "not verified"
     @State private var keyboardHeight: CGFloat = 0
     @State var selectedUIImage: UIImage?
@@ -22,6 +23,11 @@ struct SignUpView: View {
     @State var showImagePicker = false
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
+    
+    init() {
+        self.listenForKeyboardNotifications()
+    }
     
     func loadImage(){
         guard let selectedImage = selectedUIImage else {return}
@@ -70,48 +76,53 @@ struct SignUpView: View {
                     CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
                         .padding(5)
                         .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
                         .textContentType(.none)
                         .keyboardType(.URL)
+                        .offset(y: -self.keyboardHeightHelper.keyboardHeight)
                     
                     // MARK: Last Name Text
                     CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person.fill")
                         .padding(5)
                         .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
                         .textContentType(.name)
                         .keyboardType(.default)
+                        .offset(y: -self.keyboardHeightHelper.keyboardHeight)
                     
                     // MARK: ID Number
                     CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "number")
                         .padding(5)
                         .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
                         .textContentType(.none)
-                        .keyboardType(.URL)
+                        .keyboardType(.numberPad)
+                        .offset(y: -self.keyboardHeightHelper.keyboardHeight)
                     
                     // MARK: User Email Text
                     CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
                         .padding(5)
                         .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
                         .keyboardType(.emailAddress).autocapitalization(.none)
+                        .offset(y: -self.keyboardHeightHelper.keyboardHeight)
                     
                     // MARK: User Password Text
                     CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
                         .padding(5)
                         .foregroundColor(Color(.white))
-                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(15)
+                        .offset(y: -self.keyboardHeightHelper.keyboardHeight)
                     
                     // MARK: "Sign Up" Button
                     Button(action: {
@@ -122,7 +133,7 @@ struct SignUpView: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
-                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 15)
+                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 15)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(15)
                     
@@ -142,6 +153,24 @@ struct SignUpView: View {
             }
         }.navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    // MARK: Keyboard Height listener
+    private func listenForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification,
+                                               object: nil,
+                                               queue: .main) { (notification) in
+                                                guard let userInfo = notification.userInfo,
+                                                    let keyboardRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+                                                
+                                                self.keyboardHeight = keyboardRect.height
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification,
+                                               object: nil,
+                                               queue: .main) { (notification) in
+                                                self.keyboardHeight = 0
+        }
     }
 }
 
