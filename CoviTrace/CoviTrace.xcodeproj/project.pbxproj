@@ -61,6 +61,7 @@
 		2F81DCFC26726E7900897201 /* VaccCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F81DCFB26726E7900897201 /* VaccCardView.swift */; };
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
 		2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CE265BD1DB006D977D /* PasswordResetView.swift */; };
+		2F9DC21B27075B0B003B0B12 /* ProfileImageRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */; };
 		2FA5C34D2707534900E8D51D /* ProfileRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */; };
 		2FD683C92652FFD4005222FB /* HowToVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD683C82652FFD4005222FB /* HowToVerifyView.swift */; };
 		2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */; };
@@ -126,6 +127,7 @@
 		2F81DCFB26726E7900897201 /* VaccCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCardView.swift; sourceTree = "<group>"; };
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		2F9908CE265BD1DB006D977D /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRegistrationView.swift; sourceTree = "<group>"; };
 		2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegistrationView.swift; sourceTree = "<group>"; };
 		2FD683C82652FFD4005222FB /* HowToVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToVerifyView.swift; sourceTree = "<group>"; };
 		2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */,
 				2F75F4AA26FCDE95008BB653 /* PhoneVerificationView.swift */,
+				2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 			files = (
 				2F3487052677B3A40026D0D7 /* FeedbackView.swift in Sources */,
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
+				2F9DC21B27075B0B003B0B12 /* ProfileImageRegistrationView.swift in Sources */,
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
 				2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */,
 				2F75F4AD26FCE3A1008BB653 /* CreateAccountViewModel.swift in Sources */,

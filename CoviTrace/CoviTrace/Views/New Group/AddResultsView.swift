@@ -18,6 +18,8 @@ struct AddResultsView: View {
     @State private var testProvider = ""
     @State private var userId = ""
     @State private var testVerified = "pending"
+    @State private var resultUploadDate = Date() // Logs the date that the results are uploaded onto the system
+    
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
     
@@ -102,7 +104,7 @@ struct AddResultsView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let date = dateFormatter.string(from: testDate)
-        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified])
+        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified, "result_upload_date": resultUploadDate])
     }
 }
 

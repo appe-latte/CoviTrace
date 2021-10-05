@@ -18,6 +18,7 @@ struct AddFirstDoseView: View {
     @State var firstDosageLocation = ""
     @State var firstDoseVaccProvider = ""
     @State var vaccDoseCountry = ""
+    @State var firstDoseUploadDate = Date() // Logs the date the first dose is uploaded onto the system.
     @State var vaccCardVerified = "Verification Pending"
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -112,7 +113,7 @@ struct AddFirstDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose1 = dateFormatter.string(from: firstDoseDate)
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified])
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate ])
     }
 }
 
