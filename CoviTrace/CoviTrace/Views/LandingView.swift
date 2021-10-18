@@ -63,7 +63,7 @@ struct LandingView: View {
                             .cornerRadius(15)
                     }
                 }.padding()
-            }.navigationTitle("")}
+            }.navigationBarTitle("", displayMode: .inline)}
             .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.all)
     }

@@ -17,22 +17,15 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView{
-            ZStack
-            {
-                // MARK: BACKGROUND COLOUR CODE:
+            ZStack {
                 Background()
                 
                 VStack (alignment: .center){
-                    VStack(alignment:.center){
-                        Image("logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 150, height: 150)
-                            .frame(width: 150, height: 150)
-                            .clipShape(Circle())
-                        Spacer()
-                    }
-                    Spacer()
+                    // MARK: View Heading
+                    Text("Login")
+                        .font(.system(size: 26).bold())
+                        .foregroundColor(Color(.white))
+                        .padding(.trailing, 300)
                     
                     // MARK: User Email Text
                     CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
@@ -54,13 +47,15 @@ struct LoginView: View {
                     // MARK: "Password Recovery"
                     NavigationLink(
                         destination: PasswordResetView()){
-                        Text("Forgot Password?")
-                            .font(.footnote)
-//                            .bold()
-                            .foregroundColor(Color(.white))
-                            .padding(2)
-                            .padding(.leading, 175)
-                    }
+                            Text("Forgot Password?")
+                                .font(.footnote)
+                            //                            .bold()
+                                .foregroundColor(Color(.white))
+                                .padding(2)
+                                .padding(.leading, 175)
+                        }
+                    
+                    Spacer()
                     
                     // MARK: "Login" Button
                     Button(action: {
@@ -72,23 +67,24 @@ struct LoginView: View {
                             .foregroundColor(.white)
                         
                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 10)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(15)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(15)
                     
                     // MARK: "No Account"
                     NavigationLink(
-                        destination: SignUpView()){
-                        Text("Don't have an account?")
-                            .font(.footnote)
-                            .bold()
-                            .foregroundColor(Color(.white))
-                            .padding(.top, 2)
-                    }
+                        destination: ProfileRegistrationView()){
+                            Text("Don't have an account?")
+                                .font(.footnote)
+                                .bold()
+                                .foregroundColor(Color(.white))
+                                .padding(.top, 2)
+                        }
                 }.font(.subheadline)
-                .padding(10)
+                    .padding(10)
             }
-        }.navigationBarHidden(true)
-        .edgesIgnoringSafeArea(.all)
+        }.navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

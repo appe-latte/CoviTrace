@@ -134,25 +134,26 @@ struct SignUpView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 15)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(15)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(15)
                     
                     // MARK: "Existing User"
                     NavigationLink(
                         destination: LoginView()){
-                        Text("Existing User?")
-                            .font(.footnote)
-                            .bold()
-                            .foregroundColor(Color(.white))
-                            .padding(.top, 2)
-                    }
+                            Text("Existing User?")
+                                .font(.footnote)
+                                .bold()
+                                .foregroundColor(Color(.white))
+                                .padding(.top, 2)
+                        }
                 }.font(.subheadline)
-                .padding(10)
-                .padding(.bottom, keyboardHeight)
-                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                    .padding(10)
+                    .padding(.bottom, keyboardHeight)
+                    .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
             }
-        }.navigationBarHidden(true)
-        .edgesIgnoringSafeArea(.all)
+        }.navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
+            .edgesIgnoringSafeArea(.all)
     }
     
     // MARK: Keyboard Height listener
@@ -160,16 +161,16 @@ struct SignUpView: View {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification,
                                                object: nil,
                                                queue: .main) { (notification) in
-                                                guard let userInfo = notification.userInfo,
-                                                    let keyboardRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-                                                
-                                                self.keyboardHeight = keyboardRect.height
+            guard let userInfo = notification.userInfo,
+                  let keyboardRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+            
+            self.keyboardHeight = keyboardRect.height
         }
         
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification,
                                                object: nil,
                                                queue: .main) { (notification) in
-                                                self.keyboardHeight = 0
+            self.keyboardHeight = 0
         }
     }
 }

@@ -33,6 +33,7 @@
 		2F41EC8D2641C8D000643C8A /* AppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8C2641C8D000643C8A /* AppointmentViewModel.swift */; };
 		2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */; };
 		2F41EC912642042700643C8A /* bgGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC902642042700643C8A /* bgGreen.swift */; };
+		2F4D4BA6270EA956006B8F19 /* OtpVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4D4BA5270EA956006B8F19 /* OtpVerificationView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
 		2F4F573D2655241600EFB454 /* HowPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573C2655241600EFB454 /* HowPageView.swift */; };
 		2F4F573F265524CF00EFB454 /* HowWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573E265524CF00EFB454 /* HowWorksView.swift */; };
@@ -98,6 +99,7 @@
 		2F41EC8C2641C8D000643C8A /* AppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewModel.swift; sourceTree = "<group>"; };
 		2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppointmentView.swift; sourceTree = "<group>"; };
 		2F41EC902642042700643C8A /* bgGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bgGreen.swift; sourceTree = "<group>"; };
+		2F4D4BA5270EA956006B8F19 /* OtpVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpVerificationView.swift; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddResultsView.swift; path = "../New Group/AddResultsView.swift"; sourceTree = "<group>"; };
 		2F4F573C2655241600EFB454 /* HowPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPageView.swift; sourceTree = "<group>"; };
 		2F4F573E265524CF00EFB454 /* HowWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowWorksView.swift; sourceTree = "<group>"; };
@@ -290,8 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */,
-				2F75F4AA26FCDE95008BB653 /* PhoneVerificationView.swift */,
 				2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */,
+				2F75F4AA26FCDE95008BB653 /* PhoneVerificationView.swift */,
+				2F4D4BA5270EA956006B8F19 /* OtpVerificationView.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				2F4F573D2655241600EFB454 /* HowPageView.swift in Sources */,
 				2FD683C92652FFD4005222FB /* HowToVerifyView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
+				2F4D4BA6270EA956006B8F19 /* OtpVerificationView.swift in Sources */,
 				2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */,
 				2F3680BC26F0E5710002F8A0 /* VaccineDoseSelectionView.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,

@@ -14,43 +14,48 @@ struct PhoneVerificationView: View {
     
     var body: some View {
         ZStack {
-             Background()
+            Background()
             
             VStack (alignment: .center){
-                VStack(alignment:.center){
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 150, height: 150)
-                        .frame(width: 150, height: 150)
-                        .clipShape(Circle())
-                    Spacer()
-                }
-                Spacer()
+                
+                // MARK: View Heading
+                Text("Phone Verification")
+                    .font(.system(size: 26).bold())
+                    .foregroundColor(Color(.white))
+                    .padding(.trailing, 150)
                 
                 // MARK: User Email Text
-                CustomTextField(text: $userMobile, placeholder: Text("Mobile"), imageName: "phone")
+                CustomTextField(text: $userMobile, placeholder: Text("enter mobile number"), imageName: "")
                     .padding(5)
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0, maxHeight: 50).padding(.leading, 15)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
+                    .padding(.top, 20)
+                
+                Text("Please enter your mobile number to receive a verification code for authentication purposes.")
+                    .foregroundColor(.white)
+                    .font(.system(size: 10))
+                    .padding(.horizontal, 5)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 30)
+                
+                Spacer()
                 
                 // MARK: "Reset" Button
                 Button(action: {
                     
                 }, label: {
-                    Text("Verify")
+                    Text("Next")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 10)
-                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                .cornerRadius(15)
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 15)
+                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .cornerRadius(15)
                 
             }.font(.subheadline)
-            .padding(10)
+                .padding(10)
         }
     }
 }

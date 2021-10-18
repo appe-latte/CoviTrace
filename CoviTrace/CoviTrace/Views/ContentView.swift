@@ -121,15 +121,15 @@ struct ContentView: View {
                                                 .padding(.top, 2)
                                         }
                                         
-                                        // MARK: Vaccination Upload
+                                        // MARK: View Cards
                                         HStack {
                                             NavigationLink(
                                                 destination: VaccineDoseSelectionView()){
                                                     HStack {
-                                                        Image(systemName: "plus.app")
+                                                        Image(systemName: "photo")
                                                             .font(.system(size: 24))
                                                             .foregroundColor(Color(.white))
-                                                        Text("Log Vaccination")
+                                                        Text("View Uploads")
                                                             .fontWeight(.semibold)
                                                             .foregroundColor(Color(.white))
                                                             .padding(.trailing, 25)
@@ -249,6 +249,7 @@ struct ContentView: View {
                     .navigationBarHidden(false)
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
+                        
                         // MARK: Log Vaccinations / Test Results
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
