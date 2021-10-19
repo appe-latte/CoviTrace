@@ -89,19 +89,7 @@ struct ContentView: View {
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                         }.padding(.top, 0.25)
-                                        
-                                        // MARK: Vaccination Card Added
-                                        HStack{
-                                            Text("Govt. Vaccination Card: ")
-                                                .font(.body)
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                            Text("yes")
-                                                .font(.body)
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        }.padding(.top, 0.25)
-                                        
+   
                                         // MARK: Vaccination Information
                                         HStack {
                                             NavigationLink(
@@ -124,12 +112,12 @@ struct ContentView: View {
                                         // MARK: View Cards
                                         HStack {
                                             NavigationLink(
-                                                destination: VaccineDoseSelectionView()){
+                                                destination: UploadInformationView()){
                                                     HStack {
                                                         Image(systemName: "photo")
                                                             .font(.system(size: 24))
                                                             .foregroundColor(Color(.white))
-                                                        Text("View Uploads")
+                                                        Text("View Certificate")
                                                             .fontWeight(.semibold)
                                                             .foregroundColor(Color(.white))
                                                             .padding(.trailing, 25)
@@ -139,33 +127,6 @@ struct ContentView: View {
                                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                 .cornerRadius(10)
                                                 .padding(.top, 2)
-                                        }
-                                        
-                                        // MARK: Upload Test Results sheet
-                                        HStack {
-                                            VStack {
-                                                Button(action: {
-                                                    self.showSheetView.toggle()
-                                                }, label: {
-                                                    HStack {
-                                                        Image(systemName: "plus.app")
-                                                            .font(.system(size: 24))
-                                                            .foregroundColor(Color(.white))
-                                                        Text("Log PCR Results")
-                                                            .fontWeight(.semibold)
-                                                            .foregroundColor(Color(.white))
-                                                            .padding(.trailing, 25)
-                                                    }
-                                                    
-                                                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                    .padding(5)
-                                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                                    .cornerRadius(10)
-                                                    .padding(.top, 2)
-                                                    .sheet(isPresented: $showSheetView) {
-                                                        AddResultsView()
-                                                    }
-                                            }
                                         }
                                         
                                         // MARK: Venue Check-In
@@ -196,7 +157,7 @@ struct ContentView: View {
                                                         Image(systemName: "folder")
                                                             .font(.system(size: 24))
                                                             .foregroundColor(Color(.white))
-                                                        Text("Previous Results")
+                                                        Text("Uploaded Results")
                                                             .fontWeight(.semibold)
                                                             .foregroundColor(Color(.white))
                                                             .padding(.trailing, 25)
@@ -228,7 +189,7 @@ struct ContentView: View {
                                         }
                                     }
                                 }
-                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 800)
+                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 700)
                                 .background(Color(.white))
                                 .cornerRadius(15)
                                 .padding(5)
@@ -254,7 +215,7 @@ struct ContentView: View {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
                                 NavigationLink(
-                                    destination: VaccineDoseSelectionView()){
+                                    destination: UploadInformationView()){
                                         HStack {
                                             Image(systemName: "plus")
                                                 .font(.system(size: 24))

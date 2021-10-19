@@ -9,11 +9,12 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct VaccineDoseSelectionView: View {
+struct UploadInformationView: View {
     @State var showSingleDoseSheetView = false
     @State var showFirstDoseSheetView = false
     @State var showSecondDoseSheetView = false
     @State var showUploadPcrTestSheetView = false
+    @State var showBoosterShotSheetView = false
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     
@@ -34,7 +35,7 @@ struct VaccineDoseSelectionView: View {
                                 Button(action: {
                                     self.showSingleDoseSheetView.toggle()
                                 }, label: {
-                                    Text("Log Single Dose Vaccination")
+                                    Text("Add Single Dose Vaccination")
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .fontWeight(.semibold)
                                         .padding(.trailing, 20)
@@ -54,7 +55,7 @@ struct VaccineDoseSelectionView: View {
                                 Button(action: {
                                     self.showFirstDoseSheetView.toggle()
                                 }, label: {
-                                    Text("Log First Vaccination Dose")
+                                    Text("Add First Vaccination Dose")
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .fontWeight(.semibold)
                                         .padding(.trailing, 35)
@@ -74,7 +75,7 @@ struct VaccineDoseSelectionView: View {
                                 Button(action: {
                                     self.showSecondDoseSheetView.toggle()
                                 }, label: {
-                                    Text("Log Second Vaccination Dose")
+                                    Text("Add Second Vaccination Dose")
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .fontWeight(.semibold)
                                         .padding(.trailing, 10)
@@ -88,22 +89,23 @@ struct VaccineDoseSelectionView: View {
                             }
                         }
                         
-                        // MARK: Upload Vaccination Card
+                        // MARK: Upload Booster Shot sheet
                         HStack {
-                            VStack{
+                            VStack {
                                 Button(action: {
-                                    self.showSecondDoseSheetView.toggle()
+                                    self.showBoosterShotSheetView.toggle()
                                 }, label: {
-                                    Text("Upload Vaccination Card")
-                                        .foregroundColor(Color(.white))
+                                    Text("Add Vaccination Booster Dose")
                                         .fontWeight(.semibold)
-                                        .padding(.trailing, 20)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 10)
                                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                     .padding(5)
-                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .background(Color(.white))
                                     .cornerRadius(10)
-                                    .sheet(isPresented: $showSecondDoseSheetView) {
-                                        AddSecondDoseView()
+                                    .padding(.top, 2)
+                                    .sheet(isPresented: $showBoosterShotSheetView) {
+                                        AddBoosterShotView()
                                     }
                             }
                         }
@@ -114,18 +116,52 @@ struct VaccineDoseSelectionView: View {
                                 Button(action: {
                                     self.showUploadPcrTestSheetView.toggle()
                                 }, label: {
-                                    Text("Log Covid PCR Results")
+                                    Text("Add Covid PCR Results")
                                         .fontWeight(.semibold)
-                                        .foregroundColor(Color(.white))
-                                        .padding(.trailing, 40)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                        .padding(.trailing, 70)
                                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
                                     .padding(5)
-                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .background(Color(.white))
                                     .cornerRadius(10)
                                     .padding(.top, 2)
                                     .sheet(isPresented: $showUploadPcrTestSheetView) {
                                         AddResultsView()
                                     }
+                            }
+                        }
+                        
+                        // MARK: Upload Vaccination Card
+                        HStack {
+                            VStack{
+                                Button(action: {
+                                    // add code to upload vaccination card [.pdf / image]
+                                }, label: {
+                                    Text("Upload Vaccination Card")
+                                        .foregroundColor(Color(.white))
+                                        .fontWeight(.semibold)
+                                        .padding(.trailing, 50)
+                                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                    .padding(5)
+                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .cornerRadius(10)
+                            }
+                        }
+                        
+                        // MARK: Upload Digital Vaccine Cert. sheet
+                        HStack {
+                            VStack {
+                                Button(action: {
+                                    // add code to upload digital certificate
+                                }, label: {
+                                    Text("Upload Vaccination Certificate")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(.white))
+                                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                                    .padding(5)
+                                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .cornerRadius(10)
+                                    .padding(.top, 2)
                             }
                         }
                         
@@ -138,7 +174,7 @@ struct VaccineDoseSelectionView: View {
                 Spacer()
                 
             }
-            .navigationBarTitle("Select Dose Type", displayMode: .inline)
+            .navigationBarTitle("Add Vaccination / Test Results", displayMode: .inline)
             
         }
         //        }
@@ -147,7 +183,7 @@ struct VaccineDoseSelectionView: View {
 
 struct VaccineDoseSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        VaccineDoseSelectionView()
+        UploadInformationView()
     }
 }
 

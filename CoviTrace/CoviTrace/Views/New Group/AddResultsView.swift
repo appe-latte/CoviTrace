@@ -14,11 +14,13 @@ struct AddResultsView: View {
     @State private var testRefNum = ""
     @State private var labRefNum = ""
     @State private var testDate = Date()
-    @State private var testResult = ""
     @State private var testProvider = ""
     @State private var userId = ""
     @State private var testVerified = "pending"
     @State private var resultUploadDate = Date() // Logs the date that the results are uploaded onto the system
+    @State private var specimenNum = ""
+    @State private var testResult = ""
+    let selectResult = ["NEGATIVE", "POSITIVE"]
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
@@ -34,7 +36,7 @@ struct AddResultsView: View {
             Background()
             VStack{
                 
-                Text("Add Test Results")
+                Text("Add PCR / Antigen Test Results")
                     .foregroundColor(.white)
                     .fontWeight(.semibold)
                 
@@ -47,7 +49,14 @@ struct AddResultsView: View {
                 
                 // MARK: Lab Ref Number TextField
                 SimpleTextField(text: $labRefNum, placeholder: Text("Enter Lab Reference Number"))
-                    //                    .padding(5)
+                //                    .padding(5)
+                    .foregroundColor(Color(.white))
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .background(Color(.white).opacity(0.1))
+                    .cornerRadius(15)
+                
+                // MARK: Specimen Number
+                SimpleTextField(text: $specimenNum, placeholder: Text("Enter Specimen Number"))
                     .foregroundColor(Color(.white))
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
@@ -66,16 +75,45 @@ struct AddResultsView: View {
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
                 }.foregroundColor(Color(.white))
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                .background(Color(.white).opacity(0.1)).font(.system(size: 14))
-                .cornerRadius(15)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .background(Color(.white).opacity(0.1)).font(.system(size: 14))
+                    .cornerRadius(15)
                 
                 // MARK: Test Result Picker
-                SimpleTextField(text: $testResult, placeholder: Text("Enter Test Result"))
+                HStack {
+                    Text("Choose Result:")
+                        .padding(.leading)
+                        .foregroundColor(Color(.white)).font(.system(size: 14))
+                        
+                    Spacer()
+                    
+                    Picker("Result", selection: $testResult) {
+                        ForEach(selectResult, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                }.padding(.trailing, 50)
                     .foregroundColor(Color(.white))
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
+                
+                // MARK: Upload Test Certificate
+                Button(action: {
+                    // add code to upload certificate
+                }, label: {
+                    HStack {
+                        Text("Upload Test Certificate")
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            .fontWeight(.semibold)
+                            .font(.subheadline)
+                            .padding(.trailing, 10)
+                    }
+                    
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .padding(.top, 2)
                 
                 // MARK: "Log Results" Button
                 Button(action: {
@@ -90,9 +128,9 @@ struct AddResultsView: View {
                     }
                     
                 }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                .cornerRadius(15)
-                .padding(.top, 2)
+                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .cornerRadius(10)
+                    .padding(.top, 2)
                 
                 Spacer()
             }
@@ -104,7 +142,7 @@ struct AddResultsView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let date = dateFormatter.string(from: testDate)
-        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified, "result_upload_date": resultUploadDate])
+        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified, "result_upload_date": resultUploadDate, "specimen_num": specimenNum])
     }
 }
 

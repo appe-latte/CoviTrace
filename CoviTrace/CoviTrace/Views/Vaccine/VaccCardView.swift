@@ -11,18 +11,24 @@ import Firebase
 struct VaccCardView: View {
     @State var firstDosebatchNum = ""
     @State var secondDosebatchNum = ""
+    @State var boosterDosebatchNum = ""
     @State var firstDoseVaccType = ""
     @State var secondDoseVaccType = ""
+    @State var boosterDoseVaccType = ""
     @State var firstDoseDate = ""
     @State var secondDoseDate = ""
+    @State var boosterDoseDate = ""
     @State var vaccStatus = ""
     @State var vaccExpiry = ""
     @State var firstDosageLocation = ""
     @State var secondDosageLocation = ""
+    @State var boosterDoseLocation = ""
     @State var firstDoseVaccProvider = ""
     @State var secondDoseVaccProvider = ""
+    @State var boosterDoseVaccProvider = ""
     @State var vaccDoseCountry = ""
-    @State var vaccDosageType = ""
+    @State var boosterDoseCountry = ""
+    @State var shotType = ""
     @State var showSheetView = false
     @State var vaccCardVerified = ""
     @ObservedObject private var viewModel = VaccinationViewModel()
@@ -61,7 +67,7 @@ struct VaccCardView: View {
                                             .font(.subheadline)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                         Spacer()
-                                        Text(results.vaccDosageType)
+                                        Text(results.shotType)
                                             .font(.subheadline)
                                             .bold()
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -199,6 +205,7 @@ struct VaccCardView: View {
                     }.foregroundColor(Color(.white))
                     
                     // MARK: Second Dosage Info
+                    
                     Section(header: Text("Second Dosage")) {
                         List(viewModel.results) { results in
                             VStack(alignment: .leading) {
@@ -263,6 +270,81 @@ struct VaccCardView: View {
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                         Spacer()
                                         Text(results.secondDoseVaccProvider)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                }
+                            }
+                        }
+                    }.foregroundColor(Color(.white))
+                    
+                    // MARK: Booster Shot Information
+                    
+                    Section(header: Text("Booster Shot")) {
+                        List(viewModel.results) { results in
+                            VStack(alignment: .leading) {
+                                Section {
+                                    Spacer(minLength: 2)
+                                    // MARK: Date
+                                    HStack {
+                                        Text("Date:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.boosterDoseDate)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    Divider()
+                                    
+                                    // MARK: Batch Number
+                                    HStack {
+                                        Text("Batch Number:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.boosterDosebatchNum)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    Divider()
+                                    
+                                    // MARK: Vaccine Make
+                                    HStack {
+                                        Text("Vaccine Make:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.boosterDoseVaccType)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    Divider()
+                                    
+                                    // MARK: Vaccination Location
+                                    HStack {
+                                        Text("Location:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.boosterDoseLocation)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    Divider()
+                                    
+                                    // MARK: Vaccination Provider
+                                    HStack {
+                                        Text("Provider:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.boosterDoseVaccProvider)
                                             .font(.subheadline)
                                             .bold()
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

@@ -10,10 +10,10 @@ import Firebase
 import FirebaseFirestore
 
 struct AddSingleDoseView: View {
-    @State var firstDoseVaccType = ""
+    @State var singleDoseVaccType = "Johnson & Johnson"
     @State var firstDoseDate = Date()
     @State var firstDosebatchNum = ""
-    @State var vaccDosageType = "Single"
+    @State var shotType = "Single"
     @State var vaccStatus = "Fully Vaccinated"
     @State var firstDosageLocation = ""
     @State var firstDoseVaccProvider = ""
@@ -42,7 +42,7 @@ struct AddSingleDoseView: View {
                 .padding(.top, 15)                
                 
                 VStack {
-                    // MARK: First Dose Date
+                    // MARK: Single Dose Date
                     DatePicker(selection: $firstDoseDate, in: ...Date(), displayedComponents: .date) {
                         Text("Choose Date:")
                             .padding(.leading)
@@ -52,20 +52,13 @@ struct AddSingleDoseView: View {
                         .background(Color(.white).opacity(0.1)).font(.system(size: 12))
                         .cornerRadius(10)
                     
-                    // MARK: Firdt Dose Batch Number
+                    // MARK: Single Dose Batch Number
                     SimpleTextField(text: $firstDosebatchNum, placeholder: Text("Batch Number"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(10)
-                    
-                    // MARK: First Dose Vaccination Make
-                    SimpleTextField(text: $firstDoseVaccType, placeholder: Text("Vaccine Make"))
-                        .foregroundColor(Color(.white))
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
-                        .cornerRadius(10)
-                    
+
                     // MARK: Single Dose Vaccination Provider
                     SimpleTextField(text: $firstDoseVaccProvider, placeholder: Text("Vaccine Provider"))
                         .foregroundColor(Color(.white))
@@ -87,14 +80,25 @@ struct AddSingleDoseView: View {
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(10)
                     
+                    // MARK: Upload Vaccine Card
+                    Button(action: {
+                        // add code to upload certificate
+                    }, label: {
+                            Text("Upload Vaccine Card")
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .fontWeight(.semibold)
+                                .padding(.trailing, 10)
+                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.top, 2)
                     
-                    // MARK: "Upload" button
+                    // MARK: "Submit" button
                     Button(action: {
                         upload_data()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("Upload")
-                            .font(.subheadline)
+                        Text("SUBMIT")
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                     })
@@ -115,7 +119,7 @@ struct AddSingleDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose1 = dateFormatter.string(from: firstDoseDate)
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate])
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "shot_type": shotType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate])
     }
 }
 

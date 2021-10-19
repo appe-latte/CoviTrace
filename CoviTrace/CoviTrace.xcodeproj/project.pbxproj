@@ -21,7 +21,7 @@
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
 		2F3487032677B2CE0026D0D7 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487022677B2CE0026D0D7 /* NotificationsView.swift */; };
 		2F3487052677B3A40026D0D7 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487042677B3A40026D0D7 /* FeedbackView.swift */; };
-		2F3680BC26F0E5710002F8A0 /* VaccineDoseSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BB26F0E5710002F8A0 /* VaccineDoseSelectionView.swift */; };
+		2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */; };
 		2F3680BE26F0EE320002F8A0 /* AddSingleDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */; };
 		2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */; };
 		2F3680C226F0FE840002F8A0 /* AddSecondDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680C126F0FE840002F8A0 /* AddSecondDoseView.swift */; };
@@ -65,6 +65,7 @@
 		2F9DC21B27075B0B003B0B12 /* ProfileImageRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */; };
 		2FA5C34D2707534900E8D51D /* ProfileRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */; };
 		2FD683C92652FFD4005222FB /* HowToVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD683C82652FFD4005222FB /* HowToVerifyView.swift */; };
+		2FE77EC5271E4CDA0060B2A8 /* AddBoosterShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE77EC4271E4CDA0060B2A8 /* AddBoosterShotView.swift */; };
 		2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */; };
 		8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 /* End PBXBuildFile section */
@@ -87,7 +88,7 @@
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F3487022677B2CE0026D0D7 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		2F3487042677B3A40026D0D7 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
-		2F3680BB26F0E5710002F8A0 /* VaccineDoseSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineDoseSelectionView.swift; sourceTree = "<group>"; };
+		2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadInformationView.swift; sourceTree = "<group>"; };
 		2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingleDoseView.swift; sourceTree = "<group>"; };
 		2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFirstDoseView.swift; sourceTree = "<group>"; };
 		2F3680C126F0FE840002F8A0 /* AddSecondDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSecondDoseView.swift; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRegistrationView.swift; sourceTree = "<group>"; };
 		2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegistrationView.swift; sourceTree = "<group>"; };
 		2FD683C82652FFD4005222FB /* HowToVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToVerifyView.swift; sourceTree = "<group>"; };
+		2FE77EC4271E4CDA0060B2A8 /* AddBoosterShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoosterShotView.swift; sourceTree = "<group>"; };
 		2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationViewModel.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,10 +232,10 @@
 			children = (
 				2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */,
 				2F81DCFB26726E7900897201 /* VaccCardView.swift */,
-				2F3680BB26F0E5710002F8A0 /* VaccineDoseSelectionView.swift */,
 				2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */,
 				2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */,
 				2F3680C126F0FE840002F8A0 /* AddSecondDoseView.swift */,
+				2FE77EC4271E4CDA0060B2A8 /* AddBoosterShotView.swift */,
 			);
 			path = Vaccine;
 			sourceTree = "<group>";
@@ -321,6 +323,7 @@
 				2F80848125D6E847000A50B6 /* CheckInView.swift */,
 				2F3452ED26FA427300A7D3F8 /* Test Results */,
 				2F3680BA26F0E5430002F8A0 /* Vaccine */,
+				2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */,
 				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
 				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
 				2F3487022677B2CE0026D0D7 /* NotificationsView.swift */,
@@ -488,7 +491,7 @@
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F4D4BA6270EA956006B8F19 /* OtpVerificationView.swift in Sources */,
 				2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */,
-				2F3680BC26F0E5710002F8A0 /* VaccineDoseSelectionView.swift in Sources */,
+				2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
 				2F4F5741265524E500EFB454 /* HowRegistrationView.swift in Sources */,
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
@@ -498,6 +501,7 @@
 				2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */,
 				2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */,
 				2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */,
+				2FE77EC5271E4CDA0060B2A8 /* AddBoosterShotView.swift in Sources */,
 				2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,

@@ -62,7 +62,17 @@ struct TestResultView: View {
                                 Spacer()
                                 Text(results.testVerified)
                                     .font(.subheadline)
-                            }
+                            }.padding(.bottom, 5)
+                            
+                            Button(action: {
+                                // Shows the uploaded test result certificate
+                                
+                            }, label: {
+                                Text("Show Certificate")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            })
                         }
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
@@ -70,7 +80,7 @@ struct TestResultView: View {
                         self.viewModel.fetchData(id: authModel.userSession!.uid)
                     }
                 }
-            }.navigationBarTitle("Previous Test Results", displayMode: .inline)
+            }.navigationBarTitle("Saved Test Results", displayMode: .inline)
             
             
         }
