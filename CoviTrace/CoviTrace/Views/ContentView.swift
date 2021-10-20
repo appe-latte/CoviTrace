@@ -98,9 +98,10 @@ struct ContentView: View {
                                                         Image(systemName: "qrcode")
                                                             .font(.system(size: 24))
                                                             .foregroundColor(Color(.white))
-                                                        Text("Vaccination Pass")
+                                                        Text("View Covid Pass")
                                                             .fontWeight(.semibold)
                                                             .foregroundColor(Color(.white))
+                                                            .padding(.trailing, 30)
                                                     }
                                                 }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
                                                 .padding(5)
@@ -134,7 +135,7 @@ struct ContentView: View {
                                             NavigationLink(
                                                 destination: CheckInView()){
                                                     HStack {
-                                                        Image(systemName: "qrcode")
+                                                        Image(systemName: "barcode")
                                                             .font(.system(size: 24))
                                                             .foregroundColor(Color(.white))
                                                         Text("Scan Check-In Code")
@@ -154,10 +155,10 @@ struct ContentView: View {
                                             NavigationLink(
                                                 destination: TestResultView()){
                                                     HStack {
-                                                        Image(systemName: "folder")
+                                                        Image(systemName: "tray.fill")
                                                             .font(.system(size: 24))
                                                             .foregroundColor(Color(.white))
-                                                        Text("Uploaded Results")
+                                                        Text("Test Results")
                                                             .fontWeight(.semibold)
                                                             .foregroundColor(Color(.white))
                                                             .padding(.trailing, 25)
@@ -174,10 +175,10 @@ struct ContentView: View {
                                             NavigationLink(
                                                 destination: CheckInView()){
                                                     HStack {
-                                                        Image(systemName: "folder")
+                                                        Image(systemName: "tray.fill")
                                                             .font(.system(size: 24))
                                                             .foregroundColor(Color(.white))
-                                                        Text("Previous Check-ins")
+                                                        Text("Venue Check-ins")
                                                             .fontWeight(.semibold)
                                                             .foregroundColor(Color(.white))
                                                     }

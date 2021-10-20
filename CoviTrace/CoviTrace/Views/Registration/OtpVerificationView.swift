@@ -44,7 +44,7 @@ struct OtpVerificationView: View {
                         
                     },
                     label: {
-                        Text("Verify")
+                        Text("VERIFY")
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)

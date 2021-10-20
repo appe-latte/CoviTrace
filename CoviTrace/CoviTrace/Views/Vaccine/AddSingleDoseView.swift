@@ -35,7 +35,7 @@ struct AddSingleDoseView: View {
             Background()
             VStack {
                 VStack{
-                    Text("Log Single Dosage Information")
+                    Text("Add Single Dosage Information")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                 }

@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct PhoneVerificationView: View {
-    @State var userMobile = ""
+    @State var userCellNum = ""
     @State var otpCode = ""
     
     var body: some View {
@@ -25,7 +25,7 @@ struct PhoneVerificationView: View {
                     .padding(.trailing, 150)
                 
                 // MARK: User Email Text
-                CustomTextField(text: $userMobile, placeholder: Text("enter mobile number"), imageName: "")
+                CustomTextField(text: $userCellNum, placeholder: Text("enter cellphone number"), imageName: "")
                     .padding(5)
                     .foregroundColor(Color(.white))
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
@@ -33,7 +33,7 @@ struct PhoneVerificationView: View {
                     .cornerRadius(15)
                     .padding(.top, 20)
                 
-                Text("Please enter your mobile number to receive a verification code for authentication purposes.")
+                Text("Please enter your cellphone number to receive a verification code for authentication purposes.")
                     .foregroundColor(.white)
                     .font(.system(size: 10))
                     .padding(.horizontal, 5)
@@ -41,11 +41,11 @@ struct PhoneVerificationView: View {
                 
                 Spacer()
                 
-                // MARK: "Reset" Button
+                // MARK: "Verify" Button
                 Button(action: {
                     
                 }, label: {
-                    Text("Next")
+                    Text("NEXT")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)

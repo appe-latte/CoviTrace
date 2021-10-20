@@ -46,7 +46,7 @@ struct ProfileRegistrationView: View {
                     .keyboardType(.default)
                 
                 // MARK: ID Number
-                CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "number")
+                CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "note.text")
                     .padding(5)
                     .foregroundColor(Color(.white))
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
@@ -87,7 +87,7 @@ struct ProfileRegistrationView: View {
                 Button(action: {
                     
                 }, label: {
-                    Text("Next")
+                    Text("NEXT")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)

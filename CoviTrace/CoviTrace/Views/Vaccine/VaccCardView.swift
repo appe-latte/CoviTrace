@@ -33,6 +33,7 @@ struct VaccCardView: View {
     @State var vaccCardVerified = ""
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
+    @ObservedObject private var boosterModel = BoosterShotViewModel()
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -282,7 +283,7 @@ struct VaccCardView: View {
                     // MARK: Booster Shot Information
                     
                     Section(header: Text("Booster Shot")) {
-                        List(viewModel.results) { results in
+                        List(boosterModel.results) { results in
                             VStack(alignment: .leading) {
                                 Section {
                                     Spacer(minLength: 2)

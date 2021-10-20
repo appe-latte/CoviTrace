@@ -15,7 +15,7 @@ class CreateAccountViewModel: NSObject, ObservableObject {
     @Published var lastName = ""
     @Published var idNumber = ""
     @Published var dob = ""
-    @Published var mobileNumber = ""
+    @Published var cellNum = ""
     @Published var otpCode = ""
     
     @Published var pageNumber = 0
@@ -46,7 +46,7 @@ class CreateAccountViewModel: NSObject, ObservableObject {
         
         isLoading.toggle()
         
-        PhoneAuthProvider.provider().verifyPhoneNumber("+" + otpCode + mobileNumber, uiDelegate: nil) { (CODE, err) in
+        PhoneAuthProvider.provider().verifyPhoneNumber("+" + otpCode + cellNum, uiDelegate: nil) { (CODE, err) in
             
             self.isLoading.toggle()
             
@@ -154,7 +154,7 @@ class CreateAccountViewModel: NSObject, ObservableObject {
         let db = Firestore.firestore()
         
         db.collection("users").document(Auth.auth().currentUser!.uid).setData([
-            "Mobile": self.mobileNumber,
+            "Cell": self.cellNum,
             "First Name": self.firstName,
             "Surname": self.lastName,
             "profileImageUrl": profileImageUrl,

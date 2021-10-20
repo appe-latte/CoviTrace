@@ -140,7 +140,7 @@ struct AddBoosterShotView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose3 = dateFormatter.string(from: boosterDoseDate)
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "booster_date": dose3, "booster_batch_num": boosterDosebatchNum, "booster_vacc_type": boosterDoseVaccType, "booster_provider" : boosterDoseVaccProvider, "booster_issued_by" : boosterDoseLocation, "booster_dose_country": boosterDoseCountry, "vacc_card_verified": vaccCardVerified, "booster_upload_date": boosterDoseUploadDate, "shot_type": shotType])
+        db.collection("booster").document().setData(["userId": authModel.userSession!.uid, "booster_date": dose3, "booster_batch_num": boosterDosebatchNum, "booster_vacc_type": boosterDoseVaccType, "booster_provider" : boosterDoseVaccProvider, "booster_issued_by" : boosterDoseLocation, "booster_dose_country": boosterDoseCountry, "vacc_card_verified": vaccCardVerified, "booster_upload_date": boosterDoseUploadDate, "shot_type": shotType])
     }
 }
 

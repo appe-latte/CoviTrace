@@ -55,7 +55,7 @@ struct ProfileImageRegistrationView: View {
                         Button(action: {
                             
                         }, label: {
-                            Text("Complete Registration")
+                            Text("NEXT")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
