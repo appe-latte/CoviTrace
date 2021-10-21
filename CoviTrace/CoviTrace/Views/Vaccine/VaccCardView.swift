@@ -46,7 +46,7 @@ struct VaccCardView: View {
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     
     init() {
-        UITableView.appearance().backgroundColor = UIColor(Color(.white))
+        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
         UITableViewCell.appearance().backgroundColor = UIColor(Color(.white))
     }
     
@@ -54,16 +54,16 @@ struct VaccCardView: View {
         ZStack {
             
             VStack {
-                Spacer()
-                HStack{
-                    Text("Vaccination Information")
-                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                        .font(.system(size: 18).bold())
-                        .padding(.leading, 100)
-                        .padding(5)
-                    
-                    Spacer()
-                }
+//                Spacer()
+//                HStack{
+//                    Text("Vaccination Information")
+//                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+//                        .font(.system(size: 18).bold())
+//                        .padding(.leading, 100)
+//                        .padding(5)
+//
+//                    Spacer()
+//                }
                 
                 Form {
                     Section(header: Text("Status")) {
@@ -133,7 +133,7 @@ struct VaccCardView: View {
                                 }
                             }
                         }
-                    }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    }.foregroundColor(Color(.white))
                     
                     // MARK: First Dosage Info
                     Section(header: Text("First Dosage")) {
@@ -204,7 +204,7 @@ struct VaccCardView: View {
                                 }
                             }
                         }
-                    }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    }.foregroundColor(Color(.white))
                     
                     // MARK: Second Dosage Info
                     
@@ -275,7 +275,7 @@ struct VaccCardView: View {
                                 }
                             }
                         }
-                    }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    }.foregroundColor(Color(.white))
                     
                     // MARK: Booster Shot Information
                     Section(header: Text("Booster Shot")) {
@@ -345,7 +345,7 @@ struct VaccCardView: View {
                                 }
                             }
                         }
-                    }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    }.foregroundColor(Color(.white))
                     
                 }
                 .onAppear() {
@@ -353,6 +353,6 @@ struct VaccCardView: View {
                 }
                 Spacer()
             }
-        }
+        }.navigationBarTitle("Vaccination Information", displayMode: .inline)
     }
 }

@@ -27,30 +27,6 @@ struct VaccCertView: View {
         {
             VStack{
                 VStack {
-                    VStack{
-                        
-                        // MARK: Vaccination Information
-                        Button(action: {
-                            self.showSheetView.toggle()
-                        }, label: {
-                            HStack {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                Text("Vaccination Information")
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            }
-                        }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                            .background(Color.white)
-                            .cornerRadius(12)
-                            .padding()
-                            .sheet(isPresented: $showSheetView) {
-                                VaccCardView()
-                            }
-                    }
-                    .background(Color.white)
-                    
                     Text("Certificate of Vaccination")
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 26).bold())
@@ -137,11 +113,11 @@ struct VaccCertView: View {
                     }.multilineTextAlignment(.leading)
                         .font(.system(size: 18))
                         .lineLimit(6)
-                        .frame(width: 350, height: 400)
+                        .frame(width: 400, height: 400)
                         .background(Color(.white))
                 }.onAppear() {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
-                }
+                }.padding(.top, 20)
             }.navigationBarTitle("Vaccination Certificate", displayMode: .inline)
             Spacer()
             
