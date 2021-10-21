@@ -29,9 +29,6 @@
 		2F40129426738E2B00AFA9E5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40129326738E2B00AFA9E5 /* SettingsView.swift */; };
 		2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012952673A68C00AFA9E5 /* PrivacyView.swift */; };
 		2F4012982673B93800AFA9E5 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012972673B93800AFA9E5 /* TermsView.swift */; };
-		2F41EC8B2641C69C00643C8A /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8A2641C69C00643C8A /* AppointmentView.swift */; };
-		2F41EC8D2641C8D000643C8A /* AppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8C2641C8D000643C8A /* AppointmentViewModel.swift */; };
-		2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */; };
 		2F41EC912642042700643C8A /* bgGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC902642042700643C8A /* bgGreen.swift */; };
 		2F451F06272091FB001BB7A4 /* BoosterShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */; };
 		2F451F0827209E35001BB7A4 /* AccountSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F0727209E35001BB7A4 /* AccountSuccessView.swift */; };
@@ -98,9 +95,6 @@
 		2F40129326738E2B00AFA9E5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2F4012952673A68C00AFA9E5 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		2F4012972673B93800AFA9E5 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
-		2F41EC8A2641C69C00643C8A /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
-		2F41EC8C2641C8D000643C8A /* AppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewModel.swift; sourceTree = "<group>"; };
-		2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppointmentView.swift; sourceTree = "<group>"; };
 		2F41EC902642042700643C8A /* bgGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bgGreen.swift; sourceTree = "<group>"; };
 		2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterShotViewModel.swift; sourceTree = "<group>"; };
 		2F451F0727209E35001BB7A4 /* AccountSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSuccessView.swift; sourceTree = "<group>"; };
@@ -289,7 +283,6 @@
 				2F96097E260E21A700D0090B /* ResultsViewModel.swift */,
 				2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */,
 				2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */,
-				2F41EC8C2641C8D000643C8A /* AppointmentViewModel.swift */,
 				2F75F4AC26FCE3A1008BB653 /* CreateAccountViewModel.swift */,
 			);
 			path = ViewModel;
@@ -330,8 +323,6 @@
 				2F3452ED26FA427300A7D3F8 /* Test Results */,
 				2F3680BA26F0E5430002F8A0 /* Vaccine */,
 				2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */,
-				2F41EC8A2641C69C00643C8A /* AppointmentView.swift */,
-				2F41EC8E2641C9D400643C8A /* NewAppointmentView.swift */,
 				2F3487022677B2CE0026D0D7 /* NotificationsView.swift */,
 				2F3487042677B3A40026D0D7 /* FeedbackView.swift */,
 				2F40129226738E1100AFA9E5 /* Settings */,
@@ -482,9 +473,7 @@
 				2F75F4AD26FCE3A1008BB653 /* CreateAccountViewModel.swift in Sources */,
 				2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */,
 				2F4F573F265524CF00EFB454 /* HowWorksView.swift in Sources */,
-				2F41EC8B2641C69C00643C8A /* AppointmentView.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
-				2F41EC8F2641C9D400643C8A /* NewAppointmentView.swift in Sources */,
 				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,
 				2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
@@ -532,7 +521,6 @@
 				2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */,
 				2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */,
 				2F4012982673B93800AFA9E5 /* TermsView.swift in Sources */,
-				2F41EC8D2641C8D000643C8A /* AppointmentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

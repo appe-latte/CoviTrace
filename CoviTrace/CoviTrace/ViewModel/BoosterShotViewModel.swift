@@ -5,12 +5,12 @@
 //  Created by Stanford L. Khumalo on 20/10/2021.
 //
 
-import Foundation
+import SwiftUI
 import Firebase
 import FirebaseFirestore
 
 class BoosterShotViewModel: ObservableObject {
-    @Published var results = [BoosterData]()
+    @Published var boosterData = [BoosterData]()
     
     private var db = Firestore.firestore()
     
@@ -20,19 +20,18 @@ class BoosterShotViewModel: ObservableObject {
                 print("No records")
                 return
             }
-            self.results = documents.map { queryDocumentSnapshot -> BoosterData in
+            self.boosterData = documents.map { queryDocumentSnapshot -> BoosterData in
                 let data = queryDocumentSnapshot.data()
                 let userid = data["userId"] as? String ?? ""
                 let boosterDosebatchNum = data["booster_batch_num"] as? String ?? ""
                 let boosterDoseVaccType = data["booster_vacc_type"] as? String ?? ""
                 let boosterDoseDate = data["booster_date"] as? String ?? ""
-                let vaccStatus = data["vacc_status"] as? String ?? ""
                 let boosterDoseLocation = data["booster_issued_by"] as? String ?? ""
                 let boosterDoseVaccProvider = data["booster_provider"] as? String ?? ""
                 let shotType = data["shot_type"] as? String ?? ""
                 let boosterDoseCountry = data["booster_dose_country"] as? String ?? ""
                 
-                return BoosterData(id: userid, boosterDosebatchNum: boosterDosebatchNum, boosterDoseVaccType: boosterDoseVaccType, boosterDoseDate: boosterDoseDate, vaccStatus: vaccStatus,boosterDoseLocation: boosterDoseLocation, boosterDoseVaccProvider: boosterDoseVaccProvider, shotType: shotType, boosterDoseCountry: boosterDoseCountry)
+                return BoosterData(id: userid, boosterDosebatchNum: boosterDosebatchNum, boosterDoseVaccType: boosterDoseVaccType, boosterDoseDate: boosterDoseDate, boosterDoseLocation: boosterDoseLocation, boosterDoseVaccProvider: boosterDoseVaccProvider, shotType: shotType, boosterDoseCountry: boosterDoseCountry)
             }
         }
     }

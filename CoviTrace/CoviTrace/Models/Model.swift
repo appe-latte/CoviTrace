@@ -78,7 +78,6 @@ struct BoosterData: Identifiable, Codable {
     var boosterDoseVaccType : String
     var boosterDoseDate : String
     var userId: String?
-    var vaccStatus : String
     var boosterDoseLocation : String
     var boosterDoseVaccProvider : String
     var shotType : String
@@ -90,27 +89,10 @@ struct BoosterData: Identifiable, Codable {
         case boosterDoseVaccType
         case boosterDoseDate
         case userId
-        case vaccStatus
         case boosterDoseLocation
         case boosterDoseVaccProvider
         case shotType
         case boosterDoseCountry
-    }
-}
-
-struct AppointData: Identifiable, Codable {
-    var id: String? = UUID().uuidString
-    var appointDate : String
-    var appointTitle : String
-    var appointLocation : String
-    var userId: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case appointDate
-        case appointTitle
-        case appointLocation
-        case userId
     }
 }
 

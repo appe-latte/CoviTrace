@@ -17,9 +17,9 @@ struct UploadInformationView: View {
     @State var showBoosterShotSheetView = false
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
+    @ObservedObject private var boosterModel = BoosterShotViewModel()
     
     var body: some View {
-        //        NavigationView {
         ZStack
         {
             // MARK: BACKGROUND COLOUR CODE:
@@ -135,7 +135,9 @@ struct UploadInformationView: View {
                         HStack {
                             VStack{
                                 Button(action: {
+                                    
                                     // add code to upload vaccination card [.pdf / image]
+                                    
                                 }, label: {
                                     Text("Upload Vaccination Card")
                                         .foregroundColor(Color(.white))
@@ -152,7 +154,9 @@ struct UploadInformationView: View {
                         HStack {
                             VStack {
                                 Button(action: {
+                                    
                                     // add code to upload digital certificate
+                                    
                                 }, label: {
                                     Text("Upload Vaccination Certificate")
                                         .fontWeight(.semibold)
@@ -169,7 +173,6 @@ struct UploadInformationView: View {
                         
                     }.padding()
                     
-                    //                        Spacer()
                 }
                 Spacer()
                 
@@ -177,7 +180,6 @@ struct UploadInformationView: View {
             .navigationBarTitle("Add Vaccination / Test Results", displayMode: .inline)
             
         }
-        //        }
     }
 }
 

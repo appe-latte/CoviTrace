@@ -42,12 +42,12 @@ struct VaccCertView: View {
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             }
                         }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                        .background(Color.white)
-                        .cornerRadius(12)
-                        .padding()
-                        .sheet(isPresented: $showSheetView) {
-                            VaccCardView()
-                        }
+                            .background(Color.white)
+                            .cornerRadius(12)
+                            .padding()
+                            .sheet(isPresented: $showSheetView) {
+                                VaccCardView()
+                            }
                     }
                     .background(Color.white)
                     
@@ -93,9 +93,6 @@ struct VaccCertView: View {
                                     
                                     // MARK: User Details
                                     VStack(alignment: .leading) {
-                                        //                                        Text(testName)
-                                        //                                            .font(.system(size: 15))
-                                        //                                            .bold()
                                         VStack(alignment: .leading){
                                             Text("Profile Status:")
                                                 .font(.system(size: 15))
@@ -134,33 +131,14 @@ struct VaccCertView: View {
                                         }
                                     }
                                 }
-                                
-                                Spacer()
-                                
-                                VStack(alignment: .center){
-                                    Text("Vaccination Information verified by:")
-                                        .font(.system(size: 15))
-                                    Spacer()
-                                    HStack {
-                                        Text("Data Protection Officer")
-                                            .font(.system(size: 13))
-                                            .fontWeight(.semibold)
-                                        Text("| Covitrace Ltd.")
-                                            .font(.system(size: 14))
-                                    }
-                                    
-                                    Text("Registration Number: ZB074608")
-                                        .font(.system(size: 13))
-                                }
                             }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            Spacer()
                         }
                         Spacer()
                     }.multilineTextAlignment(.leading)
-                    .font(.system(size: 18))
-                    .lineLimit(6)
-                    .frame(width: 350, height: 400)
-                    .background(Color(.white))
+                        .font(.system(size: 18))
+                        .lineLimit(6)
+                        .frame(width: 350, height: 400)
+                        .background(Color(.white))
                 }.onAppear() {
                     self.viewModel.fetchData(id: authModel.userSession!.uid)
                 }
