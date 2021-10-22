@@ -22,6 +22,7 @@ struct ContentView: View {
     
     @ObservedObject var viewModel = AuthViewModel()
     @ObservedObject var resultsModel = ResultsViewModel()
+    @ObservedObject var vaccModel = VaccinationViewModel()
     //    @ObservedObject var boosterModel = BoosterShotViewModel()
     @State private var vaccStatus = ""
     @State private var patientNumber = ""
@@ -221,7 +222,19 @@ struct ContentView: View {
                                                     .fontWeight(.semibold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                                 
-                                                // MARK: Patient Number
+                                                // MARK: Date of Birth
+                                                HStack{
+                                                    Text("Date of Birth: ")
+                                                        .font(.body)
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                                    Text(viewModel.user!.dob)
+                                                        .font(.body)
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                }
+                                                
+                                                // MARK: ID Number
                                                 HStack{
                                                     Text("ID Number: ")
                                                         .font(.body)
@@ -282,66 +295,9 @@ struct ContentView: View {
                                                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                         .cornerRadius(10)
                                                 }
-                                                
-                                                // MARK: Venue Check-In
-                                                //                                                HStack {
-                                                //                                                    NavigationLink(
-                                                //                                                        destination: CheckInView()){
-                                                //                                                            HStack {
-                                                //                                                                Image(systemName: "barcode")
-                                                //                                                                    .font(.system(size: 24))
-                                                //                                                                    .foregroundColor(Color(.white))
-                                                //                                                                Text("Venue Check-in")
-                                                //                                                                    .fontWeight(.semibold)
-                                                //                                                                    .foregroundColor(Color(.white))
-                                                //                                                                    .padding(.trailing, 25)
-                                                //                                                            }
-                                                //                                                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                //                                                        .padding(5)
-                                                //                                                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                                //                                                        .cornerRadius(10)
-                                                //                                                }
-                                                
-                                                // MARK: View Test Results
-                                                //                                                HStack {
-                                                //                                                    NavigationLink(
-                                                //                                                        destination: TestResultView()){
-                                                //                                                            HStack {
-                                                //                                                                Image(systemName: "tray.fill")
-                                                //                                                                    .font(.system(size: 24))
-                                                //                                                                    .foregroundColor(Color(.white))
-                                                //                                                                Text("Test Results")
-                                                //                                                                    .fontWeight(.semibold)
-                                                //                                                                    .foregroundColor(Color(.white))
-                                                //                                                                    .padding(.trailing, 50)
-                                                //                                                            }
-                                                //                                                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                //                                                        .padding(5)
-                                                //                                                        .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                //                                                        .cornerRadius(10)
-                                                //                                                }
-                                                
-                                                // MARK: View Previous Check-ins
-                                                //                                                HStack {
-                                                //                                                    NavigationLink(
-                                                //                                                        destination: CheckInView()){
-                                                //                                                            HStack {
-                                                //                                                                Image(systemName: "tray.fill")
-                                                //                                                                    .font(.system(size: 24))
-                                                //                                                                    .foregroundColor(Color(.white))
-                                                //                                                                Text("Venue Check-ins")
-                                                //                                                                    .fontWeight(.semibold)
-                                                //                                                                    .foregroundColor(Color(.white))
-                                                //                                                                    .padding(.trailing, 10)
-                                                //                                                            }
-                                                //                                                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                //                                                        .padding(5)
-                                                //                                                        .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                //                                                        .cornerRadius(10)
-                                                //                                                }
                                             }
                                         }
-                                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
+                                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 525)
                                         .background(Color(.white))
                                         .cornerRadius(15)
                                         .padding(5)

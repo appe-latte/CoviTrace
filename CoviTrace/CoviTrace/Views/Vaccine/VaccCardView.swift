@@ -201,6 +201,18 @@ struct VaccCardView: View {
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     }
                                     
+                                    // MARK: Vaccination Country
+                                    HStack {
+                                        Text("Country:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.vaccDoseCountry)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    
                                 }
                             }
                         }
@@ -272,6 +284,18 @@ struct VaccCardView: View {
                                             .bold()
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     }
+                                    
+                                    // MARK: Vaccination Country
+                                    HStack {
+                                        Text("Country:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(results.vaccDoseCountry)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
                                 }
                             }
                         }
@@ -338,6 +362,18 @@ struct VaccCardView: View {
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                         Spacer()
                                         Text(boosterData.boosterDoseVaccProvider)
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    }
+                                    
+                                    // MARK: Booster Vaccination Country
+                                    HStack {
+                                        Text("Country:")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        Spacer()
+                                        Text(boosterData.boosterDoseCountry)
                                             .font(.subheadline)
                                             .bold()
                                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
