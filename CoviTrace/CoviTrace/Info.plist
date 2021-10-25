@@ -16,6 +16,8 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Covitrace requires FaceID to securely provide access to the app.</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
@@ -23,9 +25,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>CoviTrace App requires your location to identify Covid-19 statistics for that area.</string>
+	<string>CoviTrace App requires Location Services to be enabled for use by the &quot;Venue Check-in&quot; feature.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>CoviTrace App requires your location to identify Covid-19 statistics for that area.</string>
+	<string>CoviTrace App requires Location Services to be enabled for use by the &quot;Venue Check-in&quot; feature.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

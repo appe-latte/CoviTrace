@@ -74,23 +74,20 @@ struct TestResultView: View {
                                     Text(results.testVerified)
                                         .font(.subheadline)
                                 }.padding(.bottom, 5)
+                                
+                                HStack {
+                                    NavigationLink(
+                                        destination: ShowTestCertView()){
+                                            
+                                        }.opacity(0) // opacity hides the chevron that comes with the NavigationLink
+                                }
                             }
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             
-                            // MARK: Button to show the uploaded test certificate
-                            Button(action: {
-                                
-                                // add code here that picks certificate for each individual result
-                                
-                                self.showTestCertView.toggle()
-                                
-                                
-                            }, label: {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            }).sheet(isPresented: $showTestCertView) {
-                                ShowTestCertView()
-                            }
+                           Image(systemName: "chevron.right")
+                                .foregroundColor(Color.gray)
+                                .padding(.leading, 5)
+                            
                         }
                     }
                     .onAppear() {

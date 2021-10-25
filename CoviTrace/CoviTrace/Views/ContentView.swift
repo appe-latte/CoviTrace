@@ -97,7 +97,7 @@ struct ContentView: View {
                                     VStack(spacing: 1) {
                                         HStack {
                                             NavigationLink(
-                                                destination: VaccCertView()){
+                                                destination: VaccPassView()){
                                                     VStack {
                                                         Image(systemName: "qrcode")
                                                             .foregroundColor(.white)
@@ -222,18 +222,6 @@ struct ContentView: View {
                                                     .fontWeight(.semibold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                                 
-                                                // MARK: Date of Birth
-                                                HStack{
-                                                    Text("Date of Birth: ")
-                                                        .font(.body)
-                                                        .fontWeight(.semibold)
-                                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(viewModel.user!.dob)
-                                                        .font(.body)
-                                                        .fontWeight(.semibold)
-                                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                                }
-                                                
                                                 // MARK: ID Number
                                                 HStack{
                                                     Text("ID Number: ")
@@ -263,7 +251,7 @@ struct ContentView: View {
                                                     NavigationLink(
                                                         destination: VaccCertView()){
                                                             HStack {
-                                                                Image(systemName: "photo")
+                                                                Image(systemName: "eye")
                                                                     .font(.system(size: 24))
                                                                     .foregroundColor(Color(.white))
                                                                 Text("View Certificate")
@@ -280,7 +268,7 @@ struct ContentView: View {
                                                 // MARK: View Cards
                                                 HStack {
                                                     NavigationLink(
-                                                        destination: NotificationsView()){
+                                                        destination: QrCodeScannerView()){
                                                             HStack {
                                                                 Image(systemName: "barcode")
                                                                     .font(.system(size: 24))
@@ -326,7 +314,6 @@ struct ContentView: View {
             }
         }
     }
-    
 }
 
 extension Image {

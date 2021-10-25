@@ -11,6 +11,8 @@ import Combine
 
 @main
 struct CoviTraceApp: App {
+    @StateObject var appContext = AppContext()
+    
     
     init(){
         FirebaseApp.configure()
@@ -20,9 +22,22 @@ struct CoviTraceApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(AuthViewModel())
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .preferredColorScheme(.light)
+            //            ContentView().environmentObject(AuthViewModel())
+            ////                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            //                .preferredColorScheme(.light)
+            //        }
+            //
+            ZStack {
+                if appContext.appUnlocked {
+
+                    ContentView().environmentObject(AuthViewModel())
+                    //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                        .preferredColorScheme(.light)
+                } else {
+                    FaceIdLoginView(appContext: appContext)
+                        .background(Color.white)
+                }
+            }
+        }
         }
     }
-}
