@@ -109,6 +109,7 @@ struct SingleDoseData: Identifiable, Codable {
     var singleDoseLocation : String
     var singleDoseVaccProvider : String
     var singleDoseCountry : String
+    var shotType : String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -119,6 +120,7 @@ struct SingleDoseData: Identifiable, Codable {
         case singleDoseLocation
         case singleDoseVaccProvider
         case singleDoseCountry
+        case shotType
     }
 }
 

@@ -113,9 +113,3 @@ struct BoosterVaccView: View {
         }
     }
 }
-
-struct BoosterVaccView_Previews: PreviewProvider {
-    static var previews: some View {
-        BoosterVaccView()
-    }
-}

@@ -69,9 +69,3 @@ struct ProfileImageRegistrationView: View {
             .navigationBarHidden(true)
     }
 }
-
-struct ProfileImageRegistrationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileImageRegistrationView()
-    }
-}

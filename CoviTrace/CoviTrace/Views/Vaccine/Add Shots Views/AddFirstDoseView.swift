@@ -31,6 +31,16 @@ struct AddFirstDoseView: View {
         return formatter
     }()
     
+    // MARK: Image Picker
+    @State var selectedUIImage: UIImage?
+    @State var image: Image?
+    @State var showImagePicker = false
+    
+    func loadImage(){
+        guard let selectedImage = selectedUIImage else {return}
+        image = Image(uiImage: selectedImage)
+    }
+    
     var body: some View {
         ZStack{
             Background()
@@ -102,7 +112,7 @@ struct AddFirstDoseView: View {
                     
                     // MARK: Upload Vaccine Card
                     Button(action: {
-                        // add code to upload certificate
+                        showImagePicker.toggle()
                     }, label: {
                         Text("Upload Vaccine Card")
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -112,6 +122,9 @@ struct AddFirstDoseView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
+                        .sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
+                            ImagePicker(image: $selectedUIImage)
+                        })
                     
                     // MARK: "Submit" button
                     Button(action: {
@@ -142,8 +155,3 @@ struct AddFirstDoseView: View {
     }
 }
 
-struct AddFirstDoseView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddFirstDoseView()
-    }
-}

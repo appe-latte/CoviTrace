@@ -32,6 +32,16 @@ struct AddSecondDoseView: View {
         return formatter
     }()
     
+    // MARK: Image Picker
+    @State var selectedUIImage: UIImage?
+    @State var image: Image?
+    @State var showImagePicker = false
+    
+    func loadImage(){
+        guard let selectedImage = selectedUIImage else {return}
+        image = Image(uiImage: selectedImage)
+    }
+    
     var body: some View {
         ZStack{
             Background()
@@ -104,7 +114,7 @@ struct AddSecondDoseView: View {
                     
                     // MARK: Upload Vaccine Card
                     Button(action: {
-                        // add code to upload certificate
+                        showImagePicker.toggle()
                     }, label: {
                         Text("Upload Vaccine Card")
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -114,6 +124,9 @@ struct AddSecondDoseView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
+                        .sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
+                            ImagePicker(image: $selectedUIImage)
+                        })
                     
                     // MARK: "Submit" button
                     Button(action: {
@@ -141,12 +154,5 @@ struct AddSecondDoseView: View {
         let db = Firestore.firestore()
         let dose2 = dateFormatter.string(from: secondDoseDate)
         db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "2nd_dose_country": secondDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate, "shot_type": shotType])
-    }
-}
-
-
-struct AddSecondDoseView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSecondDoseView()
     }
 }

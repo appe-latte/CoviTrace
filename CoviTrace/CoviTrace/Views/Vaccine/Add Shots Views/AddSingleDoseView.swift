@@ -18,11 +18,21 @@ struct AddSingleDoseView: View {
     @State var singleDoseVaccProvider = ""
     @State var singleDoseCountry = ""
     @State var vaccCardVerified = "verification pending"
+    @State var shotType = "Single Dose"
     @State var singleDoseUploadDate = Date() // Logs the date the dose is uploaded onto the system.
     
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
+    
+    @State var selectedUIImage: UIImage?
+    @State var image: Image?
+    @State var showImagePicker = false
+    
+    func loadImage(){
+        guard let selectedImage = selectedUIImage else {return}
+        image = Image(uiImage: selectedImage)
+    }
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -39,7 +49,7 @@ struct AddSingleDoseView: View {
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                 }
-                .padding(.top, 15)                
+                .padding(.top, 15)
                 
                 VStack {
                     // MARK: Single Dose Date
@@ -58,7 +68,7 @@ struct AddSingleDoseView: View {
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(10)
-
+                    
                     // MARK: Single Dose Vaccination Provider
                     SimpleTextField(text: $singleDoseVaccProvider, placeholder: Text("Vaccine Provider"))
                         .foregroundColor(Color(.white))
@@ -82,16 +92,19 @@ struct AddSingleDoseView: View {
                     
                     // MARK: Upload Vaccine Card
                     Button(action: {
-                        // add code to upload certificate
+                        showImagePicker.toggle()
                     }, label: {
-                            Text("Upload Vaccine Card")
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                .fontWeight(.semibold)
-                                .padding(.trailing, 10)
+                        Text("Upload Vaccine Card")
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            .fontWeight(.semibold)
+                            .padding(.trailing, 10)
                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
+                        .sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
+                            ImagePicker(image: $selectedUIImage)
+                        })
                     
                     // MARK: "Submit" button
                     Button(action: {
@@ -119,7 +132,7 @@ struct AddSingleDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose4 = dateFormatter.string(from: singleDoseDate)
-        db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider" : singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "single_dose_country": singleDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate])
+        db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "single_dose_country": singleDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate, "shotType": shotType])
     }
 }
 

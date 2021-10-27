@@ -23,7 +23,7 @@ struct AddBoosterShotView: View {
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     @Environment(\.presentationMode) var presentationMode
-
+    
     let vaccineType = ["Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johnson"] // Picker data for vaccine make
     
     let dateFormatter: DateFormatter = {
@@ -31,6 +31,15 @@ struct AddBoosterShotView: View {
         formatter.dateStyle = .short
         return formatter
     }()
+    
+    @State var selectedUIImage: UIImage?
+    @State var image: Image?
+    @State var showImagePicker = false
+    
+    func loadImage(){
+        guard let selectedImage = selectedUIImage else {return}
+        image = Image(uiImage: selectedImage)
+    }
     
     var body: some View {
         ZStack{
@@ -103,9 +112,7 @@ struct AddBoosterShotView: View {
                     
                     // MARK: Upload Vaccine Card
                     Button(action: {
-                        
-                        // add code to upload certificate
-                        
+                        showImagePicker.toggle()
                     }, label: {
                         Text("Upload Vaccine Card")
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -115,6 +122,9 @@ struct AddBoosterShotView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
+                        .sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
+                            ImagePicker(image: $selectedUIImage)
+                        })
                     
                     // MARK: "Submit" button
                     Button(action: {
