@@ -9,35 +9,60 @@ import SwiftUI
 
 struct FaceIdLoginView: View {
     @ObservedObject var appContext: AppContext
+    @EnvironmentObject var authModel : AuthViewModel
     
     var body: some View {
         ZStack {
             Background()
-            VStack {
-                Spacer(minLength: 10)
+            VStack(alignment: .center) {
+                Spacer()
                 
-                Image(systemName: "faceid")
-                    .resizable()
-                    .frame(width: 150, height: 150)
+                VStack(spacing: 10) {
+                    Image(systemName: "lock.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                    
+                    Text("Please unlock the app to continue.")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(5)
+                }
                 
                 Spacer()
                 
-                Button(action: {
-                    appContext.requestBiometricUnlock()
-                },
-                       label: {
-                    HStack {
-                        Text("Login")
+                HStack {
+                    // MARK: Logout Button
+                    Button(action: {
+                        
+                        // add code here to logout
+                    },
+                           label: {
+                        
+                        Text("Logout")
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
-                    }
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                        .padding(5)
-                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .cornerRadius(10)
-                })
-                
-                Spacer()
+                            .font(.body)
+                            .padding(5)
+                        
+                    })
+                    
+                    Spacer()
+                    
+                    // MARK: FaceID Login Button
+                    Button(action: {
+                        appContext.requestBiometricUnlock()
+                    },
+                           label: {
+                        
+                        Text("Unlock")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .font(.body)
+                            .padding(5)
+                    })
+                }.padding(.horizontal, 30)
             }
         }
     }

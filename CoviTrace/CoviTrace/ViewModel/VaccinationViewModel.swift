@@ -35,11 +35,13 @@ class VaccinationViewModel: ObservableObject {
                 let secondDosageLocation = data["2nd_issued_by"] as? String ?? ""
                 let firstDoseVaccProvider = data["1st_provider"] as? String ?? ""
                 let secondDoseVaccProvider = data["2nd_provider"] as? String ?? ""
-                let shotType = data["shot_type"] as? String ?? ""
-                let vaccDoseCountry = data["vacc_dose_country"] as? String ?? ""
+                let firstDoseShotType = data["first_shot_type"] as? String ?? ""
+                let secondDoseShotType = data["second_shot_type"] as? String ?? ""
+                let firstDoseCountry = data["1st_dose_country"] as? String ?? ""
+                let secondDoseCountry = data["2nd_dose_country"] as? String ?? ""
                 let vaccCardVerified = data["vacc_card_verified"] as? String ?? ""
                                                 
-                return VaccineData(id: userid, firstDosebatchNum: firstDosebatchNum, secondDosebatchNum: secondDosebatchNum, firstDoseVaccType: firstDoseVaccType, secondDoseVaccType: secondDoseVaccType, firstDoseDate: firstDoseDate, secondDoseDate: secondDoseDate, vaccStatus: vaccStatus, vaccExpiry: vaccExpiry, firstDosageLocation: firstDosageLocation, secondDosageLocation: secondDosageLocation, firstDoseVaccProvider: firstDoseVaccProvider, secondDoseVaccProvider: secondDoseVaccProvider, shotType: shotType, vaccDoseCountry: vaccDoseCountry, vaccCardVerified: vaccCardVerified)
+                return VaccineData(id: userid, firstDosebatchNum: firstDosebatchNum, secondDosebatchNum: secondDosebatchNum, firstDoseVaccType: firstDoseVaccType, secondDoseVaccType: secondDoseVaccType, firstDoseDate: firstDoseDate, secondDoseDate: secondDoseDate, vaccStatus: vaccStatus, vaccExpiry: vaccExpiry, firstDosageLocation: firstDosageLocation, secondDosageLocation: secondDosageLocation, firstDoseVaccProvider: firstDoseVaccProvider, secondDoseVaccProvider: secondDoseVaccProvider, firstDoseShotType: firstDoseShotType, secondDoseShotType: secondDoseShotType, firstDoseCountry : firstDoseCountry, secondDoseCountry: secondDoseCountry, vaccCardVerified: vaccCardVerified)
             }
         }
     }

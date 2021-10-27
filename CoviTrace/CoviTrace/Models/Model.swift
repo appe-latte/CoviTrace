@@ -47,8 +47,10 @@ struct VaccineData: Identifiable, Codable {
     var secondDosageLocation : String
     var firstDoseVaccProvider : String
     var secondDoseVaccProvider : String
-    var shotType : String
-    var vaccDoseCountry : String
+    var firstDoseShotType : String
+    var secondDoseShotType : String
+    var firstDoseCountry : String
+    var secondDoseCountry : String
     var vaccCardVerified : String
     
     enum CodingKeys: String, CodingKey {
@@ -66,8 +68,10 @@ struct VaccineData: Identifiable, Codable {
         case secondDosageLocation
         case firstDoseVaccProvider
         case secondDoseVaccProvider
-        case shotType
-        case vaccDoseCountry
+        case firstDoseShotType
+        case secondDoseShotType
+        case firstDoseCountry
+        case secondDoseCountry
         case vaccCardVerified
     }
 }
@@ -93,6 +97,28 @@ struct BoosterData: Identifiable, Codable {
         case boosterDoseVaccProvider
         case shotType
         case boosterDoseCountry
+    }
+}
+
+struct SingleDoseData: Identifiable, Codable {
+    var id : String? = UUID().uuidString
+    var singleDosebatchNum : String
+    var singleDoseVaccType : String
+    var singleDoseDate : String
+    var userId: String?
+    var singleDoseLocation : String
+    var singleDoseVaccProvider : String
+    var singleDoseCountry : String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case singleDosebatchNum
+        case singleDoseVaccType
+        case singleDoseDate
+        case userId
+        case singleDoseLocation
+        case singleDoseVaccProvider
+        case singleDoseCountry
     }
 }
 

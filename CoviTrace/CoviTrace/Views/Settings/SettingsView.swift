@@ -9,7 +9,7 @@ import SwiftUI
 import WebKit
 
 struct SettingsView: View {
-    @EnvironmentObject var viewModel : AuthViewModel
+    @EnvironmentObject var authModel : AuthViewModel
     @Environment(\.openURL) var openURL
     let appVersion = ""
     
@@ -32,20 +32,6 @@ struct SettingsView: View {
                                 .padding(.leading, 15)
                         }
                         
-                        // MARK: Results Submission
-                        NavigationLink(
-                            destination: HowToVerifyView()){
-                                Image(systemName: "lifepreserver")
-                                    .font(.system(size: 26))
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.trailing, 5)
-                                Text("How to Verify Information")
-                                    .font(.custom("Avenir", size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
-                        
                         // MARK: Privacy Settings
                         NavigationLink(
                             destination: HowToVerifyView()){
@@ -61,18 +47,18 @@ struct SettingsView: View {
                             }
                         
                         // MARK: Notifications
-                        NavigationLink(
-                            destination: HowToVerifyView()){
-                                Image(systemName: "app.badge")
-                                    .font(.system(size: 26))
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.trailing, 5)
-                                Text("Notifications")
-                                    .font(.custom("Avenir", size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
+                        //                        NavigationLink(
+                        //                            destination: HowToVerifyView()){
+                        //                                Image(systemName: "app.badge")
+                        //                                    .font(.system(size: 26))
+                        //                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        //                                    .padding(.trailing, 5)
+                        //                                Text("Notifications")
+                        //                                    .font(.custom("Avenir", size: 17))
+                        //                                    .fontWeight(.bold)
+                        //                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        //                                    .padding(.leading, 15)
+                        //                            }
                         
                         // MARK: Privacy Policy
                         NavigationLink(
@@ -102,38 +88,25 @@ struct SettingsView: View {
                                     .padding(.leading, 15)
                             }
                         
-                        // MARK: Feedback
-                        NavigationLink(
-                            destination: FeedbackView()){
-                                Image(systemName: "message")
-                                    .font(.system(size: 26))
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.trailing, 5)
-                                Text("Send Feedback")
-                                    .font(.custom("Avenir", size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
                         
                         // MARK: Share The App
-                        Button(action: shareSheet) {
-                            HStack{
-                                Image(systemName: "square.and.arrow.up")
-                                    .font(.system(size: 26))
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.trailing, 5)
-                                Text("Share")
-                                    .font(.custom("Avenir", size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
-                        }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        //                        Button(action: shareSheet) {
+                        //                            HStack{
+                        //                                Image(systemName: "square.and.arrow.up")
+                        //                                    .font(.system(size: 26))
+                        //                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        //                                    .padding(.trailing, 5)
+                        //                                Text("Share")
+                        //                                    .font(.custom("Avenir", size: 17))
+                        //                                    .fontWeight(.bold)
+                        //                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        //                                    .padding(.leading, 15)
+                        //                            }
+                        //                        }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         
                         // MARK: Sign Out
                         Button(action: {
-                            viewModel.signOut()
+                            authModel.signOut()
                         }) {
                             HStack{
                                 Text("Sign Out")
@@ -149,7 +122,7 @@ struct SettingsView: View {
                 }.background(Color.black)
                 
                 // MARK: App Version Number
-                
+    
                 HStack(spacing: 5){
                     Text("Developed by Appe Latte ~")
                         .font(.footnote)
@@ -162,7 +135,7 @@ struct SettingsView: View {
         }
     }
     
-    // MARK: Share app function
+    // MARK: "Share" app function
     func shareSheet() {
         guard let data = URL(string: "https://apps.apple.com/us/app/covitrace/id1553975926") else { return }
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)

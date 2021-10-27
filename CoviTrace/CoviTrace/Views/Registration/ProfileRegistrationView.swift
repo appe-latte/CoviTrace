@@ -97,7 +97,8 @@ struct ProfileRegistrationView: View {
                 
             }.font(.subheadline)
                 .padding(10)
-        }
+        }.navigationBarTitle("Profile Registration")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -17,12 +17,14 @@ struct ContentView: View {
     
     @State var isHide = false
     
-    //    @EnvironmentObject var viewModel : AuthViewModel
-    //    @EnvironmentObject var resultsModel : ResultsViewModel
+    @EnvironmentObject var viewModel : AuthViewModel
+    @EnvironmentObject var resultsModel : ResultsViewModel
+    @EnvironmentObject var vaccModel : VaccinationViewModel
     
-    @ObservedObject var viewModel = AuthViewModel()
-    @ObservedObject var resultsModel = ResultsViewModel()
-    @ObservedObject var vaccModel = VaccinationViewModel()
+    //    @ObservedObject var viewModel = AuthViewModel()
+    //    @ObservedObject var resultsModel = ResultsViewModel()
+    //    @ObservedObject var vaccModel = VaccinationViewModel()
+    
     //    @ObservedObject var boosterModel = BoosterShotViewModel()
     @State private var vaccStatus = ""
     @State private var patientNumber = ""

@@ -47,7 +47,7 @@ struct LandingView: View {
                             .padding()
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             .background(Color(.white))
-                            .cornerRadius(15)
+                            .cornerRadius(10)
                         
                         // MARK: "Login" Button
                         NavigationLink(
@@ -60,12 +60,13 @@ struct LandingView: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(15)
+                            .cornerRadius(10)
                     }
                 }.padding()
             }.navigationBarTitle("", displayMode: .inline)}
             .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.all)
+            .accentColor(Color.white)
     }
 }
 
