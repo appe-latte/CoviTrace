@@ -15,6 +15,8 @@ struct VaccPassView: View {
     @State var firstName = ""
     @State var vaccStatus = ""
     @State var dob = ""
+    @State var firstDoseDate = ""
+    @State var secondDoseDate = ""
     
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -34,6 +36,7 @@ struct VaccPassView: View {
                 
                 let fullName = authModel.user!.fName + " " + authModel.user!.lName
                 let dob = authModel.user!.dob
+                let idNumber = authModel.user!.patientNumber
                 
                 HStack {
                     // MARK: ID Number
@@ -67,7 +70,7 @@ struct VaccPassView: View {
                 List(viewModel.results) { results in
                     VStack {
                         HStack{
-                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Date of Birth: \(dob)\n First Dosage Date: \(results.vaccStatus)\n Expiry: \(results.vaccExpiry)"))
+                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Date of Birth: \(dob)\n ID: \(idNumber)\n Status: \(results.vaccStatus)\n First Dose: \(results.firstDoseDate)\n Second Dose: \(results.secondDoseDate)"))
                                 .interpolation(.none)
                                 .resizable()
                                 .scaledToFill()

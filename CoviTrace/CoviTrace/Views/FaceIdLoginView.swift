@@ -20,8 +20,11 @@ struct FaceIdLoginView: View {
                 VStack(spacing: 10) {
                     Image(systemName: "lock.fill")
                         .resizable()
-                        .scaledToFit()
+                        .renderingMode(.template)
+                        .scaledToFill()
                         .frame(width: 50, height: 50)
+                        .foregroundColor(.white)
+                        .padding(5)
                     
                     Text("Please unlock the app to continue.")
                         .font(.title3)
@@ -37,6 +40,7 @@ struct FaceIdLoginView: View {
                     Button(action: {
                         
                         // add code here to logout
+                        authModel.signOut()
                     },
                            label: {
                         

@@ -29,19 +29,7 @@ struct VaccCardView: View {
     
     var body: some View {
         ZStack {
-            
             VStack {
-                //                Spacer()
-                //                HStack{
-                //                    Text("Vaccination Information")
-                //                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                //                        .font(.system(size: 18).bold())
-                //                        .padding(.leading, 100)
-                //                        .padding(5)
-                //
-                //                    Spacer()
-                //                }
-                
                 Form {
                     Section(header: Text("Status")) {
                         List(viewModel.results) { results in
