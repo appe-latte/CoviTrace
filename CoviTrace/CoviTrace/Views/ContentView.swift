@@ -13,29 +13,14 @@ import CoreImage.CIFilterBuiltins
 struct ContentView: View {
     @State var top = UIApplication.shared.windows.first?.safeAreaInsets.top
     @State var current = "house.fill"
+    @State var isHide = false
     @Namespace var animation
     
-    @State var isHide = false
-    
+    // MARK: Objects
     @EnvironmentObject var viewModel : AuthViewModel
     @EnvironmentObject var resultsModel : ResultsViewModel
     @EnvironmentObject var vaccModel : VaccinationViewModel
-    
     @StateObject var appContext = AppContext()
-    
-    init() {
-        let barTintColor = UINavigationBarAppearance()
-        barTintColor.configureWithOpaqueBackground()
-        barTintColor.backgroundColor = UIColor.init(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-        barTintColor.titleTextAttributes = [.foregroundColor: UIColor.white]
-        barTintColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().backgroundColor = UIColor.init(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-        UITextView.appearance().backgroundColor = .white
-        UIDatePicker.appearance().backgroundColor = UIColor.init(red: 46 / 255, green: 153 / 255, blue: 168 / 255, alpha: 1.0)
-        UIDatePicker.appearance().tintColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
-        UINavigationBar.appearance().scrollEdgeAppearance = barTintColor
-        UINavigationBar.appearance().standardAppearance = barTintColor
-    }
     
     var body: some View {
         Group {

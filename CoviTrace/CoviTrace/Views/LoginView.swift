@@ -69,7 +69,7 @@ struct LoginView: View {
                     
                     // MARK: "No Account"
                     NavigationLink(
-                        destination: ProfileRegistrationView()){
+                        destination: SignUpView()){
                             Text("Don't have an account?")
                                 .font(.footnote)
                                 .bold()

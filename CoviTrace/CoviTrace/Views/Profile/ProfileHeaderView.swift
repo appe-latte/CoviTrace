@@ -6,38 +6,69 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ProfileHeaderView: View {
-    @State var firstName = ""
-    @State var lastName = ""
-    @EnvironmentObject var viewModel : AuthViewModel
+    @ObservedObject var authModel : AuthViewModel
     
     var body: some View {
         ZStack {
-        VStack(alignment:.center){
-            Image(systemName: "person.crop.circle.fill")
-                .resizable()
-                .scaledToFit()
-                .clipShape(Circle())
-                .frame(width: 300, height: 100)
-                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-            
-            Text("Hello,")
-                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                .font(.title3)
-                .fontWeight(.semibold)
-            Text(firstName)
-                .fontWeight(.semibold)
-                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                .font(.title2)
+            VStack(spacing: 10){
+                let fullName = authModel.user!.fName + authModel.user!.lName
+                let dob = authModel.user!.dob
+                let userIdNum = authModel.user!.patientNumber
+                let email = authModel.user!.email
+                
+                Form {
+                    Section(header: Text("")){
+                        List() {
+                            
+                            // MARK: Profile Image
+                            Image(systemName: "person.crop.circle.fill")
+                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(Circle())
+                                .frame(width: 300, height: 200)
+                                .foregroundColor(Color(.white))
+                                .padding(5)
+                            
+                            // MARK: User name
+                            HStack {
+                                Text("Name:")
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                Spacer()
+                                Text(fullName)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            }
+                            
+                            // MARK: User DOB
+                            HStack {
+                                Text("DOB:")
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                Spacer()
+                                Text(dob)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            }
+                            
+                            // MARK: User ID Number
+                            HStack {
+                                Text("ID Number:")
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                Spacer()
+                                Text(userIdNum)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            }
+                        }
+                    }
+                }.padding(10)
+            }
         }
-        .padding(10)
-    }
-    }
-}
-
-struct ProfileHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileHeaderView()
     }
 }

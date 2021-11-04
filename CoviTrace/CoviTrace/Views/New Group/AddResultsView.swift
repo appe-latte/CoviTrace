@@ -21,6 +21,7 @@ struct AddResultsView: View {
     @State private var specimenNum = ""
     @State private var testResult = ""
     let selectResult = ["NEGATIVE", "POSITIVE"]
+    @State private var presentImporter = false // presents File importer
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
@@ -84,7 +85,7 @@ struct AddResultsView: View {
                     Text("Choose Result:")
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
-                        
+                    
                     Spacer()
                     
                     Picker("Result", selection: $testResult) {
@@ -100,7 +101,7 @@ struct AddResultsView: View {
                 
                 // MARK: Upload Test Certificate
                 Button(action: {
-                    // add code to upload certificate
+                    presentImporter = true
                 }, label: {
                     HStack {
                         Text("Upload Test Certificate")
@@ -114,6 +115,15 @@ struct AddResultsView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
+                    .fileImporter(isPresented: $presentImporter, allowedContentTypes: [.pdf]) { result in
+                        switch result {
+                        case .success(let url):
+                            print(url)
+                            //use `url.startAccessingSecurityScopedResource()` if you are going to read the data
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 
                 // MARK: "Log Results" Button
                 Button(action: {
@@ -143,11 +153,5 @@ struct AddResultsView: View {
         let db = Firestore.firestore()
         let date = dateFormatter.string(from: testDate)
         db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified, "result_upload_date": resultUploadDate, "specimen_num": specimenNum])
-    }
-}
-
-struct ResultsView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddResultsView()
     }
 }

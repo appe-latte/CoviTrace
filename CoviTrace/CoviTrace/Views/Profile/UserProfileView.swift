@@ -6,19 +6,17 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct UserProfileView: View {
+        @ObservedObject var authModel = AuthViewModel()
+    
     var body: some View {
-        ScrollView {
+        ZStack {
+            Background()
             VStack {
-                ProfileHeaderView()
+                ProfileHeaderView(authModel: AuthViewModel())
             }
         }
-    }
-}
-
-struct UserProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserProfileView()
     }
 }

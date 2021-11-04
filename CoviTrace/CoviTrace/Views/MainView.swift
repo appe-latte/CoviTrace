@@ -73,19 +73,48 @@ struct MainView: View {
                                         
                                         Spacer(minLength: 0)
                                         
-                                        // MARK: Upload Information
-                                        HStack {
-                                            NavigationLink(
-                                                destination: UploadInformationView()){
-                                                    HStack {
-                                                        Image(systemName: "plus")
-                                                            .foregroundColor(.white)
-                                                            .padding(10)
-                                                            .background(Color.white.opacity(0.1))
-                                                            .clipShape(Circle())
-                                                    }
+                                        // MARK: Top Row buttons
+                                        HStack(spacing: 15) {
+                                            
+                                            // MARK: User Profile
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: UploadInformationView()){
+                                                            VStack {
+                                                                Image(systemName: "person.fill")
+                                                                    .foregroundColor(.white)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Profile")
+                                                                    .font(.system(size: 11))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
                                                 }
-                                        }
+                                            }.padding(.top, 10)
+                                            
+                                            
+                                            // MARK: Upload Information
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: UploadInformationView()){
+                                                            VStack {
+                                                                Image(systemName: "plus")
+                                                                    .foregroundColor(.white)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Add")
+                                                                    .font(.system(size: 12))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
+                                                }
+                                            }.padding(.top, 10)
+                                        }.padding(.trailing, 10)
                                         
                                     }
                                     .padding(.horizontal)
@@ -179,7 +208,7 @@ struct MainView: View {
                                                     VStack {
                                                         Image(systemName: "gearshape")
                                                             .foregroundColor(.white)
-                                                            .padding(10)
+                                                            .padding(9)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
                                                         Text("Settings")
@@ -259,7 +288,6 @@ struct MainView: View {
                                                                     .padding(.trailing, 30)
                                                             }
                                                         }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                        .padding(5)
                                                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                         .cornerRadius(10)
                                                 }
@@ -278,7 +306,6 @@ struct MainView: View {
                                                                     .padding(.trailing, 25)
                                                             }
                                                         }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                        .padding(5)
                                                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                         .cornerRadius(10)
                                                 }
