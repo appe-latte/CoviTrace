@@ -45,7 +45,7 @@ struct SignUpView: View {
                         // MARK: Profile Image selection
                         VStack(alignment:.center){
                             Button(action: {showImagePicker.toggle()}, label: {
-                                ZStack {
+                                VStack {
                                     
                                     if let image = image {
                                         image
@@ -151,7 +151,7 @@ struct SignUpView: View {
                     .keyboardAdaptive()
                     .ignoresSafeArea(.keyboard)
             }
-        }.navigationBarTitle("", displayMode: .inline)
+        }.navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
     }
     

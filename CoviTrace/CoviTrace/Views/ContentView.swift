@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import Kingfisher
 import CoreImage.CIFilterBuiltins
+import LocalAuthentication
 
 struct ContentView: View {
     @State var top = UIApplication.shared.windows.first?.safeAreaInsets.top

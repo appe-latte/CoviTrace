@@ -8,9 +8,13 @@
 import SwiftUI
 import Firebase
 import Combine
+import LocalAuthentication
+import UserNotifications
 
 @main
-struct CoviTraceApp: App {    
+struct CoviTraceApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     init(){
         FirebaseApp.configure()
     }

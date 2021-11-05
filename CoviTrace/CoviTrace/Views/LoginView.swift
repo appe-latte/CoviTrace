@@ -82,9 +82,3 @@ struct LoginView: View {
         }.accentColor(.white)
     }
 }
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}

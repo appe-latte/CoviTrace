@@ -22,7 +22,7 @@ class AppContext : ObservableObject {
         
         if canEvaluate {
             if context.biometryType != .none {
-                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "View your Covid Pass") { (success, error) in
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock app to view your Covitrace pass") { (success, error) in
                     DispatchQueue.main.async {
                         self.appUnlocked = success
                         self.authorizationError = error

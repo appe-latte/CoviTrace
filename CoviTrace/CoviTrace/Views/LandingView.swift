@@ -29,13 +29,15 @@ struct LandingView: View {
                             .foregroundColor(.white)
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                    }
+                    }.padding(.top, 20)
                     Spacer()
                 }
                 
-                VStack(alignment:.trailing) {
-                    Spacer()
-                    VStack {
+                    
+                    VStack(spacing: 10) {
+                        
+                        Spacer()
+                        
                         //MARK: "Register" Button
                         NavigationLink(
                             destination: SignUpView()){
@@ -57,12 +59,14 @@ struct LandingView: View {
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             .cornerRadius(10)
-                    }
-                }.padding()
-            }.navigationBarTitle("", displayMode: .inline)}
-            .navigationBarHidden(true)
-            .edgesIgnoringSafeArea(.all)
-            .accentColor(Color.white)
+                    }.padding(.bottom, 20)
+                
+            }.navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.all)
+                .accentColor(Color.white)
+            
+        }
+            
     }
 }
 

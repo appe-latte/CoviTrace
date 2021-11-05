@@ -38,8 +38,6 @@ struct FaceIdLoginView: View {
                 HStack {
                     // MARK: Logout Button
                     Button(action: {
-                        
-                        // add code here to logout
                         authModel.signOut()
                     },
                            label: {
