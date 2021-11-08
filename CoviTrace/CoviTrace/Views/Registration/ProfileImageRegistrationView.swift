@@ -44,15 +44,15 @@ struct ProfileImageRegistrationView: View {
                         }).sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
                             ImagePicker(image: $selectedUIImage)
                         })
-                        Text("Add Profile Image")
+                        Text("Choose profile image")
                             .foregroundColor(.white)
                             .padding()
                         
                         Spacer()
-                        
-                        // MARK: Complete Registration Button
-                        
+                    
                         Button(action: {
+                            
+                            // add code to move to phone OTP.
                             
                         }, label: {
                             Text("NEXT")

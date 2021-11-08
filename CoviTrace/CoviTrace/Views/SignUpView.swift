@@ -15,7 +15,6 @@ struct SignUpView: View {
     @State var idNumber = ""
     @State var userEmail = ""
     @State var userPassword = ""
-    @State var userCellNum = ""
     @State var verified = "not verified"
     @State private var keyboardHeight: CGFloat = 0
     @State var selectedUIImage: UIImage?

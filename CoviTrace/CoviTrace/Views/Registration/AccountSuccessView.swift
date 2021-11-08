@@ -8,40 +8,37 @@
 import SwiftUI
 
 struct AccountSuccessView: View {
+    @AppStorage("isLoggedIn") var isLogin: Bool = false
+    
     var body: some View {
-        ZStack {
-            Background()
-            VStack(alignment: .center) {
+        VStack {
+            Image("img3")
+            
+            Text("Congrats! You are verified")
+                .font(.title2)
+                .fontWeight(.bold)
+            
+            Button(action: {
                 
-                // MARK: View Heading
-                Text("Welcome to Covitrace")
-                    .font(.system(size: 40).bold())
-                    .foregroundColor(Color(.white))
-                    .padding(.top, 50)
+                isLogin = true
                 
-                Text("Your account has been successfully created!")
-                    .font(.system(size: 16))
-                    .foregroundColor(Color(.white))
-                    .padding(.top, 5)
-                
-                Spacer()
-                    
-                // MARK: Move to Content View
-                
-                Button(
-                    action: {
-                        
-                    },
-                    label: {
-                        Text("WELCOME")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 15)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(15)
-            }
-        }
+            }, label: {
+                Text("Done")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: UIScreen.main.bounds.width / 1.3, maxHeight: 50)
+                    .background(Color("Primary"))
+                    .cornerRadius(6)
+                    .shadow(color: Color("Primary").opacity(0.8), radius: 6, x: 1, y: 1)
+            }).padding()
+        }.frame(maxWidth: UIScreen.main.bounds.width / 1.2)
+        .padding()
+        .background(Color.white)
+        .clipShape(
+            RoundedRectangle(cornerRadius: 25)
+        )
+        .shadow(color: Color.black.opacity(0.2), radius: 25, x: 1, y: 1)
     }
 }
 

@@ -12,7 +12,7 @@ struct User: Identifiable {
     let fName : String
     let lName : String
     let email : String
-    let cellphone : String
+    let cellNum : String
     let profileImageUrl : String
     let verified : String
     let dob : String
@@ -25,7 +25,7 @@ struct User: Identifiable {
         self.fName = dictionary["First Name"] as? String ?? ""
         self.lName = dictionary["Surname"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
-        self.cellphone = dictionary["cellphone"] as? String ?? ""
+        self.cellNum = dictionary["cell_num"] as? String ?? ""
         self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
         self.verified = dictionary["verified"] as? String ?? ""
         self.dob = dictionary["dob"] as? String ?? ""

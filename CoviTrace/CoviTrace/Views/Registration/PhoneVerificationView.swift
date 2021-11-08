@@ -9,59 +9,66 @@ import SwiftUI
 import Firebase
 
 struct PhoneVerificationView: View {
-    @State var userCellNum = ""
-    @State var otpCode = ""
+    @State var cellNum = ""
+    @State var countryCode = ""
+    let countryCodeType = ["code", "+27", "+263", "+266", "+267", "+268"]
+//    let countryCodeType = ["code", "+27", "+263"]
     
     var body: some View {
         ZStack {
             Background()
             
-            VStack (alignment: .center){
+            VStack(spacing: 10){
                 
-                // MARK: View Heading
-                Text("Phone Verification")
-                    .font(.system(size: 26).bold())
-                    .foregroundColor(Color(.white))
-                    .padding(.trailing, 150)
+                Spacer()
+                    .frame(height: 50)
                 
-                // MARK: User Email Text
-                CustomTextField(text: $userCellNum, placeholder: Text("enter cellphone number"), imageName: "")
-                    .padding(5)
-                    .foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(15)
-                    .padding(.top, 20)
+                Text("Enter your cellphone number for OTP verification and to complete the registration process.")
+                    .font(.system(size: 14))
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50)
+                    .foregroundColor(Color.white)
+                    .padding(.bottom, 5)
                 
-                Text("Please enter your cellphone number to receive a verification code for authentication purposes.")
-                    .foregroundColor(.white)
-                    .font(.system(size: 10))
-                    .padding(.horizontal, 5)
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 30)
+                // MARK: Cellphone Number + Country Code
+                HStack{
+                    Picker("code", selection: $countryCode) {
+                        ForEach(countryCodeType, id: \.self) {
+                            Text($0).bold()
+                        }
+                        .padding(5)
+                        .foregroundColor(Color(.white))
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 80, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                        .background(Color(.black).opacity(0.1))
+                        .cornerRadius(10)
+                    }.frame(width:80)
+                    
+                    TextField("Cell number", text: $cellNum)
+                        .padding(5)
+                        .foregroundColor(Color(.white))
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                        .background(Color(.black).opacity(0.1))
+                        .cornerRadius(10)
+                        .keyboardType(.numberPad)
+                }.padding(.horizontal, 15)
                 
                 Spacer()
                 
-                // MARK: "Verify" Button
+                // MARK: "Register" Button
                 Button(action: {
                     
+                    // add code here to verify number and upload details to "users" Firebase database.
+                    
                 }, label: {
-                    Text("NEXT")
-                        .font(.title3)
+                    Text("Register")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                    
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center).padding(.leading, 15)
+                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(15)
-                
-            }.font(.subheadline)
-                .padding(10)
-        }
-    }
-}
-
-struct PhoneVerificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhoneVerificationView()
+                    .cornerRadius(10)
+                    .padding(.top, 2)
+                    .disabled((countryCode != "" && cellNum != "") ? false : true)
+                    .opacity((countryCode != "" && cellNum != "") ? 1 : 0.6)
+            }
+        }.accentColor(Color.white)
     }
 }
