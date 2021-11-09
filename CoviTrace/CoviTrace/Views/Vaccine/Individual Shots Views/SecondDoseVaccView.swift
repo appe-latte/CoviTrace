@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct secondDoseVaccView: View {
+struct SecondDoseVaccView: View {
     @State var secondDosebatchNum = ""
     @State var secondDoseVaccType = ""
     @State var secondDoseDate = ""

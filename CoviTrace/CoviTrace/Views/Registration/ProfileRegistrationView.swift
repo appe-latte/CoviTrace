@@ -9,11 +9,11 @@ import SwiftUI
 import Firebase
 
 struct ProfileRegistrationView: View {
-    @State var lastName = ""
-    @State var firstName = ""
-    @State var idNumber = ""
-    @State var dob = Date()
-    @State var verified = "Not Verified"
+    @State private var lastName = ""
+    @State private var firstName = ""
+    @State private var idNumber = ""
+    @State private var dob = Date()
+    @State private var verified = "Not Verified"
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     

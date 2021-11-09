@@ -9,9 +9,9 @@ import SwiftUI
 import Firebase
 
 struct ProfileImageRegistrationView: View {
-    @State var selectedUIImage: UIImage?
-    @State var image: Image?
-    @State var showImagePicker = false
+    @State private var selectedUIImage: UIImage?
+    @State private var image: Image?
+    @State private var showImagePicker = false
     
     func loadImage(){
         guard let selectedImage = selectedUIImage else {return}

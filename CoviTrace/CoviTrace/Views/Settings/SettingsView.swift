@@ -20,12 +20,12 @@ struct SettingsView: View {
                 Form {
                     Section {
                         // MARK: How App Works
-                        NavigationLink(destination: HowPageView()){
+                        NavigationLink(destination: AboutView()){
                             Image(systemName: "info.circle")
                                 .font(.system(size: 26))
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 .padding(.trailing, 5)
-                            Text("How Covitrace Works")
+                            Text("About Covitrace")
                                 .font(.custom("Avenir", size: 17))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

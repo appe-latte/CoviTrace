@@ -211,14 +211,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2F123F6A2654313F00BA3D53 /* HowItWorks */ = {
+		2F123F6A2654313F00BA3D53 /* About */ = {
 			isa = PBXGroup;
 			children = (
 				2F4F573C2655241600EFB454 /* HowPageView.swift */,
 				2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */,
 				2F4F5742265524FA00EFB454 /* FaqsView.swift */,
 			);
-			path = HowItWorks;
+			path = About;
 			sourceTree = "<group>";
 		};
 		2F167D6625E3D5A500304F9F /* Models */ = {
@@ -259,7 +259,7 @@
 				2F4012952673A68C00AFA9E5 /* PrivacyView.swift */,
 				2F4012972673B93800AFA9E5 /* TermsView.swift */,
 				2FD683C82652FFD4005222FB /* HowToVerifyView.swift */,
-				2F123F6A2654313F00BA3D53 /* HowItWorks */,
+				2F123F6A2654313F00BA3D53 /* About */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
