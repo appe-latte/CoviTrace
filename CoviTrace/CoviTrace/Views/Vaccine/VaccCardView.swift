@@ -11,17 +11,18 @@ import FirebaseFirestore
 
 struct VaccCardView: View {
     @State private var showSheetView = false
-    @State var selectDose: doseSelection = .first
+    @State private var selectDose: doseSelection = .first
     
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     
     init() {
-        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-        UITableViewCell.appearance().backgroundColor = UIColor(Color(.white))
+//        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+        UITableViewCell.appearance().backgroundColor = UIColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))], for: .normal)
     }
     
     var body: some View {

@@ -55,17 +55,6 @@ struct VaccPassView: View {
        
                 }.padding(.horizontal, 50)
                 
-                // MARK: Disclaimer
-                
-                Text("This is to certify that the user's Covid-19 vaccination has been verified as legitimate and this certificate eligible for use as proof for the purpose of travel.")
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
-                    .font(.system(size: 13))
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(6)
-                    .foregroundColor(.white)
-                
-//                Spacer()
-                
                 // MARK: QR Code and Certificate information
                 List(viewModel.results) { results in
                     VStack {
@@ -118,8 +107,107 @@ struct VaccPassView: View {
                                 }
                             }
                         }
+                        // MARK: Disclaimer
+                    
+                        Text("This is to certify that the user's Covid-19 vaccination has been verified as legitimate and this certificate eligible for use as proof for the purpose of travel.")
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                            .font(.system(size: 13))
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(6)
+                        
+                        Spacer().frame(height: 20)
+                    
+                        VStack {
+                            HStack{
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("First Dosage")
+                                        .font(.system(size: 15))
+                                    HStack {
+                                        Text("Vaccine Date:")
+                                            .font(.system(size: 15))
+                                            .bold()
+                                        Spacer()
+                                        Text(results.firstDoseDate)
+                                            .font(.system(size: 15))
+                                            .bold()
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    }
+                                    
+                                    HStack {
+                                        Text("Vaccination Make:")
+                                            .font(.system(size: 15))
+                                            .bold()
+                                        Spacer()
+                                        HStack{
+                                            Text(results.firstDoseVaccType)
+                                                .font(.system(size: 15))
+                                                .bold()
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                    }
+                                    
+                                    HStack {
+                                        Text("Batch Number:")
+                                            .font(.system(size: 15))
+                                            .bold()
+                                        Spacer()
+                                        HStack{
+                                            Text(results.firstDosebatchNum)
+                                                .font(.system(size: 15))
+                                                .bold()
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                    }
+                                    
+                                    Divider()
+                                    
+                                    // MARK: Second Dose
+                                    
+                                    Text("Second Dosage")
+                                        .font(.system(size: 15))
+                                    HStack {
+                                        Text("Vaccine Date:")
+                                            .font(.system(size: 15))
+                                            .bold()
+                                        Spacer()
+                                        Text(results.secondDoseDate)
+                                            .font(.system(size: 15))
+                                            .bold()
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    }
+                                    
+                                    HStack {
+                                        Text("Vaccination Make:")
+                                            .font(.system(size: 15))
+                                            .bold()
+                                        Spacer()
+                                        HStack{
+                                            Text(results.secondDoseVaccType)
+                                                .font(.system(size: 15))
+                                                .bold()
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                    }
+                                    
+                                    HStack {
+                                        Text("Batch Number:")
+                                            .font(.system(size: 15))
+                                            .bold()
+                                        Spacer()
+                                        HStack{
+                                            Text(results.secondDosebatchNum)
+                                                .font(.system(size: 15))
+                                                .bold()
+                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
                     }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 }
+
             }.onAppear() {
                 self.viewModel.fetchData(id: authModel.userSession!.uid)
             }.padding(.top, 20)

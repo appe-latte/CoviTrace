@@ -105,7 +105,7 @@ struct FirstDoseVaccView: View {
                             }
                         }
                     }
-                }.foregroundColor(Color(.white))
+                }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
             }
             .onAppear() {
                 self.viewModel.fetchData(id: authModel.userSession!.uid)
