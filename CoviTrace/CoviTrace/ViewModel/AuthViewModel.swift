@@ -15,6 +15,9 @@ class AuthViewModel: ObservableObject {
     @Published var error: Error? // Displays error message
     @Published var user: User? // Keeps track of the user
     
+    @Published var isError: Bool = false
+    @Published var errorMsg: String = ""
+    
     init(){
         userSession = Auth.auth().currentUser
         fetchUser()
@@ -24,11 +27,11 @@ class AuthViewModel: ObservableObject {
     
     func userLogin(withEmail email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if let error = error {
-                print("DEBUG: Login Failed: \(error.localizedDescription)!")
+            if error != nil {
+                self.isError.toggle()
+                self.errorMsg = error?.localizedDescription ?? ""
                 return
             }
-            //            print("DEBUG: Successfully logged in!")
             
             // MARK: Shows Content View after successful login
             self.userSession = result?.user
@@ -43,19 +46,20 @@ class AuthViewModel: ObservableObject {
         let storageRef = Storage.storage().reference().child(filename)
         
         storageRef.putData(imageData, metadata: nil) { (_, error) in
-            if let error = error {
-                print("DEBUG: Image upload failed \(error.localizedDescription)!")
+            if error != nil {
+                self.isError.toggle()
+                self.errorMsg = error?.localizedDescription ?? ""
                 return
             }
-            print("DEBUG: Successfully uploaded profile image!")
             
             // MARK: Upload to Firebase
             storageRef.downloadURL { url, _ in
                 guard let profileImageUrl = url?.absoluteString else { return }
                 
                 Auth.auth().createUser(withEmail: email, password: userPwd) { result, error in
-                    if let error = error {
-                        print("DEBUG: Registration Error \(error.localizedDescription)!") // Console error message
+                    if error != nil {
+                        self.isError.toggle()
+                        self.errorMsg = error?.localizedDescription ?? ""
                         return
                     }
                     guard let user = result?.user else { return }
@@ -69,8 +73,6 @@ class AuthViewModel: ObservableObject {
                                 "ID_Number": idNumber]
                     
                     Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
-                        //                        print("DEBUG: Successfully uploaded user data!")
-                        // MARK: Moves to Content View after registration
                         self.userSession = result?.user
                         
                     }
@@ -92,7 +94,7 @@ class AuthViewModel: ObservableObject {
         Firestore.firestore().collection("users").document(uid).getDocument { snapshot, _ in
             guard let data = snapshot?.data() else { return }
             let user = User(dictionary: data)
-//            print("DEBUG: The user is: \(user.fName)")
+            //            print("DEBUG: The user is: \(user.fName)")
             self.user = user
         }
     }

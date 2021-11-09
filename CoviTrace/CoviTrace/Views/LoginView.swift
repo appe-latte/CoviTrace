@@ -40,7 +40,6 @@ struct LoginView: View {
                             .background(Color(.white).opacity(0.1))
                             .cornerRadius(10)
                         
-                        
                     }.padding(.top, 20)
                     
                     // MARK: "Password Recovery"
@@ -66,6 +65,10 @@ struct LoginView: View {
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(10)
                         .padding(.top, 2)
+                        .alert(isPresented: $viewModel.isError, content: {
+                            Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
+                        })
+                    
                     
                     // MARK: "No Account"
                     NavigationLink(

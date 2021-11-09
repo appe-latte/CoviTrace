@@ -136,6 +136,11 @@ struct SignUpView: View {
                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(10)
+                        .disabled((lastName != "" && firstName != "" && idNumber != "" && userEmail != "" && userPassword != "") ? false : true)
+                        .opacity((lastName != "" && firstName != "" && idNumber != "" && userEmail != "" && userPassword != "") ? 1 : 0.6)
+                        .alert(isPresented: $viewModel.isError, content: {
+                            Alert(title: Text("Registration Error"), message: Text(viewModel.errorMsg))
+                        })
                     
                     // MARK: "Existing User"
                     NavigationLink(

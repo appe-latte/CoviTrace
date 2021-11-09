@@ -17,7 +17,7 @@ struct ProfileHeaderView: View {
                 let fullName = authModel.user!.fName + authModel.user!.lName
                 let dob = authModel.user!.dob
                 let userIdNum = authModel.user!.patientNumber
-                let email = authModel.user!.email
+//                let email = authModel.user!.email
                 
                 Form {
                     Section(header: Text("")){

@@ -39,10 +39,8 @@
 		2F451F0827209E35001BB7A4 /* AccountSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F0727209E35001BB7A4 /* AccountSuccessView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
 		2F4F573D2655241600EFB454 /* HowPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573C2655241600EFB454 /* HowPageView.swift */; };
-		2F4F573F265524CF00EFB454 /* HowWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573E265524CF00EFB454 /* HowWorksView.swift */; };
-		2F4F5741265524E500EFB454 /* HowRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5740265524E500EFB454 /* HowRegistrationView.swift */; };
-		2F4F5743265524FA00EFB454 /* HowPersonalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5742265524FA00EFB454 /* HowPersonalInfoView.swift */; };
-		2F4F57452655250A00EFB454 /* HowLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F57442655250A00EFB454 /* HowLocationView.swift */; };
+		2F4F5741265524E500EFB454 /* AboutCovitraceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */; };
+		2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5742265524FA00EFB454 /* FaqsView.swift */; };
 		2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524190263B37A00016D87D /* ProfileHeaderView.swift */; };
 		2F524193263B38CB0016D87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524192263B38CB0016D87D /* Constants.swift */; };
 		2F524195263B3E810016D87D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524194263B3E810016D87D /* UserProfileView.swift */; };
@@ -115,10 +113,8 @@
 		2F451F0727209E35001BB7A4 /* AccountSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSuccessView.swift; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddResultsView.swift; path = "../New Group/AddResultsView.swift"; sourceTree = "<group>"; };
 		2F4F573C2655241600EFB454 /* HowPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPageView.swift; sourceTree = "<group>"; };
-		2F4F573E265524CF00EFB454 /* HowWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowWorksView.swift; sourceTree = "<group>"; };
-		2F4F5740265524E500EFB454 /* HowRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowRegistrationView.swift; sourceTree = "<group>"; };
-		2F4F5742265524FA00EFB454 /* HowPersonalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPersonalInfoView.swift; sourceTree = "<group>"; };
-		2F4F57442655250A00EFB454 /* HowLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowLocationView.swift; sourceTree = "<group>"; };
+		2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCovitraceView.swift; sourceTree = "<group>"; };
+		2F4F5742265524FA00EFB454 /* FaqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsView.swift; sourceTree = "<group>"; };
 		2F524190263B37A00016D87D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		2F524192263B38CB0016D87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2F524194263B3E810016D87D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
@@ -219,10 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				2F4F573C2655241600EFB454 /* HowPageView.swift */,
-				2F4F5740265524E500EFB454 /* HowRegistrationView.swift */,
-				2F4F5742265524FA00EFB454 /* HowPersonalInfoView.swift */,
-				2F4F57442655250A00EFB454 /* HowLocationView.swift */,
-				2F4F573E265524CF00EFB454 /* HowWorksView.swift */,
+				2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */,
+				2F4F5742265524FA00EFB454 /* FaqsView.swift */,
 			);
 			path = HowItWorks;
 			sourceTree = "<group>";
@@ -526,7 +520,6 @@
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
 				2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */,
 				2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */,
-				2F4F573F265524CF00EFB454 /* HowWorksView.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
 				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,
 				2F4012962673A68C00AFA9E5 /* PrivacyView.swift in Sources */,
@@ -544,7 +537,7 @@
 				2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */,
 				2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */,
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
-				2F4F5741265524E500EFB454 /* HowRegistrationView.swift in Sources */,
+				2F4F5741265524E500EFB454 /* AboutCovitraceView.swift in Sources */,
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
 				2F2C84A925FA9C290002F2C3 /* VaccCertView.swift in Sources */,
 				2FF650AF2728C8DC00C697E4 /* SingleDoseViewModel.swift in Sources */,
@@ -559,12 +552,11 @@
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
-				2F4F57452655250A00EFB454 /* HowLocationView.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* Background.swift in Sources */,
 				2FF650AD2728C6A500C697E4 /* SingleDoseVaccView.swift in Sources */,
 				2FF650A62728C04100C697E4 /* BoosterVaccView.swift in Sources */,
 				2FF650A82728C35B00C697E4 /* FirstDoseVaccView.swift in Sources */,
-				2F4F5743265524FA00EFB454 /* HowPersonalInfoView.swift in Sources */,
+				2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */,
 				2F524195263B3E810016D87D /* UserProfileView.swift in Sources */,
 				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
 				2F75F4AB26FCDE95008BB653 /* PhoneVerificationView.swift in Sources */,

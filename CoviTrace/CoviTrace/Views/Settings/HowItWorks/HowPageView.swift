@@ -11,12 +11,9 @@ struct HowPageView: View {
     var body: some View {
         ZStack {
             Background()
-            
             TabView() {
-                HowRegistrationView()
-                HowPersonalInfoView()
-                HowLocationView()
-//                HowWorksView()
+                AboutCovitraceView()
+                FaqsView()
             }.tabViewStyle(PageTabViewStyle())
             
         }
