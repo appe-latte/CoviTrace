@@ -24,118 +24,159 @@ struct UploadInformationView: View {
     var body: some View {
         ZStack
         {
-            // MARK: BACKGROUND COLOUR CODE:
             Background()
             
             VStack {
-                VStack(spacing: 10) {
+                VStack(spacing: 30) {
                     
-                    // MARK: Log Single Dose
-                    HStack {
-                        VStack{
-                            Button(action: {
-                                self.showSingleDoseSheetView.toggle()
-                            }, label: {
-                                Text("Add Single Dose Vaccination")
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .fontWeight(.semibold)
-                                    .padding(.trailing, 10)
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .sheet(isPresented: $showSingleDoseSheetView) {
-                                    AddSingleDoseView()
-                                }
-                        }
-                    }
+                    // MARK: First Row
                     
-                    // MARK: Log First Vacc Dose
                     HStack {
+                        
+                        // MARK: Log First Vaccine Dose
                         VStack{
                             Button(action: {
                                 self.showFirstDoseSheetView.toggle()
                             }, label: {
-                                Text("Add First Vaccination Dose")
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .fontWeight(.semibold)
-                                    .padding(.trailing, 25)
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color.white)
-                                .cornerRadius(10)
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .font(.footnote)
+                                    .foregroundColor(Color(.white))
+                                    .padding(10)
+                            }).frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                                .background(Color.white.opacity(0.1))
+                                .clipShape(Circle())
                                 .sheet(isPresented: $showFirstDoseSheetView) {
                                     AddFirstDoseView()
                                 }
+                            
+                            Text("First Dose")
+                                .foregroundColor(Color(.white))
+                                .font(.footnote)
                         }
-                    }
-                    
-                    // MARK: Log Second Vacc Dose
-                    HStack {
-                        VStack{
+                        
+                        Spacer()
+                            .frame(width: 35)
+                        
+                        // MARK: Log Second Vaccine Dose
+                        VStack {
                             Button(action: {
                                 self.showSecondDoseSheetView.toggle()
                             }, label: {
-                                Text("Add Second Vaccination Dose")
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .fontWeight(.semibold)
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color.white)
-                                .cornerRadius(10)
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .font(.footnote)
+                                    .foregroundColor(Color(.white))
+                                    .padding(10)
+                            }).frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                                .background(Color.white.opacity(0.1))
+                                .clipShape(Circle())
                                 .sheet(isPresented: $showSecondDoseSheetView) {
                                     AddSecondDoseView()
                                 }
+                            Text("Second Dose")
+                                .foregroundColor(Color(.white))
+                                .font(.footnote)
+                        }
+                        
+                        Spacer()
+                            .frame(width: 30)
+                        
+                        // MARK: Log Second Vacc Dose
+                        VStack{
+                            Button(action: {
+                                self.showSingleDoseSheetView.toggle()
+                            }, label: {
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .font(.footnote)
+                                    .foregroundColor(Color(.white))
+                                    .padding(10)
+                            }).frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                                .background(Color.white.opacity(0.1))
+                                .clipShape(Circle())
+                                .sheet(isPresented: $showSingleDoseSheetView) {
+                                    AddSingleDoseView()
+                                }
+                            
+                            Text("Single Dose")
+                                .foregroundColor(Color(.white))
+                                .font(.footnote)
                         }
                     }
                     
-                    // MARK: Upload Booster Shot sheet
+                    // MARK: Second Row
+                    
                     HStack {
-                        VStack {
+                        
+                        // MARK: Log Booster Vacc Dose
+                        VStack(spacing: 10){
                             Button(action: {
                                 self.showBoosterShotSheetView.toggle()
                             }, label: {
-                                Text("Add Vaccination Booster Dose")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color.white)
-                                .cornerRadius(10)
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .font(.footnote)
+                                    .foregroundColor(Color(.white))
+                                    .padding(10)
+                            }).frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                                .background(Color.white.opacity(0.1))
+                                .clipShape(Circle())
                                 .sheet(isPresented: $showBoosterShotSheetView) {
                                     AddBoosterShotView()
                                 }
+                            
+                            Text("Booster Dose")
+                                .foregroundColor(Color(.white))
+                                .font(.footnote)
                         }
-                    }
-                    
-                    // MARK: Upload Test Results sheet
-                    HStack {
-                        VStack {
+                        
+                        Spacer()
+                            .frame(width: 30)
+                        
+                        // MARK: Upload Test Results sheet
+                        VStack(spacing: 10){
                             Button(action: {
                                 self.showUploadPcrTestSheetView.toggle()
                             }, label: {
-                                Text("Add Covid PCR Results")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.trailing, 60)
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color.white)
-                                .cornerRadius(10)
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .font(.footnote)
+                                    .foregroundColor(Color(.white))
+                                    .padding(10)
+                            }).frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                                .background(Color.white.opacity(0.1))
+                                .clipShape(Circle())
                                 .sheet(isPresented: $showUploadPcrTestSheetView) {
                                     AddResultsView()
                                 }
+                            Text("PCR Results")
+                                .foregroundColor(Color(.white))
+                                .font(.footnote)
                         }
-                    }
-                    
-                    // MARK: Upload Vaccination Card
-                    HStack {
-                        VStack{
+                        
+                        Spacer()
+                            .frame(width: 30)
+                        
+                        // MARK: Upload Vaccination Card
+                        VStack(spacing: 10){
                             Button(action: {
                                 presentImporter = true
                             }, label: {
-                                Text("Upload Vaccination Card")
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .font(.footnote)
                                     .foregroundColor(Color(.white))
-                                    .fontWeight(.semibold)
-                                    .padding(.trailing, 50)
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
+                                    .padding(10)
+                            }).frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                                .background(Color.white.opacity(0.1))
+                                .clipShape(Circle())
                                 .fileImporter(isPresented: $presentImporter, allowedContentTypes: [.pdf]) { result in
                                     switch result {
                                     case .success(let url):
@@ -145,21 +186,28 @@ struct UploadInformationView: View {
                                         print(error)
                                     }
                                 }
+                            
+                            Text("Vaccination Card")
+                                .foregroundColor(Color(.white))
+                                .font(.system(size: 12))
                         }
                     }
                     
                     // MARK: Upload Digital Vaccine Cert. sheet
                     HStack {
-                        VStack {
+                        VStack(spacing: 10){
                             Button(action: {
                                 presentImporter = true
                             }, label: {
-                                Text("Upload Vaccination Certificate")
-                                    .fontWeight(.semibold)
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .font(.footnote)
                                     .foregroundColor(Color(.white))
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
+                                    .padding(10)
+                            }).frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                                .background(Color.white.opacity(0.1))
+                                .clipShape(Circle())
                                 .fileImporter(isPresented: $presentImporter, allowedContentTypes: [.pdf]) { result in
                                     switch result {
                                     case .success(let url):
@@ -169,6 +217,10 @@ struct UploadInformationView: View {
                                         print(error)
                                     }
                                 }
+                            
+                            Text("Digital Certificate")
+                                .foregroundColor(Color(.white))
+                                .font(.system(size: 12))
                         }
                     }
                     
@@ -179,7 +231,7 @@ struct UploadInformationView: View {
                 Spacer()
                 
             }
-            .navigationBarTitle("Add Vaccination / Test Results", displayMode: .inline)
+            .navigationBarTitle("Upload Information", displayMode: .inline)
             
         }
     }
