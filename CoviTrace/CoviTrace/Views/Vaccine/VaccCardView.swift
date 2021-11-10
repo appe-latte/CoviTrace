@@ -18,11 +18,8 @@ struct VaccCardView: View {
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     
     init() {
-//        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+        //        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
         UITableViewCell.appearance().backgroundColor = UIColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))], for: .normal)
     }
     
     var body: some View {
@@ -41,31 +38,5 @@ struct VaccCardView: View {
                 doseSelectionView(selectedDose: selectDose)
             }
         }.navigationBarTitle("Vaccination Information", displayMode: .inline)
-    }
-}
-
-// MARK: Structure for Segmented picker
-
-enum doseSelection: String, CaseIterable {
-    case first = "First"
-    case second = "Second"
-    case single = "Single"
-    case booster = "Booster"
-}
-
-struct doseSelectionView : View {
-    var selectedDose: doseSelection
-    
-    var body: some View {
-        switch selectedDose {
-        case .first:
-            FirstDoseVaccView()
-        case .second:
-            SecondDoseVaccView()
-        case .single:
-            SingleDoseVaccView()
-        case .booster:
-            BoosterVaccView()
-        }
     }
 }

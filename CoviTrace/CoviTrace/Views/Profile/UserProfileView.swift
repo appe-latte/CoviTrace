@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
-import Firebase
 
 struct UserProfileView: View {
-        @ObservedObject var authModel = AuthViewModel()
     
     var body: some View {
         ZStack {
             Background()
             VStack {
-                ProfileHeaderView(authModel: AuthViewModel())
+                Text("Profile goes here...")
+                    .bold()
+                    .foregroundColor(.white)
             }
         }
     }

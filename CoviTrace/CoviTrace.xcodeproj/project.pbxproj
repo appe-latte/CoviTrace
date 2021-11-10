@@ -25,7 +25,6 @@
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
 		2F3487032677B2CE0026D0D7 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487022677B2CE0026D0D7 /* NotificationsView.swift */; };
-		2F3487052677B3A40026D0D7 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487042677B3A40026D0D7 /* FeedbackView.swift */; };
 		2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */; };
 		2F3680BE26F0EE320002F8A0 /* AddSingleDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */; };
 		2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */; };
@@ -99,7 +98,6 @@
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F3487022677B2CE0026D0D7 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
-		2F3487042677B3A40026D0D7 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadInformationView.swift; sourceTree = "<group>"; };
 		2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingleDoseView.swift; sourceTree = "<group>"; };
 		2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFirstDoseView.swift; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 				2F3680BA26F0E5430002F8A0 /* Vaccine */,
 				2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */,
 				2F3487022677B2CE0026D0D7 /* NotificationsView.swift */,
-				2F3487042677B3A40026D0D7 /* FeedbackView.swift */,
 				2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */,
 				2FB847B827237B0B003C63F0 /* QR Scanner */,
 				2F40129226738E1100AFA9E5 /* Settings */,
@@ -513,7 +510,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F3487052677B3A40026D0D7 /* FeedbackView.swift in Sources */,
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
 				2F27CA7C2739B4AB006D1DF1 /* UserLoginView.swift in Sources */,
 				2F9DC21B27075B0B003B0B12 /* ProfileImageRegistrationView.swift in Sources */,

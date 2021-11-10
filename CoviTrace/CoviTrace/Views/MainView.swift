@@ -68,26 +68,6 @@ struct MainView: View {
                                         
                                         // MARK: Top Row buttons
                                         HStack(spacing: 15) {
-                                            
-                                            // MARK: User Profile
-                                            VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: UploadInformationView()){
-                                                            VStack {
-                                                                Image(systemName: "person.fill")
-                                                                    .foregroundColor(.white)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("Profile")
-                                                                    .font(.system(size: 11))
-                                                                    .foregroundColor(Color.white)
-                                                            }
-                                                        }
-                                                }
-                                            }.padding(.top, 10)
-                                            
                                             // MARK: Upload Information
                                             VStack(spacing: 1) {
                                                 HStack {
@@ -106,7 +86,7 @@ struct MainView: View {
                                                         }
                                                 }
                                             }.padding(.top, 10)
-                                        }.padding(.trailing, 10)
+                                        }.padding(.trailing, 30)
                                         
                                     }
                                     .padding(.horizontal)
@@ -133,19 +113,19 @@ struct MainView: View {
                                         }
                                     }
                                     
-                                    // MARK: Vaccination Information
+                                    // MARK: User Profile
                                     VStack(spacing: 1) {
                                         HStack {
                                             NavigationLink(
-                                                destination: VaccCardView()){
+                                                destination: UserProfileView()){
                                                     VStack {
-                                                        Image(systemName: "info.circle")
+                                                        Image(systemName: "person.fill")
                                                             .foregroundColor(.white)
                                                             .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
-                                                        Text("Vaccinations")
-                                                            .font(.system(size: 12))
+                                                        Text("Profile")
+                                                            .font(.system(size: 11))
                                                             .foregroundColor(Color.white)
                                                     }
                                                 }
@@ -183,7 +163,7 @@ struct MainView: View {
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
                                                         Text("PCR Tests")
-                                                            .font(.system(size: 12))
+                                                            .font(.system(size: 11))
                                                             .foregroundColor(Color.white)
                                                     }
                                                 }
@@ -208,7 +188,7 @@ struct MainView: View {
                                                 }
                                         }
                                     }
-                                }
+                                }.padding(.horizontal, 5)
                             }
                             .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .padding(.bottom, 20)

@@ -11,19 +11,29 @@ import FirebaseFirestore
 import CoreImage.CIFilterBuiltins
 
 struct VaccPassView: View {
-    @State var lastName = ""
-    @State var firstName = ""
-    @State var vaccStatus = ""
-    @State var dob = ""
-    @State var firstDoseDate = ""
-    @State var secondDoseDate = ""
+    @State private var lastName = ""
+    @State private var firstName = ""
+    @State private var vaccStatus = ""
+    @State private var dob = ""
+    @State private var firstDoseDate = ""
+    @State private var secondDoseDate = ""
     
     @ObservedObject private var viewModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
+    @ObservedObject private var boosterModel = BoosterShotViewModel()
+    
+    @State private var selectDose: doseSelection = .first
     
     // MARK: for QR Code generation
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
+    
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color(.white))
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+
+    }
     
     var body: some View {
         ZStack {
@@ -114,102 +124,26 @@ struct VaccPassView: View {
                             .font(.system(size: 13))
                             .multilineTextAlignment(.leading)
                             .lineLimit(6)
-                        
-                        Spacer().frame(height: 20)
-                    
-                        VStack {
-                            HStack{
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text("First Dosage")
-                                        .font(.system(size: 15))
-                                    HStack {
-                                        Text("Vaccine Date:")
-                                            .font(.system(size: 15))
-                                            .bold()
-                                        Spacer()
-                                        Text(results.firstDoseDate)
-                                            .font(.system(size: 15))
-                                            .bold()
-                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    }
-                                    
-                                    HStack {
-                                        Text("Vaccination Make:")
-                                            .font(.system(size: 15))
-                                            .bold()
-                                        Spacer()
-                                        HStack{
-                                            Text(results.firstDoseVaccType)
-                                                .font(.system(size: 15))
-                                                .bold()
-                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        }
-                                    }
-                                    
-                                    HStack {
-                                        Text("Batch Number:")
-                                            .font(.system(size: 15))
-                                            .bold()
-                                        Spacer()
-                                        HStack{
-                                            Text(results.firstDosebatchNum)
-                                                .font(.system(size: 15))
-                                                .bold()
-                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        }
-                                    }
-                                    
-                                    Divider()
-                                    
-                                    // MARK: Second Dose
-                                    
-                                    Text("Second Dosage")
-                                        .font(.system(size: 15))
-                                    HStack {
-                                        Text("Vaccine Date:")
-                                            .font(.system(size: 15))
-                                            .bold()
-                                        Spacer()
-                                        Text(results.secondDoseDate)
-                                            .font(.system(size: 15))
-                                            .bold()
-                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    }
-                                    
-                                    HStack {
-                                        Text("Vaccination Make:")
-                                            .font(.system(size: 15))
-                                            .bold()
-                                        Spacer()
-                                        HStack{
-                                            Text(results.secondDoseVaccType)
-                                                .font(.system(size: 15))
-                                                .bold()
-                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        }
-                                    }
-                                    
-                                    HStack {
-                                        Text("Batch Number:")
-                                            .font(.system(size: 15))
-                                            .bold()
-                                        Spacer()
-                                        HStack{
-                                            Text(results.secondDosebatchNum)
-                                                .font(.system(size: 15))
-                                                .bold()
-                                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
                     }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 }
 
+                VStack {
+                    
+                    // MARK: Segmented Control for Dose Selection
+                    Picker("Dose Selection:", selection: $selectDose) {
+                        ForEach(doseSelection.allCases, id: \.self) {
+                            Text($0.rawValue)
+                        }
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                        .padding(.horizontal, 5)
+                        .padding(.top, 10)
+                    doseSelectionView(selectedDose: selectDose)
+                }
+                
             }.onAppear() {
                 self.viewModel.fetchData(id: authModel.userSession!.uid)
+     
             }.padding(.top, 20)
         }.navigationBarTitle("Vaccination Pass")
             .navigationBarTitleDisplayMode(.inline)
@@ -230,8 +164,28 @@ struct VaccPassView: View {
     }
 }
 
-struct VaccPassView_Previews: PreviewProvider {
-    static var previews: some View {
-        VaccPassView()
+// MARK: Structure for Segmented picker
+
+enum doseSelection: String, CaseIterable {
+    case first = "First"
+    case second = "Second"
+    case single = "Single"
+    case booster = "Booster"
+}
+
+struct doseSelectionView : View {
+    var selectedDose: doseSelection
+    
+    var body: some View {
+        switch selectedDose {
+        case .first:
+            FirstDoseVaccView()
+        case .second:
+            SecondDoseVaccView()
+        case .single:
+            SingleDoseVaccView()
+        case .booster:
+            BoosterVaccView()
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  VaccineDoseSelectionView.swift
+//  UploadInformationView.swift
 //  CoviTrace
 //
 //  Created by Stanford L. Khumalo on 14/09/2021.
@@ -34,15 +34,13 @@ struct UploadInformationView: View {
                     HStack {
                         
                         // MARK: Log First Vaccine Dose
-                        VStack{
+                        VStack(spacing: 10){
                             Button(action: {
                                 self.showFirstDoseSheetView.toggle()
                             }, label: {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .font(.footnote)
+                                Text("+ First")
                                     .foregroundColor(Color(.white))
-                                    .padding(10)
+                                    .font(.system(size: 12))
                             }).frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
@@ -53,22 +51,20 @@ struct UploadInformationView: View {
                             
                             Text("First Dose")
                                 .foregroundColor(Color(.white))
-                                .font(.footnote)
+                                .font(.system(size: 13))
                         }
                         
                         Spacer()
                             .frame(width: 35)
                         
                         // MARK: Log Second Vaccine Dose
-                        VStack {
+                        VStack(spacing: 10){
                             Button(action: {
                                 self.showSecondDoseSheetView.toggle()
                             }, label: {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .font(.footnote)
+                                Text("+ Second")
                                     .foregroundColor(Color(.white))
-                                    .padding(10)
+                                    .font(.system(size: 12))
                             }).frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
@@ -78,22 +74,20 @@ struct UploadInformationView: View {
                                 }
                             Text("Second Dose")
                                 .foregroundColor(Color(.white))
-                                .font(.footnote)
+                                .font(.system(size: 13))
                         }
                         
                         Spacer()
                             .frame(width: 30)
                         
                         // MARK: Log Second Vacc Dose
-                        VStack{
+                        VStack(spacing: 10){
                             Button(action: {
                                 self.showSingleDoseSheetView.toggle()
                             }, label: {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .font(.footnote)
+                                Text("+ Single")
                                     .foregroundColor(Color(.white))
-                                    .padding(10)
+                                    .font(.system(size: 12))
                             }).frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
@@ -104,7 +98,7 @@ struct UploadInformationView: View {
                             
                             Text("Single Dose")
                                 .foregroundColor(Color(.white))
-                                .font(.footnote)
+                                .font(.system(size: 13))
                         }
                     }
                     
@@ -117,11 +111,9 @@ struct UploadInformationView: View {
                             Button(action: {
                                 self.showBoosterShotSheetView.toggle()
                             }, label: {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .font(.footnote)
+                                Text("+ Booster")
                                     .foregroundColor(Color(.white))
-                                    .padding(10)
+                                    .font(.system(size: 12))
                             }).frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
@@ -132,7 +124,7 @@ struct UploadInformationView: View {
                             
                             Text("Booster Dose")
                                 .foregroundColor(Color(.white))
-                                .font(.footnote)
+                                .font(.system(size: 13))
                         }
                         
                         Spacer()
@@ -143,11 +135,9 @@ struct UploadInformationView: View {
                             Button(action: {
                                 self.showUploadPcrTestSheetView.toggle()
                             }, label: {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .font(.footnote)
+                                Text("+ PCR")
                                     .foregroundColor(Color(.white))
-                                    .padding(10)
+                                    .font(.system(size: 12))
                             }).frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
@@ -157,7 +147,7 @@ struct UploadInformationView: View {
                                 }
                             Text("PCR Results")
                                 .foregroundColor(Color(.white))
-                                .font(.footnote)
+                                .font(.system(size: 12))
                         }
                         
                         Spacer()
@@ -168,11 +158,9 @@ struct UploadInformationView: View {
                             Button(action: {
                                 presentImporter = true
                             }, label: {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .font(.footnote)
+                                Text("+ Card")
                                     .foregroundColor(Color(.white))
-                                    .padding(10)
+                                    .font(.system(size: 12))
                             }).frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
@@ -199,11 +187,9 @@ struct UploadInformationView: View {
                             Button(action: {
                                 presentImporter = true
                             }, label: {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .font(.footnote)
+                                Text("+ Certificate")
                                     .foregroundColor(Color(.white))
-                                    .padding(10)
+                                    .font(.system(size: 11))
                             }).frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
