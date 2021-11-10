@@ -12,10 +12,12 @@ import CoreImage.CIFilterBuiltins
 import LocalAuthentication
 
 struct ContentView: View {
-    @State var top = UIApplication.shared.windows.first?.safeAreaInsets.top
-    @State var current = "house.fill"
-    @State var isHide = false
+    @State private var top = UIApplication.shared.windows.first?.safeAreaInsets.top
+    @State private var current = "house.fill"
+    @State private var isHide = false
     @Namespace var animation
+    
+    @State private var isLoading = false
     
     // MARK: Objects
     @EnvironmentObject var viewModel : AuthViewModel
@@ -24,21 +26,40 @@ struct ContentView: View {
     @StateObject var appContext = AppContext()
     
     var body: some View {
-        Group {
-            if viewModel.userSession != nil {
-                if appContext.appUnlocked {
-                    MainView()
+        ZStack {
+            Group {
+                if viewModel.userSession != nil {
+                    
+                    if appContext.appUnlocked {
+                        MainView()
+                            .onAppear { UserNetworkingCall() }
+                    } else {
+                        FaceIdLoginView(appContext: appContext)
+                            .background(Color.white)
+                    }
                 } else {
-                    FaceIdLoginView(appContext: appContext)
-                        .background(Color.white)
+                    LandingView()
                 }
-            } else {
-                LandingView()
+                
+                // MARK: progress loading
+                if isLoading {
+                    ProgressLoadingView()
+                }
+                
             }
+        }
+    }
+    
+    // MARK:  User created networking delay for loading screen
+    func UserNetworkingCall() {
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            isLoading = false
         }
     }
 }
 
+// MARK: Tab Bar structure
 struct TabBarButton: View {
     @Binding var current : String
     var image : String
@@ -58,13 +79,25 @@ struct TabBarButton: View {
                     .frame(height: 35)
                 
                 ZStack{
-                    
                     Rectangle()
                         .fill(Color.clear)
                         .frame(height: 4)
-                    
                 }
             }
+        }
+    }
+}
+
+// MARK: Loading View Structure
+struct ProgressLoadingView: View {
+    var body: some View {
+        ZStack {
+            Background()
+                .ignoresSafeArea()
+            
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: Color(.white)))
+                .scaleEffect(2)
         }
     }
 }

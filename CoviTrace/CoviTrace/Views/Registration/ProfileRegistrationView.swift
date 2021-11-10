@@ -63,7 +63,7 @@ struct ProfileRegistrationView: View {
                 
                 // MARK: DOB Text
                 DatePicker(selection: $dob, in: ...Date(), displayedComponents: .date) {
-                    Text("Choose Date:")
+                    Text("DOB:")
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
                 }.padding(5)

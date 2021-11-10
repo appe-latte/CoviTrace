@@ -17,21 +17,16 @@ struct MainView: View {
     
     @State var isHide = false
     
+    @State private var vaccStatus = ""
+    @State private var patientNumber = ""
+    @State private var showSecondView = false
+    @State private var showSheetView = false
+    @State private var selectedItem = 0
+    @State private var showCovidPassSheetView = false
+    
     @EnvironmentObject var viewModel : AuthViewModel
     @EnvironmentObject var resultsModel : ResultsViewModel
     @EnvironmentObject var vaccModel : VaccinationViewModel
-    
-    //    @ObservedObject var viewModel = AuthViewModel()
-    //    @ObservedObject var resultsModel = ResultsViewModel()
-    //    @ObservedObject var vaccModel = VaccinationViewModel()
-    
-    //    @ObservedObject var boosterModel = BoosterShotViewModel()
-    @State private var vaccStatus = ""
-    @State private var patientNumber = ""
-    @State var showSecondView = false
-    @State var showSheetView = false
-    @State var selectedItem = 0
-    @State var showCovidPassSheetView = false
     
     init() {
         let barTintColor = UINavigationBarAppearance()
@@ -53,15 +48,13 @@ struct MainView: View {
                 NavigationView {
                     ZStack
                     {
-                        // MARK: BACKGROUND COLOUR CODE:
                         Background()
                         
                         VStack(spacing: 0){
                             
-                            // App Bar....
+                            // MARK: App Bar
                             VStack(spacing: 22){
                                 
-                                // hiding...
                                 if !isHide{
                                     
                                     HStack(spacing: 12){
@@ -95,7 +88,6 @@ struct MainView: View {
                                                 }
                                             }.padding(.top, 10)
                                             
-                                            
                                             // MARK: Upload Information
                                             VStack(spacing: 1) {
                                                 HStack {
@@ -120,10 +112,8 @@ struct MainView: View {
                                     .padding(.horizontal)
                                 }
                                 
-                                // MARK: Tab Bar
-                                
+                                // MARK: Bottom Row Icons
                                 HStack(spacing: 20){
-                                    
                                     // MARK: Home Screen
                                     VStack(spacing: 1) {
                                         HStack {
@@ -319,7 +309,7 @@ struct MainView: View {
                                     
                                     Spacer(minLength: 5)
                                 }.onAppear() {
-                                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+                                    Timer.scheduledTimer(withTimeInterval: 0, repeats: false) { (_) in
                                         withAnimation {
                                             self.showSecondView = true
                                         }
@@ -350,6 +340,3 @@ extension Image {
         return self.resizable()
     }
 }
-
-
-
