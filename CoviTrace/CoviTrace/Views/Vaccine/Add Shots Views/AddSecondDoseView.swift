@@ -17,7 +17,7 @@ struct AddSecondDoseView: View {
     @State var vaccStatus = "Fully Vaccinated"
     @State var secondDosageLocation = ""
     @State var secondDoseVaccProvider = ""
-    @State var secondDoseCountry = ""
+    @State var vaccDoseCountry = ""
     @State var vaccCardVerified = "Verification Pending"
     @State var secondDoseUploadDate = Date() // Logs the date the second dose is uploaded onto the system.
     
@@ -105,7 +105,7 @@ struct AddSecondDoseView: View {
                         .cornerRadius(10)
                     
                     // MARK: Second Dose Vaccination Country
-                    SimpleTextField(text: $secondDoseCountry, placeholder: Text("Vaccination Country"))
+                    SimpleTextField(text: $vaccDoseCountry, placeholder: Text("Vaccination Country"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
@@ -153,6 +153,6 @@ struct AddSecondDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose2 = dateFormatter.string(from: secondDoseDate)
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "2nd_dose_country": secondDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate, "shot_type": shotType])
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate, "shot_type": shotType])
     }
 }

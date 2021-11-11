@@ -14,9 +14,9 @@ struct ProfileHeaderView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 10){
-                let fullName = authModel.user!.fName + authModel.user!.lName
+                let fullName = authModel.user!.firstName + authModel.user!.lastName
                 let dob = authModel.user!.dob
-                let userIdNum = authModel.user!.patientNumber
+                let userIdNum = authModel.user!.idNumber
 //                let email = authModel.user!.email
                 
                 Form {

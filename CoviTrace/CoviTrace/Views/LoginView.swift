@@ -10,7 +10,7 @@ import os
 import Combine
 
 struct LoginView: View {
-    @State var userEmail = ""
+    @State var email = ""
     @State var userPassword = ""
     @State private var isLoggedIn : Bool = false
     @EnvironmentObject var viewModel : AuthViewModel
@@ -24,7 +24,7 @@ struct LoginView: View {
                     
                     VStack {
                         // MARK: User Email Text
-                        CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
+                        CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                             .padding(5)
                             .foregroundColor(Color(.white))
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
@@ -56,7 +56,7 @@ struct LoginView: View {
                     
                     // MARK: "Login" Button
                     Button(action: {
-                        viewModel.userLogin(withEmail: userEmail, password: userPassword)
+                        viewModel.userLogin(withEmail: email, password: userPassword)
                     }, label: {
                         Text("Login")
                             .fontWeight(.semibold)

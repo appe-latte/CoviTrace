@@ -15,7 +15,7 @@ struct SecondDoseVaccView: View {
     @State var secondDoseDate = ""
     @State var secondDosageLocation = ""
     @State var secondDoseVaccProvider = ""
-    @State var secondDoseCountry = ""
+    @State var vaccDoseCountry = ""
     
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var viewModel = VaccinationViewModel()
@@ -96,7 +96,7 @@ struct SecondDoseVaccView: View {
                                         .font(.subheadline)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.secondDoseCountry)
+                                    Text(results.vaccDoseCountry)
                                         .font(.subheadline)
                                         .bold()
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

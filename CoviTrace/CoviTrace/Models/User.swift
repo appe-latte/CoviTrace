@@ -9,27 +9,29 @@ import Firebase
 
 struct User: Identifiable {
     let id : String
-    let fName : String
-    let lName : String
+    let firstName : String
+    let lastName : String
     let email : String
     let cellNum : String
     let profileImageUrl : String
     let verified : String
     let dob : String
-    let patientNumber : String
+    let idNumber : String
+    let regCountry : String
     
     var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == self.id }
     
     init(dictionary: [String: Any]) {
         self.id = dictionary["uid"] as? String ?? ""
-        self.fName = dictionary["First Name"] as? String ?? ""
-        self.lName = dictionary["Surname"] as? String ?? ""
+        self.firstName = dictionary["first_name"] as? String ?? ""
+        self.lastName = dictionary["surname"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
         self.cellNum = dictionary["cell_num"] as? String ?? ""
         self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
         self.verified = dictionary["verified"] as? String ?? ""
         self.dob = dictionary["dob"] as? String ?? ""
-        self.patientNumber = dictionary["patientNum"] as? String ?? ""
+        self.idNumber = dictionary["id_num"] as? String ?? ""
+        self.regCountry = dictionary["reg_country"] as? String ?? ""
     }
 }
 

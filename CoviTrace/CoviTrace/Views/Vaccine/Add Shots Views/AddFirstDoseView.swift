@@ -17,7 +17,7 @@ struct AddFirstDoseView: View {
     @State var vaccStatus = "First Dose Administered"
     @State var firstDosageLocation = ""
     @State var firstDoseVaccProvider = ""
-    @State var firstDoseCountry = ""
+    @State var vaccDoseCountry = ""
     @State var firstDoseUploadDate = Date() // Logs the date the first dose is uploaded onto the system.
     @State var vaccCardVerified = "Verification Pending"
     @ObservedObject private var viewModel = VaccinationViewModel()
@@ -104,7 +104,7 @@ struct AddFirstDoseView: View {
                         .cornerRadius(10)
                     
                     // MARK: Vaccination Country
-                    SimpleTextField(text: $firstDoseCountry, placeholder: Text("Vaccination Country"))
+                    SimpleTextField(text: $vaccDoseCountry, placeholder: Text("Vaccination Country"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
@@ -151,7 +151,7 @@ struct AddFirstDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose1 = dateFormatter.string(from: firstDoseDate)
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_dose_country": firstDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "shot_type": shotType ])
+        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "shot_type": shotType ])
     }
 }
 

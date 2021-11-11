@@ -65,12 +65,12 @@ class AuthViewModel: ObservableObject {
                     guard let user = result?.user else { return }
                     
                     let data = ["email": email,
-                                "First Name": firstName,
-                                "Surname": lastName,
+                                "first_name": firstName,
+                                "surname": lastName,
                                 "profileImageUrl": profileImageUrl,
                                 "uid": user.uid,
                                 "verified": verified,
-                                "ID_Number": idNumber]
+                                "id_num": idNumber]
                     
                     Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
                         self.userSession = result?.user

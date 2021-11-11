@@ -16,7 +16,7 @@ struct AddSingleDoseView: View {
     @State var vaccStatus = "Fully Vaccinated"
     @State var singleDoseLocation = ""
     @State var singleDoseVaccProvider = ""
-    @State var singleDoseCountry = ""
+    @State var vaccDoseCountry = ""
     @State var vaccCardVerified = "verification pending"
     @State var shotType = "Single Dose"
     @State var singleDoseUploadDate = Date() // Logs the date the dose is uploaded onto the system.
@@ -84,7 +84,7 @@ struct AddSingleDoseView: View {
                         .cornerRadius(10)
                     
                     // MARK: Vaccination Country
-                    SimpleTextField(text: $singleDoseCountry, placeholder: Text("Vaccination Country"))
+                    SimpleTextField(text: $vaccDoseCountry, placeholder: Text("Vaccination Country"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
@@ -132,7 +132,7 @@ struct AddSingleDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose4 = dateFormatter.string(from: singleDoseDate)
-        db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "single_dose_country": singleDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate, "shotType": shotType])
+        db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate, "shotType": shotType])
     }
 }
 

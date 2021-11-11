@@ -73,6 +73,9 @@
 		2FF650AF2728C8DC00C697E4 /* SingleDoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF650AE2728C8DC00C697E4 /* SingleDoseViewModel.swift */; };
 		2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */; };
 		2FFA964B2725E63A001254AF /* VaccPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA964A2725E63A001254AF /* VaccPassView.swift */; };
+		2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB3FCA273C90C30005431F /* QrScanViewModel.swift */; };
+		2FFB3FCD273C9D2B0005431F /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB3FCC273C9D2B0005431F /* ScannerView.swift */; };
+		2FFB3FCF273C9D570005431F /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB3FCE273C9D570005431F /* CameraPreview.swift */; };
 		8B81A0D2509FAC589339655F /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +150,9 @@
 		2FF650AE2728C8DC00C697E4 /* SingleDoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDoseViewModel.swift; sourceTree = "<group>"; };
 		2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationViewModel.swift; sourceTree = "<group>"; };
 		2FFA964A2725E63A001254AF /* VaccPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccPassView.swift; sourceTree = "<group>"; };
+		2FFB3FCA273C90C30005431F /* QrScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScanViewModel.swift; sourceTree = "<group>"; };
+		2FFB3FCC273C9D2B0005431F /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		2FFB3FCE273C9D570005431F /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -297,6 +303,7 @@
 				2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */,
 				2FF650AE2728C8DC00C697E4 /* SingleDoseViewModel.swift */,
 				2F23F9132727606500B0F11F /* AppContext.swift */,
+				2FFB3FCA273C90C30005431F /* QrScanViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -316,6 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				2F06A7512725197800B90464 /* QrCodeScannerView.swift */,
+				2FFB3FCC273C9D2B0005431F /* ScannerView.swift */,
+				2FFB3FCE273C9D570005431F /* CameraPreview.swift */,
 			);
 			path = "QR Scanner";
 			sourceTree = "<group>";
@@ -514,6 +523,8 @@
 				2F27CA7C2739B4AB006D1DF1 /* UserLoginView.swift in Sources */,
 				2F9DC21B27075B0B003B0B12 /* ProfileImageRegistrationView.swift in Sources */,
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
+				2FFB3FCD273C9D2B0005431F /* ScannerView.swift in Sources */,
+				2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */,
 				2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */,
 				2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
@@ -547,6 +558,7 @@
 				2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
+				2FFB3FCF273C9D570005431F /* CameraPreview.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* Background.swift in Sources */,
 				2FF650AD2728C6A500C697E4 /* SingleDoseVaccView.swift in Sources */,

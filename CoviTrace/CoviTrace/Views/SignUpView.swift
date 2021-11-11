@@ -13,7 +13,7 @@ struct SignUpView: View {
     @State var lastName = ""
     @State var firstName = ""
     @State var idNumber = ""
-    @State var userEmail = ""
+    @State var email = ""
     @State var userPassword = ""
     @State var verified = "not verified"
     @State private var keyboardHeight: CGFloat = 0
@@ -103,7 +103,7 @@ struct SignUpView: View {
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
                             // MARK: User Email Text
-                            CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
+                            CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                                 .padding(5)
                                 .foregroundColor(Color(.white))
                                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
@@ -128,7 +128,7 @@ struct SignUpView: View {
                     // MARK: "Sign Up" Button
                     Button(action: {
                         guard let image = selectedUIImage else {return}
-                        viewModel.userRegistration(email: userEmail, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber)
+                        viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber)
                     }, label: {
                         Text("Sign Up")
                             .fontWeight(.semibold)
@@ -136,8 +136,8 @@ struct SignUpView: View {
                     }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(10)
-                        .disabled((lastName != "" && firstName != "" && idNumber != "" && userEmail != "" && userPassword != "") ? false : true)
-                        .opacity((lastName != "" && firstName != "" && idNumber != "" && userEmail != "" && userPassword != "") ? 1 : 0.6)
+                        .disabled((lastName != "" && firstName != "" && idNumber != "" && email != "" && userPassword != "") ? false : true)
+                        .opacity((lastName != "" && firstName != "" && idNumber != "" && email != "" && userPassword != "") ? 1 : 0.6)
                         .alert(isPresented: $viewModel.isError, content: {
                             Alert(title: Text("Registration Error"), message: Text(viewModel.errorMsg))
                         })

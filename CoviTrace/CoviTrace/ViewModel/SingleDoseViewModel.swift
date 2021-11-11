@@ -28,10 +28,10 @@ class SingleDoseViewModel: ObservableObject {
                 let singleDoseDate = data["single_date"] as? String ?? ""
                 let singleDoseLocation = data["single_issued_by"] as? String ?? ""
                 let singleDoseVaccProvider = data["single_provider"] as? String ?? ""
-                let singleDoseCountry = data["single_dose_country"] as? String ?? ""
+                let vaccDoseCountry = data["vacc_dose_country"] as? String ?? ""
                 let shotType = data["shot_type"] as? String ?? ""
                 
-                return SingleDoseData(id: userid, singleDosebatchNum : singleDosebatchNum, singleDoseVaccType : singleDoseVaccType, singleDoseDate : singleDoseDate, singleDoseLocation : singleDoseLocation, singleDoseVaccProvider : singleDoseVaccProvider, singleDoseCountry : singleDoseCountry, shotType: shotType)
+                return SingleDoseData(id: userid, singleDosebatchNum : singleDosebatchNum, singleDoseVaccType : singleDoseVaccType, singleDoseDate : singleDoseDate, singleDoseLocation : singleDoseLocation, singleDoseVaccProvider : singleDoseVaccProvider, vaccDoseCountry : vaccDoseCountry, shotType: shotType)
             }
         }
     }

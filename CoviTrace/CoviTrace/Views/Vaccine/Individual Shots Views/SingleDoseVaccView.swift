@@ -15,7 +15,7 @@ struct SingleDoseVaccView: View {
     @State var singleDoseDate = ""
     @State var singleDoseLocation = ""
     @State var singleDoseVaccProvider = ""
-    @State var singleDoseCountry = ""
+    @State var vaccDoseCountry = ""
     
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var singleModel = SingleDoseViewModel()
@@ -95,7 +95,7 @@ struct SingleDoseVaccView: View {
                                         .font(.subheadline)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(singleDoseData.singleDoseCountry)
+                                    Text(singleDoseData.vaccDoseCountry)
                                         .font(.subheadline)
                                         .bold()
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

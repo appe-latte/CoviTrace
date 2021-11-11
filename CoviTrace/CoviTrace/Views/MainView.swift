@@ -9,6 +9,8 @@ import SwiftUI
 import Combine
 import Kingfisher
 import CoreImage.CIFilterBuiltins
+import AVFoundation
+import UIKit
 
 struct MainView: View {
     @State var top = UIApplication.shared.windows.first?.safeAreaInsets.top
@@ -188,7 +190,7 @@ struct MainView: View {
                                                 }
                                         }
                                     }
-                                }.padding(.horizontal, 5)
+                                }
                             }
                             .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .padding(.bottom, 20)
@@ -201,7 +203,7 @@ struct MainView: View {
                                     if showSecondView {
                                         VStack(alignment:.center){
                                             
-                                            let fullName = ("\(viewModel.user!.fName)" + " " + "\(viewModel.user!.lName)")
+                                            //                                            let fullName = ("\(viewModel.user!.firstName)" + " " + "\(viewModel.user!.lastName)")
                                             
                                             // MARK: Profile Image
                                             Image(systemName: "person.crop.circle.fill")
@@ -215,7 +217,7 @@ struct MainView: View {
                                             
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 10) {
-                                                Text("\(fullName)")
+                                                Text("\(viewModel.user!.firstName)" + " " + "\(viewModel.user!.lastName)")
                                                     .font(.title)
                                                     .fontWeight(.semibold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -226,7 +228,7 @@ struct MainView: View {
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(viewModel.user!.patientNumber)
+                                                    Text(viewModel.user!.idNumber)
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -262,10 +264,10 @@ struct MainView: View {
                                                         .cornerRadius(10)
                                                 }
                                                 
-                                                // MARK: View Cards
+                                                // MARK: Venue Check-in
                                                 HStack {
                                                     NavigationLink(
-                                                        destination: QrCodeScannerView()){
+                                                        destination: ScannerView()){
                                                             HStack {
                                                                 Image(systemName: "barcode")
                                                                     .font(.system(size: 24))

@@ -44,13 +44,13 @@ struct VaccPassView: View {
                     .font(.system(size: 26).bold())
                     .foregroundColor(Color(.white))
                 
-                let fullName = authModel.user!.fName + " " + authModel.user!.lName
+                let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
                 let dob = authModel.user!.dob
-                let idNumber = authModel.user!.patientNumber
+                let idNumber = authModel.user!.idNumber
                 
                 HStack {
                     // MARK: ID Number
-                    Text(authModel.user!.patientNumber)
+                    Text(authModel.user!.idNumber)
                         .font(.system(size: 15))
                         .bold()
                         .foregroundColor(Color(.white))
@@ -74,8 +74,7 @@ struct VaccPassView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 125, height: 125)
-                                .padding(.top, 5)
-                                .padding(.bottom, 5)
+                                .padding(.vertical, 5)
                                 .padding(.trailing, 5)
                             
                             // MARK: User Details
@@ -103,13 +102,13 @@ struct VaccPassView: View {
                                     }
                                 }
                                 
-                                // MARK: Vaccination Expiry
+                                // MARK: Vaccination Country
                                 VStack(alignment: .leading) {
-                                    Text("Expiry:")
+                                    Text("Country:")
                                         .font(.system(size: 15))
                                         .bold()
                                     HStack{
-                                        Text(results.vaccExpiry)
+                                        Text(authModel.user!.regCountry)
                                             .font(.system(size: 15))
                                             .bold()
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -118,12 +117,11 @@ struct VaccPassView: View {
                             }
                         }
                         // MARK: Disclaimer
-                    
                         Text("This is to certify that the user's Covid-19 vaccination has been verified as legitimate and this certificate eligible for use as proof for the purpose of travel.")
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50, alignment: .center)
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
                             .font(.system(size: 13))
                             .multilineTextAlignment(.leading)
-                            .lineLimit(6)
+                            .lineLimit(10)
                     }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 }
 
