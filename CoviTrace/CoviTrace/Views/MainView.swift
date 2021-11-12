@@ -68,28 +68,6 @@ struct MainView: View {
                                         
                                         Spacer(minLength: 0)
                                         
-                                        // MARK: Top Row buttons
-                                        HStack(spacing: 15) {
-                                            // MARK: Upload Information
-                                            VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: UploadInformationView()){
-                                                            VStack {
-                                                                Image(systemName: "plus")
-                                                                    .foregroundColor(.white)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("Add")
-                                                                    .font(.system(size: 12))
-                                                                    .foregroundColor(Color.white)
-                                                            }
-                                                        }
-                                                }
-                                            }.padding(.top, 10)
-                                        }.padding(.trailing, 30)
-                                        
                                     }
                                     .padding(.horizontal)
                                 }
@@ -100,14 +78,14 @@ struct MainView: View {
                                     VStack(spacing: 1) {
                                         HStack {
                                             NavigationLink(
-                                                destination: VaccPassView()){
+                                                destination: UploadInformationView()){
                                                     VStack {
-                                                        Image(systemName: "qrcode")
+                                                        Image(systemName: "plus")
                                                             .foregroundColor(.white)
                                                             .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
-                                                        Text("Pass")
+                                                        Text("Add")
                                                             .font(.system(size: 12))
                                                             .foregroundColor(Color.white)
                                                     }
@@ -145,7 +123,7 @@ struct MainView: View {
                                                             .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
-                                                        Text("Check-ins")
+                                                        Text("Venues")
                                                             .font(.system(size: 12))
                                                             .foregroundColor(Color.white)
                                                     }
@@ -164,7 +142,7 @@ struct MainView: View {
                                                             .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
-                                                        Text("PCR Tests")
+                                                        Text("Results")
                                                             .font(.system(size: 11))
                                                             .foregroundColor(Color.white)
                                                     }
@@ -203,8 +181,6 @@ struct MainView: View {
                                     if showSecondView {
                                         VStack(alignment:.center){
                                             
-                                            //                                            let fullName = ("\(viewModel.user!.firstName)" + " " + "\(viewModel.user!.lastName)")
-                                            
                                             // MARK: Profile Image
                                             Image(systemName: "person.crop.circle.fill")
                                                 .data(url: URL(string: "\(viewModel.user!.profileImageUrl)")!)
@@ -214,9 +190,10 @@ struct MainView: View {
                                                 .frame(width: 300, height: 200)
                                                 .foregroundColor(Color(.white))
                                                 .padding(5)
+                                                .padding(.bottom, 20)
                                             
                                             // MARK: User Name
-                                            VStack(alignment: .leading, spacing: 10) {
+                                            VStack(alignment: .leading, spacing: 5) {
                                                 Text("\(viewModel.user!.firstName)" + " " + "\(viewModel.user!.lastName)")
                                                     .font(.title)
                                                     .fontWeight(.semibold)
@@ -244,42 +221,73 @@ struct MainView: View {
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                                }
+                                                }.padding(.bottom, 10)
                                                 
-                                                // MARK: Vaccination Information
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: VaccCertView()){
-                                                            HStack {
-                                                                Image(systemName: "eye")
-                                                                    .font(.system(size: 24))
-                                                                    .foregroundColor(Color(.white))
-                                                                Text("View Certificate")
-                                                                    .fontWeight(.semibold)
-                                                                    .foregroundColor(Color(.white))
-                                                                    .padding(.trailing, 30)
-                                                            }
-                                                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                                        .cornerRadius(10)
-                                                }
-                                                
-                                                // MARK: Venue Check-in
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: ScannerView()){
-                                                            HStack {
-                                                                Image(systemName: "barcode")
-                                                                    .font(.system(size: 24))
-                                                                    .foregroundColor(Color(.white))
-                                                                Text("Venue Check-in")
-                                                                    .fontWeight(.semibold)
-                                                                    .foregroundColor(Color(.white))
-                                                                    .padding(.trailing, 25)
-                                                            }
-                                                        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 250, minHeight: 0, maxHeight: 50, alignment: .center)
-                                                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                                        .cornerRadius(10)
+                                                HStack(spacing: 10) {
+                                                    // MARK: Vaccination Pass
+                                                    HStack {
+                                                        NavigationLink(
+                                                            destination: VaccPassView()){
+                                                                VStack(spacing: 1) {
+                                                                    Image(systemName: "qrcode")
+                                                                        .font(.system(size: 18))
+                                                                        .foregroundColor(Color(.white))
+                                                                    Text("Vaccine")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.system(size: 10))
+                                                                    Text("Pass")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.system(size: 10))
+                                                                }
+                                                            }.frame(width: 80, height: 80)
+                                                            .foregroundColor(.white)
+                                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                            .clipShape(Circle())
+                                                    }
+                                                    
+                                                    // MARK: Venue Check-in
+                                                    HStack {
+                                                        NavigationLink(
+                                                            destination: ScannerView()){
+                                                                VStack(spacing: 1) {
+                                                                    Image(systemName: "barcode")
+                                                                        .font(.system(size: 18))
+                                                                        .foregroundColor(Color(.white))
+                                                                    Text("Venue")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.system(size: 10))
+                                                                    Text("Check-in")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.system(size: 10))
+                                                                }
+                                                            }.frame(width: 80, height: 80)
+                                                            .foregroundColor(.white)
+                                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                            .clipShape(Circle())
+                                                    }
+                                                    
+                                                    // MARK: Digital Certificate
+                                                    HStack {
+                                                        NavigationLink(
+                                                            destination: VaccCertView()){
+                                                                VStack(spacing: 1) {
+                                                                    Image(systemName: "eye")
+                                                                        .font(.system(size: 18))
+                                                                        .foregroundColor(Color(.white))
+                                                                    Text("Digital")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.system(size: 10))
+                                                                    Text("Certificate")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.system(size: 10))
+                                                                }
+                                                                
+                                                            }.frame(width: 80, height: 80)
+                                                            .foregroundColor(.white)
+                                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                            .clipShape(Circle())
+                                                    }
+                                                    
                                                 }
                                             }
                                         }
@@ -289,7 +297,8 @@ struct MainView: View {
                                         .padding(5)
                                     }
                                     
-                                    Spacer(minLength: 5)
+                                    Spacer()
+                                    
                                 }.onAppear() {
                                     Timer.scheduledTimer(withTimeInterval: 0, repeats: false) { (_) in
                                         withAnimation {
@@ -298,10 +307,9 @@ struct MainView: View {
                                     }
                                 }
                             }
-                            
                         }
                         
-                        Spacer(minLength: 20)
+                        Spacer()
                         
                     }
                     .navigationBarHidden(true)

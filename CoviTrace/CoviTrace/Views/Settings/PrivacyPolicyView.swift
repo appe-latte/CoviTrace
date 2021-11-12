@@ -1,5 +1,5 @@
 //
-//  PrivacyView.swift
+//  PrivacyPolicyView.swift
 //  CoviTrace
 //
 //  Created by Stanford L. Khumalo on 11/06/2021.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-struct PrivacyView: View {
+struct PrivacyPolicyView: View {
     @ObservedObject var webViewStateModel : WebViewStateModel = WebViewStateModel()
     
     var body: some View {

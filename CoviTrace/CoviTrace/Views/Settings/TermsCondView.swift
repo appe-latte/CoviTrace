@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-struct TermsView: View {
+struct TermsCondView: View {
     @ObservedObject var webViewStateModel : WebViewStateModel = WebViewStateModel()
     
     var body: some View {
@@ -17,6 +17,6 @@ struct TermsView: View {
                 WebView(url: URL.init(string: "https://www.iubenda.com/terms-and-conditions/52172420")!, webViewStateModel: self.webViewStateModel)
             }
         }.navigationBarTitleDisplayMode(.inline)
-        .navigationBarTitle(Text("Privacy Policy"))
+        .navigationBarTitle(Text("Terms & Conditions"))
     }
 }

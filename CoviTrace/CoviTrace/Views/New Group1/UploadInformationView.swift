@@ -10,17 +10,21 @@ import Firebase
 import FirebaseFirestore
 
 struct UploadInformationView: View {
-    @State var showSingleDoseSheetView = false
-    @State var showFirstDoseSheetView = false
-    @State var showSecondDoseSheetView = false
-    @State var showUploadPcrTestSheetView = false
-    @State var showBoosterShotSheetView = false
+    @State private var showSingleDoseSheetView = false
+    @State private var showFirstDoseSheetView = false
+    @State private var showSecondDoseSheetView = false
+    @State private var showUploadPcrTestSheetView = false
+    @State private var showBoosterShotSheetView = false
+    @State private var showVaccCardUploadSheetView = false
+    @State private var showDigiCertSheetView = false
+    
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
+    @ObservedObject private var vaccModel = VaccinationViewModel()
     
     @State private var presentImporter = false // presents File importer
-    
+
     var body: some View {
         ZStack
         {
@@ -41,10 +45,10 @@ struct UploadInformationView: View {
                                 VStack {
                                     Text("+ First")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                     Text("Dose Jab")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
                                 .foregroundColor(.white)
@@ -66,10 +70,10 @@ struct UploadInformationView: View {
                                 VStack {
                                     Text("+ Second")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                     Text("Dose Jab")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
                                 .foregroundColor(.white)
@@ -91,10 +95,10 @@ struct UploadInformationView: View {
                                 VStack {
                                     Text("+ Single")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                     Text("Dose Jab")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
                                 .foregroundColor(.white)
@@ -118,10 +122,10 @@ struct UploadInformationView: View {
                                 VStack {
                                     Text("+ Booster")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                     Text("Dose")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
                                 .foregroundColor(.white)
@@ -143,10 +147,10 @@ struct UploadInformationView: View {
                                 VStack {
                                     Text("+ PCR")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                     Text("Test Results")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
                                 .foregroundColor(.white)
@@ -163,28 +167,22 @@ struct UploadInformationView: View {
                         // MARK: Upload Vaccination Card
                         VStack(spacing: 10){
                             Button(action: {
-                                presentImporter = true
+                                self.showVaccCardUploadSheetView.toggle()
                             }, label: {
                                 VStack {
                                     Text("+ Vaccination")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                     Text("Card")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
                                 .clipShape(Circle())
-                                .fileImporter(isPresented: $presentImporter, allowedContentTypes: [.pdf]) { result in
-                                    switch result {
-                                    case .success(let url):
-                                        print(url)
-                                        //use `url.startAccessingSecurityScopedResource()` if you are going to read the data
-                                    case .failure(let error):
-                                        print(error)
-                                    }
+                                .sheet(isPresented: $showVaccCardUploadSheetView) {
+                                    VaccCardUploadView()
                                 }
                         }
                     }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
@@ -194,30 +192,25 @@ struct UploadInformationView: View {
                         // MARK: Upload Digital Vaccine Cert. sheet
                         VStack(spacing: 10){
                             Button(action: {
-                                presentImporter = true
+                                self.showDigiCertSheetView.toggle()
                             }, label: {
                                 VStack {
                                     Text("+ Digital")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                     Text("Certificate")
                                         .foregroundColor(Color(.white))
-                                    .font(.system(size: 10))
+                                        .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
                                 .foregroundColor(.white)
                                 .background(Color.white.opacity(0.1))
                                 .clipShape(Circle())
-                                .fileImporter(isPresented: $presentImporter, allowedContentTypes: [.pdf]) { result in
-                                    switch result {
-                                    case .success(let url):
-                                        print(url)
-                                        //use `url.startAccessingSecurityScopedResource()` if you are going to read the data
-                                    case .failure(let error):
-                                        print(error)
-                                    }
+                                .sheet(isPresented: $showDigiCertSheetView) {
+                                    VaccCardUploadView()
                                 }
                         }
+                        
                     }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
                     
                     Spacer()
@@ -233,3 +226,18 @@ struct UploadInformationView: View {
     }
 }
 
+func uploadVaccCardImage(image:UIImage){
+    if let imageData = image.jpegData(compressionQuality: 1){
+        let storage = Storage.storage()
+        storage.reference().child("vaccination_card").putData(imageData, metadata: nil){
+            (_, err) in
+            if let err = err {
+                print("an error has occurred - \(err.localizedDescription)")
+            } else {
+                print("image uploaded successfully")
+            }
+        }
+    } else {
+        print("coldn't unwrap/case image to data")
+    }
+}

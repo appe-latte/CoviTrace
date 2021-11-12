@@ -34,7 +34,7 @@ struct SettingsView: View {
                         
                         // MARK: Privacy Settings
                         NavigationLink(
-                            destination: HowToVerifyView()){
+                            destination: PrivacySettingsView()){
                                 Image(systemName: "lock")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -62,7 +62,7 @@ struct SettingsView: View {
                         
                         // MARK: Privacy Policy
                         NavigationLink(
-                            destination: PrivacyView()){
+                            destination: PrivacyPolicyView()){
                                 Image(systemName: "arrow.right.square.fill")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -76,7 +76,7 @@ struct SettingsView: View {
                         
                         // MARK: Terms and Conditions
                         NavigationLink(
-                            destination: TermsView()){
+                            destination: TermsCondView()){
                                 Image(systemName: "arrow.right.square.fill")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

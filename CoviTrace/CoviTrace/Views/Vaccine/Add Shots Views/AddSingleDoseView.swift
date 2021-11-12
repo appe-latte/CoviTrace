@@ -25,15 +25,6 @@ struct AddSingleDoseView: View {
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
     
-    @State var selectedUIImage: UIImage?
-    @State var image: Image?
-    @State var showImagePicker = false
-    
-    func loadImage(){
-        guard let selectedImage = selectedUIImage else {return}
-        image = Image(uiImage: selectedImage)
-    }
-    
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -90,22 +81,6 @@ struct AddSingleDoseView: View {
                         .background(Color(.white).opacity(0.1))
                         .cornerRadius(10)
                     
-                    // MARK: Upload Vaccine Card
-                    Button(action: {
-                        showImagePicker.toggle()
-                    }, label: {
-                        Text("Upload Vaccine Card")
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .fontWeight(.semibold)
-                            .padding(.trailing, 10)
-                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .padding(.top, 2)
-                        .sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
-                            ImagePicker(image: $selectedUIImage)
-                        })
-                    
                     // MARK: "Submit" button
                     Button(action: {
                         upload_data()
@@ -133,11 +108,5 @@ struct AddSingleDoseView: View {
         let db = Firestore.firestore()
         let dose4 = dateFormatter.string(from: singleDoseDate)
         db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate, "shotType": shotType])
-    }
-}
-
-struct AddSingleDoseView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSingleDoseView()
     }
 }

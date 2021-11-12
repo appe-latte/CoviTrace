@@ -10,12 +10,12 @@ import Combine
 import UIKit
 
 struct SignUpView: View {
-    @State var lastName = ""
-    @State var firstName = ""
-    @State var idNumber = ""
-    @State var email = ""
-    @State var userPassword = ""
-    @State var verified = "not verified"
+    @State private var lastName = ""
+    @State private var firstName = ""
+    @State private var idNumber = ""
+    @State private var email = ""
+    @State private var userPassword = ""
+    @State private var verified = "not verified"
     @State private var keyboardHeight: CGFloat = 0
     @State var selectedUIImage: UIImage?
     @State var image: Image?
@@ -51,25 +51,26 @@ struct SignUpView: View {
                                             .resizable()
                                             .scaledToFill()
                                             .clipShape(Circle())
-                                            .frame(width: 100, height: 100)
+                                            .frame(width: 125, height: 125)
                                             .padding(.vertical, 5)
                                     } else {
-                                        Image(systemName: "person.crop.circle.fill")
-                                            .resizable()
-                                            .renderingMode(.template)
-                                            .scaledToFill()
-                                            .frame(width: 100, height: 100)
-                                            .foregroundColor(.white)
+                                        VStack {
+                                            Text("+ profile")
+                                                .font(.system(size: 14))
+                                                .foregroundColor(Color.white)
+                                            Text("picture")
+                                                .font(.system(size: 14))
+                                                .foregroundColor(Color.white)
+                                        }.frame(width: 125, height: 125)
                                             .padding(.vertical, 5)
+                                            .background(Color.white.opacity(0.1))
+                                            .clipShape(Circle())
                                     }
                                 }
                             }).sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
                                 ImagePicker(image: $selectedUIImage)
                             })
-                            Text("Add Profile Image")
-                                .font(.footnote)
-                                .foregroundColor(.white)
-                                .padding(5)
+                            
                         }.padding(.bottom, 5)
                         
                         // MARK: Textfields
