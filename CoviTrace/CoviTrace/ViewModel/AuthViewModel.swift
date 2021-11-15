@@ -39,11 +39,10 @@ class AuthViewModel: ObservableObject {
     }
     
     // MARK: User Registration function
-    
     func userRegistration(email: String, userPwd: String, firstName: String, lastName: String, profileImage: UIImage, verified: String, idNumber: String, cellNum: String) {
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.8) else { return }
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.6) else { return }
         let filename = NSUUID().uuidString
-        let storageRef = Storage.storage().reference().child(filename)
+        let storageRef = Storage.storage().reference(withPath: "/profile_images/\(filename)")
         
         storageRef.putData(imageData, metadata: nil) { (_, error) in
             if error != nil {

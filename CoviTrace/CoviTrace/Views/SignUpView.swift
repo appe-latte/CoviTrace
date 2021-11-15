@@ -126,7 +126,7 @@ struct SignUpView: View {
                                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                                     .background(Color(.white).opacity(0.1))
                                     .cornerRadius(10)
-                                    .keyboardType(.numberPad)
+                                    .keyboardType(.numbersAndPunctuation)
                                     .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                                 
                                 // MARK: User Password Text
