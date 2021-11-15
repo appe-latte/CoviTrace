@@ -114,7 +114,7 @@ struct DigitalCertUploadView : View {
                     // MARK: Upload image to Firebase
                     Button(action: {
                         if let thisImage = self.upload_image {
-                            uploadImage(image: thisImage)
+                            uploadDcertImage(image: thisImage)
                         } else {
                             print("")
                         }
@@ -131,5 +131,23 @@ struct DigitalCertUploadView : View {
                 }
             }.ignoresSafeArea()
         }
+    }
+}
+
+func uploadDcertImage(image:UIImage){
+    if let imageData = image.jpegData(compressionQuality: 0.6){
+        let filename = NSUUID().uuidString
+        let storageRef = Storage.storage().reference(withPath: "/digital_certificates/\(filename)")
+        
+        storageRef.putData(imageData, metadata: nil) {
+            (_, err) in
+            if let err = err {
+                print("an error has occurred - \(err.localizedDescription)")
+            } else {
+                print("image uploaded successfully")
+            }
+        }
+    } else {
+        print("coldn't unwrap/case image to data")
     }
 }

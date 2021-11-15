@@ -40,12 +40,10 @@
 		2F4F573D2655241600EFB454 /* HowPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573C2655241600EFB454 /* HowPageView.swift */; };
 		2F4F5741265524E500EFB454 /* AboutCovitraceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */; };
 		2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5742265524FA00EFB454 /* FaqsView.swift */; };
-		2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524190263B37A00016D87D /* ProfileHeaderView.swift */; };
 		2F524193263B38CB0016D87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524192263B38CB0016D87D /* Constants.swift */; };
 		2F524195263B3E810016D87D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524194263B3E810016D87D /* UserProfileView.swift */; };
 		2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
-		2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5DAFA225F3D1D300BF87AC /* Subview.swift */; };
 		2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150E925D1A438003AAB52 /* TextArea.swift */; };
 		2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F025D1A471003AAB52 /* CustomTextField.swift */; };
 		2F6150F425D1A495003AAB52 /* CustomSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */; };
@@ -121,12 +119,10 @@
 		2F4F573C2655241600EFB454 /* HowPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPageView.swift; sourceTree = "<group>"; };
 		2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCovitraceView.swift; sourceTree = "<group>"; };
 		2F4F5742265524FA00EFB454 /* FaqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsView.swift; sourceTree = "<group>"; };
-		2F524190263B37A00016D87D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		2F524192263B38CB0016D87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2F524194263B3E810016D87D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Certificates/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		2F5DAFA225F3D1D300BF87AC /* Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subview.swift; sourceTree = "<group>"; };
 		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		2F6150F025D1A471003AAB52 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextField.swift; sourceTree = "<group>"; };
@@ -282,7 +278,6 @@
 		2F52418F263B378E0016D87D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				2F524190263B37A00016D87D /* ProfileHeaderView.swift */,
 				2F524194263B3E810016D87D /* UserProfileView.swift */,
 			);
 			path = Profile;
@@ -309,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				2F5956E025D1B635004D1F53 /* AuthViewModel.swift */,
-				2F5DAFA225F3D1D300BF87AC /* Subview.swift */,
 				2F96097E260E21A700D0090B /* ResultsViewModel.swift */,
 				2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */,
 				2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */,
@@ -557,8 +551,6 @@
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
 				2FFB3FCD273C9D2B0005431F /* ScannerView.swift in Sources */,
 				2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */,
-				2F524191263B37A00016D87D /* ProfileHeaderView.swift in Sources */,
-				2F5DAFA325F3D1D300BF87AC /* Subview.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* VaccinationViewModel.swift in Sources */,
 				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,
 				2FD6C4DD273DCE2E00A0D7B1 /* PrivacySettingsView.swift in Sources */,

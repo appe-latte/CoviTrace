@@ -9,6 +9,13 @@ import SwiftUI
 
 struct PrivacySettingsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Background()
+            VStack {
+                Text("Privacy Settings go here....")
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 14))
+            }
+        }
     }
 }

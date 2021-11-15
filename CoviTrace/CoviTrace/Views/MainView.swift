@@ -5,14 +5,15 @@
 //  Created by Stanford L. Khumalo on 03/11/2021.
 //
 
-import SwiftUI
-import Combine
-import Kingfisher
-import CoreImage.CIFilterBuiltins
-import AVFoundation
 import UIKit
+import Combine
+import SwiftUI
+import Kingfisher
+import AVFoundation
+import CoreImage.CIFilterBuiltins
 
 struct MainView: View {
+    // MARK: App bar properties
     @State var top = UIApplication.shared.windows.first?.safeAreaInsets.top
     @State var current = "house.fill"
     @Namespace var animation
@@ -26,7 +27,8 @@ struct MainView: View {
     @State private var selectedItem = 0
     @State private var showCovidPassSheetView = false
     
-    @EnvironmentObject var viewModel : AuthViewModel
+    // MARK: Objects
+    @EnvironmentObject var authModel : AuthViewModel
     @EnvironmentObject var resultsModel : ResultsViewModel
     @EnvironmentObject var vaccModel : VaccinationViewModel
     
@@ -46,7 +48,7 @@ struct MainView: View {
     
     var body: some View {
         Group {
-            if viewModel.userSession != nil {
+            if authModel.userSession != nil {
                 NavigationView {
                     ZStack
                     {
@@ -183,7 +185,7 @@ struct MainView: View {
                                             
                                             // MARK: Profile Image
                                             Image(systemName: "person.crop.circle.fill")
-                                                .data(url: URL(string: "\(viewModel.user!.profileImageUrl)")!)
+                                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)
                                                 .resizable()
                                                 .scaledToFit()
                                                 .clipShape(Circle())
@@ -194,7 +196,7 @@ struct MainView: View {
                                             
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 5) {
-                                                Text("\(viewModel.user!.firstName)" + " " + "\(viewModel.user!.lastName)")
+                                                Text("\(authModel.user!.firstName)" + " " + "\(authModel.user!.lastName)")
                                                     .font(.title)
                                                     .fontWeight(.semibold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -205,7 +207,7 @@ struct MainView: View {
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(viewModel.user!.idNumber)
+                                                    Text(authModel.user!.idNumber)
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -217,7 +219,7 @@ struct MainView: View {
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(viewModel.user!.verified)
+                                                    Text(authModel.user!.verified)
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

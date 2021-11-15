@@ -20,7 +20,7 @@ struct VaccCardUploadView: View {
     @State private var showImagePicker = false
     @State private var sourceType:UIImagePickerController.SourceType = .camera
     @State private var image : UIImage?
-    @State var upload_image:UIImage?
+    @State var upload_image : UIImage?
     
     var body: some View {
         ZStack {
@@ -106,7 +106,7 @@ struct VaccCardUploadView: View {
                     // MARK: Upload image to Firebase
                     Button(action: {
                         if let thisImage = self.upload_image {
-                            uploadImage(image: thisImage)
+                            uploadVcardImage(image: thisImage)
                         } else {
                             print("")
                         }
@@ -126,10 +126,10 @@ struct VaccCardUploadView: View {
     }
 }
 
-func uploadImage(image:UIImage){
-    if let imageData = image.jpegData(compressionQuality: 1){
+func uploadVcardImage(image:UIImage){
+    if let imageData = image.jpegData(compressionQuality: 0.6){
         let filename = NSUUID().uuidString
-        let storageRef = Storage.storage().reference().child(filename)
+        let storageRef = Storage.storage().reference(withPath: "/vaccination_cards/\(filename)")
         
         storageRef.putData(imageData, metadata: nil) {
             (_, err) in

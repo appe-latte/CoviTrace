@@ -20,7 +20,7 @@ struct FaqsView: View {
                             Text("What information do you require")
                                 .font(.system(size: 16).bold())
                             Text("To register your account within the app we require your first and last name, vaild email address and contact telephone number (mobile). For the vaccination card, we require all the information written on your Government issued Vaccination card.").lineLimit(nil)
-                            Text("\(Text("Please Note:").bold()) that we also require your Government issued ID number to ensure the integrity of the uploaded information and to ensure that the information you've entered genuinely belongs to ").lineLimit(nil)
+                            Text("\(Text("Please Note:").bold()) that we also require your Government issued ID number to ensure the integrity of the uploaded information and to ensure that the information you've entered genuinely belongs to you. ").lineLimit(nil)
                             Text("Does the app store or track my location")
                                 .font(.system(size: 16).bold())
                             Text("The Check-in feature will only store a record of your present location to help you keep a record of your movement for potential contact-tracing in the unfortunate event that you contract the Covid-19 virus. For venues and buildings, the Check-in feature will help keep a record of the number of attendees for that particular event.").lineLimit(nil)
