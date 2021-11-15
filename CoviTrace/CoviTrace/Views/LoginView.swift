@@ -80,8 +80,9 @@ struct LoginView: View {
                                 .padding(.top, 2)
                         }
                 }.font(.subheadline)
-            }.navigationBarHidden(true)
-                .navigationBarTitleDisplayMode(.inline)
+            }
         }.accentColor(.white)
+            .navigationBarHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }

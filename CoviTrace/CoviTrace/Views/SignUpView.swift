@@ -100,7 +100,6 @@ struct SignUpView: View {
                                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                                     .background(Color(.white).opacity(0.1))
                                     .cornerRadius(10)
-                                //                            .offset(y: -self.keyboardHeightHelper.keyboardHeight)
                                 
                                 // MARK: ID Number
                                 CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "note.text")
@@ -174,8 +173,8 @@ struct SignUpView: View {
                     .keyboardAdaptive()
                     .ignoresSafeArea(.keyboard)
             }
-        }.navigationBarTitleDisplayMode(.inline)
-            .navigationBarHidden(true)
+        }.navigationBarHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: Keyboard Height listener
