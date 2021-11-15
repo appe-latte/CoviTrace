@@ -22,6 +22,11 @@ struct VaccCardUploadView: View {
     @State private var image : UIImage?
     @State var upload_image : UIImage?
     
+    // MARK: Alert
+    @State private var showAlert : Bool = false
+    @State private var errTitle = ""
+    @State private var errMessage = ""
+    
     var body: some View {
         ZStack {
             Background()
@@ -108,38 +113,47 @@ struct VaccCardUploadView: View {
                         if let thisImage = self.upload_image {
                             uploadVcardImage(image: thisImage)
                         } else {
-                            print("")
+//                            print("")
+                            showAlert.toggle()
                         }
                         
                     }){
-                        Text("Upload Image")
-                            .font(.system(size: 14))
-                            .foregroundColor(Color.white)
+                        Text("Upload Card")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
                     }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(10)
+                        .alert(isPresented: $showAlert, content: {
+                            Alert(title: Text("\(errTitle)"), message: Text("\(errMessage)"))
+                        })
                 }
                 
                 Spacer()
             }
         }
     }
-}
-
-func uploadVcardImage(image:UIImage){
-    if let imageData = image.jpegData(compressionQuality: 0.6){
-        let filename = NSUUID().uuidString
-        let storageRef = Storage.storage().reference(withPath: "/vaccination_cards/\(filename)")
-        
-        storageRef.putData(imageData, metadata: nil) {
-            (_, err) in
-            if let err = err {
-                print("an error has occurred - \(err.localizedDescription)")
-            } else {
-                print("image uploaded successfully")
+    
+    func uploadVcardImage(image:UIImage){
+        if let imageData = image.jpegData(compressionQuality: 0.6){
+            let filename = NSUUID().uuidString
+            let storageRef = Storage.storage().reference(withPath: "/vaccination_cards/\(filename)")
+            
+            storageRef.putData(imageData, metadata: nil) {
+                (_, err) in
+                if let err = err {
+                    self.errTitle = "Error"
+                    self.errMessage = "\(err.localizedDescription)"
+                    self.showAlert = true
+                } else {
+                    self.errTitle = "Success!"
+                    self.errMessage = "Vaccination Card image was successfully uploaded!"
+                    self.showAlert = true
+                }
             }
+        } else {
+            print("coldn't unwrap/case image to data")
         }
-    } else {
-        print("coldn't unwrap/case image to data")
     }
 }

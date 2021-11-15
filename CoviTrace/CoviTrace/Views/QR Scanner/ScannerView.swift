@@ -13,12 +13,15 @@ import Firebase
 import FirebaseFirestore
 
 struct ScannerView: View {
+    // MARK: Objects
     @ObservedObject var qrModel = QrScanViewModel()
-    let locationFetch = LocationFetch()
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     
+    let locationFetch = LocationFetch()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State private var showAlert : Bool = false
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
@@ -98,6 +101,8 @@ struct ScannerView: View {
                                                 
                                                 let db = Firestore.firestore();                                db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
                                             }
+                                            
+                                            showAlert = true
                                         })
                                     } else {
                                         print("Unknown location")
@@ -111,6 +116,9 @@ struct ScannerView: View {
                             }.frame(width: 50, height: 50)
                                 .background(green)
                                 .clipShape(Circle())
+                                .alert(isPresented: $showAlert, content: {
+                                    Alert(title: Text("Venue Check-in"), message: Text("Your venue location has been saved!"))
+                                })
                             
                             Text("Check-in")
                                 .font(.system(size: 10))
