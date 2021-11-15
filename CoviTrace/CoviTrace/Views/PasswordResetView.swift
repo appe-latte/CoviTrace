@@ -29,7 +29,7 @@ struct PasswordResetView: View {
                 CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
                     .padding(5)
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                     .keyboardType(.emailAddress).autocapitalization(.none)
@@ -43,7 +43,7 @@ struct PasswordResetView: View {
                     Text("Reset Password")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(10)
                 

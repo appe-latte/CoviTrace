@@ -44,7 +44,7 @@ struct AddResultsView: View {
                 // MARK: Test Reference Number TextField
                 SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
@@ -52,31 +52,31 @@ struct AddResultsView: View {
                 SimpleTextField(text: $labRefNum, placeholder: Text("Enter Lab Reference Number"))
                 //                    .padding(5)
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Specimen Number
                 SimpleTextField(text: $specimenNum, placeholder: Text("Enter Specimen Number"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Test Location TextField
                 SimpleTextField(text: $testProvider, placeholder: Text("Enter Test Provider"))
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Test Date Picker
                 DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
-                    Text("Choose Date:")
+                    Text("Test Date:")
                         .padding(.leading)
                         .foregroundColor(Color(.white)).font(.system(size: 14))
                 }.foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1)).font(.system(size: 14))
                     .cornerRadius(15)
                 
@@ -95,7 +95,7 @@ struct AddResultsView: View {
                     }
                 }.padding(.trailing, 50)
                     .foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
@@ -111,7 +111,7 @@ struct AddResultsView: View {
                             .padding(.trailing, 10)
                     }
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
@@ -137,7 +137,7 @@ struct AddResultsView: View {
                             .foregroundColor(.white)
                     }
                     
-                }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(10)
                     .padding(.top, 2)

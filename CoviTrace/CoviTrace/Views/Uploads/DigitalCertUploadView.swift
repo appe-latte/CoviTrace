@@ -27,105 +27,109 @@ struct DigitalCertUploadView : View {
     var body: some View {
         ZStack {
             Background()
-            VStack(spacing: 10) {
-                VStack{
-                    Text("Upload Digital Certificate")
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
-                }
-                .padding(.top, 15)
-                
-                // MARK: Image frame
-                HStack{
-                    if upload_image != nil {
-                        Image(uiImage: upload_image!)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
-                            .cornerRadius(10)
-                    } else {
-                        HStack {
-                            Image(systemName: "plus")
+            
+                VStack(spacing: 10) {
+                    VStack{
+                        Text("Upload Digital Certificate")
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                    }
+                    .padding(.top, 15)
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        
+                    // MARK: Image frame
+                    HStack{
+                        if upload_image != nil {
+                            Image(uiImage: upload_image!)
                                 .resizable()
                                 .scaledToFit()
-                                .foregroundColor(Color.white)
-                                .frame(width:15, height:15)
-                            Text("add Digital Certificate image.")
-                                .font(.system(size: 14))
-                                .foregroundColor(Color.white)
-                        }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
-                            .background(Color.white.opacity(0.1))
-                            .cornerRadius(10)
-                    }
-                }.padding()
-                
-                // MARK: Image Picker button
-                Button(action: {
-                    self.showActionSheet = true
-                }) {
-                    HStack {
-                        Image(systemName: "camera")
-                            .imageScale(.medium)
-                            .scaledToFill()
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        
-                        Text(" / ")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        
-                        Image(systemName: "photo")
-                            .imageScale(.medium)
-                            .scaledToFill()
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    }
-                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .actionSheet(isPresented: $showActionSheet){
-                        ActionSheet(title: Text("Add Digital Certificate"), message: nil, buttons: [
-                            // MARK: take image using camera
-                            .default(Text("Camera"), action: {
-                                self.showImagePicker = true
-                                self.sourceType = .camera
-                            }),
-                            
-                            // MARK: pick image from Photo Library
-                            .default(Text("Photo Library"), action: {
-                                self.showImagePicker = true
-                                self.sourceType = .photoLibrary
-                            }),
-                            
-                            // MARK: .PDF image
-                            .default(Text(".PDF"), action: {
-                                self.presentImporter = true
-                            }),
-                            
-                            // MARK: "Cancel" button
-                            .cancel()
-                            
-                        ])
-                    }.sheet(isPresented: $showImagePicker){
-                        VaccineCardImagePicker(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
-                    }
-                
-                // MARK: Upload image to Firebase
-                Button(action: {
-                    if let thisImage = self.upload_image {
-                        uploadImage(image: thisImage)
-                    } else {
-                        print("")
-                    }
+                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
+                                .cornerRadius(10)
+                        } else {
+                            HStack {
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColor(Color.white)
+                                    .frame(width:15, height:15)
+                                Text("add Digital Certificate image.")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color.white)
+                            }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
+                                .background(Color.white.opacity(0.1))
+                                .cornerRadius(10)
+                        }
+                    }.padding(5)
                     
-                }){
-                    Text("Upload Image")
-                        .font(.system(size: 14))
-                        .foregroundColor(Color.white)
-                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(10)
-                
-                Spacer()
-            }
+                    // MARK: Image Picker button
+                    Button(action: {
+                        self.showActionSheet = true
+                    }) {
+                        HStack {
+                            Image(systemName: "camera")
+                                .imageScale(.medium)
+                                .scaledToFill()
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            
+                            Text(" / ")
+                                .font(.system(size: 12))
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            
+                            Image(systemName: "photo")
+                                .imageScale(.medium)
+                                .scaledToFill()
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        }
+                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .actionSheet(isPresented: $showActionSheet){
+                            ActionSheet(title: Text("Add Digital Certificate"), message: nil, buttons: [
+                                // MARK: take image using camera
+                                .default(Text("Camera"), action: {
+                                    self.showImagePicker = true
+                                    self.sourceType = .camera
+                                }),
+                                
+                                // MARK: pick image from Photo Library
+                                .default(Text("Photo Library"), action: {
+                                    self.showImagePicker = true
+                                    self.sourceType = .photoLibrary
+                                }),
+                                
+                                // MARK: .PDF image
+                                .default(Text(".PDF"), action: {
+                                    self.presentImporter = true
+                                }),
+                                
+                                // MARK: "Cancel" button
+                                .cancel()
+                                
+                            ])
+                        }.sheet(isPresented: $showImagePicker){
+                            VaccineCardImagePicker(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
+                        }
+                    
+                    // MARK: Upload image to Firebase
+                    Button(action: {
+                        if let thisImage = self.upload_image {
+                            uploadImage(image: thisImage)
+                        } else {
+                            print("")
+                        }
+                        
+                    }){
+                        Text("Upload Image")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.white)
+                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(10)
+                    
+                    Spacer()
+                }
+            }.ignoresSafeArea()
         }
     }
 }

@@ -15,11 +15,18 @@ struct SignUpView: View {
     @State private var idNumber = ""
     @State private var email = ""
     @State private var userPassword = ""
+    @State private var cellNum = ""
+    //    @State private var countryCode = ""
+    //    let countryCodeType = ["code", "+27", "+263"]
     @State private var verified = "not verified"
     @State private var keyboardHeight: CGFloat = 0
+    
+    // MARK: Image Picker
     @State var selectedUIImage: UIImage?
     @State var image: Image?
     @State var showImagePicker = false
+    
+    // MARK: Objects
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
@@ -40,101 +47,112 @@ struct SignUpView: View {
                 Background()
                 
                 VStack {
-                    Group {
-                        // MARK: Profile Image selection
-                        VStack(alignment:.center){
-                            Button(action: {showImagePicker.toggle()}, label: {
-                                VStack {
-                                    
-                                    if let image = image {
-                                        image
-                                            .resizable()
-                                            .scaledToFill()
-                                            .clipShape(Circle())
-                                            .frame(width: 125, height: 125)
-                                            .padding(.vertical, 5)
-                                    } else {
-                                        VStack {
-                                            Text("+ profile")
-                                                .font(.system(size: 14))
-                                                .foregroundColor(Color.white)
-                                            Text("picture")
-                                                .font(.system(size: 14))
-                                                .foregroundColor(Color.white)
-                                        }.frame(width: 125, height: 125)
-                                            .padding(.vertical, 5)
-                                            .background(Color.white.opacity(0.1))
-                                            .clipShape(Circle())
+                    ScrollView(.vertical, showsIndicators: false) {
+                        Group {
+                            // MARK: Profile Image selection
+                            VStack(alignment:.center){
+                                Button(action: {showImagePicker.toggle()}, label: {
+                                    VStack {
+                                        
+                                        if let image = image {
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                                .clipShape(Circle())
+                                                .frame(width: 125, height: 125)
+                                                .padding(.vertical, 5)
+                                        } else {
+                                            VStack {
+                                                Text("+ profile")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color.white)
+                                                Text("picture")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color.white)
+                                            }.frame(width: 125, height: 125)
+                                                .padding(.vertical, 5)
+                                                .background(Color.white.opacity(0.1))
+                                                .clipShape(Circle())
+                                        }
                                     }
-                                }
-                            }).sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
-                                ImagePicker(image: $selectedUIImage)
-                            })
+                                }).sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
+                                    ImagePicker(image: $selectedUIImage)
+                                })
+                                
+                            }.padding(.bottom, 5)
                             
-                        }.padding(.bottom, 5)
-                        
-                        // MARK: Textfields
-                        VStack(spacing: 10) {
-                            
-                            // MARK: First Name Text
-                            CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
-                                .padding(5)
-                                .foregroundColor(Color(.white))
-                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
-                                .cornerRadius(10)
-                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-                            
-                            // MARK: Last Name Text
-                            CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person.fill")
-                                .padding(5)
-                                .foregroundColor(Color(.white))
-                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
-                                .cornerRadius(10)
-                            //                            .offset(y: -self.keyboardHeightHelper.keyboardHeight)
-                            
-                            // MARK: ID Number
-                            CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "note.text")
-                                .padding(5)
-                                .foregroundColor(Color(.white))
-                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
-                                .cornerRadius(10)
-                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-                            
-                            // MARK: User Email Text
-                            CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
-                                .padding(5)
-                                .foregroundColor(Color(.white))
-                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
-                                .cornerRadius(10)
-                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-                            
-                            // MARK: User Password Text
-                            CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
-                                .padding(5)
-                                .foregroundColor(Color(.white))
-                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
-                                .cornerRadius(10)
-                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-                            
-                        }.font(.subheadline)
+                            // MARK: Textfields
+                            VStack(spacing: 10) {
+                                
+                                // MARK: First Name Text
+                                CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
+                                    .padding(5)
+                                    .foregroundColor(Color(.white))
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                                    .background(Color(.white).opacity(0.1))
+                                    .cornerRadius(10)
+                                    .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                                
+                                // MARK: Last Name Text
+                                CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person.fill")
+                                    .padding(5)
+                                    .foregroundColor(Color(.white))
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                                    .background(Color(.white).opacity(0.1))
+                                    .cornerRadius(10)
+                                //                            .offset(y: -self.keyboardHeightHelper.keyboardHeight)
+                                
+                                // MARK: ID Number
+                                CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "note.text")
+                                    .padding(5)
+                                    .foregroundColor(Color(.white))
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                                    .background(Color(.white).opacity(0.1))
+                                    .cornerRadius(10)
+                                    .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                                
+                                // MARK: User Email Text
+                                CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
+                                    .padding(5)
+                                    .foregroundColor(Color(.white))
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                                    .background(Color(.white).opacity(0.1))
+                                    .cornerRadius(10)
+                                    .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                                
+                                // MARK: Cell Number Text
+                                CustomTextField(text: $cellNum, placeholder: Text("Cell number inc. country code"), imageName: "phone")
+                                    .padding(5)
+                                    .foregroundColor(Color(.white))
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                                    .background(Color(.white).opacity(0.1))
+                                    .cornerRadius(10)
+                                    .keyboardType(.numberPad)
+                                    .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                                
+                                // MARK: User Password Text
+                                CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
+                                    .padding(5)
+                                    .foregroundColor(Color(.white))
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                                    .background(Color(.white).opacity(0.1))
+                                    .cornerRadius(10)
+                                    .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                                
+                            }.font(.subheadline)
+                        }
                     }
-                    
                     Spacer()
                     
                     // MARK: "Sign Up" Button
                     Button(action: {
                         guard let image = selectedUIImage else {return}
-                        viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber)
+                        viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum)
                     }, label: {
                         Text("Sign Up")
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
-                    }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(10)
                         .disabled((lastName != "" && firstName != "" && idNumber != "" && email != "" && userPassword != "") ? false : true)
