@@ -55,6 +55,7 @@
 		2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9E25DEDA1F00873C15 /* LocationManager.swift */; };
 		2F75F4AB26FCDE95008BB653 /* PhoneVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75F4AA26FCDE95008BB653 /* PhoneVerificationView.swift */; };
 		2F75F4AF26FCECCB008BB653 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */; };
+		2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FC1652741F4DD00C3D9B7 /* DigitalCertUploadView.swift */; };
 		2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8043B52620A0F4004949B2 /* ImagePicker.swift */; };
 		2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848125D6E847000A50B6 /* CheckInView.swift */; };
 		2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80848825D75775000A50B6 /* SimpleTextField.swift */; };
@@ -135,6 +136,7 @@
 		2F682B9E25DEDA1F00873C15 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2F75F4AA26FCDE95008BB653 /* PhoneVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationView.swift; sourceTree = "<group>"; };
 		2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
+		2F7FC1652741F4DD00C3D9B7 /* DigitalCertUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertUploadView.swift; sourceTree = "<group>"; };
 		2F8043B52620A0F4004949B2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2F80848125D6E847000A50B6 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		2F80848825D75775000A50B6 /* SimpleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			children = (
 				2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */,
 				2FD6C4E3273DFDF100A0D7B1 /* VaccCardUploadView.swift */,
+				2F7FC1652741F4DD00C3D9B7 /* DigitalCertUploadView.swift */,
 			);
 			path = Uploads;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
 				2FFB3FCF273C9D570005431F /* CameraPreview.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
+				2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* Background.swift in Sources */,
 				2FF650AD2728C6A500C697E4 /* SingleDoseVaccView.swift in Sources */,
 				2FF650A62728C04100C697E4 /* BoosterVaccView.swift in Sources */,

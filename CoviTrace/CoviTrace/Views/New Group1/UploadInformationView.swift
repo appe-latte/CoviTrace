@@ -207,7 +207,7 @@ struct UploadInformationView: View {
                                 .background(Color.white.opacity(0.1))
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showDigiCertSheetView) {
-                                    VaccCardUploadView()
+                                    DigitalCertUploadView()
                                 }
                         }
                         

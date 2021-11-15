@@ -1,15 +1,15 @@
 //
-//  VaccCardUploadView.swift
+//  DigitalCertUploadView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 11/11/2021.
+//  Created by Stanford L. Khumalo on 14/11/2021.
 //
 
 import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-struct VaccCardUploadView: View {
+struct DigitalCertUploadView : View {
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
@@ -22,12 +22,14 @@ struct VaccCardUploadView: View {
     @State private var image : UIImage?
     @State var upload_image:UIImage?
     
+    @State private var presentImporter = false // presents File importer
+    
     var body: some View {
         ZStack {
             Background()
             VStack(spacing: 10) {
                 VStack{
-                    Text("Upload Vaccination Card")
+                    Text("Upload Digital Certificate")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                 }
@@ -48,7 +50,7 @@ struct VaccCardUploadView: View {
                                 .scaledToFit()
                                 .foregroundColor(Color.white)
                                 .frame(width:15, height:15)
-                            Text("add Vaccination Card image")
+                            Text("add Digital Certificate image.")
                                 .font(.system(size: 14))
                                 .foregroundColor(Color.white)
                         }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
@@ -80,7 +82,7 @@ struct VaccCardUploadView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .actionSheet(isPresented: $showActionSheet){
-                        ActionSheet(title: Text("Add Vaccincation Card"), message: nil, buttons: [
+                        ActionSheet(title: Text("Add Digital Certificate"), message: nil, buttons: [
                             // MARK: take image using camera
                             .default(Text("Camera"), action: {
                                 self.showImagePicker = true
@@ -91,6 +93,11 @@ struct VaccCardUploadView: View {
                             .default(Text("Photo Library"), action: {
                                 self.showImagePicker = true
                                 self.sourceType = .photoLibrary
+                            }),
+                            
+                            // MARK: .PDF image
+                            .default(Text(".PDF"), action: {
+                                self.presentImporter = true
                             }),
                             
                             // MARK: "Cancel" button
@@ -120,23 +127,5 @@ struct VaccCardUploadView: View {
                 Spacer()
             }
         }
-    }
-}
-
-func uploadImage(image:UIImage){
-    if let imageData = image.jpegData(compressionQuality: 1){
-        let filename = NSUUID().uuidString
-        let storageRef = Storage.storage().reference().child(filename)
-        
-        storageRef.putData(imageData, metadata: nil) {
-            (_, err) in
-            if let err = err {
-                print("an error has occurred - \(err.localizedDescription)")
-            } else {
-                print("image uploaded successfully")
-            }
-        }
-    } else {
-        print("coldn't unwrap/case image to data")
     }
 }

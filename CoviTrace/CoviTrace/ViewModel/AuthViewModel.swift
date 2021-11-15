@@ -41,7 +41,7 @@ class AuthViewModel: ObservableObject {
     // MARK: User Registration function
     
     func userRegistration(email: String, userPwd: String, firstName: String, lastName: String, profileImage: UIImage, verified: String, idNumber: String) {
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.6) else { return }
         let filename = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child(filename)
         
