@@ -13,12 +13,12 @@ struct UserProfileView: View {
     
     var body: some View {
         ZStack {
-            Background()
             VStack {
                 Text("Profile goes here...")
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 14))
+                    .bold()
+                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
             }
-        }
+        }.navigationTitle("User Information")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -24,7 +24,6 @@
 		2F2C84A925FA9C290002F2C3 /* VaccCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */; };
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
-		2F3487032677B2CE0026D0D7 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3487022677B2CE0026D0D7 /* NotificationsView.swift */; };
 		2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */; };
 		2F3680BE26F0EE320002F8A0 /* AddSingleDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */; };
 		2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */; };
@@ -106,7 +105,6 @@
 		2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCertView.swift; sourceTree = "<group>"; };
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		2F3487022677B2CE0026D0D7 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadInformationView.swift; path = "../New Group1/UploadInformationView.swift"; sourceTree = "<group>"; };
 		2F3680BD26F0EE320002F8A0 /* AddSingleDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSingleDoseView.swift; sourceTree = "<group>"; };
 		2F3680BF26F0FCC90002F8A0 /* AddFirstDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFirstDoseView.swift; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 				2F3452ED26FA427300A7D3F8 /* Test Results */,
 				2F3680BA26F0E5430002F8A0 /* Vaccine */,
 				2FD6C4E2273DFDCB00A0D7B1 /* Uploads */,
-				2F3487022677B2CE0026D0D7 /* NotificationsView.swift */,
 				2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */,
 				2FB847B827237B0B003C63F0 /* QR Scanner */,
 				2F40129226738E1100AFA9E5 /* Settings */,
@@ -585,7 +582,6 @@
 				2FD6C4E1273DF2A400A0D7B1 /* SceneDelegate.swift in Sources */,
 				2FF650AF2728C8DC00C697E4 /* SingleDoseViewModel.swift in Sources */,
 				2F84D223273DA1F6007C2EF0 /* AppDelegate.swift in Sources */,
-				2F3487032677B2CE0026D0D7 /* NotificationsView.swift in Sources */,
 				2F80848925D75775000A50B6 /* SimpleTextField.swift in Sources */,
 				2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */,
 				2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */,

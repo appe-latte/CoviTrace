@@ -13,11 +13,10 @@ struct VaccCertView: View {
  
     var body: some View {
         ZStack {
-            Background()
             VStack(alignment: .center){
                 Text("Digital Certificate shows up here...")
                     .bold()
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
             }
         }.navigationBarTitle("Digital Certificate")
     }

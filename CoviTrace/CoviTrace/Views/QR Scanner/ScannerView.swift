@@ -28,7 +28,7 @@ struct ScannerView: View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-            Background()
+//            Background()
             VStack {
                 
                 VStack {
@@ -38,16 +38,17 @@ struct ScannerView: View {
                             .found(r: self.qrModel.onFoundQrCode)
                             .torchLight(isOn: self.qrModel.torchIsOn)
                             .interval(delay: self.qrModel.scanInterval)
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 400)
+                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 400)
+                        .cornerRadius(10)
                     
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 10)
                     
                     Text("Scan the venue QR code to check-in or alternatively press the Check-in button below.")
                         .font(.system(size: 14))
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .lineLimit(5)
-                        .padding()
+                        .padding(.vertical, 2)
                     
                     Spacer()
                     
@@ -114,7 +115,7 @@ struct ScannerView: View {
                                         .padding()
                                 })
                             }.frame(width: 50, height: 50)
-                                .background(green)
+                                .background(purple)
                                 .clipShape(Circle())
                                 .alert(isPresented: $showAlert, content: {
                                     Alert(title: Text("Venue Check-in"), message: Text("Your venue location has been saved!"))
@@ -122,7 +123,7 @@ struct ScannerView: View {
                             
                             Text("Check-in")
                                 .font(.system(size: 10))
-                                .foregroundColor(Color.white)
+                                .foregroundColor(purple)
                         }
                         
                         Spacer()
@@ -135,21 +136,21 @@ struct ScannerView: View {
                                 }, label: {
                                     Image(systemName: self.qrModel.torchIsOn ? "flashlight.on.fill" : "flashlight.off.fill")
                                         .imageScale(.large)
-                                        .foregroundColor(self.qrModel.torchIsOn ? green : purple)
+                                        .foregroundColor(self.qrModel.torchIsOn ? Color.yellow : Color.white)
                                         .padding()
                                 })
                             }.frame(width: 50, height: 50)
-                                .background(Color.white)
+                                .background(purple)
                                 .clipShape(Circle())
                             
                             Text("Torch On / Off")
                                 .font(.system(size: 10))
-                                .foregroundColor(Color.white)
+                                .foregroundColor(purple)
                         }
                     }
                 }.padding()
             }
-        }.navigationBarTitle("Scan QR code")
+        }.navigationBarTitle("Scan Venue QR code")
             .navigationBarTitleDisplayMode(.inline)
     }
 }
