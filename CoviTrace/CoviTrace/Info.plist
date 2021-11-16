@@ -36,11 +36,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Covitrace requires permission to use your camera to scan QR codes.</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Covitrace requires FaceID to securely provide access to the app.</string>
+	<string>Covitrace requires Face ID to securely provide access to the app.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>CoviTrace App requires Location Services to be enabled for use by the "Venue Check-in" feature.</string>
+	<string>Covitrace App requires Location Services to be enabled for use by the "Venue Check-in" feature.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>CoviTrace App requires Location Services to be enabled for use by the "Venue Check-in" feature.</string>
+	<string>Covitrace App requires Location Services to be enabled for use by the "Venue Check-in" feature.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

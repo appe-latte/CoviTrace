@@ -6,34 +6,30 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PrivacySettingsView: View {
-    @State private var faceIdOn = true
+    @EnvironmentObject private var appLockModel : AppLockViewModel
     
     var body: some View {
-        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-        
         ZStack {
             Background()
             VStack {
                 Form {
                     Section {
-                        // MARK: Set FaceID on/off
+                        // MARK: Toggle FaceID on / off
                         HStack {
                             Image(systemName: "faceid")
                                 .font(.system(size: 26))
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 .padding(.trailing, 5)
-                            Toggle("Secure with FaceID", isOn: $faceIdOn)
+                            Toggle("Secure with Face ID", isOn: $appLockModel.isAppLockEnabled)
                                 .font(.custom("Avenir", size: 17).bold())
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            
-                            // MARK: toggle FaceID on / off
-                            if faceIdOn {
-                                // code goes here......
-                            }
                         }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
+                            .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
+                                appLockModel.appLockStateChange(appLockState: value)
+                            })
                         
                         Text("When Face ID is enabled, you'll require it every time you wish to unlock the Covitrace.")
                             .font(.custom("Avenir", size: 12).bold())

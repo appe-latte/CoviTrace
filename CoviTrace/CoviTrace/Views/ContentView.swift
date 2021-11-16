@@ -23,18 +23,20 @@ struct ContentView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     @EnvironmentObject var resultsModel : ResultsViewModel
     @EnvironmentObject var vaccModel : VaccinationViewModel
-    @StateObject var appContext = AppContext()
+    @StateObject var appLockModel = AppLockViewModel()
     
     var body: some View {
         ZStack {
             Group {
                 if viewModel.userSession != nil {
                     
-                    if appContext.appUnlocked {
+                    if appLockModel.isAppLockEnabled || appLockModel.isAppUnlocked {
+//                        if !appLockModel.isAppLockEnabled || appLockModel.isAppUnlocked { // <- error: unwrapping an Optional value (MainView) when retrieving the user information from Firebase
                         MainView()
+                            .environmentObject(appLockModel)
                             .onAppear { UserNetworkingCall() }
                     } else {
-                        FaceIdLoginView(appContext: appContext)
+                        FaceIdLoginView(appLockModel: appLockModel)
                             .background(Color.white)
                     }
                 } else {

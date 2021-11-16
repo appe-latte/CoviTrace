@@ -60,7 +60,7 @@ struct MainView: View {
                             // MARK: App Bar
                             VStack(spacing: 22){
                                 
-                                if !isHide{
+                                if !isHide {
                                     
                                     HStack(spacing: 12){
                                         
@@ -186,7 +186,7 @@ struct MainView: View {
                                             
                                             // MARK: Profile Image
                                             Image(systemName: "person.crop.circle.fill")
-                                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)
+                                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!) // <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
                                                 .resizable()
                                                 .scaledToFit()
                                                 .clipShape(Circle())
@@ -197,7 +197,7 @@ struct MainView: View {
                                             
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 5) {
-                                                Text("\(authModel.user!.firstName)" + " " + "\(authModel.user!.lastName)")
+                                                Text("\(authModel.user!.firstName)" + " " + "\(authModel.user!.lastName)")// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
                                                     .font(.title)
                                                     .fontWeight(.semibold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -208,7 +208,7 @@ struct MainView: View {
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(authModel.user!.idNumber)
+                                                    Text(authModel.user!.idNumber)// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -220,7 +220,7 @@ struct MainView: View {
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(authModel.user!.verified)
+                                                    Text(authModel.user!.verified)// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
                                                         .font(.body)
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

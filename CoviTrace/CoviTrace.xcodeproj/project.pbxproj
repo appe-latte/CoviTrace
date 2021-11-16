@@ -17,7 +17,7 @@
 		2F1217E125D5B88B00D62B18 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E025D5B88B00D62B18 /* Background.swift */; };
 		2F1217E425D5BB8F00D62B18 /* CheckInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */; };
 		2F23F91227275B9D00B0F11F /* FaceIdLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */; };
-		2F23F9142727606500B0F11F /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23F9132727606500B0F11F /* AppContext.swift */; };
+		2F23F9142727606500B0F11F /* AppLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23F9132727606500B0F11F /* AppLockViewModel.swift */; };
 		2F2500D7272352BC00794187 /* ShowTestCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2500D6272352BC00794187 /* ShowTestCertView.swift */; };
 		2F27CA7C2739B4AB006D1DF1 /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F27CA7B2739B4AB006D1DF1 /* UserLoginView.swift */; };
 		2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B361825FA676E004140D4 /* TestResultView.swift */; };
@@ -98,7 +98,7 @@
 		2F1217E025D5B88B00D62B18 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTopView.swift; sourceTree = "<group>"; };
 		2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdLoginView.swift; sourceTree = "<group>"; };
-		2F23F9132727606500B0F11F /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		2F23F9132727606500B0F11F /* AppLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockViewModel.swift; sourceTree = "<group>"; };
 		2F2500D6272352BC00794187 /* ShowTestCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTestCertView.swift; sourceTree = "<group>"; };
 		2F27CA7B2739B4AB006D1DF1 /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
 		2F2B361825FA676E004140D4 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
@@ -314,7 +314,7 @@
 				2FF6BF0A263CA02D00349F00 /* VaccinationViewModel.swift */,
 				2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */,
 				2FF650AE2728C8DC00C697E4 /* SingleDoseViewModel.swift */,
-				2F23F9132727606500B0F11F /* AppContext.swift */,
+				2F23F9132727606500B0F11F /* AppLockViewModel.swift */,
 				2FFB3FCA273C90C30005431F /* QrScanViewModel.swift */,
 			);
 			path = ViewModel;
@@ -607,7 +607,7 @@
 				2F75F4AF26FCECCB008BB653 /* KeyboardHeightHelper.swift in Sources */,
 				2F81DCFC26726E7900897201 /* VaccCardView.swift in Sources */,
 				2FF650AA2728C4EB00C697E4 /* SecondDoseVaccView.swift in Sources */,
-				2F23F9142727606500B0F11F /* AppContext.swift in Sources */,
+				2F23F9142727606500B0F11F /* AppLockViewModel.swift in Sources */,
 				2F6150F725D1A4D5003AAB52 /* SignUpView.swift in Sources */,
 				2F2500D7272352BC00794187 /* ShowTestCertView.swift in Sources */,
 				2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */,

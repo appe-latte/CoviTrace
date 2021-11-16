@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FaceIdLoginView: View {
-    @ObservedObject var appContext: AppContext
+    @ObservedObject var appLockModel: AppLockViewModel
     @EnvironmentObject var authModel : AuthViewModel
     
     var body: some View {
@@ -54,7 +54,8 @@ struct FaceIdLoginView: View {
                     
                     // MARK: FaceID Login Button
                     Button(action: {
-                        appContext.requestBiometricUnlock()
+//                        appLockModel.requestBiometricUnlock()
+                        appLockModel.appLockValidation()
                     },
                            label: {
                         

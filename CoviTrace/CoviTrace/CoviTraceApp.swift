@@ -15,6 +15,7 @@ import UserNotifications
 @main
 struct CoviTraceApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var appLockModel = AppLockViewModel()
     
     init(){
         FirebaseApp.configure()
@@ -24,9 +25,10 @@ struct CoviTraceApp: App {
     
     var body: some Scene {
         WindowGroup {
-                        ContentView().environmentObject(AuthViewModel())
-                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                            .preferredColorScheme(.light)
+            ContentView().environmentObject(AuthViewModel())
+                .environmentObject(appLockModel)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .preferredColorScheme(.light)
         }
     }
 }
