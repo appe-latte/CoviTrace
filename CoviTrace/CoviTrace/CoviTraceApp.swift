@@ -11,6 +11,7 @@ import Combine
 import LocalAuthentication
 import UserNotifications
 
+
 @main
 struct CoviTraceApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate

@@ -18,9 +18,9 @@ struct DigitalCertUploadView : View {
     // MARK: Image Picker Properties
     @State private var showActionSheet = false
     @State private var showImagePicker = false
-    @State private var sourceType:UIImagePickerController.SourceType = .camera
+    @State private var sourceType : UIImagePickerController.SourceType = .camera
     @State private var image : UIImage?
-    @State var upload_image:UIImage?
+    @State private var upload_image : UIImage?
     
     // MARK: Alert
     @State private var presentImporter = false // presents File importer
@@ -112,7 +112,7 @@ struct DigitalCertUploadView : View {
                                 
                             ])
                         }.sheet(isPresented: $showImagePicker){
-                            VaccineCardImagePicker(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
+                            ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                         }
                     
                     // MARK: Upload image to Firebase

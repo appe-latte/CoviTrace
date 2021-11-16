@@ -32,7 +32,7 @@ struct VaccPassView: View {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color(.white))
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-
+        
     }
     
     var body: some View {
@@ -45,8 +45,10 @@ struct VaccPassView: View {
                     .foregroundColor(Color(.white))
                 
                 let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
-                let dob = authModel.user!.dob
-                let idNumber = authModel.user!.idNumber
+                let cellNum = authModel.user!.cellNum
+                let checkDate = Date()
+//                let dob = authModel.user!.dob
+//                let idNumber = authModel.user!.idNumber
                 
                 HStack {
                     // MARK: ID Number
@@ -62,14 +64,14 @@ struct VaccPassView: View {
                         .font(.system(size: 15))
                         .bold()
                         .foregroundColor(Color(.white))
-       
+                    
                 }.padding(.horizontal, 50)
                 
                 // MARK: QR Code and Certificate information
                 List(viewModel.results) { results in
                     VStack {
                         HStack{
-                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Date of Birth: \(dob)\n ID: \(idNumber)\n Status: \(results.vaccStatus)\n First Dose: \(results.firstDoseDate)\n Second Dose: \(results.secondDoseDate)"))
+                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Status: \(results.vaccStatus)\n Cellphone: \(cellNum)\n Date: \(checkDate)"))
                                 .interpolation(.none)
                                 .resizable()
                                 .scaledToFill()
@@ -124,7 +126,7 @@ struct VaccPassView: View {
                             .lineLimit(10)
                     }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 }
-
+                
                 VStack {
                     
                     // MARK: Segmented Control for Dose Selection
@@ -141,11 +143,11 @@ struct VaccPassView: View {
                 
             }.onAppear() {
                 self.viewModel.fetchData(id: authModel.userSession!.uid)
-     
+                
             }.padding(.top, 20)
         }.navigationBarTitle("Vaccination Pass")
             .navigationBarTitleDisplayMode(.inline)
-            
+        
     }
     
     // MARK: Function for creating QR code

@@ -105,7 +105,7 @@ struct VaccCardUploadView: View {
                                 
                             ])
                         }.sheet(isPresented: $showImagePicker){
-                            VaccineCardImagePicker(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
+                            ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                         }
                     
                     // MARK: Upload image to Firebase

@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import SwiftUI
+import Firebase
 import Kingfisher
 import AVFoundation
 import CoreImage.CIFilterBuiltins

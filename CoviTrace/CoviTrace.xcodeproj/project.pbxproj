@@ -36,6 +36,9 @@
 		2F41EC912642042700643C8A /* bgGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41EC902642042700643C8A /* bgGreen.swift */; };
 		2F451F06272091FB001BB7A4 /* BoosterShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */; };
 		2F451F0827209E35001BB7A4 /* AccountSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F0727209E35001BB7A4 /* AccountSuccessView.swift */; };
+		2F4523FD2743371A00DF637C /* VerificationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4523FC2743371900DF637C /* VerificationRequestView.swift */; };
+		2F4523FF27433AAA00DF637C /* bgWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4523FE27433AAA00DF637C /* bgWhite.swift */; };
+		2F452401274347E100DF637C /* SendMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F452400274347E100DF637C /* SendMailView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
 		2F4F573D2655241600EFB454 /* HowPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573C2655241600EFB454 /* HowPageView.swift */; };
 		2F4F5741265524E500EFB454 /* AboutCovitraceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */; };
@@ -65,7 +68,7 @@
 		2F9DC21B27075B0B003B0B12 /* ProfileImageRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */; };
 		2FA5C34D2707534900E8D51D /* ProfileRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */; };
 		2FD6C4DD273DCE2E00A0D7B1 /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DC273DCE2E00A0D7B1 /* PrivacySettingsView.swift */; };
-		2FD6C4DF273DEF8700A0D7B1 /* VaccineCardImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DE273DEF8700A0D7B1 /* VaccineCardImagePicker.swift */; };
+		2FD6C4DF273DEF8700A0D7B1 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */; };
 		2FD6C4E1273DF2A400A0D7B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4E0273DF2A400A0D7B1 /* SceneDelegate.swift */; };
 		2FD6C4E4273DFDF200A0D7B1 /* VaccCardUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4E3273DFDF100A0D7B1 /* VaccCardUploadView.swift */; };
 		2FE77EC5271E4CDA0060B2A8 /* AddBoosterShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE77EC4271E4CDA0060B2A8 /* AddBoosterShotView.swift */; };
@@ -115,6 +118,9 @@
 		2F41EC902642042700643C8A /* bgGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bgGreen.swift; sourceTree = "<group>"; };
 		2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterShotViewModel.swift; sourceTree = "<group>"; };
 		2F451F0727209E35001BB7A4 /* AccountSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSuccessView.swift; sourceTree = "<group>"; };
+		2F4523FC2743371900DF637C /* VerificationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationRequestView.swift; sourceTree = "<group>"; };
+		2F4523FE27433AAA00DF637C /* bgWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bgWhite.swift; sourceTree = "<group>"; };
+		2F452400274347E100DF637C /* SendMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMailView.swift; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddResultsView.swift; path = "../New Group/AddResultsView.swift"; sourceTree = "<group>"; };
 		2F4F573C2655241600EFB454 /* HowPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPageView.swift; sourceTree = "<group>"; };
 		2F4F5740265524E500EFB454 /* AboutCovitraceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCovitraceView.swift; sourceTree = "<group>"; };
@@ -145,7 +151,7 @@
 		2F9DC21A27075B0B003B0B12 /* ProfileImageRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRegistrationView.swift; sourceTree = "<group>"; };
 		2FA5C34C2707534900E8D51D /* ProfileRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegistrationView.swift; sourceTree = "<group>"; };
 		2FD6C4DC273DCE2E00A0D7B1 /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
-		2FD6C4DE273DEF8700A0D7B1 /* VaccineCardImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCardImagePicker.swift; sourceTree = "<group>"; };
+		2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		2FD6C4E0273DF2A400A0D7B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2FD6C4E3273DFDF100A0D7B1 /* VaccCardUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCardUploadView.swift; sourceTree = "<group>"; };
 		2FE77EC4271E4CDA0060B2A8 /* AddBoosterShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoosterShotView.swift; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 				2F4012952673A68C00AFA9E5 /* PrivacyPolicyView.swift */,
 				2F4012972673B93800AFA9E5 /* TermsCondView.swift */,
 				2FD6C4DC273DCE2E00A0D7B1 /* PrivacySettingsView.swift */,
+				2F4523FC2743371900DF637C /* VerificationRequestView.swift */,
 				2F123F6A2654313F00BA3D53 /* About */,
 			);
 			path = Settings;
@@ -292,9 +299,10 @@
 				2F6150F325D1A495003AAB52 /* CustomSecureTextField.swift */,
 				2F1217E025D5B88B00D62B18 /* Background.swift */,
 				2F41EC902642042700643C8A /* bgGreen.swift */,
+				2F4523FE27433AAA00DF637C /* bgWhite.swift */,
 				2F1217E325D5BB8F00D62B18 /* CheckInTopView.swift */,
 				2F8043B52620A0F4004949B2 /* ImagePicker.swift */,
-				2FD6C4DE273DEF8700A0D7B1 /* VaccineCardImagePicker.swift */,
+				2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */,
 				2F524192263B38CB0016D87D /* Constants.swift */,
 			);
 			path = Utils;
@@ -350,6 +358,7 @@
 				2F682B9725DEC14F00873C15 /* LocationFetch.swift */,
 				2F682B9E25DEDA1F00873C15 /* LocationManager.swift */,
 				2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */,
+				2F452400274347E100DF637C /* SendMailView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -547,7 +556,9 @@
 				2F0F2A7325B5BD4A00103879 /* Persistence.swift in Sources */,
 				2F27CA7C2739B4AB006D1DF1 /* UserLoginView.swift in Sources */,
 				2F9DC21B27075B0B003B0B12 /* ProfileImageRegistrationView.swift in Sources */,
-				2FD6C4DF273DEF8700A0D7B1 /* VaccineCardImagePicker.swift in Sources */,
+				2F4523FF27433AAA00DF637C /* bgWhite.swift in Sources */,
+				2FD6C4DF273DEF8700A0D7B1 /* ImageUploader.swift in Sources */,
+				2F452401274347E100DF637C /* SendMailView.swift in Sources */,
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
 				2FFB3FCD273C9D2B0005431F /* ScannerView.swift in Sources */,
 				2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */,
@@ -607,6 +618,7 @@
 				2F40129426738E2B00AFA9E5 /* SettingsView.swift in Sources */,
 				2F41EC912642042700643C8A /* bgGreen.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
+				2F4523FD2743371A00DF637C /* VerificationRequestView.swift in Sources */,
 				2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */,
 				2F3680C226F0FE840002F8A0 /* AddSecondDoseView.swift in Sources */,
 				2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */,

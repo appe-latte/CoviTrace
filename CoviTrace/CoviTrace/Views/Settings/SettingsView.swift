@@ -7,11 +7,22 @@
 
 import SwiftUI
 import WebKit
+import UIKit
+import MessageUI
 
 struct SettingsView: View {
     @EnvironmentObject var authModel : AuthViewModel
+    
     @Environment(\.openURL) var openURL
+    
     let appVersion = ""
+    
+    @State private var showAlert : Bool = false
+    
+    @State private var errTitle = ""
+    @State private var errMessage = ""
+    @State private var showEmailSheet = false
+    @State var result: Result<MFMailComposeResult, Error>? = nil
     
     var body: some View {
         ZStack {
@@ -32,6 +43,37 @@ struct SettingsView: View {
                                 .padding(.leading, 15)
                         }
                         
+                        // MARK: Verification Request
+
+                        Button(action: {
+                            self.verifRequest()
+                        },
+                               label: {
+                            HStack {
+                                Image(systemName: "checkmark.shield")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Request Verification")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }).sheet(isPresented: $showEmailSheet) {
+                            SendMailView(result: $result, newSubject: "In-app Verification Request", newMsgBody: "I am kindly requesting verification for my recently uploaded Vaccination Card / Digital Certificate / PCR Test Results. Thank you!")
+                        }
+                        .alert(isPresented: $showAlert, content: {
+                            Alert(title: Text("\(errTitle)"), message: Text("\(errMessage)"))
+                        })
+                        
                         // MARK: Privacy Settings
                         NavigationLink(
                             destination: PrivacySettingsView()){
@@ -39,7 +81,7 @@ struct SettingsView: View {
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
-                                Text("Privacy")
+                                Text("Privacy Settings")
                                     .font(.custom("Avenir", size: 17))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -63,7 +105,7 @@ struct SettingsView: View {
                         // MARK: Privacy Policy
                         NavigationLink(
                             destination: PrivacyPolicyView()){
-                                Image(systemName: "arrow.right.square.fill")
+                                Image(systemName: "link")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
@@ -77,7 +119,7 @@ struct SettingsView: View {
                         // MARK: Terms and Conditions
                         NavigationLink(
                             destination: TermsCondView()){
-                                Image(systemName: "arrow.right.square.fill")
+                                Image(systemName: "link")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
@@ -122,7 +164,7 @@ struct SettingsView: View {
                 }.background(Color.black)
                 
                 // MARK: App Version Number
-    
+                
                 HStack(spacing: 5){
                     Text("Developed by Appe Latte ~")
                         .font(.footnote)
@@ -135,12 +177,26 @@ struct SettingsView: View {
         }
     }
     
-    // MARK: "Share" app function
-    func shareSheet() {
-        guard let data = URL(string: "https://apps.apple.com/us/app/covitrace/id1553975926") else { return }
-        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+    func verifRequest() {
+        if MFMailComposeViewController.canSendMail() {
+            self.showEmailSheet = true
+            
+            self.errTitle = "Email Sent"
+            self.errMessage = "Your verification request has been sent."
+            self.showAlert = true
+        } else {
+            self.errTitle = "Alert"
+            self.errMessage = "Error sending email. Please try again."
+            self.showAlert = true
+        }
     }
+    
+    // MARK: "Share" app function
+    //    func shareSheet() {
+    //        guard let data = URL(string: "https://apps.apple.com/us/app/covitrace/id1553975926") else { return }
+    //        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+    //        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+    //    }
 }
 
 extension UIApplication {

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Firebase
-import CoreImage.CIFilterBuiltins
 import Combine
 
 struct VaccCertView: View {
