@@ -166,10 +166,10 @@ struct SettingsView: View {
                 // MARK: App Version Number
                 
                 HStack(spacing: 5){
-                    Text("Developed by Appe Latte ~")
-                        .font(.footnote)
+                    Text("Developed by Appe Latte Ltd. (UK) ~")
+                        .font(.custom("Avenir", size: 12))
                     Text("App Version: \(UIApplication.appVersion!)")
-                        .font(.footnote)
+                        .font(.custom("Avenir", size: 12))
                 }.foregroundColor(Color(.white))
                 
                 Spacer()

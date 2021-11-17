@@ -22,7 +22,7 @@ struct ScannerView: View {
     let locationFetch = LocationFetch()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State private var showAlert : Bool = false
+    // MARK: Alert Toast property
     @State private var showToastAlert : Bool = false
     
     var body: some View {
@@ -30,7 +30,6 @@ struct ScannerView: View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-//            Background()
             VStack {
                 
                 VStack {
@@ -104,9 +103,7 @@ struct ScannerView: View {
                                                 
                                                 let db = Firestore.firestore();                                db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
                                             }
-                                            
-//                                            showAlert = true
-                                            showAlert.toggle()
+                                            showToastAlert.toggle()
                                         })
                                     } else {
                                         print("Unknown location")
@@ -120,13 +117,6 @@ struct ScannerView: View {
                             }.frame(width: 50, height: 50)
                                 .background(purple)
                                 .clipShape(Circle())
-                                .toast(isPresenting: $showToastAlert){
-                                    AlertToast(type: .complete(Color.purple), title: "Check-in complete")
-                                }
-//                                .alert(isPresented: $showAlert, content: {
-//                                    Alert(title: Text("Venue Check-in"), message: Text("Your venue location has been saved!"))
-//                                })
-                                
                             
                             Text("Check-in")
                                 .font(.system(size: 10))
@@ -156,6 +146,8 @@ struct ScannerView: View {
                         }
                     }
                 }.padding()
+            }.toast(isPresenting: $showToastAlert){
+                AlertToast(displayMode: .alert, type: .complete(green), title: Optional("Check-in Complete"))
             }
         }.navigationBarTitle("Scan Venue QR code")
             .navigationBarTitleDisplayMode(.inline)

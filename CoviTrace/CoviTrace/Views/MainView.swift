@@ -198,18 +198,18 @@ struct MainView: View {
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 5) {
                                                 Text("\(authModel.user!.firstName)" + " " + "\(authModel.user!.lastName)")// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
-                                                    .font(.title)
-                                                    .fontWeight(.semibold)
+                                                    .font(.custom("Avenir", size: 21))
+                                                    .fontWeight(.bold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                                 
                                                 // MARK: ID Number
                                                 HStack{
                                                     Text("ID Number: ")
-                                                        .font(.body)
+                                                        .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                                     Text(authModel.user!.idNumber)// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
-                                                        .font(.body)
+                                                        .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                 }
@@ -217,11 +217,11 @@ struct MainView: View {
                                                 // MARK: Verification Status
                                                 HStack{
                                                     Text("Profile Status: ")
-                                                        .font(.body)
+                                                        .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                                     Text(authModel.user!.verified)// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
-                                                        .font(.body)
+                                                        .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                 }.padding(.bottom, 10)
@@ -237,10 +237,12 @@ struct MainView: View {
                                                                         .foregroundColor(Color(.white))
                                                                     Text("Vaccine")
                                                                         .foregroundColor(Color(.white))
-                                                                        .font(.system(size: 10))
+                                                                        .font(.custom("Avenir", size: 12))
+                                                                        .fontWeight(.semibold)
                                                                     Text("Pass")
                                                                         .foregroundColor(Color(.white))
-                                                                        .font(.system(size: 10))
+                                                                        .font(.custom("Avenir", size: 11))
+                                                                        .fontWeight(.semibold)
                                                                 }
                                                             }.frame(width: 80, height: 80)
                                                             .foregroundColor(.white)
@@ -258,10 +260,12 @@ struct MainView: View {
                                                                         .foregroundColor(Color(.white))
                                                                     Text("Venue")
                                                                         .foregroundColor(Color(.white))
-                                                                        .font(.system(size: 10))
+                                                                        .font(.custom("Avenir", size: 11))
+                                                                        .fontWeight(.semibold)
                                                                     Text("Check-in")
                                                                         .foregroundColor(Color(.white))
-                                                                        .font(.system(size: 10))
+                                                                        .font(.custom("Avenir", size: 11))
+                                                                        .fontWeight(.semibold)
                                                                 }
                                                             }.frame(width: 80, height: 80)
                                                             .foregroundColor(.white)
@@ -272,17 +276,19 @@ struct MainView: View {
                                                     // MARK: Digital Certificate
                                                     HStack {
                                                         NavigationLink(
-                                                            destination: VaccCertView()){
+                                                            destination: DigitalCertView()){
                                                                 VStack(spacing: 1) {
-                                                                    Image(systemName: "eye")
+                                                                    Image(systemName: "seal.fill")
                                                                         .font(.system(size: 18))
                                                                         .foregroundColor(Color(.white))
                                                                     Text("Digital")
                                                                         .foregroundColor(Color(.white))
-                                                                        .font(.system(size: 10))
+                                                                        .font(.custom("Avenir", size: 10))
+                                                                        .fontWeight(.semibold)
                                                                     Text("Certificate")
                                                                         .foregroundColor(Color(.white))
-                                                                        .font(.system(size: 10))
+                                                                        .font(.custom("Avenir", size: 10))
+                                                                        .fontWeight(.semibold)
                                                                 }
                                                                 
                                                             }.frame(width: 80, height: 80)

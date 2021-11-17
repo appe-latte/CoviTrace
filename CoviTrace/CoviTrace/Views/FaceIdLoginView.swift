@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct FaceIdLoginView: View {
     @ObservedObject var appLockModel: AppLockViewModel
@@ -24,10 +25,10 @@ struct FaceIdLoginView: View {
                         .scaledToFill()
                         .frame(width: 50, height: 50)
                         .foregroundColor(.white)
-                        .padding(5)
+                        .padding(.bottom, 5)
                     
                     Text("Please unlock the app to continue.")
-                        .font(.title3)
+                        .font(.custom("Avenir", size: 20))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(5)
@@ -36,33 +37,31 @@ struct FaceIdLoginView: View {
                 Spacer()
                 
                 HStack {
+                    
                     // MARK: Logout Button
                     Button(action: {
                         authModel.signOut()
                     },
                            label: {
-                        
                         Text("Logout")
-                            .fontWeight(.semibold)
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .font(.body)
                             .padding(5)
                         
                     })
                     
                     Spacer()
                     
-                    // MARK: FaceID Login Button
+                    // MARK: Unlock with Face ID
                     Button(action: {
-//                        appLockModel.requestBiometricUnlock()
                         appLockModel.appLockValidation()
                     },
                            label: {
-                        
                         Text("Unlock")
-                            .fontWeight(.semibold)
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .font(.body)
                             .padding(5)
                     })
                 }.padding(.horizontal, 30)

@@ -29,75 +29,81 @@ struct SingleDoseVaccView: View {
                         VStack(alignment: .leading, spacing: 15) {
                             Section {
                                 
-                                // MARK: First Dose Date
+                                // MARK: Single Dose Date
                                 HStack {
                                     Text("Date:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(singleDoseData.singleDoseDate)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Batch Number
                                 HStack {
                                     Text("Batch Number:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(singleDoseData.singleDosebatchNum)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccine Make
                                 HStack {
                                     Text("Vaccine Make:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(singleDoseData.singleDoseVaccType)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccination Location
                                 HStack {
                                     Text("Location:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(singleDoseData.singleDoseLocation)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccination Provider
                                 HStack {
                                     Text("Provider:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(singleDoseData.singleDoseVaccProvider)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccination Country
                                 HStack {
                                     Text("Country:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(singleDoseData.vaccDoseCountry)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                             }

@@ -1,13 +1,15 @@
 //
-//  ShowTestCertView.swift
+//  DigitalCertView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 22/10/2021.
+//  Created by Stanford L. Khumalo on 11/03/2021.
 //
 
 import SwiftUI
+import Firebase
+import Combine
 
-struct ShowTestCertView: View {
+struct DigitalCertView: View {
     
     var body: some View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
@@ -21,7 +23,7 @@ struct ShowTestCertView: View {
                     // MARK: Image frame
                     
                     HStack {
-                        Text("Test Certificate will appear here...")
+                        Text("Digital Certificate will appear here...")
                             .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(purple)
@@ -33,7 +35,7 @@ struct ShowTestCertView: View {
                     
                 }
                 
-                // MARK: download the saved test certificate
+                // MARK: download the saved digital certificate
                 HStack {
                     Spacer()
                     VStack(spacing: 5) {
@@ -60,11 +62,4 @@ struct ShowTestCertView: View {
             }
         }
     }
-}
-
-// MARK: "Share" app function
-func shareSheet() {
-    guard let data = URL(string: "https://www.covitrace.co.za") else { return } // <-- change url to match that of the document for sharing purposes.
-    let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-    UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
 }

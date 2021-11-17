@@ -27,12 +27,13 @@ struct TestResultView: View {
                 VStack {
                     List(viewModel.results) { results in
                         HStack {
-                            VStack(alignment: .leading, spacing: 5) {
+                            VStack(alignment: .leading, spacing: 2) {
                                 
                                 // MARK: Test Date
                                 HStack {
                                     Text(results.testDate)
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .bold()
                                 }
@@ -40,39 +41,46 @@ struct TestResultView: View {
                                 // MARK: Test Reference Number
                                 HStack {
                                     Text("Reference Number:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                     Spacer()
                                     Text(results.testRefNum)
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                 }
                                 
                                 // MARK: Test Provider
                                 HStack {
                                     Text("Test Provider:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                     Spacer()
                                     Text(results.testProvider)
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                 }
                                 
                                 // MARK: Test Result
                                 HStack {
                                     Text("Test Result:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                     Spacer()
                                     Text(results.testResult)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Test Result Verification Status
                                 HStack {
                                     Text("Verification Status:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                     Spacer()
                                     Text(results.testVerified)
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.semibold)
                                 }.padding(.bottom, 5)
                                 
                                 HStack {
@@ -84,7 +92,7 @@ struct TestResultView: View {
                             }
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             
-                           Image(systemName: "chevron.right")
+                            Image(systemName: "chevron.right")
                                 .foregroundColor(Color.gray)
                                 .padding(.leading, 5)
                             

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import AlertToast
 import FirebaseFirestore
 
 struct VaccCardUploadView: View {
@@ -23,11 +24,14 @@ struct VaccCardUploadView: View {
     @State var upload_image : UIImage?
     
     // MARK: Alert
-    @State private var showAlert : Bool = false
+    @State private var showToastAlert : Bool = false
     @State private var errTitle = ""
     @State private var errMessage = ""
     
     var body: some View {
+        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack {
             Background()
             VStack(spacing: 10) {
@@ -72,16 +76,16 @@ struct VaccCardUploadView: View {
                             Image(systemName: "camera")
                                 .imageScale(.medium)
                                 .scaledToFill()
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .foregroundColor(green)
                             
                             Text(" / ")
                                 .font(.system(size: 12))
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .foregroundColor(green)
                             
                             Image(systemName: "photo")
                                 .imageScale(.medium)
                                 .scaledToFill()
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .foregroundColor(green)
                         }
                     }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                         .background(Color.white)
@@ -113,24 +117,22 @@ struct VaccCardUploadView: View {
                         if let thisImage = self.upload_image {
                             uploadVcardImage(image: thisImage)
                         } else {
-//                            print("")
-                            showAlert.toggle()
+                            showToastAlert.toggle()
                         }
-                        
                     }){
                         Text("Upload Card")
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                     }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
-                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .background(green)
                         .cornerRadius(10)
-                        .alert(isPresented: $showAlert, content: {
-                            Alert(title: Text("\(errTitle)"), message: Text("\(errMessage)"))
-                        })
                 }
                 
                 Spacer()
+                
+            }.toast(isPresenting: $showToastAlert){
+                AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
             }
         }
     }
@@ -143,13 +145,13 @@ struct VaccCardUploadView: View {
             storageRef.putData(imageData, metadata: nil) {
                 (_, err) in
                 if let err = err {
-                    self.errTitle = "Error"
+                    self.errTitle = "Alert!"
                     self.errMessage = "\(err.localizedDescription)"
-                    self.showAlert = true
+                    self.showToastAlert = true
                 } else {
                     self.errTitle = "Success!"
-                    self.errMessage = "Vaccination Card image was successfully uploaded!"
-                    self.showAlert = true
+                    self.errMessage = "Image upload complete"
+                    self.showToastAlert = true
                 }
             }
         } else {

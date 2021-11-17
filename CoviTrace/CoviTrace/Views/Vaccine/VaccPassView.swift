@@ -18,7 +18,7 @@ struct VaccPassView: View {
     @State private var firstDoseDate = ""
     @State private var secondDoseDate = ""
     
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var vaccModel = VaccinationViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     
@@ -41,34 +41,32 @@ struct VaccPassView: View {
             VStack(alignment: .center, spacing: 10) {
                 Text("Certificate of Vaccination")
                     .multilineTextAlignment(.leading)
-                    .font(.system(size: 26).bold())
+                    .font(.custom("Avenir", size: 22).bold())
                     .foregroundColor(Color(.white))
                 
                 let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
                 let cellNum = authModel.user!.cellNum
                 let checkDate = Date()
-//                let dob = authModel.user!.dob
-//                let idNumber = authModel.user!.idNumber
                 
                 HStack {
                     // MARK: ID Number
                     Text(authModel.user!.idNumber)
-                        .font(.system(size: 15))
-                        .bold()
+                        .font(.custom("Avenir", size: 12))
+                        .fontWeight(.semibold)
                         .foregroundColor(Color(.white))
                     
                     Spacer()
                     
                     // MARK: User's full name
                     Text(fullName)
-                        .font(.system(size: 15))
-                        .bold()
+                        .font(.custom("Avenir", size: 12))
+                        .fontWeight(.semibold)
                         .foregroundColor(Color(.white))
                     
                 }.padding(.horizontal, 50)
                 
                 // MARK: QR Code and Certificate information
-                List(viewModel.results) { results in
+                List(vaccModel.results) { results in
                     VStack {
                         HStack{
                             Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Status: \(results.vaccStatus)\n Cellphone: \(cellNum)\n Date: \(checkDate)"))
@@ -83,23 +81,23 @@ struct VaccPassView: View {
                             VStack(alignment: .leading, spacing: 5) {
                                 VStack(alignment: .leading){
                                     Text("Date of Birth:")
-                                        .font(.system(size: 15))
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                     Text(authModel.user!.dob)
-                                        .font(.system(size: 15))
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 }
                                 
                                 // MARK: Vaccination Status
                                 VStack(alignment: .leading) {
                                     Text("Vaccination:")
-                                        .font(.system(size: 15))
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                     HStack{
                                         Text(results.vaccStatus)
-                                            .font(.system(size: 15))
-                                            .bold()
+                                            .font(.custom("Avenir", size: 16))
+                                            .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     }
                                 }
@@ -107,12 +105,12 @@ struct VaccPassView: View {
                                 // MARK: Vaccination Country
                                 VStack(alignment: .leading) {
                                     Text("Country:")
-                                        .font(.system(size: 15))
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                     HStack{
                                         Text(authModel.user!.regCountry)
-                                            .font(.system(size: 15))
-                                            .bold()
+                                            .font(.custom("Avenir", size: 16))
+                                            .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     }
                                 }
@@ -121,7 +119,7 @@ struct VaccPassView: View {
                         // MARK: Disclaimer
                         Text("This is to certify that the user's Covid-19 vaccination has been verified as legitimate and this certificate eligible for use as proof for the purpose of travel.")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
-                            .font(.system(size: 13))
+                            .font(.custom("Avenir", size: 14))
                             .multilineTextAlignment(.leading)
                             .lineLimit(10)
                     }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -142,7 +140,7 @@ struct VaccPassView: View {
                 }
                 
             }.onAppear() {
-                self.viewModel.fetchData(id: authModel.userSession!.uid)
+                self.vaccModel.fetchData(id: authModel.userSession!.uid)
                 
             }.padding(.top, 20)
         }.navigationBarTitle("Vaccination Pass")

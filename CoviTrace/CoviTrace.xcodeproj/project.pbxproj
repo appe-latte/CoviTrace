@@ -21,7 +21,7 @@
 		2F2500D7272352BC00794187 /* ShowTestCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2500D6272352BC00794187 /* ShowTestCertView.swift */; };
 		2F27CA7C2739B4AB006D1DF1 /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F27CA7B2739B4AB006D1DF1 /* UserLoginView.swift */; };
 		2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B361825FA676E004140D4 /* TestResultView.swift */; };
-		2F2C84A925FA9C290002F2C3 /* VaccCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */; };
+		2F2C84A925FA9C290002F2C3 /* DigitalCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C84A825FA9C290002F2C3 /* DigitalCertView.swift */; };
 		2F31980A25B5CC9700AB182C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31980925B5CC9700AB182C /* Model.swift */; };
 		2F3307EB25D1AAC1009CD715 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3307EA25D1AAC1009CD715 /* LoginView.swift */; };
 		2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */; };
@@ -102,7 +102,7 @@
 		2F2500D6272352BC00794187 /* ShowTestCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTestCertView.swift; sourceTree = "<group>"; };
 		2F27CA7B2739B4AB006D1DF1 /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
 		2F2B361825FA676E004140D4 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
-		2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCertView.swift; sourceTree = "<group>"; };
+		2F2C84A825FA9C290002F2C3 /* DigitalCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertView.swift; sourceTree = "<group>"; };
 		2F31980925B5CC9700AB182C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2F3307EA25D1AAC1009CD715 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F3680BB26F0E5710002F8A0 /* UploadInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadInformationView.swift; path = "../New Group1/UploadInformationView.swift"; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		2F3680BA26F0E5430002F8A0 /* Vaccine */ = {
 			isa = PBXGroup;
 			children = (
-				2F2C84A825FA9C290002F2C3 /* VaccCertView.swift */,
+				2F2C84A825FA9C290002F2C3 /* DigitalCertView.swift */,
 				2FFA964A2725E63A001254AF /* VaccPassView.swift */,
 				2F81DCFB26726E7900897201 /* VaccCardView.swift */,
 				2FF650AB2728C66E00C697E4 /* Individual Shots Views */,
@@ -444,7 +444,7 @@
 				2F0F2A6225B5BD4A00103879 /* Sources */,
 				2F0F2A6325B5BD4A00103879 /* Frameworks */,
 				2F0F2A6425B5BD4A00103879 /* Resources */,
-				61987CF992EE278CC0762451 /* [CP] Embed Pods Frameworks */,
+				78498ECE4879E052F60D9FF4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -526,7 +526,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		61987CF992EE278CC0762451 /* [CP] Embed Pods Frameworks */ = {
+		78498ECE4879E052F60D9FF4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -578,7 +578,7 @@
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
 				2F4F5741265524E500EFB454 /* AboutCovitraceView.swift in Sources */,
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
-				2F2C84A925FA9C290002F2C3 /* VaccCertView.swift in Sources */,
+				2F2C84A925FA9C290002F2C3 /* DigitalCertView.swift in Sources */,
 				2FD6C4E1273DF2A400A0D7B1 /* SceneDelegate.swift in Sources */,
 				2FF650AF2728C8DC00C697E4 /* SingleDoseViewModel.swift in Sources */,
 				2F84D223273DA1F6007C2EF0 /* AppDelegate.swift in Sources */,

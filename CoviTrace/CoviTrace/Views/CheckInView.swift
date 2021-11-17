@@ -28,10 +28,13 @@ struct CheckInView: View {
                 VStack {
                     List(resultsViewModel.results1) { results in
                         HStack {
-                            Text(results.date).font(.subheadline).padding(12)
+                            Text(results.date).font(.custom("Avenir", size: 13))
+                                .fontWeight(.semibold)
+                                .padding(12)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             Text(results.address)
-                                .font(.subheadline)
+                                .font(.custom("Avenir", size: 13))
+                                .fontWeight(.semibold)
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                     }.onAppear() {

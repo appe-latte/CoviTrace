@@ -33,72 +33,78 @@ struct SecondDoseVaccView: View {
                                 // MARK: Second Dose Date
                                 HStack {
                                     Text("Date:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDoseDate)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Batch Number
                                 HStack {
                                     Text("Batch Number:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDosebatchNum)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccine Make
                                 HStack {
                                     Text("Vaccine Make:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDoseVaccType)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccination Location
                                 HStack {
                                     Text("Location:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDosageLocation)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccination Provider
                                 HStack {
                                     Text("Provider:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDoseVaccProvider)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Vaccination Country
                                 HStack {
                                     Text("Country:")
-                                        .font(.subheadline)
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.vaccDoseCountry)
-                                        .font(.subheadline)
-                                        .bold()
+                                        .font(.custom("Avenir", size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                             }

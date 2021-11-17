@@ -24,7 +24,6 @@ struct UserProfileView: View {
         let regCountry = authModel.user!.regCountry
         let profVerified = authModel.user!.verified
         
-        
         ZStack {
             VStack {
                 Form {
