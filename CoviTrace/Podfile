@@ -15,5 +15,6 @@ target 'CoviTrace' do
   pod 'Firebase/Storage'
   pod 'Kingfisher'
   pod 'Firebase/Messaging'
+  pod 'AlertToast'
   
 end

@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 import Firebase
 import FirebaseFirestore
+import AlertToast
 
 struct ScannerView: View {
     // MARK: Objects
@@ -22,6 +23,7 @@ struct ScannerView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var showAlert : Bool = false
+    @State private var showToastAlert : Bool = false
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
@@ -103,7 +105,8 @@ struct ScannerView: View {
                                                 let db = Firestore.firestore();                                db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
                                             }
                                             
-                                            showAlert = true
+//                                            showAlert = true
+                                            showAlert.toggle()
                                         })
                                     } else {
                                         print("Unknown location")
@@ -117,9 +120,13 @@ struct ScannerView: View {
                             }.frame(width: 50, height: 50)
                                 .background(purple)
                                 .clipShape(Circle())
-                                .alert(isPresented: $showAlert, content: {
-                                    Alert(title: Text("Venue Check-in"), message: Text("Your venue location has been saved!"))
-                                })
+                                .toast(isPresenting: $showToastAlert){
+                                    AlertToast(type: .complete(Color.purple), title: "Check-in complete")
+                                }
+//                                .alert(isPresented: $showAlert, content: {
+//                                    Alert(title: Text("Venue Check-in"), message: Text("Your venue location has been saved!"))
+//                                })
+                                
                             
                             Text("Check-in")
                                 .font(.system(size: 10))
