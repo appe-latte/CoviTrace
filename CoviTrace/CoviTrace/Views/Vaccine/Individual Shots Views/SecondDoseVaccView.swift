@@ -33,12 +33,12 @@ struct SecondDoseVaccView: View {
                                 // MARK: Second Dose Date
                                 HStack {
                                     Text("Date:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDoseDate)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -46,12 +46,12 @@ struct SecondDoseVaccView: View {
                                 // MARK: Batch Number
                                 HStack {
                                     Text("Batch Number:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDosebatchNum)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -59,12 +59,12 @@ struct SecondDoseVaccView: View {
                                 // MARK: Vaccine Make
                                 HStack {
                                     Text("Vaccine Make:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDoseVaccType)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -72,12 +72,12 @@ struct SecondDoseVaccView: View {
                                 // MARK: Vaccination Location
                                 HStack {
                                     Text("Location:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDosageLocation)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -85,12 +85,12 @@ struct SecondDoseVaccView: View {
                                 // MARK: Vaccination Provider
                                 HStack {
                                     Text("Provider:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.secondDoseVaccProvider)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -98,12 +98,12 @@ struct SecondDoseVaccView: View {
                                 // MARK: Vaccination Country
                                 HStack {
                                     Text("Country:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(results.vaccDoseCountry)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }

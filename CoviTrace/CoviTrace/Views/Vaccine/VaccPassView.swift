@@ -38,11 +38,12 @@ struct VaccPassView: View {
     var body: some View {
         ZStack {
             Background()
-            VStack(alignment: .center, spacing: 10) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text("Certificate of Vaccination")
                     .multilineTextAlignment(.leading)
                     .font(.custom("Avenir", size: 22).bold())
                     .foregroundColor(Color(.white))
+                    .padding(.leading, 20)
                 
                 let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
                 let cellNum = authModel.user!.cellNum
@@ -63,7 +64,7 @@ struct VaccPassView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.white))
                     
-                }.padding(.horizontal, 50)
+                }.padding(.horizontal, 20)
                 
                 // MARK: QR Code and Certificate information
                 List(vaccModel.results) { results in

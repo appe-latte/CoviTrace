@@ -121,8 +121,8 @@ struct VaccCardUploadView: View {
                         }
                     }){
                         Text("Upload Card")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
                     }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                         .background(green)

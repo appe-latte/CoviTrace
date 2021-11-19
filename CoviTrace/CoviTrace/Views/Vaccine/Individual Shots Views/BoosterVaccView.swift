@@ -33,12 +33,12 @@ struct BoosterVaccView: View {
                                 // MARK: Booster Shot Date
                                 HStack {
                                     Text("Date:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(boosterData.boosterDoseDate)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -46,12 +46,12 @@ struct BoosterVaccView: View {
                                 // MARK: Booster Vaccine Batch Number
                                 HStack {
                                     Text("Batch Number:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(boosterData.boosterDosebatchNum)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -59,12 +59,12 @@ struct BoosterVaccView: View {
                                 // MARK: Booster Vaccine Make
                                 HStack {
                                     Text("Vaccine Make:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(boosterData.boosterDoseVaccType)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -72,12 +72,12 @@ struct BoosterVaccView: View {
                                 // MARK: Booster Vaccination Location
                                 HStack {
                                     Text("Location:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(boosterData.boosterDoseLocation)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -85,12 +85,12 @@ struct BoosterVaccView: View {
                                 // MARK: Booster Vaccination Provider
                                 HStack {
                                     Text("Provider:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(boosterData.boosterDoseVaccProvider)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
@@ -98,12 +98,12 @@ struct BoosterVaccView: View {
                                 // MARK: Booster Vaccination Country
                                 HStack {
                                     Text("Country:")
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
                                     Text(boosterData.boosterDoseCountry)
-                                        .font(.custom("Avenir", size: 16))
+                                        .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }

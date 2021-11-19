@@ -21,7 +21,8 @@ struct PasswordResetView: View {
             VStack (alignment: .center){
                 // MARK: View Heading
                 Text("Reset Password")
-                    .font(.system(size: 26).bold())
+                    .font(.custom("Avenir", size: 28))
+                    .fontWeight(.bold)
                     .foregroundColor(Color(.white))
                     .padding(.trailing, 150)
                 
@@ -41,7 +42,8 @@ struct PasswordResetView: View {
                     
                 }, label: {
                     Text("Reset Password")
-                        .fontWeight(.semibold)
+                        .font(.custom("Avenir", size: 18))
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
                 }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

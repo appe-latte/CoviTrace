@@ -46,7 +46,8 @@ struct LoginView: View {
                     NavigationLink(
                         destination: PasswordResetView()){
                             Text("Forgot Password?")
-                                .font(.footnote)
+                                .font(.custom("Avenir", size: 12))
+                                .fontWeight(.bold)
                                 .foregroundColor(Color(.white))
                                 .padding(2)
                                 .padding(.leading, 175)
@@ -59,7 +60,8 @@ struct LoginView: View {
                         viewModel.userLogin(withEmail: email, password: userPassword)
                     }, label: {
                         Text("Login")
-                            .fontWeight(.semibold)
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
                     }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -74,8 +76,8 @@ struct LoginView: View {
                     NavigationLink(
                         destination: SignUpView()){
                             Text("Don't have an account?")
-                                .font(.footnote)
-                                .bold()
+                                .font(.custom("Avenir", size: 12))
+                                .fontWeight(.bold)
                                 .foregroundColor(Color(.white))
                                 .padding(.top, 2)
                         }

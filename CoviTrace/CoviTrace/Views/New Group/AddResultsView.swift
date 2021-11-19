@@ -105,9 +105,9 @@ struct AddResultsView: View {
                 }, label: {
                     HStack {
                         Text("Upload Test Certificate")
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.bold)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .fontWeight(.semibold)
-                            .font(.subheadline)
                             .padding(.trailing, 10)
                     }
                     
@@ -131,9 +131,9 @@ struct AddResultsView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     HStack {
-                        Text("SUBMIT")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
+                        Text("Submit")
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
                     

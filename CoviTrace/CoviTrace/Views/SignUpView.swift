@@ -149,8 +149,8 @@ struct SignUpView: View {
                         viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum)
                     }, label: {
                         Text("Sign Up")
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.bold)
                     }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(10)
@@ -164,8 +164,8 @@ struct SignUpView: View {
                     NavigationLink(
                         destination: LoginView()){
                             Text("Existing User?")
-                                .font(.footnote)
-                                .bold()
+                                .font(.custom("Avenir", size: 12))
+                                .fontWeight(.bold)
                                 .foregroundColor(Color(.white))
                                 .padding(.top, 2)
                         }

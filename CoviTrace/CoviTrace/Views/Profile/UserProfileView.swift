@@ -31,55 +31,55 @@ struct UserProfileView: View {
                         // MARK: Name
                         HStack {
                             Text("Name:")
-                                .font(.custom("Avenir", size: 17).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()
                             Text(fullName)
-                                .font(.custom("Avenir", size: 17).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
                         // MARK: DOB
                         HStack {
                             Text("Date of Birth:")
-                                .font(.custom("Avenir", size: 17).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()
                             Text(dob)
-                                .font(.custom("Avenir", size: 17).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
                         // MARK: ID number
                         HStack {
                             Text("ID Number:")
-                                .font(.custom("Avenir", size: 16).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()
                             Text(idNum)
-                                .font(.custom("Avenir", size: 16).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
          
                         // MARK: Email
                         HStack {
                             Text("Email:")
-                                .font(.custom("Avenir", size: 16).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()
                             Text(email)
-                                .font(.custom("Avenir", size: 16).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
                         // MARK: Cell number
                         HStack {
                             Text("Cell Number:")
-                                .font(.custom("Avenir", size: 16).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()
                             Text(cellNum)
-                                .font(.custom("Avenir", size: 16).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         

@@ -27,7 +27,7 @@ struct LandingView: View {
                             .clipShape(Circle())
                         Text("CoviTrace")
                             .foregroundColor(.white)
-                            .font(.largeTitle)
+                            .font(.custom("Avenir", size: 24))
                             .fontWeight(.bold)
                     }.padding(.top, 20)
                     Spacer()
@@ -42,7 +42,8 @@ struct LandingView: View {
                         NavigationLink(
                             destination: SignUpView()){
                                 Text("Register")
-                                    .fontWeight(.semibold)
+                                    .font(.custom("Avenir", size: 18))
+                                    .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             }
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
@@ -53,7 +54,8 @@ struct LandingView: View {
                         NavigationLink(
                             destination: LoginView()){
                                 Text("Login")
-                                    .fontWeight(.semibold)
+                                    .font(.custom("Avenir", size: 18))
+                                    .fontWeight(.bold)
                                     .foregroundColor(.white)
                             }
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 50)

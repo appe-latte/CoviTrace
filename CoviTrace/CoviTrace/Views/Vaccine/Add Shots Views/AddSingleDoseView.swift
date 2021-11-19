@@ -86,8 +86,9 @@ struct AddSingleDoseView: View {
                         upload_data()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("SUBMIT")
-                            .fontWeight(.semibold)
+                        Text("Submit")
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
                     })
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)

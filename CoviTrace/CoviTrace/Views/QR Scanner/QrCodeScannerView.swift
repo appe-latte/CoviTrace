@@ -5,112 +5,156 @@
 //  Created by Stanford L. Khumalo on 23/10/2021.
 //
 
-
-import SwiftUI
 import UIKit
+import SwiftUI
+import CarBode
 import AVFoundation
 
-struct QrCodeScannerView: UIViewRepresentable {
+struct ModalScannerView: View {
+    @State var barcodeValue = ""
+    @State var torchIsOn = false
+    @State var showingAlert = false
+    @State var cameraPosition = AVCaptureDevice.Position.back
     
-    var supportedBarcodeTypes: [AVMetadataObject.ObjectType] = [.qr]
-    typealias UIViewType = CameraPreview
-    
-    private let session = AVCaptureSession()
-    private let delegate = QrCodeCameraDelegate()
-    private let metadataOutput = AVCaptureMetadataOutput()
-    
-    
-    func torchLight(isOn: Bool) -> QrCodeScannerView {
-        if let backCamera = AVCaptureDevice.default(for: AVMediaType.video) {
-            if backCamera.hasTorch {
-                try? backCamera.lockForConfiguration()
-                if isOn {
-                    backCamera.torchMode = .on
-                } else {
-                    backCamera.torchMode = .off
-                }
-                backCamera.unlockForConfiguration()
-            }
-        }
-        return self
-    }
-    
-    func interval(delay: Double) -> QrCodeScannerView {
-        delegate.scanInterval = delay
-        return self
-    }
-    
-    func found(r: @escaping (String) -> Void) -> QrCodeScannerView {
-        delegate.onResult = r
-        return self
-    }
-    
-    func simulator(mockBarCode: String)-> QrCodeScannerView{
-        delegate.mockData = mockBarCode
-        return self
-    }
-    
-    func setupCamera(_ uiView: CameraPreview) {
-        if let backCamera = AVCaptureDevice.default(for: AVMediaType.video) {
-            if let input = try? AVCaptureDeviceInput(device: backCamera) {
-                session.sessionPreset = .photo
+    var body: some View {
+        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
+        ZStack {
+            Background()
+            VStack(spacing: 5) {
+                Spacer()
+                    .frame(height: 10)
                 
-                if session.canAddInput(input) {
-                    session.addInput(input)
-                }
-                if session.canAddOutput(metadataOutput) {
-                    session.addOutput(metadataOutput)
+                // MARK: Sheet Header
+                VStack {
+                    Text("Scan QR code")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                }.padding(.horizontal, 10)
+                
+                // MARK: Camera
+                VStack(spacing: 5) {
+                    HStack {
+                        Button(action: {
+                            if cameraPosition == .back {
+                                cameraPosition = .front
+                            }else{
+                                cameraPosition = .back
+                            }
+                        }) {
+                            if cameraPosition == .back {
+                                VStack(spacing: 2) {
+                                    Image(systemName: "camera")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(purple)
+                                    Text("Back")
+                                        .font(.custom("Avenir", size: 14))
+                                        .foregroundColor(purple)
+                                }
+                            } else {
+                                VStack(spacing: 2) {
+                                    Image(systemName: "camera")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(purple)
+                                    Text("Front")
+                                        .font(.custom("Avenir", size: 14))
+                                        .foregroundColor(purple)
+                                }
+                            }
+                        }
+                    }.frame(width: 80, height: 80)
+                        .background(Color.white)
+                        .clipShape(Circle())
                     
-                    metadataOutput.metadataObjectTypes = supportedBarcodeTypes
-                    metadataOutput.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
-                }
-                let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-                
-                uiView.backgroundColor = UIColor.gray
-                previewLayer.videoGravity = .resizeAspectFill
-                uiView.layer.addSublayer(previewLayer)
-                uiView.previewLayer = previewLayer
-                
-                session.startRunning()
-            }
-        }
-        
-    }
-    
-    func makeUIView(context: UIViewRepresentableContext<QrCodeScannerView>) -> QrCodeScannerView.UIViewType {
-        let cameraView = CameraPreview(session: session)
-        
-#if targetEnvironment(simulator)
-        cameraView.createSimulatorView(delegate: self.delegate)
-#else
-        checkCameraAuthorizationStatus(cameraView)
-#endif
-        
-        return cameraView
-    }
-    
-    static func dismantleUIView(_ uiView: CameraPreview, coordinator: ()) {
-        uiView.session.stopRunning()
-    }
-    
-    private func checkCameraAuthorizationStatus(_ uiView: CameraPreview) {
-        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
-        if cameraAuthorizationStatus == .authorized {
-            setupCamera(uiView)
-        } else {
-            AVCaptureDevice.requestAccess(for: .video) { granted in
-                DispatchQueue.main.sync {
-                    if granted {
-                        self.setupCamera(uiView)
+                    if cameraPosition == .back {
+                        Text("Using Back Camera")
+                            .font(.custom("Avenir", size: 12))
+                            .foregroundColor(Color.white)
+                    } else {
+                        Text("Using Front Camera")
+                            .font(.custom("Avenir", size: 12))
+                            .foregroundColor(Color.white)
                     }
+                    
                 }
+                
+                // MARK: Scanner View
+                VStack(spacing: 2) {
+                    
+                    CBScanner(
+                        supportBarcode: .constant([.qr, .code128]),
+                        torchLightIsOn: $torchIsOn,
+                        cameraPosition: $cameraPosition
+                    ){
+                        print("BarCodeType =",$0.type.rawValue, "Value =",$0.value)
+                        barcodeValue = $0.value
+                    }
+                onDraw: {
+                    
+                    let lineColor = UIColor(green)
+                    let fillColor = UIColor(purple.opacity(0.25))
+                    //Draw Barcode corner
+                    $0.draw(lineWidth: 1.5, lineColor: lineColor, fillColor: fillColor)
+                    
+                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 400, alignment: .topLeading)
+                        .overlay(cameraFrame()
+                                    .stroke(lineWidth: 5)
+                                    .frame(width: 500, height: 250)
+                                    .foregroundColor(green))
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Found Barcode"), message: Text("\(barcodeValue)"), dismissButton: .default(Text("Close")))
+                }
+                
+                Text(barcodeValue)
+                    .font(.custom("Avenir", size: 16))
+                    .foregroundColor(Color.white)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 20)
+                
+                Spacer()
             }
+            
         }
     }
-    
-    func updateUIView(_ uiView: CameraPreview, context: UIViewRepresentableContext<QrCodeScannerView>) {
-        uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        uiView.setContentHuggingPriority(.defaultLow, for: .horizontal)
-    }
-    
 }
+
+struct cameraFrame: Shape {
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            let width = rect.width
+            let height = rect.height
+            
+            path.addLines( [
+                
+                CGPoint(x: 0, y: height * 0.25),
+                CGPoint(x: 0, y: 0),
+                CGPoint(x:width * 0.25, y:0)
+            ])
+            
+            path.addLines( [
+                
+                CGPoint(x: width * 0.75, y: 0),
+                CGPoint(x: width, y: 0),
+                CGPoint(x:width, y:height * 0.25)
+            ])
+            
+            path.addLines( [
+                
+                CGPoint(x: width, y: height * 0.75),
+                CGPoint(x: width, y: height),
+                CGPoint(x:width * 0.75, y: height)
+            ])
+            
+            path.addLines( [
+                
+                CGPoint(x:width * 0.25, y: height),
+                CGPoint(x:0, y: height),
+                CGPoint(x:0, y:height * 0.75)
+                
+            ])
+            
+        }
+    }
+}
+
