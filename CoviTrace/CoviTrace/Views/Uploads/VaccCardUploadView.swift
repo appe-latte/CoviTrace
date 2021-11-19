@@ -150,12 +150,12 @@ struct VaccCardUploadView: View {
                     self.showToastAlert = true
                 } else {
                     self.errTitle = "Success!"
-                    self.errMessage = "Image upload complete"
+                    self.errMessage = "Vaccination card uploaded."
                     self.showToastAlert = true
                 }
             }
         } else {
-            print("coldn't unwrap/case image to data")
+            print("Image couldn't be unwrapped")
         }
     }
 }

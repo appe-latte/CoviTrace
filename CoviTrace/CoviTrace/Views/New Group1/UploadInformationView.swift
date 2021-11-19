@@ -24,17 +24,19 @@ struct UploadInformationView: View {
     @ObservedObject private var vaccModel = VaccinationViewModel()
     
     @State private var presentImporter = false // presents File importer
-
+    
     var body: some View {
         ZStack
         {
-//            Background()
+            //            Background()
             
             VStack {
                 VStack(spacing: 30) {
                     
                     let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
                     
+                    Spacer()
+                        .frame(height: 20)
                     // MARK: First Row
                     HStack {
                         
@@ -45,15 +47,14 @@ struct UploadInformationView: View {
                             }, label: {
                                 VStack {
                                     Text("+ First")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                     Text("Dose Jab")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .background(purple.opacity(0.1))
+                                .background(purple)
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showFirstDoseSheetView) {
                                     AddFirstDoseView()
@@ -70,15 +71,14 @@ struct UploadInformationView: View {
                             }, label: {
                                 VStack {
                                     Text("+ Second")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                     Text("Dose Jab")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .background(purple.opacity(0.1))
+                                .background(purple)
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showSecondDoseSheetView) {
                                     AddSecondDoseView()
@@ -95,15 +95,14 @@ struct UploadInformationView: View {
                             }, label: {
                                 VStack {
                                     Text("+ Single")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                     Text("Dose Jab")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .background(purple.opacity(0.1))
+                                .background(purple)
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showSingleDoseSheetView) {
                                     AddSingleDoseView()
@@ -122,15 +121,14 @@ struct UploadInformationView: View {
                             }, label: {
                                 VStack {
                                     Text("+ Booster")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                     Text("Dose")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .background(purple.opacity(0.1))
+                                .background(purple)
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showBoosterShotSheetView) {
                                     AddBoosterShotView()
@@ -147,15 +145,14 @@ struct UploadInformationView: View {
                             }, label: {
                                 VStack {
                                     Text("+ PCR")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                     Text("Test Results")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .background(purple.opacity(0.1))
+                                .background(purple)
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showUploadPcrTestSheetView) {
                                     AddResultsView()
@@ -172,15 +169,14 @@ struct UploadInformationView: View {
                             }, label: {
                                 VStack {
                                     Text("+ Vaccination")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                     Text("Card")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .background(purple.opacity(0.1))
+                                .background(purple)
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showVaccCardUploadSheetView) {
                                     VaccCardUploadView()
@@ -197,15 +193,14 @@ struct UploadInformationView: View {
                             }, label: {
                                 VStack {
                                     Text("+ Digital")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                     Text("Certificate")
-                                        .foregroundColor(purple)
+                                        .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
                             }).frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .background(purple.opacity(0.1))
+                                .background(purple)
                                 .clipShape(Circle())
                                 .sheet(isPresented: $showDigiCertSheetView) {
                                     DigitalCertUploadView()
@@ -233,12 +228,12 @@ func uploadVaccCardImage(image:UIImage){
         storage.reference().child("vaccination_card").putData(imageData, metadata: nil){
             (_, err) in
             if let err = err {
-                print("an error has occurred - \(err.localizedDescription)")
+                print("Error - \(err.localizedDescription)")
             } else {
-                print("image uploaded successfully")
+                print("Image upload succesful")
             }
         }
     } else {
-        print("coldn't unwrap/case image to data")
+        print("Image couldn't be unwrapped")
     }
 }

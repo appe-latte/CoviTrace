@@ -20,6 +20,7 @@ struct MainView: View {
     @Namespace var animation
     
     @State var halfModal_shown = false
+    @State var formHalfModal_shown = false
     @State var isHide = false
     
     @State private var vaccStatus = ""
@@ -83,19 +84,20 @@ struct MainView: View {
                                     // MARK: Home Screen
                                     VStack(spacing: 1) {
                                         HStack {
-                                            NavigationLink(
-                                                destination: UploadInformationView()){
-                                                    VStack {
-                                                        Image(systemName: "plus")
-                                                            .foregroundColor(.white)
-                                                            .padding(10)
-                                                            .background(Color.white.opacity(0.1))
-                                                            .clipShape(Circle())
-                                                        Text("Add")
-                                                            .font(.system(size: 12))
-                                                            .foregroundColor(Color.white)
-                                                    }
+                                            Button(action: {
+                                                self.formHalfModal_shown.toggle()
+                                            }, label: {
+                                                VStack {
+                                                    Image(systemName: "plus")
+                                                        .foregroundColor(.white)
+                                                        .padding(10)
+                                                        .background(Color.white.opacity(0.1))
+                                                        .clipShape(Circle())
+                                                    Text("add")
+                                                        .font(.system(size: 11))
+                                                        .foregroundColor(Color.white)
                                                 }
+                                            })
                                         }
                                     }
                                     
@@ -323,10 +325,14 @@ struct MainView: View {
                             }
                         }
                         
+                        ScannerHalfModalView(isShown: $halfModal_shown, modalHeight: 600) {
+                            ScannerView()
+                        }
+                        
                         Spacer()
                         
-                        HalfModalView(isShown: $halfModal_shown, modalHeight: 600){
-                            ScannerView()
+                        FormUploadHalfModalView(isShown: $formHalfModal_shown, modalHeight: 600) {
+                            UploadInformationView()
                         }
                     }
                     .navigationBarHidden(true)

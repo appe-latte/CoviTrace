@@ -4,6 +4,7 @@
 //
 //  Created by Stanford L. Khumalo on 23/10/2021.
 //
+// Embedded CardBode package for QR codes
 
 import UIKit
 import SwiftUI
@@ -94,7 +95,8 @@ struct ModalScannerView: View {
                     
                     let lineColor = UIColor(green)
                     let fillColor = UIColor(purple.opacity(0.25))
-                    //Draw Barcode corner
+                    
+                    // MARK: Draw border around QR code edges
                     $0.draw(lineWidth: 1.5, lineColor: lineColor, fillColor: fillColor)
                     
                 }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 400, alignment: .topLeading)
@@ -103,7 +105,7 @@ struct ModalScannerView: View {
                                     .frame(width: 500, height: 250)
                                     .foregroundColor(green))
                 }.alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Found Barcode"), message: Text("\(barcodeValue)"), dismissButton: .default(Text("Close")))
+                    Alert(title: Text("QR code found!"), message: Text("\(barcodeValue)"), dismissButton: .default(Text("Close")))
                 }
                 
                 Text(barcodeValue)

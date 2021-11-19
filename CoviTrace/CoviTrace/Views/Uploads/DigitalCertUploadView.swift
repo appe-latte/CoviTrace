@@ -157,12 +157,12 @@ struct DigitalCertUploadView : View {
                     self.showToastAlert = true
                 } else {
                     self.errTitle = "Success!"
-                    self.errMessage = "Image upload complete."
+                    self.errMessage = "Digital Certificate uploaded."
                     self.showToastAlert = true
                 }
             }
         } else {
-            print("")
+            print("Image couldn't be unwrapped")
         }
     }
     
