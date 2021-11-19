@@ -12,6 +12,7 @@ import Firebase
 import AlertToast
 import CoreLocation
 import AVFoundation
+import FirebaseFirestore
 
 struct ScannerView: View {
     // MARK: Objects
@@ -33,117 +34,115 @@ struct ScannerView: View {
         
         ZStack {
             VStack(alignment: .center) {
+                
                 // MARK: Selection buttons
                 VStack(spacing: 5) {
                     
-                    // MARK: QR scanner button
-                    VStack(spacing: 5) {
-                        VStack {
-                            HStack {
+                    HStack {
+                        
+                        // MARK: QR scanner button
+                        VStack(spacing: 5) {
+                            VStack {
                                 Button(action: {
-                                    self.showingScanner.toggle()}, label: {
-                                        HStack {
-                                            Image(systemName: "qrcode")
-                                                .imageScale(.large)
-                                                .foregroundColor(Color.white)
-                                                .padding()
-                                            
-                                            Text("Scan Venue QR")
-                                                .font(.custom("Avenir", size: 18))
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.white)
-                                                .padding(.trailing, 15)
-                                        }
-                                    })
-                            }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
-                                .padding(.top, 2)
-                            
-                        }.sheet(isPresented: $showingScanner) {
-                            ModalScannerView()
-                        }
-                    }
-                    
-                    // MARK: Check-in button
-                    VStack(spacing: 5) {
-                        HStack {
-                            Button(action: {
-                                if let locationCheckin = self.locationFetch.lastLocation{
-                                    print("Your location is: \(locationCheckin)")
-                                    var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
-                                    let ceo: CLGeocoder = CLGeocoder()
-                                    center.latitude = locationCheckin.latitude
-                                    center.longitude = locationCheckin.longitude
-                                    
-                                    let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
-                                    
-                                    ceo.reverseGeocodeLocation(loc, completionHandler:
-                                                                {(placemarks, error) in
-                                        if (error != nil)
-                                        {
-                                            print("reverse geodcode fail: \(error!.localizedDescription)")
-                                        }
-                                        let pm = placemarks! as [CLPlacemark]
-                                        if pm.count > 0 {
-                                            let pm = placemarks![0]
-                                            var addressString : String = ""
-                                            
-                                            if pm.name != nil {
-                                                addressString = addressString + pm.name! + ", "
-                                            }
-                                            if pm.subLocality != nil {
-                                                addressString = addressString + pm.subLocality! + ", "
-                                            }
-                                            if pm.thoroughfare != nil {
-                                                addressString = addressString + pm.thoroughfare! + ", "
-                                            }
-                                            if pm.locality != nil {
-                                                addressString = addressString + pm.locality! + ", "
-                                            }
-                                            if pm.country != nil {
-                                                addressString = addressString + pm.country!
-                                            }
-                                            
-                                            let formatter = DateFormatter()
-                                            formatter.locale = Locale(identifier: "nl_NL")
-                                            formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
-                                            
-                                            let now = Date()
-                                            let datetime = formatter.string(from: now)
-                                            
-                                            let db = Firestore.firestore();                                db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
-                                        }
-                                        showToastAlert.toggle()
-                                    })
-                                } else {
-                                    print("Unknown location")
-                                }
-                            }, label: {
-                                HStack {
-                                    Image(systemName: "mappin.circle")
+                                    self.showingScanner.toggle()
+                                }, label: {
+                                    Image(systemName: "qrcode")
                                         .imageScale(.large)
                                         .foregroundColor(Color.white)
                                         .padding()
-                                    
-                                    Text("Location Check-in")
-                                        .font(.custom("Avenir", size: 18))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
+                                })
+                                
+                            }.frame(width: 50, height: 50)
+                                .background(purple)
+                                .clipShape(Circle())
+                                .sheet(isPresented: $showingScanner) {
+                                    ModalScannerView()
                                 }
-                            })
-                        }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(10)
-                            .padding(.top, 2)
+                            
+                            Text("Scan QR code")
+                                .font(.system(size: 10))
+                                .foregroundColor(purple)
+                        }
+                        
+                        Spacer()
+                            .frame(width: 50)
+                        
+                        // MARK: Check-in button
+                        VStack(spacing: 5) {
+                            VStack {
+                                Button(action: {
+                                    if let locationCheckin = self.locationFetch.lastLocation{
+                                        print("Your location is: \(locationCheckin)")
+                                        var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+                                        let ceo: CLGeocoder = CLGeocoder()
+                                        center.latitude = locationCheckin.latitude
+                                        center.longitude = locationCheckin.longitude
+                                        
+                                        let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+                                        
+                                        ceo.reverseGeocodeLocation(loc, completionHandler:
+                                                                    {(placemarks, error) in
+                                            if (error != nil)
+                                            {
+                                                print("reverse geodcode fail: \(error!.localizedDescription)")
+                                            }
+                                            let pm = placemarks! as [CLPlacemark]
+                                            if pm.count > 0 {
+                                                let pm = placemarks![0]
+                                                var addressString : String = ""
+                                                
+                                                if pm.name != nil {
+                                                    addressString = addressString + pm.name! + ", "
+                                                }
+                                                if pm.subLocality != nil {
+                                                    addressString = addressString + pm.subLocality! + ", "
+                                                }
+                                                if pm.thoroughfare != nil {
+                                                    addressString = addressString + pm.thoroughfare! + ", "
+                                                }
+                                                if pm.locality != nil {
+                                                    addressString = addressString + pm.locality! + ", "
+                                                }
+                                                if pm.country != nil {
+                                                    addressString = addressString + pm.country!
+                                                }
+                                                
+                                                let formatter = DateFormatter()
+                                                formatter.locale = Locale(identifier: "nl_NL")
+                                                formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
+                                                
+                                                let now = Date()
+                                                let datetime = formatter.string(from: now)
+                                                
+                                                let db = Firestore.firestore();                                db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
+                                            }
+                                            showToastAlert.toggle()
+                                        })
+                                    } else {
+                                        print("Unknown location")
+                                    }
+                                }, label: {
+                                    Image(systemName: "mappin")
+                                        .imageScale(.large)
+                                        .foregroundColor(Color.white)
+                                        .padding()
+                                })
+                            }.frame(width: 50, height: 50)
+                                .background(purple)
+                                .clipShape(Circle())
+                            
+                            Text("Check-in")
+                                .font(.system(size: 10))
+                                .foregroundColor(purple)
+                        }
                     }
-                    
                     
                     Spacer()
                         .frame(height: 10)
                     
                     Text("Scan the venue QR code to check-in or alternatively press the Check-in button below.")
-                        .font(.system(size: 14))
+                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 30)
+                        .font(.system(size: 12))
                         .foregroundColor(purple)
                         .lineLimit(5)
                         .padding(.vertical, 2)

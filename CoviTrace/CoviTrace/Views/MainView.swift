@@ -19,6 +19,7 @@ struct MainView: View {
     @State var current = "house.fill"
     @Namespace var animation
     
+    @State var halfModal_shown = false
     @State var isHide = false
     
     @State private var vaccStatus = ""
@@ -56,9 +57,11 @@ struct MainView: View {
                         Background()
                         
                         VStack(spacing: 0){
-                            
                             // MARK: App Bar
                             VStack(spacing: 22){
+                                
+                                Spacer()
+                                    .frame(height: 15)
                                 
                                 if !isHide {
                                     
@@ -227,6 +230,7 @@ struct MainView: View {
                                                 }.padding(.bottom, 10)
                                                 
                                                 HStack(spacing: 10) {
+                                                    
                                                     // MARK: Vaccination Pass
                                                     HStack {
                                                         NavigationLink(
@@ -252,25 +256,26 @@ struct MainView: View {
                                                     
                                                     // MARK: Venue Check-in
                                                     HStack {
-                                                        NavigationLink(
-                                                            destination: ScannerView()){
-                                                                VStack(spacing: 1) {
-                                                                    Image(systemName: "barcode")
-                                                                        .font(.system(size: 18))
-                                                                        .foregroundColor(Color(.white))
-                                                                    Text("Venue")
-                                                                        .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 11))
-                                                                        .fontWeight(.semibold)
-                                                                    Text("Check-in")
-                                                                        .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 11))
-                                                                        .fontWeight(.semibold)
-                                                                }
+                                                        Button(action: {
+                                                            self.halfModal_shown.toggle()
+                                                        }, label: {
+                                                            VStack(spacing: 1) {
+                                                                Image(systemName: "barcode")
+                                                                    .font(.system(size: 18))
+                                                                    .foregroundColor(Color(.white))
+                                                                Text("Venue")
+                                                                    .foregroundColor(Color(.white))
+                                                                    .font(.custom("Avenir", size: 11))
+                                                                    .fontWeight(.semibold)
+                                                                Text("Check-in")
+                                                                    .foregroundColor(Color(.white))
+                                                                    .font(.custom("Avenir", size: 11))
+                                                                    .fontWeight(.semibold)
                                                             }.frame(width: 80, height: 80)
-                                                            .foregroundColor(.white)
-                                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                                            .clipShape(Circle())
+                                                                .foregroundColor(.white)
+                                                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                                .clipShape(Circle())
+                                                        })
                                                     }
                                                     
                                                     // MARK: Digital Certificate
@@ -296,7 +301,6 @@ struct MainView: View {
                                                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                             .clipShape(Circle())
                                                     }
-                                                    
                                                 }
                                             }
                                         }
@@ -304,6 +308,7 @@ struct MainView: View {
                                         .background(Color(.white))
                                         .cornerRadius(15)
                                         .padding(5)
+                                        
                                     }
                                     
                                     Spacer()
@@ -320,6 +325,9 @@ struct MainView: View {
                         
                         Spacer()
                         
+                        HalfModalView(isShown: $halfModal_shown, modalHeight: 600){
+                            ScannerView()
+                        }
                     }
                     .navigationBarHidden(true)
                     .navigationBarTitleDisplayMode(.inline)
