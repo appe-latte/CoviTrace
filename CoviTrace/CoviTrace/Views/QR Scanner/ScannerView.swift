@@ -21,6 +21,7 @@ struct ScannerView: View {
     @ObservedObject private var authModel = AuthViewModel()
     
     @State var showingScanner = false
+    @State var checkinHalfModal_shown = false
     
     let locationFetch = LocationFetch()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -64,6 +65,34 @@ struct ScannerView: View {
                                 .foregroundColor(purple)
                         }
                         
+                        Spacer()
+                            .frame(width: 50)
+                        
+                        // MARK: Check-in button
+                        VStack(spacing: 5) {
+                            VStack {
+                                Button(action: {
+                                    self.checkinHalfModal_shown.toggle()
+                                }, label: {
+                                    Image(systemName: "qrcode")
+                                        .imageScale(.large)
+                                        .foregroundColor(Color.white)
+                                        .padding()
+                                })
+                                
+                            }.frame(width: 50, height: 50)
+                                .background(purple)
+                                .clipShape(Circle())
+                                .sheet(isPresented: $checkinHalfModal_shown) {
+                                    VenueCheckinView()
+                                }
+                            
+                            Text("Check-in")
+                                .font(.system(size: 10))
+                                .foregroundColor(purple) 
+                        }
+                        
+                      
                         Spacer()
                             .frame(width: 50)
                         
@@ -149,13 +178,15 @@ struct ScannerView: View {
                     
                     Spacer()
                     
-                    
                 }.padding()
+                
             }.toast(isPresenting: $showToastAlert){
                 AlertToast(displayMode: .alert, type: .complete(green), title: Optional("Check-in Complete"))
             }
-        }.navigationBarTitle("Venue Check-in")
+            
+        }.navigationBarTitle("Save Location")
             .navigationBarTitleDisplayMode(.inline)
+
     }
 }
 

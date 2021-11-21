@@ -18,7 +18,7 @@ struct CustomTextField: View {
                 placeholder
                     .foregroundColor(Color(.white))
                     .padding(.leading, 40)
-                    .font(.footnote)
+                    .font(.custom("Avenir", size: 14).bold())
             }
             
             HStack(spacing: 16){
@@ -29,6 +29,7 @@ struct CustomTextField: View {
                     .foregroundColor(Color(.white))
                 
                 TextField("", text: $text)
+                    .font(.custom("Avenir", size: 14).bold())
             }
         }
     }

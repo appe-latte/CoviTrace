@@ -17,10 +17,11 @@ struct SimpleTextField: View {
                 placeholder
                     .foregroundColor(Color(.white))
                     .padding(.leading)
-                    .font(.footnote)
+                    .font(.custom("Avenir", size: 14).bold())
             }
             
             TextField("", text: $text)
+                .font(.custom("Avenir", size: 14).bold())
         }.foregroundColor(.white)
     }
 }

@@ -17,7 +17,7 @@ struct CustomSecureTextField: View {
                 placeholder
                     .foregroundColor(Color(.white))
                     .padding(.leading, 40)
-                    .font(.footnote)
+                    .font(.custom("Avenir", size: 14).bold())
             }
             
             HStack(spacing: 16){
@@ -28,6 +28,7 @@ struct CustomSecureTextField: View {
                     .foregroundColor(Color(.white))
                 
                 SecureField("", text: $text).textContentType(.newPassword)
+                    .font(.custom("Avenir", size: 14).bold())
             }
         }
     }
