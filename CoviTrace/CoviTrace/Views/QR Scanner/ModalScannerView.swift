@@ -10,12 +10,16 @@ import UIKit
 import SwiftUI
 import CarBode
 import AVFoundation
+import SafariServices
 
 struct ModalScannerView: View {
     @State var barcodeValue = ""
     @State var torchIsOn = false
     @State var showingAlert = false
     @State var cameraPosition = AVCaptureDevice.Position.back
+    
+    @State private var showSafari : Bool = false
+    @Environment(\.openURL) var openURL
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
@@ -33,52 +37,6 @@ struct ModalScannerView: View {
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                 }.padding(.horizontal, 10)
-                
-                // MARK: Camera
-                VStack(spacing: 5) {
-                    HStack {
-                        Button(action: {
-                            if cameraPosition == .back {
-                                cameraPosition = .front
-                            }else{
-                                cameraPosition = .back
-                            }
-                        }) {
-                            if cameraPosition == .back {
-                                VStack(spacing: 2) {
-                                    Image(systemName: "camera")
-                                        .font(.system(size: 24))
-                                        .foregroundColor(purple)
-                                    Text("Back")
-                                        .font(.custom("Avenir", size: 14))
-                                        .foregroundColor(purple)
-                                }
-                            } else {
-                                VStack(spacing: 2) {
-                                    Image(systemName: "camera")
-                                        .font(.system(size: 24))
-                                        .foregroundColor(purple)
-                                    Text("Front")
-                                        .font(.custom("Avenir", size: 14))
-                                        .foregroundColor(purple)
-                                }
-                            }
-                        }
-                    }.frame(width: 80, height: 80)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                    
-                    if cameraPosition == .back {
-                        Text("Using Back Camera")
-                            .font(.custom("Avenir", size: 12))
-                            .foregroundColor(Color.white)
-                    } else {
-                        Text("Using Front Camera")
-                            .font(.custom("Avenir", size: 12))
-                            .foregroundColor(Color.white)
-                    }
-                    
-                }
                 
                 // MARK: Scanner View
                 VStack(spacing: 2) {
@@ -108,15 +66,58 @@ struct ModalScannerView: View {
                     Alert(title: Text("QR code found!"), message: Text("\(barcodeValue)"), dismissButton: .default(Text("Close")))
                 }
                 
-                Text(barcodeValue)
-                    .font(.custom("Avenir", size: 16))
-                    .foregroundColor(Color.white)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal, 20)
+                Spacer()
+                    .frame(height: 10)
+                
+                // MARK: Button to open link from QR code
+                HStack {
+                    Image(systemName: "link")
+                        .foregroundColor(Color.white)
+                        .imageScale(.small)
+                    Text("Open Link")
+                        .font(.custom("Avenir", size: 12))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.white)
+                } .frame(width: 120, height: 40)
+                    .background(green)
+                    .clipShape(Capsule())
+                    .padding(2)
+                    .disabled((barcodeValue != "" ) ? false : true)
+                    .opacity((barcodeValue != "") ? 1 : 0)
+                    .onTapGesture {
+                        showSafari.toggle()
+                    }
+                    .fullScreenCover(isPresented: $showSafari, content: {
+                        SFSafariViewWrapper(url: URL(string: "\(barcodeValue)")!)
+                    })
                 
                 Spacer()
+                    .frame(height: 10)
+                
+                // MARK: Toggle Torch
+                VStack(spacing: 5) {
+                    HStack {
+                        Button(action: {
+                            self.torchIsOn.toggle()
+                        }) {
+                            Image(systemName: "qrcode")
+                                .imageScale(.large)
+                                .foregroundColor(green)
+                        }
+                    }.frame(width: 60, height: 60)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                    
+                    Text("Toggle Torch Light")
+                        .font(.custom("Avenir", size: 12))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.white)
+                        .padding(.top, 2)
+                }
+                
+                Spacer()
+                
             }
-            
         }
     }
 }
@@ -160,3 +161,15 @@ struct cameraFrame: Shape {
     }
 }
 
+// MARK: Structure for viewing Safari link in-app
+struct SFSafariViewWrapper: UIViewControllerRepresentable {
+    let url: URL
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<Self>) -> SFSafariViewController {
+        return SFSafariViewController(url:url)
+    }
+    
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SFSafariViewWrapper>) {
+        return
+    }
+}

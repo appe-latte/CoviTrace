@@ -74,7 +74,7 @@ struct ScannerView: View {
                                 Button(action: {
                                     self.checkinHalfModal_shown.toggle()
                                 }, label: {
-                                    Image(systemName: "qrcode")
+                                    Image(systemName: "map.fill")
                                         .imageScale(.large)
                                         .foregroundColor(Color.white)
                                         .padding()
