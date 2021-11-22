@@ -100,7 +100,7 @@ struct ModalScannerView: View {
                         Button(action: {
                             self.torchIsOn.toggle()
                         }) {
-                            Image(systemName: "qrcode")
+                            Image(systemName: "flashlight.on.fill")
                                 .imageScale(.large)
                                 .foregroundColor(green)
                         }

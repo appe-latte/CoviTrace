@@ -69,32 +69,32 @@ struct ScannerView: View {
                             .frame(width: 50)
                         
                         // MARK: Check-in button
-                        VStack(spacing: 5) {
-                            VStack {
-                                Button(action: {
-                                    self.checkinHalfModal_shown.toggle()
-                                }, label: {
-                                    Image(systemName: "map.fill")
-                                        .imageScale(.large)
-                                        .foregroundColor(Color.white)
-                                        .padding()
-                                })
-                                
-                            }.frame(width: 50, height: 50)
-                                .background(purple)
-                                .clipShape(Circle())
-                                .sheet(isPresented: $checkinHalfModal_shown) {
-                                    VenueCheckinView()
-                                }
-                            
-                            Text("Check-in")
-                                .font(.system(size: 10))
-                                .foregroundColor(purple) 
-                        }
-                        
-                      
-                        Spacer()
-                            .frame(width: 50)
+//                        VStack(spacing: 5) {
+//                            VStack {
+//                                Button(action: {
+//                                    self.checkinHalfModal_shown.toggle()
+//                                }, label: {
+//                                    Image(systemName: "map.fill")
+//                                        .imageScale(.large)
+//                                        .foregroundColor(Color.white)
+//                                        .padding()
+//                                })
+//
+//                            }.frame(width: 50, height: 50)
+//                                .background(purple)
+//                                .clipShape(Circle())
+//                                .sheet(isPresented: $checkinHalfModal_shown) {
+//                                    VenueCheckinView()
+//                                }
+//
+//                            Text("Check-in")
+//                                .font(.system(size: 10))
+//                                .foregroundColor(purple)
+//                        }
+//
+//
+//                        Spacer()
+//                            .frame(width: 50)
                         
                         // MARK: Check-in button
                         VStack(spacing: 5) {
