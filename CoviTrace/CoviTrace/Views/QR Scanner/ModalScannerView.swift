@@ -83,7 +83,7 @@ struct ModalScannerView: View {
                     .clipShape(Capsule())
                     .padding(2)
                     .disabled((barcodeValue != "" ) ? false : true)
-                    .opacity((barcodeValue != "") ? 1 : 0)
+                    .opacity((barcodeValue != "") ? 1 : 0.4)
                     .onTapGesture {
                         showSafari.toggle()
                     }

@@ -463,7 +463,7 @@
 				2F0F2A6225B5BD4A00103879 /* Sources */,
 				2F0F2A6325B5BD4A00103879 /* Frameworks */,
 				2F0F2A6425B5BD4A00103879 /* Resources */,
-				78498ECE4879E052F60D9FF4 /* [CP] Embed Pods Frameworks */,
+				34D6BD49A0CEA0BA2809B563 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -501,7 +501,7 @@
 			);
 			mainGroup = 2F0F2A5D25B5BD4A00103879;
 			packageReferences = (
-				2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
 				2F1CC2AA27470A2800361DB5 /* XCRemoteSwiftPackageReference "CarBode-Barcode-Scanner-For-SwiftUI" */,
 			);
 			productRefGroup = 2F0F2A6725B5BD4A00103879 /* Products */;
@@ -549,7 +549,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		78498ECE4879E052F60D9FF4 /* [CP] Embed Pods Frameworks */ = {
+		34D6BD49A0CEA0BA2809B563 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -853,7 +853,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		2F59570725D1C0A6004D1F53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {

@@ -19,6 +19,7 @@ struct User: Identifiable {
     let idNumber : String
     let regCountry : String
     let idType : String
+    let digiCertImageUrl : String
     
     var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == self.id }
     
@@ -34,6 +35,7 @@ struct User: Identifiable {
         self.idNumber = dictionary["id_num"] as? String ?? ""
         self.regCountry = dictionary["reg_country"] as? String ?? ""
         self.idType = dictionary["id_type"] as? String ?? ""
+        self.digiCertImageUrl = dictionary["digiCertImageUrl"] as? String ?? ""
     }
 }
 

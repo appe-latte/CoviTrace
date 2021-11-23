@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-import Firebase
 import Combine
+import Firebase
+import FirebaseFirestore
 
 struct DigitalCertView: View {
     
@@ -20,14 +21,13 @@ struct DigitalCertView: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
-                    // MARK: Image frame
-                    
+                    // MARK: Digital Certificate
                     HStack {
                         Text("Digital Certificate will appear here...")
                             .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(purple)
-                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 650)
+                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
                         .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     

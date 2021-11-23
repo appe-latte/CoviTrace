@@ -123,7 +123,6 @@ struct DigitalCertUploadView : View {
                         if let thisImage = self.upload_image {
                             uploadDcertImage(image: thisImage)
                         } else {
-                            //                            print("")
                             showToastAlert.toggle()
                         }
                     }){

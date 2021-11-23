@@ -184,7 +184,7 @@ struct ScannerView: View {
                 AlertToast(displayMode: .alert, type: .complete(green), title: Optional("Check-in Complete"))
             }
             
-        }.navigationBarTitle("Save Location")
+        }.navigationBarTitle("")
             .navigationBarTitleDisplayMode(.inline)
 
     }

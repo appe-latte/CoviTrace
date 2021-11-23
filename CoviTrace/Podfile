@@ -16,5 +16,6 @@ target 'CoviTrace' do
   pod 'Kingfisher'
   pod 'Firebase/Messaging'
   pod 'AlertToast'
+  pod 'SDWebImageSwiftUI'
   
 end
