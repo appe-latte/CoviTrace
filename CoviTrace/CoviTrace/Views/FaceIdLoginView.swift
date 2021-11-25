@@ -21,7 +21,7 @@ struct FaceIdLoginView: View {
                 VStack(spacing: 10) {
                     Image(systemName: "lock.fill")
                         .resizable()
-                        .renderingMode(.template)
+                        .imageScale(.large)
                         .scaledToFill()
                         .frame(width: 50, height: 50)
                         .foregroundColor(.white)

@@ -55,9 +55,3 @@ struct PasswordResetView: View {
             .navigationBarTitleDisplayMode(.inline)
     }
 }
-
-struct PasswordResetView_Previews: PreviewProvider {
-    static var previews: some View {
-        PasswordResetView()
-    }
-}

@@ -23,7 +23,7 @@ struct MainView: View {
     @State var formHalfModal_shown = false
     @State var isHide = false
     
-    @State private var vaccStatus = ""
+//    @State private var vaccStatus = ""
     @State private var patientNumber = ""
     @State private var showSecondView = false
     @State private var showSheetView = false

@@ -39,7 +39,7 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
-                        // MARK: DOB
+                        // MARK: D.O.B
                         HStack {
                             Text("Date of Birth:")
                                 .font(.custom("Avenir", size: 15).bold())
@@ -60,7 +60,7 @@ struct UserProfileView: View {
                                 .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
-         
+                        
                         // MARK: Email
                         HStack {
                             Text("Email:")
@@ -89,7 +89,7 @@ struct UserProfileView: View {
                             .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     
-                    Section {
+                    Section(header: Text("Verification")) {
                         // MARK: Reg Country
                         HStack {
                             Text("Reg. Country:")
@@ -103,7 +103,7 @@ struct UserProfileView: View {
                         
                         // MARK: Profile Verification
                         HStack {
-                            Text("Verification")
+                            Text("Verification:")
                                 .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             Spacer()

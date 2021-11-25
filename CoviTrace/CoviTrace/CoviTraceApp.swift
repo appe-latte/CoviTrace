@@ -17,10 +17,6 @@ struct CoviTraceApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var appLockModel = AppLockViewModel()
     
-    init(){
-        FirebaseApp.configure()
-    }
-    
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {

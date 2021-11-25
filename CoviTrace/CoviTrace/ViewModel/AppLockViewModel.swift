@@ -54,15 +54,13 @@ class AppLockViewModel: ObservableObject {
                             self.enableAppLock()
                             self.isAppUnlocked = true
                         }
-                    }
-                    else{
+                    } else {
                         DispatchQueue.main.async {
                             self.disableAppLock()
                             self.isAppUnlocked = true
                         }
                     }
-                }
-                else{
+                } else {
                     if let error = error{
                         DispatchQueue.main.async {
                             print(error.localizedDescription)
@@ -78,15 +76,17 @@ class AppLockViewModel: ObservableObject {
         if checkIfBioMetricAvailable(){
             let reason = "Unlock app to view your Covitrace pass."
             laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason){(success, error) in
-                if success{
+                if success {
                     DispatchQueue.main.async {
                         self.isAppUnlocked = true
                     }
-                }
-                else{
-                    if let error = error{
+                } else {
+                    if let error = error {
                         DispatchQueue.main.async {
                             print(error.localizedDescription)
+                            
+                            // <-- add code her to fallback to passcode entry which also resets the Face ID.
+                            // Use the toggle button in 'Privacy Settings' to turn Face ID back on.
                         }
                     }
                 }
