@@ -160,7 +160,7 @@ struct ScannerView: View {
                                 .background(purple)
                                 .clipShape(Circle())
                             
-                            Text("Check-in")
+                            Text("Save Location")
                                 .font(.system(size: 10))
                                 .foregroundColor(purple)
                         }
@@ -169,7 +169,7 @@ struct ScannerView: View {
                     Spacer()
                         .frame(height: 10)
                     
-                    Text("Scan the venue QR code to check-in or alternatively press the Check-in button below.")
+                    Text("Scan the Covitrace Venue QR code to check-in and save your location to this device.")
                         .frame(width: UIScreen.main.bounds.size.width - 40, height: 30)
                         .font(.system(size: 12))
                         .foregroundColor(purple)
