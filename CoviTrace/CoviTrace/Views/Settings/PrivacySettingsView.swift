@@ -16,8 +16,8 @@ struct PrivacySettingsView: View {
             Background()
             VStack {
                 Form {
+                    // MARK: Face ID toggle ON / OFF
                     Section {
-                        // MARK: Toggle FaceID on / off
                         HStack {
                             Image(systemName: "faceid")
                                 .font(.system(size: 26))
@@ -72,7 +72,7 @@ struct PrivacySettingsView: View {
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 })
                             }
-
+                            
                             
                             // MARK: 60 minutes
                             HStack {
@@ -87,6 +87,22 @@ struct PrivacySettingsView: View {
                             }
                             
                         }
+                    }
+                    
+                    // MARK: Pin Code toggle ON / OFF
+                    Section {
+                        HStack {
+                            Image(systemName: "lock.open")
+                                .font(.system(size: 26))
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
+                            Toggle("Secure with pin", isOn: $appLockModel.isAppLockEnabled)
+                                .font(.custom("Avenir", size: 17).bold())
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
+                            .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
+                                appLockModel.appLockStateChange(appLockState: value)
+                            })
                     }
                 }
             }

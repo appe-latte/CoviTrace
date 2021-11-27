@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import Firebase
 import Combine
-import LocalAuthentication
+import Firebase
 import UserNotifications
-
+import LocalAuthentication
 
 @main
 struct CoviTraceApp: App {

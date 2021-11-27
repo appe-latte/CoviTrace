@@ -26,10 +26,7 @@ struct UploadInformationView: View {
     @State private var presentImporter = false // presents File importer
     
     var body: some View {
-        ZStack
-        {
-            //            Background()
-            
+        ZStack {
             VStack {
                 VStack(spacing: 30) {
                     
