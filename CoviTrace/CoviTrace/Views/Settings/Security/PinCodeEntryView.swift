@@ -1,5 +1,5 @@
 //
-//  PasscodeEntryView.swift
+//  PinCodeEntryView.swift
 //  CoviTrace
 //
 //  Created by Stanford L. Khumalo on 26/11/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PasscodeEntryView: View {
+struct PinCodeEntryView: View {
     @StateObject var loginData = PhoneVerificationViewModel()
     
     var body: some View {
@@ -51,7 +51,7 @@ struct PasscodeEntryView: View {
                 // MARK: Button Entry
                 CustomNumberPad(value: $loginData.mobileNumber, isVerify: false)
             }
-        }.navigationTitle("Passcode Entry")
+        }.navigationTitle("Enter Pin")
             .navigationBarTitleDisplayMode(.inline)
     }
 }
