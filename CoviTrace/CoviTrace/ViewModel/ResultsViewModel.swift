@@ -16,7 +16,7 @@ class ResultsViewModel: ObservableObject {
     private var db = Firestore.firestore()
     
     func fetchData(id: String) {
-        db.collection("results").whereField("userId", in: [id]).addSnapshotListener { (querySnapshot, error) in
+        db.collection("pcr_results").whereField("userId", in: [id]).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No records")
                 return

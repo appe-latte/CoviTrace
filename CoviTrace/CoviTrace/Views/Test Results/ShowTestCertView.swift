@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct ShowTestCertView: View {
+    @State private var imageUrl = URL(string: "")
+    @EnvironmentObject private var viewModel : ResultsViewModel
+    
     
     var body: some View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
@@ -21,13 +26,15 @@ struct ShowTestCertView: View {
                     // MARK: Image frame
                     
                     HStack {
-                        Text("Test Certificate will appear here...")
+//                        Text("Test Certificate will appear here...")
+                        Text("\(imageUrl?.absoluteString ?? "Test Certificate will appear here...")")
                             .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(purple)
                     }.frame(width: UIScreen.main.bounds.size.width - 40, height: 650)
                         .background(purple.opacity(0.1))
                         .cornerRadius(10)
+                        .onAppear(perform: loadImage)
                     
                     Spacer()
                     
@@ -58,6 +65,19 @@ struct ShowTestCertView: View {
                     }
                 }
             }
+        }
+    }
+    
+    func loadImage() {
+        let filename = UUID().uuidString
+        let storageRef = Storage.storage().reference(withPath: "/pcr_certificates/\(filename)")
+        
+        storageRef.downloadURL { (url, error) in
+            if error != nil {
+                print("Error: \(error?.localizedDescription)")
+                return
+            }
+            self.imageUrl = url!
         }
     }
 }

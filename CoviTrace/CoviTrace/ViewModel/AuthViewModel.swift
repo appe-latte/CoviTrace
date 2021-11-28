@@ -39,7 +39,7 @@ class AuthViewModel: ObservableObject {
     }
     
     // MARK: User Registration function
-    func userRegistration(email: String, userPwd: String, firstName: String, lastName: String, profileImage: UIImage, verified: String, idNumber: String, cellNum: String) {
+    func userRegistration(email: String, userPwd: String, firstName: String, lastName: String, profileImage: UIImage, verified: String, idNumber: String, cellNum: String, dob: String, regCountry: String, idType: String) {
         guard let imageData = profileImage.jpegData(compressionQuality: 0.6) else { return }
         let filename = NSUUID().uuidString
         let storageRef = Storage.storage().reference(withPath: "/profile_images/\(filename)")
@@ -70,7 +70,10 @@ class AuthViewModel: ObservableObject {
                                 "uid": user.uid,
                                 "verified": verified,
                                 "id_num": idNumber,
-                                "cell_num": cellNum
+                                "cell_num": cellNum,
+                                "dob": dob,
+                                "reg_country": regCountry,
+                                "id_type": idType
                     ]
                     
                     Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in

@@ -16,9 +16,15 @@ struct SignUpView: View {
     @State private var email = ""
     @State private var userPassword = ""
     @State private var cellNum = ""
+    @State private var regCountry = "-"
+    @State private var idType = "-"
+    @State private var dob = "-"
+    @State private var verified = "Not Verified"
+    
     //    @State private var countryCode = ""
     //    let countryCodeType = ["code", "+27", "+263"]
-    @State private var verified = "not verified"
+    
+    
     @State private var keyboardHeight: CGFloat = 0
     
     // MARK: Image Picker
@@ -146,7 +152,7 @@ struct SignUpView: View {
                     // MARK: "Sign Up" Button
                     Button(action: {
                         guard let image = selectedUIImage else {return}
-                        viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum)
+                        viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum, dob: dob, regCountry: regCountry, idType: idType)
                     }, label: {
                         Text("Sign Up")
                             .font(.custom("Avenir", size: 18))
