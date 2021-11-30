@@ -19,6 +19,7 @@ struct AddFirstDoseView: View {
     @State var firstVaccDoseCountry = ""
     @State var firstDoseUploadDate = Date() // Logs the date the first dose is uploaded onto the system.
     @State var vaccCardVerified = "Not Verified"
+    @State var documentId = ""
     @ObservedObject private var viewModel = FirstDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -129,6 +130,20 @@ struct AddFirstDoseView: View {
                         .cornerRadius(10)
                         .padding(.top, 2)
                     
+                    Button(action: {
+                        upload_data()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Update")
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    })
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(10)
+                        .padding(.top, 2)
+                    
                 }.padding(.top, 10)
                 Spacer()
             }
@@ -141,7 +156,14 @@ struct AddFirstDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose1 = dateFormatter.string(from: firstDoseDate)
-        db.collection("first_dose").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_vacc_dose_country": firstVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "vacc_status": vaccStatus])
+        db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_vacc_dose_country": firstVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "vacc_status": vaccStatus])
     }
+    
+    // MARK: update all the information in the DB
+    //    func update_data(){
+    //        let db = Firestore.firestore()
+    //        let dose1 = dateFormatter.string(from: firstDoseDate)
+    //        db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_vacc_dose_country": firstVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "vacc_status": vaccStatus], merge: true)
+    //    }
 }
 

@@ -98,6 +98,7 @@ struct AddSingleDoseView: View {
                     // MARK: "Submit" button
                     Button(action: {
                         upload_data()
+                        update_vacc_status()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Submit")
@@ -119,10 +120,15 @@ struct AddSingleDoseView: View {
     }
     
     // MARK: Upload to "Single Dose" DB
-    
     func upload_data(){
         let db = Firestore.firestore()
         let dose4 = dateFormatter.string(from: singleDoseDate)
-        db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate])
+        db.collection("single_dose").document("Si_D: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate])
+    }
+    
+    // MARK: update vaccination status
+    func update_vacc_status(){
+        let db = Firestore.firestore()
+        db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["vacc_status": vaccStatus], merge: true)
     }
 }

@@ -17,6 +17,7 @@ struct AddBoosterShotView: View {
     @State var boosterDoseVaccProvider = ""
     @State var boosterDoseCountry = ""
     @State var vaccCardVerified = "Not Verified"
+    @State var vaccStatus = "Fully Vaccinated"
     @State var boosterDoseUploadDate = Date() // Logs the date the dose is uploaded onto the system.
     
     @ObservedObject private var viewModel = FirstDoseVaccViewModel()
@@ -119,6 +120,7 @@ struct AddBoosterShotView: View {
                     // MARK: "Submit" button
                     Button(action: {
                         upload_data()
+                        update_vacc_status()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Submit")
@@ -140,10 +142,15 @@ struct AddBoosterShotView: View {
     }
     
     // MARK: Upload to "booster" DB
-    
     func upload_data(){
         let db = Firestore.firestore()
         let dose3 = dateFormatter.string(from: boosterDoseDate)
-        db.collection("booster").document().setData(["userId": authModel.userSession!.uid, "booster_date": dose3, "booster_batch_num": boosterDosebatchNum, "booster_vacc_type": boosterDoseVaccType, "booster_provider" : boosterDoseVaccProvider, "booster_issued_by" : boosterDoseLocation, "booster_dose_country": boosterDoseCountry, "booster_upload_date": boosterDoseUploadDate, "vacc_card_verified": vaccCardVerified])
+        db.collection("booster").document("BD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "booster_date": dose3, "booster_batch_num": boosterDosebatchNum, "booster_vacc_type": boosterDoseVaccType, "booster_provider" : boosterDoseVaccProvider, "booster_issued_by" : boosterDoseLocation, "booster_dose_country": boosterDoseCountry, "booster_upload_date": boosterDoseUploadDate, "vacc_card_verified": vaccCardVerified])
+    }
+    
+    // MARK: updates the Vaccination Status
+    func update_vacc_status(){
+        let db = Firestore.firestore()
+        db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["vacc_status": vaccStatus], merge: true)
     }
 }

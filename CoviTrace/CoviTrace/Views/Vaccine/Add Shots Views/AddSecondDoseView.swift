@@ -119,6 +119,7 @@ struct AddSecondDoseView: View {
                     // MARK: "Submit" button
                     Button(action: {
                         upload_data()
+                        update_vacc_status()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Submit")
@@ -143,9 +144,13 @@ struct AddSecondDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose2 = dateFormatter.string(from: secondDoseDate)
-        db.collection("second_dose").document().setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "2nd_vacc_dose_country": secondVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate])
-        
+        db.collection("second_dose").document("SD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "2nd_vacc_dose_country": secondVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate])
+    }
+    
+    // MARK: Update vaccination status
+    func update_vacc_status() {
+        let db = Firestore.firestore()
         // MARK: Update vacc_status to reflect in VaccPassView
-        db.collection("first_dose").document().setData(["userId": authModel.userSession!.uid, "vacc_status": vaccStatus])
+        db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["vacc_status": vaccStatus], merge: true)
     }
 }
