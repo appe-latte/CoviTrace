@@ -21,7 +21,7 @@ struct UploadInformationView: View {
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
-    @ObservedObject private var vaccModel = VaccinationViewModel()
+    @ObservedObject private var vaccModel = FirstDoseVaccViewModel()
     
     @State private var presentImporter = false // presents File importer
     
@@ -46,7 +46,7 @@ struct UploadInformationView: View {
                                     Text("+ First")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
-                                    Text("Dose Jab")
+                                    Text("Dose")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
@@ -70,7 +70,7 @@ struct UploadInformationView: View {
                                     Text("+ Second")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
-                                    Text("Dose Jab")
+                                    Text("Dose")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
@@ -94,7 +94,7 @@ struct UploadInformationView: View {
                                     Text("+ Single")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
-                                    Text("Dose Jab")
+                                    Text("Dose")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
@@ -144,7 +144,7 @@ struct UploadInformationView: View {
                                     Text("+ PCR")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
-                                    Text("Test Results")
+                                    Text("Results")
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
@@ -216,21 +216,5 @@ struct UploadInformationView: View {
             .navigationBarTitle("Upload Information", displayMode: .inline)
             
         }
-    }
-}
-
-func uploadVaccCardImage(image:UIImage){
-    if let imageData = image.jpegData(compressionQuality: 1){
-        let storage = Storage.storage()
-        storage.reference().child("vaccination_card").putData(imageData, metadata: nil){
-            (_, err) in
-            if let err = err {
-                print("Error - \(err.localizedDescription)")
-            } else {
-                print("Image upload succesful")
-            }
-        }
-    } else {
-        print("Image couldn't be unwrapped")
     }
 }

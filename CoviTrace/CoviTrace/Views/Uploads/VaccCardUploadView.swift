@@ -14,7 +14,7 @@ struct VaccCardUploadView: View {
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
-    @ObservedObject private var vaccModel = VaccinationViewModel()
+    @ObservedObject private var vaccModel = FirstDoseVaccViewModel()
     
     // MARK: Image Picker Properties
     @State private var showActionSheet = false
@@ -28,19 +28,34 @@ struct VaccCardUploadView: View {
     @State private var errTitle = ""
     @State private var errMessage = ""
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
-//        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             Background()
             VStack(spacing: 10) {
-                VStack{
-                    Text("Upload Vaccination Card")
+                HStack {
+                    Text("Add Vaccination Card")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("dismiss")
+                            .font(.custom("Avenir", size: 10))
+                            .foregroundColor(purple)
+                    }).frame(width: 40, height: 20)
+                        .background(Color.white)
+                        .clipShape(Capsule())
                 }
                 .padding(.top, 15)
+                .padding(.horizontal, 15)
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     

@@ -22,7 +22,7 @@ struct ContentView: View {
     // MARK: Objects
     @EnvironmentObject var viewModel : AuthViewModel
     @EnvironmentObject var resultsModel : ResultsViewModel
-    @EnvironmentObject var vaccModel : VaccinationViewModel
+    @EnvironmentObject var vaccModel : FirstDoseVaccViewModel
     @StateObject var appLockModel = AppLockViewModel()
     
     var body: some View {

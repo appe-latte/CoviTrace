@@ -13,14 +13,13 @@ struct AddFirstDoseView: View {
     @State var firstDoseVaccType = ""
     @State var firstDoseDate = Date()
     @State var firstDosebatchNum = ""
-    @State var shotType = "First Dose"
     @State var vaccStatus = "First Dose Administered"
     @State var firstDosageLocation = ""
     @State var firstDoseVaccProvider = ""
-    @State var vaccDoseCountry = ""
+    @State var firstVaccDoseCountry = ""
     @State var firstDoseUploadDate = Date() // Logs the date the first dose is uploaded onto the system.
-    @State var vaccCardVerified = "Verification Pending"
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @State var vaccCardVerified = "Not Verified"
+    @ObservedObject private var viewModel = FirstDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
     let vaccineType = ["Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johnson"]
@@ -32,15 +31,30 @@ struct AddFirstDoseView: View {
     }()
     
     var body: some View {
-        ZStack{
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
+        ZStack {
             Background()
             VStack {
-                VStack{
-                    Text("Add First Dosage Information")
+                HStack {
+                    Text("Add First Dose")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("dismiss")
+                            .font(.custom("Avenir", size: 10))
+                            .foregroundColor(purple)
+                    }).frame(width: 40, height: 20)
+                        .background(Color.white)
+                        .clipShape(Capsule())
                 }
                 .padding(.top, 15)
+                .padding(.horizontal, 15)
                 
                 VStack {
                     // MARK: First Dose Date
@@ -94,7 +108,7 @@ struct AddFirstDoseView: View {
                         .cornerRadius(10)
                     
                     // MARK: Vaccination Country
-                    SimpleTextField(text: $vaccDoseCountry, placeholder: Text("Vaccination Country"))
+                    SimpleTextField(text: $firstVaccDoseCountry, placeholder: Text("Vaccination Country"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1))
@@ -120,13 +134,14 @@ struct AddFirstDoseView: View {
             }
         }.navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
+            .accentColor(Color.white)
     }
     
     // MARK: Upload to "Vaccinations" DB
     func upload_data(){
         let db = Firestore.firestore()
         let dose1 = dateFormatter.string(from: firstDoseDate)
-        db.collection("vaccinations").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "shot_type": shotType ])
+        db.collection("first_dose").document().setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_vacc_dose_country": firstVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "vacc_status": vaccStatus])
     }
 }
 

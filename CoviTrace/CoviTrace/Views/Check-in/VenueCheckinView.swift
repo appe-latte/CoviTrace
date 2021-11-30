@@ -13,7 +13,7 @@ struct VenueCheckinView: View {
     @State private var email = ""
     
     // MARK: Objects
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var viewModel = FirstDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
     

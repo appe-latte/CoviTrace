@@ -15,10 +15,10 @@ struct SecondDoseVaccView: View {
     @State var secondDoseDate = ""
     @State var secondDosageLocation = ""
     @State var secondDoseVaccProvider = ""
-    @State var vaccDoseCountry = ""
+    @State var secondVaccDoseCountry = ""
     
     @ObservedObject private var authModel = AuthViewModel()
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var doseModel = SecondDoseVaccViewModel()
     
     var body: some View {
         ZStack {
@@ -26,7 +26,7 @@ struct SecondDoseVaccView: View {
             Form {
                 // MARK: Second Dose Information
                 Section(header: Text("Second Vaccine Dose")) {
-                    List(viewModel.results) { results in
+                    List(doseModel.secondDoseData) { results in
                         VStack(alignment: .leading, spacing: 15) {
                             Section {
                                 
@@ -102,7 +102,7 @@ struct SecondDoseVaccView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.vaccDoseCountry)
+                                    Text(results.secondVaccDoseCountry)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -113,7 +113,7 @@ struct SecondDoseVaccView: View {
                 }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
             }
             .onAppear() {
-                self.viewModel.fetchData(id: authModel.userSession!.uid)
+                self.doseModel.fetchData(id: authModel.userSession!.uid)
             }
             Spacer()
         }

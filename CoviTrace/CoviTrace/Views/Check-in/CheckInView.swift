@@ -19,7 +19,7 @@ struct CheckInView: View {
     
     @EnvironmentObject var viewModel : AuthViewModel
     @ObservedObject var resultsViewModel = ResultsViewModel()
-    @ObservedObject private var vaccModel = VaccinationViewModel()
+    @ObservedObject private var vaccModel = FirstDoseVaccViewModel()
     
     var body: some View {
         ZStack{

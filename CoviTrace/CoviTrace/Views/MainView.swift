@@ -33,7 +33,7 @@ struct MainView: View {
     // MARK: Objects
     @EnvironmentObject var authModel : AuthViewModel
     @EnvironmentObject var resultsModel : ResultsViewModel
-    @EnvironmentObject var vaccModel : VaccinationViewModel
+    @EnvironmentObject var vaccModel : FirstDoseVaccViewModel
     
     init() {
         let barTintColor = UINavigationBarAppearance()

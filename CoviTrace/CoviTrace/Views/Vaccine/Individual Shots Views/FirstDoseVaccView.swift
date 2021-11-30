@@ -16,10 +16,10 @@ struct FirstDoseVaccView: View {
     @State var firstDoseDate = ""
     @State var firstDosageLocation = ""
     @State var firstDoseVaccProvider = ""
-    @State var vaccDoseCountry = ""
+    @State var firstVaccDoseCountry = ""
     
     @ObservedObject private var authModel = AuthViewModel()
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var doseModel = FirstDoseVaccViewModel()
     
     var body: some View {
         ZStack {
@@ -27,7 +27,7 @@ struct FirstDoseVaccView: View {
             Form {
                 // MARK: Booster Shot Information
                 Section(header: Text("First Vaccine Dose")) {
-                    List(viewModel.results) { results in
+                    List(doseModel.firstDoseData) { firstDoseData in
                         VStack(alignment: .leading, spacing: 15) {
                             Section {
                                 
@@ -38,7 +38,7 @@ struct FirstDoseVaccView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.firstDoseDate)
+                                    Text(firstDoseData.firstDoseDate)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -51,7 +51,7 @@ struct FirstDoseVaccView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.firstDosebatchNum)
+                                    Text(firstDoseData.firstDosebatchNum)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -64,7 +64,7 @@ struct FirstDoseVaccView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.firstDoseVaccType)
+                                    Text(firstDoseData.firstDoseVaccType)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -77,7 +77,7 @@ struct FirstDoseVaccView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.firstDosageLocation)
+                                    Text(firstDoseData.firstDosageLocation)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -90,7 +90,7 @@ struct FirstDoseVaccView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.firstDoseVaccProvider)
+                                    Text(firstDoseData.firstDoseVaccProvider)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -103,7 +103,7 @@ struct FirstDoseVaccView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     Spacer()
-                                    Text(results.vaccDoseCountry)
+                                    Text(firstDoseData.firstVaccDoseCountry)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -114,7 +114,7 @@ struct FirstDoseVaccView: View {
                 }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
             }
             .onAppear() {
-                self.viewModel.fetchData(id: authModel.userSession!.uid)
+                self.doseModel.fetchData(id: authModel.userSession!.uid)
             }
             Spacer()
         }

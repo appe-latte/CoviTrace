@@ -28,10 +28,9 @@ class BoosterShotViewModel: ObservableObject {
                 let boosterDoseDate = data["booster_date"] as? String ?? ""
                 let boosterDoseLocation = data["booster_issued_by"] as? String ?? ""
                 let boosterDoseVaccProvider = data["booster_provider"] as? String ?? ""
-                let shotType = data["shot_type"] as? String ?? ""
                 let boosterDoseCountry = data["booster_dose_country"] as? String ?? ""
                 
-                return BoosterData(id: userid, boosterDosebatchNum: boosterDosebatchNum, boosterDoseVaccType: boosterDoseVaccType, boosterDoseDate: boosterDoseDate, boosterDoseLocation: boosterDoseLocation, boosterDoseVaccProvider: boosterDoseVaccProvider, shotType: shotType, boosterDoseCountry: boosterDoseCountry)
+                return BoosterData(id: userid, boosterDosebatchNum: boosterDosebatchNum, boosterDoseVaccType: boosterDoseVaccType, boosterDoseDate: boosterDoseDate, boosterDoseLocation: boosterDoseLocation, boosterDoseVaccProvider: boosterDoseVaccProvider, boosterDoseCountry: boosterDoseCountry)
             }
         }
     }

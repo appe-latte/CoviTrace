@@ -13,7 +13,7 @@ struct VaccCardView: View {
     @State private var showSheetView = false
     @State private var selectDose: doseSelection = .first
     
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var viewModel = FirstDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     

@@ -17,7 +17,7 @@ struct AddResultsView: View {
     @State private var testDate = Date()
     @State private var testProvider = ""
     @State private var userId = ""
-    @State private var testVerified = "pending"
+    @State private var testVerified = "Not Verified"
     @State private var resultUploadDate = Date() // Logs the date that the results are uploaded onto the system
     @State private var specimenNum = ""
     @State private var pcrImageUrl = ""
@@ -26,9 +26,9 @@ struct AddResultsView: View {
     //    @State private var presentImporter = false // presents File importer
     
     // MARK: Image Picker
-//    @State var selectedUIImage: UIImage?
-//    @State var image: Image?
-//    @State var showImagePicker = false
+    //    @State var selectedUIImage: UIImage?
+    //    @State var image: Image?
+    //    @State var showImagePicker = false
     
     // MARK: Image Picker Properties
     @State private var showActionSheet = false
@@ -42,10 +42,10 @@ struct AddResultsView: View {
     @State private var errTitle = ""
     @State private var errMessage = ""
     
-//    func loadImage(){
-//        guard let selectedImage = selectedUIImage else {return}
-//        image = Image(uiImage: selectedImage)
-//    }
+    //    func loadImage(){
+    //        guard let selectedImage = selectedUIImage else {return}
+    //        image = Image(uiImage: selectedImage)
+    //    }
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
@@ -58,14 +58,30 @@ struct AddResultsView: View {
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
-        ZStack{
+        ZStack {
             Background()
-            VStack{
-                
-                Text("Add PCR / Antigen Test Results")
-                    .foregroundColor(.white)
-                    .fontWeight(.semibold)
+            VStack {
+                HStack {
+                    Text("Add PCR Results")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("dismiss")
+                            .font(.custom("Avenir", size: 10))
+                            .foregroundColor(purple)
+                    }).frame(width: 40, height: 20)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                }
+                .padding(.top, 15)
+                .padding(.horizontal, 15)
                 
                 // MARK: Test Reference Number TextField
                 SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
@@ -152,7 +168,7 @@ struct AddResultsView: View {
                 //                    }
                 
                 Button(action: {
-//                    showImagePicker.toggle()
+                    //                    showImagePicker.toggle()
                     self.showActionSheet = true
                 }, label: {
                     HStack {
@@ -188,9 +204,9 @@ struct AddResultsView: View {
                     }.sheet(isPresented: $showImagePicker){
                         ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                     }
-//                    .sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
-//                        ImagePicker(image: $selectedUIImage)
-//                    })
+                //                    .sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
+                //                        ImagePicker(image: $selectedUIImage)
+                //                    })
                 
                 // MARK: "Log Results" Button
                 Button(action: {
@@ -228,30 +244,30 @@ struct AddResultsView: View {
                     }
                     
                     
-//                    let date = dateFormatter.string(from: testDate)
-//                    let pcrDictionary = [
-//                        "userId": authModel.userSession!.uid,
-//                        "test_ref_num": self.testRefNum,
-//                        "lab_ref_num": self.labRefNum,
-//                        "test_provider": self.testProvider,
-//                        "date": date,
-//                        "test_result": self.testResult,
-//                        "test_verified": self.testVerified,
-//                        "pcr_upload_date": self.resultUploadDate,
-//                        "specimen_num": self.specimenNum,
-//                        "pcrImageUrl": self.pcrImageUrl
-//                    ] as [String : Any]
-//
-//                    let filename = NSUUID().uuidString
-//                    let docRef = Firestore.firestore().document("pcr_results/\(filename)")
-//
-//                    docRef.setData(pcrDictionary){ (error) in
-//                        if let error = error {
-//                            print("Error: \(error)")
-//                        } else {
-//                            print("Form uploaded successfully")
-//                        }
-//                    }
+                    //                    let date = dateFormatter.string(from: testDate)
+                    //                    let pcrDictionary = [
+                    //                        "userId": authModel.userSession!.uid,
+                    //                        "test_ref_num": self.testRefNum,
+                    //                        "lab_ref_num": self.labRefNum,
+                    //                        "test_provider": self.testProvider,
+                    //                        "date": date,
+                    //                        "test_result": self.testResult,
+                    //                        "test_verified": self.testVerified,
+                    //                        "pcr_upload_date": self.resultUploadDate,
+                    //                        "specimen_num": self.specimenNum,
+                    //                        "pcrImageUrl": self.pcrImageUrl
+                    //                    ] as [String : Any]
+                    //
+                    //                    let filename = NSUUID().uuidString
+                    //                    let docRef = Firestore.firestore().document("pcr_results/\(filename)")
+                    //
+                    //                    docRef.setData(pcrDictionary){ (error) in
+                    //                        if let error = error {
+                    //                            print("Error: \(error)")
+                    //                        } else {
+                    //                            print("Form uploaded successfully")
+                    //                        }
+                    //                    }
                     
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
@@ -274,14 +290,15 @@ struct AddResultsView: View {
             }.padding(.top, 15)
             
         }.navigationBarHidden(false)
+            .accentColor(Color.white)
     }
     
     // MARK: Upload to "Results" DB
-//    func upload_data(){
-//        let db = Firestore.firestore()
-//        let date = dateFormatter.string(from: testDate)
-//        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified, "result_upload_date": resultUploadDate, "specimen_num": specimenNum])
-//    }
+    //    func upload_data(){
+    //        let db = Firestore.firestore()
+    //        let date = dateFormatter.string(from: testDate)
+    //        db.collection("results").document().setData(["userId": authModel.userSession!.uid, "test_ref_num": testRefNum, "lab_ref_num": labRefNum, "test_provider": testProvider, "date": date, "test_result": testResult, "test_verified": testVerified, "result_upload_date": resultUploadDate, "specimen_num": specimenNum])
+    //    }
     
     func uploadPcrImage(image:UIImage){
         if let imageData = image.jpegData(compressionQuality: 0.6){

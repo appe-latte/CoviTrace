@@ -13,13 +13,13 @@ struct AddBoosterShotView: View {
     @State var boosterDoseVaccType = ""
     @State var boosterDoseDate = Date()
     @State var boosterDosebatchNum = ""
-    @State var shotType = "Booster"
     @State var boosterDoseLocation = ""
     @State var boosterDoseVaccProvider = ""
     @State var boosterDoseCountry = ""
+    @State var vaccCardVerified = "Not Verified"
     @State var boosterDoseUploadDate = Date() // Logs the date the dose is uploaded onto the system.
     
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var viewModel = FirstDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -33,15 +33,30 @@ struct AddBoosterShotView: View {
     }()
     
     var body: some View {
-        ZStack{
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
+        ZStack {
             Background()
             VStack {
-                VStack{
-                    Text("Add Booster Information")
+                HStack {
+                    Text("Add Booster Dose")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("dismiss")
+                            .font(.custom("Avenir", size: 10))
+                            .foregroundColor(purple)
+                    }).frame(width: 40, height: 20)
+                        .background(Color.white)
+                        .clipShape(Capsule())
                 }
                 .padding(.top, 15)
+                .padding(.horizontal, 15)
                 
                 VStack {
                     // MARK: Single Dose Date
@@ -121,6 +136,7 @@ struct AddBoosterShotView: View {
             }
         }.navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
+            .accentColor(Color.white)
     }
     
     // MARK: Upload to "booster" DB
@@ -128,6 +144,6 @@ struct AddBoosterShotView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose3 = dateFormatter.string(from: boosterDoseDate)
-        db.collection("booster").document().setData(["userId": authModel.userSession!.uid, "booster_date": dose3, "booster_batch_num": boosterDosebatchNum, "booster_vacc_type": boosterDoseVaccType, "booster_provider" : boosterDoseVaccProvider, "booster_issued_by" : boosterDoseLocation, "booster_dose_country": boosterDoseCountry, "booster_upload_date": boosterDoseUploadDate, "shot_type": shotType])
+        db.collection("booster").document().setData(["userId": authModel.userSession!.uid, "booster_date": dose3, "booster_batch_num": boosterDosebatchNum, "booster_vacc_type": boosterDoseVaccType, "booster_provider" : boosterDoseVaccProvider, "booster_issued_by" : boosterDoseLocation, "booster_dose_country": boosterDoseCountry, "booster_upload_date": boosterDoseUploadDate, "vacc_card_verified": vaccCardVerified])
     }
 }

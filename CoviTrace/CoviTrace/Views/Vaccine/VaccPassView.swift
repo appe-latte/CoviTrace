@@ -18,7 +18,8 @@ struct VaccPassView: View {
     @State private var firstDoseDate = ""
     @State private var secondDoseDate = ""
     
-    @ObservedObject private var vaccModel = VaccinationViewModel()
+    @ObservedObject private var firstDoseVaccModel = FirstDoseVaccViewModel()
+    @ObservedObject private var secondDoseVaccModel = SecondDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     
@@ -67,10 +68,10 @@ struct VaccPassView: View {
                 }.padding(.horizontal, 20)
                 
                 // MARK: QR Code and Certificate information
-                List(vaccModel.results) { results in
+                List(firstDoseVaccModel.firstDoseData) { firstDoseData in
                     VStack {
                         HStack{
-                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Status: \(results.vaccStatus)\n Cellphone: \(cellNum)\n Date: \(checkDate)"))
+                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Status: \(firstDoseData.vaccStatus)\n Cellphone: \(cellNum)\n Date: \(checkDate)"))
                                 .interpolation(.none)
                                 .resizable()
                                 .scaledToFill()
@@ -96,7 +97,7 @@ struct VaccPassView: View {
                                         .font(.custom("Avenir", size: 16))
                                         .fontWeight(.bold)
                                     HStack{
-                                        Text(results.vaccStatus)
+                                        Text(firstDoseData.vaccStatus)
                                             .font(.custom("Avenir", size: 16))
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -141,7 +142,7 @@ struct VaccPassView: View {
                 }
                 
             }.onAppear() {
-                self.vaccModel.fetchData(id: authModel.userSession!.uid)
+                self.firstDoseVaccModel.fetchData(id: authModel.userSession!.uid)
                 
             }.padding(.top, 20)
         }.navigationBarTitle("Vaccination Pass")

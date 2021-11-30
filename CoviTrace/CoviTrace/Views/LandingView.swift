@@ -12,10 +12,9 @@ struct LandingView: View {
     
     var body: some View {
         
-        NavigationView{
-            ZStack
-            {
-                // MARK: BACKGROUND COLOUR CODE:
+        NavigationView {
+            ZStack {
+                // MARK: BACKGROUND COLOUR
                 Background()
                 
                 VStack(alignment:.center){
@@ -32,8 +31,7 @@ struct LandingView: View {
                     }.padding(.top, 20)
                     Spacer()
                 }
-                
-                    
+       
                     VStack(spacing: 10) {
                         
                         Spacer()
@@ -69,11 +67,5 @@ struct LandingView: View {
             
         }
             
-    }
-}
-
-struct LandingView_Previews: PreviewProvider {
-    static var previews: some View {
-        LandingView()
     }
 }

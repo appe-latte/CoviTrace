@@ -47,7 +47,7 @@ struct SignUpView: View {
     }
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             ZStack
             {
                 Background()
@@ -126,7 +126,7 @@ struct SignUpView: View {
                                     .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                                 
                                 // MARK: Cell Number Text
-                                CustomTextField(text: $cellNum, placeholder: Text("Cell number inc. country code"), imageName: "phone")
+                                CustomTextField(text: $cellNum, placeholder: Text("Cell number"), imageName: "phone")
                                     .padding(5)
                                     .foregroundColor(Color(.white))
                                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
@@ -179,8 +179,8 @@ struct SignUpView: View {
                     .keyboardAdaptive()
                     .ignoresSafeArea(.keyboard)
             }
-        }.navigationBarHidden(true)
-            .navigationBarTitleDisplayMode(.inline)
+//        }.navigationBarHidden(true)
+//            .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: Keyboard Height listener

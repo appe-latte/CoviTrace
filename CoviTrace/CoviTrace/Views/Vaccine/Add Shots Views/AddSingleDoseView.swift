@@ -17,11 +17,10 @@ struct AddSingleDoseView: View {
     @State var singleDoseLocation = ""
     @State var singleDoseVaccProvider = ""
     @State var vaccDoseCountry = ""
-    @State var vaccCardVerified = "verification pending"
-    @State var shotType = "Single Dose"
+    @State var vaccCardVerified = "Not Verified"
     @State var singleDoseUploadDate = Date() // Logs the date the dose is uploaded onto the system.
     
-    @ObservedObject private var viewModel = VaccinationViewModel()
+    @ObservedObject private var viewModel = FirstDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
     
@@ -32,15 +31,30 @@ struct AddSingleDoseView: View {
     }()
     
     var body: some View {
-        ZStack{
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
+        ZStack {
             Background()
             VStack {
-                VStack{
-                    Text("Add Single Dosage Information")
+                HStack {
+                    Text("Add Single Dose")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("dismiss")
+                            .font(.custom("Avenir", size: 10))
+                            .foregroundColor(purple)
+                    }).frame(width: 40, height: 20)
+                        .background(Color.white)
+                        .clipShape(Capsule())
                 }
                 .padding(.top, 15)
+                .padding(.horizontal, 15)
                 
                 VStack {
                     // MARK: Single Dose Date
@@ -101,6 +115,7 @@ struct AddSingleDoseView: View {
             }
         }.navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
+            .accentColor(Color.white)
     }
     
     // MARK: Upload to "Single Dose" DB
@@ -108,6 +123,6 @@ struct AddSingleDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose4 = dateFormatter.string(from: singleDoseDate)
-        db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate, "shotType": shotType])
+        db.collection("single_dose").document().setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate])
     }
 }

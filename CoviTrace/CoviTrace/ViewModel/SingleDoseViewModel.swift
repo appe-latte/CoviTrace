@@ -29,9 +29,8 @@ class SingleDoseViewModel: ObservableObject {
                 let singleDoseLocation = data["single_issued_by"] as? String ?? ""
                 let singleDoseVaccProvider = data["single_provider"] as? String ?? ""
                 let vaccDoseCountry = data["vacc_dose_country"] as? String ?? ""
-                let shotType = data["shot_type"] as? String ?? ""
                 
-                return SingleDoseData(id: userid, singleDosebatchNum : singleDosebatchNum, singleDoseVaccType : singleDoseVaccType, singleDoseDate : singleDoseDate, singleDoseLocation : singleDoseLocation, singleDoseVaccProvider : singleDoseVaccProvider, vaccDoseCountry : vaccDoseCountry, shotType: shotType)
+                return SingleDoseData(id: userid, singleDosebatchNum : singleDosebatchNum, singleDoseVaccType : singleDoseVaccType, singleDoseDate : singleDoseDate, singleDoseLocation : singleDoseLocation, singleDoseVaccProvider : singleDoseVaccProvider, vaccDoseCountry : vaccDoseCountry)
             }
         }
     }
