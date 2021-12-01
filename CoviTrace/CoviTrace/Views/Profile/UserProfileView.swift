@@ -11,6 +11,7 @@ import Firebase
 struct UserProfileView: View {
     @State private var lastName = ""
     @State private var firstName = ""
+    @State var profileModal_shown = false
     
     @EnvironmentObject var authModel : AuthViewModel
     
@@ -83,6 +84,21 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
+                        // MARK: Update missing information
+                        HStack {
+                            Button(action: {
+                                self.profileModal_shown.toggle()
+                            }, label: {
+                                    Text("Update Profile")
+                                    .font(.custom("Avenir", size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .cornerRadius(10)
+                                .padding(.top, 2)
+                        }
+                        
                         Text("To make any changes to the information above please contact: admin@covitrace.co.za").lineLimit(nil)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .font(.custom("Avenir", size: 13).bold())
@@ -130,6 +146,10 @@ struct UserProfileView: View {
                     }
                 }
             }
+            ProfileHalfModalView(isShown: $profileModal_shown, modalHeight: 800) {
+                UpdateProfileView()
+            }
+            
         }.navigationTitle("User Information")
             .navigationBarTitleDisplayMode(.inline)
     }

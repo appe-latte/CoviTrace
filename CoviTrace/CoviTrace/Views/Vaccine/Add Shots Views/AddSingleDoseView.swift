@@ -61,10 +61,12 @@ struct AddSingleDoseView: View {
                     DatePicker(selection: $singleDoseDate, in: ...Date(), displayedComponents: .date) {
                         Text("Choose Date:")
                             .padding(.leading)
+                            .font(.custom("Avenir", size: 14).bold())
                             .foregroundColor(Color(.white)).font(.system(size: 14))
                     }.foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1)).font(.system(size: 12))
+                        .font(.custom("Avenir", size: 14))
                         .cornerRadius(10)
                     
                     // MARK: Single Dose Batch Number

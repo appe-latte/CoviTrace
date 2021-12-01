@@ -64,8 +64,10 @@ struct AddBoosterShotView: View {
                     DatePicker(selection: $boosterDoseDate, in: ...Date(), displayedComponents: .date) {
                         Text("Choose Date:")
                             .padding(.leading)
+                            .font(.custom("Avenir", size: 14).bold())
                             .foregroundColor(Color(.white)).font(.system(size: 14))
                     }.foregroundColor(Color(.white))
+                        .font(.custom("Avenir", size: 14))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                         .background(Color(.white).opacity(0.1)).font(.system(size: 12))
                         .cornerRadius(10)
@@ -81,15 +83,17 @@ struct AddBoosterShotView: View {
                     HStack {
                         Text("Vaccine Type:")
                             .padding(.leading)
-                            .foregroundColor(Color(.white)).font(.system(size: 14))
+                            .font(.custom("Avenir", size: 14).bold())
+                            .foregroundColor(Color(.white))
                         
                         Spacer()
                         
                         Picker("Vaccine Type", selection: $boosterDoseVaccType) {
                             ForEach(vaccineType, id: \.self) {
                                 Text($0)
+                                    .font(.custom("Avenir", size: 14))
                             }
-                        }
+                        }.frame(width: 110)
                     }.padding(.trailing, 50)
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
