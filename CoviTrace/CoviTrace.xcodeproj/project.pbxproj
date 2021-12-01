@@ -47,7 +47,6 @@
 		2F524195263B3E810016D87D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524194263B3E810016D87D /* UserProfileView.swift */; };
 		2F5956DE25D1B337004D1F53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
-		2F5BABC52756EC660065D13C /* ProfileHalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BABC42756EC660065D13C /* ProfileHalfModalView.swift */; };
 		2F5BABC72756ED900065D13C /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BABC62756ED900065D13C /* UpdateProfileView.swift */; };
 		2F5FB50A2748668E006A7F46 /* FormUploadHalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */; };
 		2F5FB50B274869C3006A7F46 /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
@@ -140,7 +139,6 @@
 		2F524194263B3E810016D87D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2F5956DD25D1B337004D1F53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Certificates/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		2F5BABC42756EC660065D13C /* ProfileHalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHalfModalView.swift; sourceTree = "<group>"; };
 		2F5BABC62756ED900065D13C /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUploadHalfModalView.swift; sourceTree = "<group>"; };
 		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
@@ -362,6 +360,7 @@
 		2F92CBC82751C5050057DD95 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */,
 				2F92CBC02751B43D0057DD95 /* PasscodeEntryView.swift */,
 				2F92CBC62751C4F60057DD95 /* PinCodeEntryView.swift */,
 			);
@@ -397,7 +396,6 @@
 				2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */,
 				2F452400274347E100DF637C /* SendMailView.swift */,
 				2FE7C2CA2747521F00A8F32A /* ScannerHalfModalView.swift */,
-				2F5BABC42756EC660065D13C /* ProfileHalfModalView.swift */,
 				2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */,
 			);
 			path = Helpers;
@@ -414,7 +412,6 @@
 				2FA5C34B270752FF00E8D51D /* Registration */,
 				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
 				2F96A34F2732AB8D00719DF7 /* MainView.swift */,
-				2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */,
 				2FDA20D92749AD2900B40EDE /* Check-in */,
 				2F3452ED26FA427300A7D3F8 /* Test Results */,
 				2F3680BA26F0E5430002F8A0 /* Vaccine */,
@@ -635,7 +632,6 @@
 				2F0F2A7625B5BD4A00103879 /* CoviTrace.xcdatamodeld in Sources */,
 				2F4F5741265524E500EFB454 /* AboutCovitraceView.swift in Sources */,
 				2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */,
-				2F5BABC52756EC660065D13C /* ProfileHalfModalView.swift in Sources */,
 				2F2C84A925FA9C290002F2C3 /* DigitalCertView.swift in Sources */,
 				2F5FB50A2748668E006A7F46 /* FormUploadHalfModalView.swift in Sources */,
 				2FD6C4E1273DF2A400A0D7B1 /* SceneDelegate.swift in Sources */,
@@ -744,7 +740,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -799,7 +795,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -817,12 +813,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CoviTrace/CoviTrace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CoviTrace/Preview Content\"";
 				DEVELOPMENT_TEAM = QACLP69RHJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoviTrace/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -843,12 +839,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CoviTrace/CoviTrace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CoviTrace/Preview Content\"";
 				DEVELOPMENT_TEAM = QACLP69RHJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoviTrace/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

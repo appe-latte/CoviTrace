@@ -2,7 +2,7 @@
 //  CustomNumberPad.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 26/11/2021.
+//  Created by Appè Latte on 26/11/2021.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  CustomSecureTextField.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 08/02/2021.
+//  Created by Appè Latte on 08/02/2021.
 //
 
 import SwiftUI

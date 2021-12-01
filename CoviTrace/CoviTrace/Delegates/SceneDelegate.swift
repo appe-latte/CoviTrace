@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 11/11/2021.
+//  Created by Appè Latte on 11/11/2021.
 //
 
 import UIKit

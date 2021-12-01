@@ -11,7 +11,7 @@ import Firebase
 struct UserProfileView: View {
     @State private var lastName = ""
     @State private var firstName = ""
-    @State var profileModal_shown = false
+    @State private var updateProfileSheetView = false
     
     @EnvironmentObject var authModel : AuthViewModel
     
@@ -84,24 +84,7 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
-                        // MARK: Update missing information
-                        HStack {
-                            Spacer()
-                            
-                            Button(action: {
-                                self.profileModal_shown.toggle()
-                            }, label: {
-                                Text("Update Profile")
-                                    .font(.custom("Avenir", size: 14))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                            }).frame(width: 150, height: 35)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
-                                .padding(.top, 2)
-                            
-                            Spacer()
-                        }
+                        
                         
                         Text("To make changes your name or email contact: admin@covitrace.co.za").lineLimit(nil)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -150,8 +133,31 @@ struct UserProfileView: View {
                     }
                 }
             }
-            ProfileHalfModalView(isShown: $profileModal_shown, modalHeight: 800) {
-                UpdateProfileView()
+            
+            Spacer()
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    // MARK: Update missing information
+                    Button(action: {
+                        self.updateProfileSheetView.toggle()
+                    }, label: {
+                        Text("Update Info.")
+                            .font(.custom("Avenir", size: 10))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }).frame(width: 80, height: 80)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .clipShape(Circle())
+                        .padding(.horizontal, 20)
+                        .sheet(isPresented: $updateProfileSheetView){
+                            UpdateProfileView()
+                        }
+                }
             }
             
         }.navigationTitle("User Information")

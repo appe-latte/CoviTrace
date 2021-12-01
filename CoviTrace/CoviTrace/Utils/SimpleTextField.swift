@@ -2,7 +2,7 @@
 //  SimpleTextField.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 13/02/2021.
+//  Created by Appè Latte on 13/02/2021.
 //
 
 import SwiftUI

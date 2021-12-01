@@ -2,7 +2,7 @@
 //  ImagePicker.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 09/04/2021.
+//  Created by Appè Latte on 09/04/2021.
 //
 
 import SwiftUI

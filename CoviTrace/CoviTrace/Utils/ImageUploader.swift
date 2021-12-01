@@ -2,7 +2,7 @@
 //  ImageUploader.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 11/11/2021.
+//  Created by Appè Latte on 11/11/2021.
 //
 //  Code sample from Christopher Guirguis for "imagePicker".
 

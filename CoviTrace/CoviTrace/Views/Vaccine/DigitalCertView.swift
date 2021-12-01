@@ -52,11 +52,12 @@ struct DigitalCertView: View {
                             Button(action: {
                                 shareSheet()
                             }, label: {
-                                VStack {
-                                    Image(systemName: "square.and.arrow.up")
-                                        .font(.system(size: 18))
-                                        .foregroundColor(Color(.white))
-                                    Text("Share")
+                                VStack(spacing: 2) {
+                                    Text("Download")
+                                        .font(.custom("Avenir", size: 10))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.white)
+                                    Text("Certificate")
                                         .font(.custom("Avenir", size: 10))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color.white)

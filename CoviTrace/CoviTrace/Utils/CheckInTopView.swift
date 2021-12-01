@@ -2,7 +2,7 @@
 //  CheckInTopView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 11/02/2021.
+//  Created by Appè Latteon 11/02/2021.
 //
 
 import SwiftUI
@@ -20,11 +20,5 @@ struct CheckInTopView: View {
                 Spacer()
             }
         }
-    }
-}
-
-struct TopView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckInTopView()
     }
 }

@@ -2,7 +2,7 @@
 //  Model.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 18/01/2021.
+//  Created by Appè Latte on 18/01/2021.
 //
 
 import Foundation

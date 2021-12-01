@@ -52,6 +52,7 @@ struct UpdateProfileView: View {
                 .padding(.horizontal, 15)
                 
                 Spacer()
+                    .frame(height: 15)
                 
                 // MARK: Cell Number Text
                 CustomTextField(text: $cellNum, placeholder: Text("Cell number"), imageName: "phone")
@@ -96,6 +97,8 @@ struct UpdateProfileView: View {
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(10)
                     .padding(.top, 2)
+                
+                Spacer()
             }
         }
     }
