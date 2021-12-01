@@ -171,15 +171,19 @@ struct AddResultsView: View {
                     //                    showImagePicker.toggle()
                     self.showActionSheet = true
                 }, label: {
-                    HStack {
-                        Text("Upload PCR Results Image")
+                    HStack(spacing: 1) {
+                        Image(systemName: "photo")
+                            .imageScale(.medium)
+                            .scaledToFill()
+                            .foregroundColor(purple)
+                        Text("upload image")
                             .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .padding(.trailing, 10)
                     }
                     
-                }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                }).frame(width: 150, height: 50)
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
@@ -278,7 +282,7 @@ struct AddResultsView: View {
                             .foregroundColor(.white)
                     }
                     
-                }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                }).frame(width: 150, height: 50)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(10)
                     .padding(.top, 2)

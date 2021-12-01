@@ -86,17 +86,21 @@ struct UserProfileView: View {
                         
                         // MARK: Update missing information
                         HStack {
+                            Spacer()
+                            
                             Button(action: {
                                 self.profileModal_shown.toggle()
                             }, label: {
-                                    Text("Update Profile")
+                                Text("Update Profile")
                                     .font(.custom("Avenir", size: 14))
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
-                            }).frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                            }).frame(width: 150, height: 35)
                                 .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .cornerRadius(10)
                                 .padding(.top, 2)
+                            
+                            Spacer()
                         }
                         
                         Text("To make changes your name or email contact: admin@covitrace.co.za").lineLimit(nil)

@@ -104,7 +104,7 @@ struct DigitalCertUploadView : View {
                                 .scaledToFill()
                                 .foregroundColor(green)
                         }
-                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                    }.frame(width: 150, height: 50)
                         .background(Color.white)
                         .cornerRadius(10)
                         .actionSheet(isPresented: $showActionSheet){
@@ -143,10 +143,10 @@ struct DigitalCertUploadView : View {
                         }
                     }){
                         Text("Upload Certificate")
-                            .font(.custom("Avenir", size: 18))
+                            .font(.custom("Avenir", size: 14))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                    }.frame(width: 150, height: 50)
                         .background(green)
                         .cornerRadius(10)
                     

@@ -157,7 +157,7 @@ struct SignUpView: View {
                     Text("Sign Up")
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
-                }).frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                }).frame(width: 150, height: 50)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(10)
                     .disabled((lastName != "" && firstName != "" && email != "" && userPassword != "") ? false : true)

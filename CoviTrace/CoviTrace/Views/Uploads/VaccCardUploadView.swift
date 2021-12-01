@@ -102,7 +102,7 @@ struct VaccCardUploadView: View {
                                 .scaledToFill()
                                 .foregroundColor(green)
                         }
-                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                    }.frame(width: 150, height: 50)
                         .background(Color.white)
                         .cornerRadius(10)
                         .actionSheet(isPresented: $showActionSheet){
@@ -136,10 +136,10 @@ struct VaccCardUploadView: View {
                         }
                     }){
                         Text("Upload Card")
-                            .font(.custom("Avenir", size: 18))
+                            .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                    }.frame(width: 150, height: 50)
                         .background(green)
                         .cornerRadius(10)
                 }
