@@ -46,7 +46,7 @@ struct ProfileHalfModalView<Content: View> : View {
                     
                     // MARK: Bottom Sheet
                     ZStack {
-                        Color.white.opacity(0.9)
+                        Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
                             .frame(width: UIScreen.main.bounds.size.width, height: 400)
                             .cornerRadius(10)
                             .shadow(radius: 5)

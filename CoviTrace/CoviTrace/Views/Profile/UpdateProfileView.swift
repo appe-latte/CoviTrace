@@ -26,9 +26,33 @@ struct UpdateProfileView: View {
     }()
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack {
             Background()
             VStack(spacing: 5) {
+                HStack {
+                    Text("Update information")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("dismiss")
+                            .font(.custom("Avenir", size: 10))
+                            .foregroundColor(purple)
+                    }).frame(width: 40, height: 20)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                }
+                .padding(.top, 15)
+                .padding(.horizontal, 15)
+                
+                Spacer()
+                
                 // MARK: Cell Number Text
                 CustomTextField(text: $cellNum, placeholder: Text("Cell number"), imageName: "phone")
                     .padding(5)

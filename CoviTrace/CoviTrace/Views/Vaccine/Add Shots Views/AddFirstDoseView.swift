@@ -135,19 +135,19 @@ struct AddFirstDoseView: View {
                         .cornerRadius(10)
                         .padding(.top, 2)
                     
-                    Button(action: {
-                        upload_data()
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Text("Update")
-                            .font(.custom("Avenir", size: 18))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                    })
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .cornerRadius(10)
-                        .padding(.top, 2)
+//                    Button(action: {
+//                        upload_data()
+//                        self.presentationMode.wrappedValue.dismiss()
+//                    }, label: {
+//                        Text("Update")
+//                            .font(.custom("Avenir", size: 18))
+//                            .fontWeight(.bold)
+//                            .foregroundColor(.white)
+//                    })
+//                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+//                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+//                        .cornerRadius(10)
+//                        .padding(.top, 2)
                     
                 }.padding(.top, 10)
                 Spacer()
