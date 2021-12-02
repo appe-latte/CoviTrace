@@ -55,58 +55,108 @@ struct UpdateProfileView: View {
                     .frame(height: 15)
                 
                 // MARK: Cell Number Text
-                CustomTextField(text: $cellNum, placeholder: Text("Cell number"), imageName: "phone")
-                    .padding(5)
-                    .foregroundColor(Color(.white))
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(10)
-                    .keyboardType(.numbersAndPunctuation)
+                HStack(spacing: 5) {
+                    CustomTextField(text: $cellNum, placeholder: Text("Cell number"), imageName: "phone")
+                        .padding(5)
+                        .foregroundColor(Color(.white))
+                        .frame(width: 300, height: 50)
+                        .background(Color(.white).opacity(0.1))
+                        .cornerRadius(10)
+                        .keyboardType(.numbersAndPunctuation)
+                    
+                    Button(action: {
+                        submit_cellNum()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Save")
+                            .font(.custom("Avenir", size: 12))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    })
+                        .frame(width: 50, height: 50)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(10)
+                        .padding(.top, 2)
+                }
                 
                 // MARK: ID Number
-                CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "note.text")
-                    .padding(5)
-                    .foregroundColor(Color(.white))
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
-                    .cornerRadius(10)
+                HStack(spacing: 5) {
+                    CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "note.text")
+                        .padding(5)
+                        .foregroundColor(Color(.white))
+                        .frame(width: 300, height: 50)
+                        .background(Color(.white).opacity(0.1))
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        submit_idNum()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Save")
+                            .font(.custom("Avenir", size: 12))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    })
+                        .frame(width: 50, height: 50)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(10)
+                        .padding(.top, 2)
+                }
                 
-                // MARK: DoB
-                DatePicker(selection: $dob, in: ...Date(), displayedComponents: .date) {
-                    Text("DOB:")
-                        .padding(.leading)
-                        .font(.custom("Avenir", size: 14).bold())
-                        .foregroundColor(Color(.white)).font(.system(size: 14))
-                }.foregroundColor(Color(.white))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1)).font(.system(size: 12))
-                    .font(.custom("Avenir", size: 14))
-                    .cornerRadius(10)
-                
-                // MARK: "Submit" button
-                Button(action: {
-                    upload_data()
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Submit")
-                        .font(.custom("Avenir", size: 18))
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                })
-                    .frame(width: 150, height: 50)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    .cornerRadius(10)
-                    .padding(.top, 2)
-                
+                // MARK: DOB
+                HStack(spacing: 2){
+                    DatePicker(selection: $dob, in: ...Date(), displayedComponents: .date) {
+                        HStack {
+                            Image(systemName: "calendar")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color(.white))
+                                .padding(.leading, 5)
+                            Text("DOB:")
+                                .padding(.leading)
+                                .font(.custom("Avenir", size: 14).bold())
+                                .foregroundColor(Color(.white)).font(.system(size: 14))
+                        }
+                    }.foregroundColor(Color(.white))
+                        .frame(width: 300, height: 50)
+                        .background(Color(.white).opacity(0.1)).font(.system(size: 12))
+                        .font(.custom("Avenir", size: 12))
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        submit_dob()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Save")
+                            .font(.custom("Avenir", size: 12))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    })
+                        .frame(width: 50, height: 50)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(10)
+                        .padding(.top, 2)
+                }
                 Spacer()
             }
         }
     }
     
     // MARK: Upload to "Vaccinations" DB
-    func upload_data(){
+    func submit_dob(){
         let db = Firestore.firestore()
         let dob = dateFormatter.string(from: dob)
-        db.collection("users").document(authModel.userSession!.uid).setData(["cell_num": cellNum, "id_num": idNumber, "dob": dob], merge: true)
+        db.collection("users").document(authModel.userSession!.uid).setData(["dob": dob], merge: true)
+    }
+    
+    func submit_idNum(){
+        let db = Firestore.firestore()
+        db.collection("users").document(authModel.userSession!.uid).setData(["id_num": idNumber], merge: true)
+    }
+    
+    func submit_cellNum(){
+        let db = Firestore.firestore()
+        db.collection("users").document(authModel.userSession!.uid).setData(["cell_num": cellNum], merge: true)
     }
 }

@@ -31,7 +31,7 @@ class CameraPreview: UIView {
         self.backgroundColor = UIColor.black
         label = UILabel(frame: self.bounds)
         label?.numberOfLines = 4
-        label?.text = "Click here to simulate scan"
+        label?.text = "Camera Simulation"
         label?.textColor = UIColor.white
         label?.textAlignment = .center
         

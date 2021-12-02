@@ -5,24 +5,17 @@
 //  Created by Stanford L. Khumalo on 11/06/2021.
 //
 
+import UIKit
 import SwiftUI
 import WebKit
-import UIKit
-import MessageUI
+import SafariServices
 
 struct SettingsView: View {
     @EnvironmentObject var authModel : AuthViewModel
-    
+    @State private var showSafari : Bool = false
     @Environment(\.openURL) var openURL
     
     let appVersion = ""
-    
-    @State private var showAlert : Bool = false
-    
-    @State private var errTitle = ""
-    @State private var errMessage = ""
-    @State private var showEmailSheet = false
-    @State var result: Result<MFMailComposeResult, Error>? = nil
     
     var body: some View {
         ZStack {
@@ -43,36 +36,18 @@ struct SettingsView: View {
                                 .padding(.leading, 15)
                         }
                         
-                        // MARK: Verification Request
-
-                        Button(action: {
-                            self.verifRequest()
-                        },
-                               label: {
-                            HStack {
-                                Image(systemName: "checkmark.shield")
-                                    .font(.system(size: 26))
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.trailing, 5)
-                                Text("Request Verification")
-                                    .font(.custom("Avenir", size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .font(Font.title.weight(.semibold))
-                                    .foregroundColor(Color(.gray)).opacity(0.5)
-                                    .frame(width: 13, height: 13)
-                            }
-                        }).sheet(isPresented: $showEmailSheet) {
-                            SendMailView(result: $result, newSubject: "In-app Verification Request", newMsgBody: "I am kindly requesting verification for my recently uploaded Vaccination Card / Digital Certificate / PCR Test Results. Thank you!")
+                        // MARK: FAQs Section
+                        NavigationLink(destination: FaqsView()){
+                            Image(systemName: "questionmark.circle")
+                                .font(.system(size: 26))
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
+                            Text("FAQs")
+                                .font(.custom("Avenir", size: 17))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
                         }
-                        .alert(isPresented: $showAlert, content: {
-                            Alert(title: Text("\(errTitle)"), message: Text("\(errMessage)"))
-                        })
                         
                         // MARK: Privacy Settings
                         NavigationLink(
@@ -88,24 +63,10 @@ struct SettingsView: View {
                                     .padding(.leading, 15)
                             }
                         
-                        // MARK: Notifications
-                        //                        NavigationLink(
-                        //                            destination: HowToVerifyView()){
-                        //                                Image(systemName: "app.badge")
-                        //                                    .font(.system(size: 26))
-                        //                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                        //                                    .padding(.trailing, 5)
-                        //                                Text("Notifications")
-                        //                                    .font(.custom("Avenir", size: 17))
-                        //                                    .fontWeight(.bold)
-                        //                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        //                                    .padding(.leading, 15)
-                        //                            }
-                        
                         // MARK: Privacy Policy
                         NavigationLink(
                             destination: PrivacyPolicyView()){
-                                Image(systemName: "link")
+                                Image(systemName: "link.circle")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
@@ -119,7 +80,7 @@ struct SettingsView: View {
                         // MARK: Terms and Conditions
                         NavigationLink(
                             destination: TermsCondView()){
-                                Image(systemName: "link")
+                                Image(systemName: "link.circle")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
@@ -130,23 +91,54 @@ struct SettingsView: View {
                                     .padding(.leading, 15)
                             }
                         
+                        // MARK: Developer's Website
+                        HStack {
+                            Image(systemName: "globe")
+                                .font(.system(size: 26))
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
+                            Text("Developer's Site")
+                                .font(.custom("Avenir", size: 17))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .scaledToFit()
+                                .font(Font.title.weight(.semibold))
+                                .foregroundColor(Color(.gray)).opacity(0.5)
+                                .frame(width: 13, height: 13)
+                        }.onTapGesture {
+                            showSafari.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showSafari, content: {
+                            SFSafariViewWrapper(url: URL(string: "https://www.appe-latte.co.uk")!)
+                        })
                         
                         // MARK: Share The App
-                        //                        Button(action: shareSheet) {
-                        //                            HStack{
-                        //                                Image(systemName: "square.and.arrow.up")
-                        //                                    .font(.system(size: 26))
-                        //                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                        //                                    .padding(.trailing, 5)
-                        //                                Text("Share")
-                        //                                    .font(.custom("Avenir", size: 17))
-                        //                                    .fontWeight(.bold)
-                        //                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        //                                    .padding(.leading, 15)
-                        //                            }
-                        //                        }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        Button(action: shareSheet) {
+                            HStack{
+                                Image(systemName: "square.and.arrow.up")
+                                    .font(.system(size: 26))
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.trailing, 5)
+                                Text("Share")
+                                    .font(.custom("Avenir", size: 17))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         
-                        // MARK: Sign Out
+                        // MARK: Sign Out Button
                         Button(action: {
                             authModel.signOut()
                         }) {
@@ -164,7 +156,6 @@ struct SettingsView: View {
                 }.background(Color.black)
                 
                 // MARK: App Version Number
-                
                 HStack(spacing: 5){
                     Text("Developed by Appe Latte Ltd. (UK) ~")
                         .font(.custom("Avenir", size: 12))
@@ -176,27 +167,6 @@ struct SettingsView: View {
             }.navigationBarTitle("Settings", displayMode: .inline)
         }
     }
-    
-    func verifRequest() {
-        if MFMailComposeViewController.canSendMail() {
-            self.showEmailSheet = true
-            
-            self.errTitle = "Email Sent"
-            self.errMessage = "Your verification request has been sent."
-            self.showAlert = true
-        } else {
-            self.errTitle = "Alert"
-            self.errMessage = "Error sending email. Please try again."
-            self.showAlert = true
-        }
-    }
-    
-    // MARK: "Share" app function
-    //    func shareSheet() {
-    //        guard let data = URL(string: "https://apps.apple.com/us/app/covitrace/id1553975926") else { return }
-    //        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-    //        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
-    //    }
 }
 
 extension UIApplication {

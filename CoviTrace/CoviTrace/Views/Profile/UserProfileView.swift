@@ -154,6 +154,7 @@ struct UserProfileView: View {
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .clipShape(Circle())
                         .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
                         .sheet(isPresented: $updateProfileSheetView){
                             UpdateProfileView()
                         }
