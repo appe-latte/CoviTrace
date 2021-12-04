@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import Firebase
 import CoreData
+import FirebaseAuth
 import FirebaseMessaging
 import UserNotifications
 import LocalAuthentication

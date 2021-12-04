@@ -106,7 +106,7 @@ struct VaccPassView: View {
                                 
                                 // MARK: Vaccination Country
                                 VStack(alignment: .leading) {
-                                    Text("Country:")
+                                    Text("Reg. Country:")
                                         .font(.custom("Avenir", size: 16))
                                         .fontWeight(.bold)
                                     HStack{

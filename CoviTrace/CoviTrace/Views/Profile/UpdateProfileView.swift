@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 import Firebase
-import FirebaseFirestore
 
 struct UpdateProfileView: View {
     @State private var idNumber = ""
     @State private var cellNum = ""
     @State private var dob  = Date()
-    
+     
     @State private var keyboardHeight: CGFloat = 0
     
-    @EnvironmentObject var authModel : AuthViewModel
+    @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     let dateFormatter: DateFormatter = {
@@ -138,6 +138,7 @@ struct UpdateProfileView: View {
                         .cornerRadius(10)
                         .padding(.top, 2)
                 }
+                
                 Spacer()
             }
         }

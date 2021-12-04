@@ -13,7 +13,7 @@ struct UserProfileView: View {
     @State private var firstName = ""
     @State private var updateProfileSheetView = false
     
-    @EnvironmentObject var authModel : AuthViewModel
+    @ObservedObject private var authModel = AuthViewModel()
     
     var body: some View {
         let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
@@ -135,9 +135,11 @@ struct UserProfileView: View {
             Spacer()
             
             VStack {
+                
                 Spacer()
                 
                 HStack {
+                    
                     Spacer()
                     
                     // MARK: Update missing information
