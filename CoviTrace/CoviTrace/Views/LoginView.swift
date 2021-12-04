@@ -13,6 +13,7 @@ struct LoginView: View {
     @State var email = ""
     @State var userPassword = ""
     @State private var isLoggedIn : Bool = false
+    @State var showPwdResetSheet = false
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
@@ -39,19 +40,21 @@ struct LoginView: View {
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                             .background(Color(.white).opacity(0.1))
                             .cornerRadius(10)
-                        
                     }
                     
                     // MARK: "Password Recovery"
-                    NavigationLink(
-                        destination: PasswordResetView()){
-                            Text("Forgot Password?")
-                                .font(.custom("Avenir", size: 12))
-                                .fontWeight(.bold)
-                                .foregroundColor(Color(.white))
-                                .padding(2)
-                                .padding(.leading, 175)
-                        }
+                    Button(action: {
+                        self.showPwdResetSheet.toggle()
+                    }, label: {
+                        Text("Forgot Password?")
+                            .font(.custom("Avenir", size: 12))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(.white))
+                            .padding(2)
+                            .padding(.leading, 175)
+                    }).sheet(isPresented: $showPwdResetSheet){
+                        PasswordResetView()
+                    }
                     
                     Spacer()
                     
