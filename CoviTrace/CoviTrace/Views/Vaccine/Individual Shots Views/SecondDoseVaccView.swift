@@ -22,7 +22,8 @@ struct SecondDoseVaccView: View {
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
+            
             Form {
                 // MARK: Second Dose Information
                 Section(header: Text("Second Vaccine Dose")) {
@@ -115,6 +116,7 @@ struct SecondDoseVaccView: View {
             .onAppear() {
                 self.doseModel.fetchData(id: authModel.userSession!.uid)
             }
+            
             Spacer()
         }
     }

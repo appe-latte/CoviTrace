@@ -22,7 +22,8 @@ struct SingleDoseVaccView: View {
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
+            
             Form {
                 Section(header: Text("Single Shot Dose")) {
                     List(singleModel.singleDoseData) { singleDoseData in
@@ -114,6 +115,7 @@ struct SingleDoseVaccView: View {
             .onAppear() {
                 self.singleModel.fetchData(id: authModel.userSession!.uid)
             }
+            
             Spacer()
         }
     }

@@ -21,10 +21,6 @@ struct SignUpView: View {
     @State private var dob = "-"
     @State private var verified = "Not Verified"
     
-    //    @State private var countryCode = ""
-    //    let countryCodeType = ["code", "+27", "+263"]
-    
-    
     @State private var keyboardHeight: CGFloat = 0
     
     // MARK: Image Picker
@@ -39,6 +35,9 @@ struct SignUpView: View {
     
     init() {
         self.listenForKeyboardNotifications()
+        UINavigationBar.appearance().barTintColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+        UINavigationBar.appearance().tintColor = UIColor(Color.white)
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
     func loadImage(){
@@ -47,14 +46,13 @@ struct SignUpView: View {
     }
     
     var body: some View {
-        //        NavigationView{
-        ZStack
-        {
-            Background()
+        ZStack {
+            bgPurple()
             
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     Group {
+                        
                         // MARK: Profile Image selection
                         VStack(alignment:.center){
                             Button(action: {showImagePicker.toggle()}, label: {
@@ -84,11 +82,10 @@ struct SignUpView: View {
                             }).sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: {
                                 ImagePicker(image: $selectedUIImage)
                             })
-                            
-                        }.padding(.bottom, 5)
+                        }
                         
                         // MARK: Textfields
-                        VStack(spacing: 10) {
+                        VStack(spacing: 5) {
                             
                             // MARK: First Name Text
                             CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
@@ -107,15 +104,6 @@ struct SignUpView: View {
                                 .background(Color(.white).opacity(0.1))
                                 .cornerRadius(10)
                             
-                            // MARK: ID Number
-//                            CustomTextField(text: $idNumber, placeholder: Text("ID Number"), imageName: "note.text")
-//                                .padding(5)
-//                                .foregroundColor(Color(.white))
-//                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-//                                .background(Color(.white).opacity(0.1))
-//                                .cornerRadius(10)
-//                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-                            
                             // MARK: User Email Text
                             CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                                 .padding(5)
@@ -125,16 +113,6 @@ struct SignUpView: View {
                                 .cornerRadius(10)
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
-                            // MARK: Cell Number Text
-//                            CustomTextField(text: $cellNum, placeholder: Text("Cell number"), imageName: "phone")
-//                                .padding(5)
-//                                .foregroundColor(Color(.white))
-//                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-//                                .background(Color(.white).opacity(0.1))
-//                                .cornerRadius(10)
-//                                .keyboardType(.numbersAndPunctuation)
-//                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-                            
                             // MARK: User Password Text
                             CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
                                 .padding(5)
@@ -143,6 +121,8 @@ struct SignUpView: View {
                                 .background(Color(.white).opacity(0.1))
                                 .cornerRadius(10)
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+                            
+                            Spacer()
                             
                         }.font(.subheadline)
                     }
@@ -175,13 +155,13 @@ struct SignUpView: View {
                             .foregroundColor(Color(.white))
                             .padding(.top, 2)
                     }
-            }.padding()
+                
+            }.navigationBarTitle("User Registration")
+                .navigationBarTitleDisplayMode(.inline)
+                .padding()
                 .keyboardAdaptive()
                 .ignoresSafeArea(.keyboard)
-            
         }.accentColor(Color.white)
-        //        }.navigationBarHidden(true)
-        //            .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: Keyboard Height listener

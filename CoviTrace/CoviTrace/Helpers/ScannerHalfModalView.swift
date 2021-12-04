@@ -59,7 +59,6 @@ struct ScannerHalfModalView<Content: View> : View {
                     .offset(y: isShown ? ((self.dragState.isDragging && dragState.translation.height >= 1) ? dragState.translation.height : 0) : modalHeight)
                     .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     .gesture(drag)
-                    
                 }
             }.edgesIgnoringSafeArea(.all)
         }

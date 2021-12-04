@@ -19,10 +19,12 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
+            
             VStack(alignment: .center) {
                 Form {
                     Section {
+                        
                         // MARK: How App Works
                         NavigationLink(destination: AboutView()){
                             Image(systemName: "info.circle")
@@ -56,7 +58,7 @@ struct SettingsView: View {
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
-                                Text("Privacy Settings")
+                                Text("Secure App")
                                     .font(.custom("Avenir", size: 17))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -157,8 +159,6 @@ struct SettingsView: View {
                 
                 // MARK: App Version Number
                 HStack(spacing: 5){
-                    Text("Developed by Appe Latte Ltd. (UK) ~")
-                        .font(.custom("Avenir", size: 12))
                     Text("App Version: \(UIApplication.appVersion!)")
                         .font(.custom("Avenir", size: 12))
                 }.foregroundColor(Color(.white))

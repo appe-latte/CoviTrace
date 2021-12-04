@@ -19,9 +19,9 @@ struct VaccCardUploadView: View {
     // MARK: Image Picker Properties
     @State private var showActionSheet = false
     @State private var showImagePicker = false
-    @State private var sourceType:UIImagePickerController.SourceType = .camera
+    @State private var sourceType : UIImagePickerController.SourceType = .camera
     @State private var image : UIImage?
-    @State var upload_image : UIImage?
+    @State private var upload_image : UIImage?
     
     // MARK: Alert
     @State private var showToastAlert : Bool = false
@@ -35,7 +35,8 @@ struct VaccCardUploadView: View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-            Background()
+            bgPurple()
+            
             VStack(spacing: 10) {
                 HStack {
                     Text("Add Vaccination Card")
@@ -74,14 +75,14 @@ struct VaccCardUploadView: View {
                                     .scaledToFit()
                                     .foregroundColor(Color.white)
                                     .frame(width:15, height:15)
-                                Text("add Vaccination Card image")
+                                Text("add vaccination card image.")
                                     .font(.system(size: 14))
                                     .foregroundColor(Color.white)
                             }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
                                 .background(Color.white.opacity(0.1))
                                 .cornerRadius(10)
                         }
-                    }.padding()
+                    }.padding(5)
                     
                     // MARK: Image Picker button
                     Button(action: {
@@ -107,6 +108,7 @@ struct VaccCardUploadView: View {
                         .cornerRadius(10)
                         .actionSheet(isPresented: $showActionSheet){
                             ActionSheet(title: Text("Add Vaccincation Card"), message: nil, buttons: [
+                                
                                 // MARK: take image using camera
                                 .default(Text("Camera"), action: {
                                     self.showImagePicker = true
@@ -121,7 +123,6 @@ struct VaccCardUploadView: View {
                                 
                                 // MARK: "Cancel" button
                                 .cancel()
-                                
                             ])
                         }.sheet(isPresented: $showImagePicker){
                             ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
@@ -130,12 +131,12 @@ struct VaccCardUploadView: View {
                     // MARK: Upload image to Firebase
                     Button(action: {
                         if let thisImage = self.upload_image {
-                            uploadVcardImage(image: thisImage)
+                            uploadVaccCardImage(image: thisImage)
                         } else {
                             showToastAlert.toggle()
                         }
                     }){
-                        Text("Upload Card")
+                        Text("Submit")
                             .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -145,17 +146,16 @@ struct VaccCardUploadView: View {
                 }
                 
                 Spacer()
-                
             }.toast(isPresenting: $showToastAlert){
                 AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
             }
         }
     }
     
-    func uploadVcardImage(image:UIImage){
+    func uploadVaccCardImage(image:UIImage){
         if let imageData = image.jpegData(compressionQuality: 0.6){
             let filename = NSUUID().uuidString
-            let storageRef = Storage.storage().reference(withPath: "/vaccination_cards/\(filename)")
+            let storageRef = Storage.storage().reference(withPath: "/vaccination_card/\(filename)")
             
             storageRef.putData(imageData, metadata: nil) {
                 (_, err) in
@@ -165,12 +165,23 @@ struct VaccCardUploadView: View {
                     self.showToastAlert = true
                 } else {
                     self.errTitle = "Success!"
-                    self.errMessage = "Vaccination card uploaded."
+                    self.errMessage = "Vaccination Card uploaded."
                     self.showToastAlert = true
+                    
+                    storageRef.downloadURL { url, _ in
+                        guard let vaccCardViewUrl = url?.absoluteString else { return }
+                        saveVaccCardViewURL(urlStr: vaccCardViewUrl)
+                    }
                 }
             }
         } else {
             print("Image couldn't be unwrapped")
         }
     }
+    
+    func saveVaccCardViewURL(urlStr : String ){
+        let db = Firestore.firestore()
+        db.collection("users").document(authModel.userSession!.uid).setData(["vaccCardImageUrl": urlStr], merge: true)
+    }
+    
 }

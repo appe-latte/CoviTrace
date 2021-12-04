@@ -12,48 +12,43 @@ import FirebaseFirestore
 
 struct DigitalCertView: View {
     @EnvironmentObject private var authModel : AuthViewModel
+    @State private var showDigiCertSheetView = false
     
     var body: some View {
-//        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack(alignment: .center) {
-                
                 Spacer()
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     // MARK: Digital Certificate
-                    //                    HStack {
-                    //                        Text("Digital Certificate will appear here...")
-                    //                            .font(.custom("Avenir", size: 16))
-                    //                            .fontWeight(.bold)
-                    //                            .foregroundColor(purple)
-                    //                    }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
-                    //                        .background(purple.opacity(0.1))
-                    //                        .cornerRadius(10)
-                    
-                    Image(systemName: "")
-                        .data(url: URL(string: "\(authModel.user!.digiCertImageUrl)")!) // <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 650)
-                        .cornerRadius(10)
-                    
+                    let url = URL(string: authModel.user!.digiCertImageUrl )
+                    if url != nil{
+                        AsyncImage(url: url!,
+                                   placeholder: {
+                            Text("Loading ...")
+                                .font(.custom("Avenir", size: 16).bold())
+                                .foregroundColor(purple)
+                        },
+                                   image: { Image(uiImage: $0).resizable() })
+                            .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
+                            .cornerRadius(10)
+                    }
                     Spacer()
-                    
                 }
                 
-                // MARK: Share saved digital certificate
+                // MARK: Upload Digital Certificate
                 HStack {
                     Spacer()
                     VStack(spacing: 5) {
                         HStack {
                             Button(action: {
-                                shareSheet()
+                                self.showDigiCertSheetView.toggle()
                             }, label: {
                                 VStack(spacing: 2) {
-                                    Text("Download")
+                                    Text("+ Digital")
                                         .font(.custom("Avenir", size: 10))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color.white)
@@ -67,6 +62,9 @@ struct DigitalCertView: View {
                             .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             .clipShape(Circle())
                             .padding(.horizontal, 20)
+                            .sheet(isPresented: $showDigiCertSheetView) {
+                                DigitalCertUploadView()
+                            }
                     }
                 }
             }

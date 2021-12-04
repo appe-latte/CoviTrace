@@ -14,10 +14,10 @@ struct FaceIdLoginView: View {
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
+            
             VStack(alignment: .center) {
                 Spacer()
-                
                 VStack(spacing: 10) {
                     Image(systemName: "lock.fill")
                         .resizable()
@@ -48,7 +48,6 @@ struct FaceIdLoginView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .padding(5)
-                        
                     })
                     
                     Spacer()

@@ -11,11 +11,9 @@ import Combine
 struct LandingView: View {
     
     var body: some View {
-        
         NavigationView {
             ZStack {
-                // MARK: BACKGROUND COLOUR
-                Background()
+                bgPurple()
                 
                 VStack(alignment:.center){
                     VStack{
@@ -29,43 +27,44 @@ struct LandingView: View {
                             .font(.custom("Avenir", size: 24))
                             .fontWeight(.bold)
                     }.padding(.top, 20)
+                    
                     Spacer()
                 }
-       
-                    VStack(spacing: 10) {
-                        
-                        Spacer()
-                        
-                        //MARK: "Register" Button
-                        NavigationLink(
-                            destination: SignUpView()){
-                                Text("Register")
-                                    .font(.custom("Avenir", size: 18))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            }
-                            .frame(width: 150, height: 50)
-                            .background(Color(.white))
-                            .cornerRadius(10)
-                        
-                        // MARK: "Login" Button
-                        NavigationLink(
-                            destination: LoginView()){
-                                Text("Login")
-                                    .font(.custom("Avenir", size: 18))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                            }
-                            .frame(width: 150, height: 50)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .cornerRadius(10)
-                    }.padding(.bottom, 20)
+                
+                VStack(spacing: 10) {
+                    
+                    Spacer()
+                    
+                    //MARK: "Register" Button
+                    NavigationLink(
+                        destination: SignUpView()){
+                            Text("Register")
+                                .font(.custom("Avenir", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        }
+                        .frame(width: 150, height: 50)
+                        .background(Color(.white))
+                        .cornerRadius(10)
+                    
+                    // MARK: "Login" Button
+                    NavigationLink(
+                        destination: LoginView()){
+                            Text("Login")
+                                .font(.custom("Avenir", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 150, height: 50)
+                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .cornerRadius(10)
+                }.padding(.bottom, 20)
                 
             }.navigationBarHidden(true)
                 .edgesIgnoringSafeArea(.all)
                 .accentColor(Color.white)
             
         }
-            
+        
     }
 }

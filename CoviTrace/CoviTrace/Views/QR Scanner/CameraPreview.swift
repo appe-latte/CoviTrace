@@ -49,10 +49,10 @@ class CameraPreview: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
         label?.frame = self.bounds
-        #else
+#else
         previewLayer?.frame = self.bounds
-        #endif
+#endif
     }
 }

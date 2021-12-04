@@ -22,7 +22,8 @@ struct BoosterVaccView: View {
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
+            
             Form {
                 // MARK: Booster Shot Information
                 Section(header: Text("Booster Shot")) {
@@ -115,6 +116,7 @@ struct BoosterVaccView: View {
             .onAppear() {
                 self.boosterModel.fetchData(id: authModel.userSession!.uid)
             }
+            
             Spacer()
         }
     }

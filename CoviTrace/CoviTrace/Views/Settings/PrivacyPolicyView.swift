@@ -17,7 +17,7 @@ struct PrivacyPolicyView: View {
                 WebView(url: URL.init(string: "https://www.iubenda.com/privacy-policy/52172420")!, webViewStateModel: self.webViewStateModel)
             }
         }.navigationBarTitleDisplayMode(.inline)
-        .navigationBarTitle(Text("Privacy Policy"))
+            .navigationBarTitle(Text("Privacy Policy"))
     }
 }
 

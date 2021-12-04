@@ -16,15 +16,9 @@ struct PasswordResetView: View {
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
             
             VStack (alignment: .center){
-                // MARK: View Heading
-                Text("Reset Password")
-                    .font(.custom("Avenir", size: 28))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(.white))
-                    .padding(.trailing, 150)
                 
                 // MARK: User Email Text
                 CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
@@ -42,16 +36,15 @@ struct PasswordResetView: View {
                     
                 }, label: {
                     Text("Reset Password")
-                        .font(.custom("Avenir", size: 18))
+                        .font(.custom("Avenir", size: 16))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                 }).frame(width: 150, height: 50)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(10)
-                
             }.font(.subheadline)
                 .padding(10)
-        }.navigationBarTitle("")
+        }.navigationBarTitle("Reset Password")
             .navigationBarTitleDisplayMode(.inline)
     }
 }

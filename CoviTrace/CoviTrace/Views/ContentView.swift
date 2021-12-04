@@ -29,15 +29,19 @@ struct ContentView: View {
         ZStack {
             Group {
                 if viewModel.userSession != nil {
-                    
-                    if appLockModel.isAppLockEnabled || appLockModel.isAppUnlocked {
-//                        if !appLockModel.isAppLockEnabled || appLockModel.isAppUnlocked { // <- error: unwrapping an Optional value (MainView) when retrieving the user information from Firebase
+                    if !appLockModel.isAppLockEnabled {
                         MainView()
                             .environmentObject(appLockModel)
                             .onAppear { UserNetworkingCall() }
                     } else {
-                        FaceIdLoginView(appLockModel: appLockModel)
-                            .background(Color.white)
+                        if appLockModel.isAppUnlocked{
+                            MainView()
+                                .environmentObject(appLockModel)
+                                .onAppear { UserNetworkingCall() }
+                        } else {
+                            FaceIdLoginView(appLockModel: appLockModel)
+                                .background(Color.white)
+                        }
                     }
                 } else {
                     LandingView()
@@ -46,8 +50,7 @@ struct ContentView: View {
                 // MARK: progress loading
                 if isLoading {
                     ProgressLoadingView()
-                }
-                
+                } 
             }
         }
     }
@@ -94,7 +97,7 @@ struct TabBarButton: View {
 struct ProgressLoadingView: View {
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
                 .ignoresSafeArea()
             
             ProgressView()

@@ -17,6 +17,6 @@ struct TermsCondView: View {
                 WebView(url: URL.init(string: "https://www.iubenda.com/terms-and-conditions/52172420")!, webViewStateModel: self.webViewStateModel)
             }
         }.navigationBarTitleDisplayMode(.inline)
-        .navigationBarTitle(Text("Terms & Conditions"))
+            .navigationBarTitle(Text("Terms & Conditions"))
     }
 }

@@ -18,7 +18,6 @@ struct VaccCardView: View {
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     
     init() {
-        //        UITableView.appearance().backgroundColor = UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
         UITableViewCell.appearance().backgroundColor = UIColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
     }
     

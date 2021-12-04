@@ -84,8 +84,6 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
-                        
-                        
                         Text("To make changes your name or email contact: admin@covitrace.co.za").lineLimit(nil)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .font(.custom("Avenir", size: 13).bold())

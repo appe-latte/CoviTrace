@@ -24,7 +24,6 @@ struct DigitalCertUploadView : View {
     @State private var upload_image : UIImage?
     
     // MARK: Alert
-    @State private var presentImporter = false // presents File importer
     @State private var showToastAlert : Bool = false
     @State private var errTitle = ""
     @State private var errMessage = ""
@@ -36,7 +35,7 @@ struct DigitalCertUploadView : View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-            Background()
+            bgPurple()
             
             VStack(spacing: 10) {
                 HStack {
@@ -76,7 +75,7 @@ struct DigitalCertUploadView : View {
                                     .scaledToFit()
                                     .foregroundColor(Color.white)
                                     .frame(width:15, height:15)
-                                Text("add Digital Certificate image.")
+                                Text("add digital certificate image.")
                                     .font(.system(size: 14))
                                     .foregroundColor(Color.white)
                             }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
@@ -120,15 +119,8 @@ struct DigitalCertUploadView : View {
                                     self.showImagePicker = true
                                     self.sourceType = .photoLibrary
                                 }),
-                                
-                                // MARK: .PDF image
-                                .default(Text(".PDF"), action: {
-                                    self.presentImporter = true
-                                }),
-                                
-                                // MARK: "Cancel" button
+
                                 .cancel()
-                                
                             ])
                         }.sheet(isPresented: $showImagePicker){
                             ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
@@ -142,7 +134,7 @@ struct DigitalCertUploadView : View {
                             showToastAlert.toggle()
                         }
                     }){
-                        Text("Upload Certificate")
+                        Text("Submit")
                             .font(.custom("Avenir", size: 14))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -174,11 +166,21 @@ struct DigitalCertUploadView : View {
                     self.errTitle = "Success!"
                     self.errMessage = "Digital Certificate uploaded."
                     self.showToastAlert = true
+                    
+                    storageRef.downloadURL { url, _ in
+                        guard let certViewUrl = url?.absoluteString else { return }
+                        saveCertViewURL(urlStr: certViewUrl)
+                    }
                 }
             }
         } else {
             print("Image couldn't be unwrapped")
         }
+    }
+    
+    func saveCertViewURL(urlStr : String ){
+        let db = Firestore.firestore()
+        db.collection("users").document(authModel.userSession!.uid).setData(["digiCertImageUrl": urlStr], merge: true)
     }
     
 }

@@ -18,9 +18,9 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Background()
+                bgPurple()
                 
-                VStack (spacing: 10){
+                VStack (spacing: 2){
                     
                     VStack {
                         // MARK: User Email Text
@@ -40,7 +40,7 @@ struct LoginView: View {
                             .background(Color(.white).opacity(0.1))
                             .cornerRadius(10)
                         
-                    }.padding(.top, 20)
+                    }
                     
                     // MARK: "Password Recovery"
                     NavigationLink(
@@ -70,7 +70,6 @@ struct LoginView: View {
                         .alert(isPresented: $viewModel.isError, content: {
                             Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
                         })
-                    
                     
                     // MARK: "No Account"
                     NavigationLink(

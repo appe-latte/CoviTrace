@@ -33,12 +33,12 @@ struct VaccPassView: View {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color(.white))
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        
     }
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
+            
             VStack(alignment: .leading, spacing: 10) {
                 Text("Certificate of Vaccination")
                     .multilineTextAlignment(.leading)
@@ -140,14 +140,12 @@ struct VaccPassView: View {
                         .padding(.top, 10)
                     doseSelectionView(selectedDose: selectDose)
                 }
-                
             }.onAppear() {
                 self.firstDoseVaccModel.fetchData(id: authModel.userSession!.uid)
                 
             }.padding(.top, 20)
         }.navigationBarTitle("Vaccination Pass")
             .navigationBarTitleDisplayMode(.inline)
-        
     }
     
     // MARK: Function for creating QR code
@@ -165,7 +163,6 @@ struct VaccPassView: View {
 }
 
 // MARK: Structure for Segmented picker
-
 enum doseSelection: String, CaseIterable {
     case first = "First"
     case second = "Second"

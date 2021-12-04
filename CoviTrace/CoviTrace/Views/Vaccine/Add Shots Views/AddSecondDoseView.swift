@@ -36,7 +36,7 @@ struct AddSecondDoseView: View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-            Background()
+            bgPurple()
             VStack {
                 HStack {
                     Text("Add Second Dose")
@@ -61,7 +61,7 @@ struct AddSecondDoseView: View {
                 VStack {
                     // MARK: Second Dose Date
                     DatePicker(selection: $secondDoseDate, in: ...Date(), displayedComponents: .date) {
-                        Text("Choose Date:")
+                        Text("Pick Date:")
                             .padding(.leading)
                             .font(.custom("Avenir", size: 14).bold())
                             .foregroundColor(Color(.white)).font(.system(size: 14))
@@ -136,6 +136,7 @@ struct AddSecondDoseView: View {
                         .padding(.top, 2)
                     
                 }.padding(.top, 10)
+                
                 Spacer()
             }
         }.navigationTitle("")

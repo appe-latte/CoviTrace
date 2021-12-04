@@ -8,7 +8,6 @@
 import SwiftUI
 import Firebase
 
-
 struct TestResultView: View {
     @State private var testRefNum = ""
     @State private var testProvider = ""
@@ -21,9 +20,9 @@ struct TestResultView: View {
     @ObservedObject private var authModel = AuthViewModel()
     
     var body: some View {
-        ZStack
-        {
-            Background()
+        ZStack {
+            bgPurple()
+            
             VStack {
                 VStack {
                     List(viewModel.results) { results in
@@ -86,7 +85,7 @@ struct TestResultView: View {
                                 
                                 HStack {
                                     NavigationLink(
-                                        destination: ShowTestCertView()){
+                                        destination: ShowTestCertView(testResult: results)){
                                             
                                         }.opacity(0) // opacity hides the chevron that comes with the NavigationLink
                                 }
@@ -96,7 +95,6 @@ struct TestResultView: View {
                             Image(systemName: "chevron.right")
                                 .foregroundColor(Color.gray)
                                 .padding(.leading, 5)
-                            
                         }
                     }
                     .onAppear() {
@@ -104,8 +102,6 @@ struct TestResultView: View {
                     }
                 }
             }.navigationBarTitle("Saved Test Results", displayMode: .inline)
-            
-            
         }
     }
 }

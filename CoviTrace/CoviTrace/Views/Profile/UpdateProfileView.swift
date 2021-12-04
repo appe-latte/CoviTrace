@@ -29,7 +29,7 @@ struct UpdateProfileView: View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-            Background()
+            bgPurple()
             VStack(spacing: 5) {
                 HStack {
                     Text("Update information")

@@ -23,7 +23,6 @@ struct MainView: View {
     @State var formHalfModal_shown = false
     @State var isHide = false
     
-//    @State private var vaccStatus = ""
     @State private var patientNumber = ""
     @State private var showSecondView = false
     @State private var showSheetView = false
@@ -53,34 +52,28 @@ struct MainView: View {
         Group {
             if authModel.userSession != nil {
                 NavigationView {
-                    ZStack
-                    {
-                        Background()
+                    ZStack {
+                        bgWhite()
                         
                         VStack(spacing: 0){
-                            // MARK: App Bar
                             VStack(spacing: 22){
-                                
                                 Spacer()
                                     .frame(height: 15)
                                 
                                 if !isHide {
-                                    
                                     HStack(spacing: 12){
-                                        
                                         Text("Covitrace")
                                             .font(.largeTitle)
                                             .fontWeight(.heavy)
                                             .foregroundColor(Color(.white))
                                         
-                                        Spacer(minLength: 0)
-                                        
+                                        Spacer()
                                     }
                                     .padding(.horizontal)
                                 }
                                 
-                                // MARK: Bottom Row Icons
                                 HStack(spacing: 20){
+                                    
                                     // MARK: Home Screen
                                     VStack(spacing: 1) {
                                         HStack {
@@ -177,11 +170,12 @@ struct MainView: View {
                                         }
                                     }
                                 }
+                                Spacer()
+                                    .frame(height: 5)
                             }
-                            .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .padding(.bottom, 20)
+                            .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)).edgesIgnoringSafeArea(.all)
                             
-                            ScrollView(.vertical, showsIndicators: false) { // Scroll View
+                            ScrollView(.vertical, showsIndicators: false) {
                                 
                                 // MARK: Profile Summary
                                 VStack(alignment: .center){
@@ -191,8 +185,7 @@ struct MainView: View {
                                             
                                             // MARK: Profile Image
                                             Image(systemName: "person.crop.circle.fill")
-                                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!) // <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
-                                                .resizable()
+                                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
                                                 .scaledToFit()
                                                 .clipShape(Circle())
                                                 .frame(width: 300, height: 200)
@@ -202,7 +195,7 @@ struct MainView: View {
                                             
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 5) {
-                                                Text("\(authModel.user!.firstName)" + " " + "\(authModel.user!.lastName)")// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
+                                                Text("\(authModel.user!.firstName)" + " " + "\(authModel.user!.lastName)")
                                                     .font(.custom("Avenir", size: 21))
                                                     .fontWeight(.bold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -213,9 +206,9 @@ struct MainView: View {
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(authModel.user!.idNumber)// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
+                                                    Text(authModel.user!.idNumber)
                                                         .font(.custom("Avenir", size: 18))
-                                                        .fontWeight(.semibold)
+                                                        .fontWeight(.bold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                 }
                                                 
@@ -225,9 +218,9 @@ struct MainView: View {
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(authModel.user!.verified)// <- error: occassionally crashes displaying "Unexpectedly found nil while unwrapping an Optional value". Happens mostly at app launch after registration or occassionally when the user is opening the app after a while.
+                                                    Text(authModel.user!.verified)
                                                         .font(.custom("Avenir", size: 18))
-                                                        .fontWeight(.semibold)
+                                                        .fontWeight(.bold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                 }.padding(.bottom, 10)
                                                 
@@ -307,16 +300,11 @@ struct MainView: View {
                                             }
                                         }
                                         .frame(width: UIScreen.main.bounds.size.width - 40, height: 525)
-                                        .background(Color(.white))
-                                        .cornerRadius(15)
-                                        .padding(5)
-                                        
                                     }
                                     
                                     Spacer()
-                                    
                                 }.onAppear() {
-                                    Timer.scheduledTimer(withTimeInterval: 0, repeats: false) { (_) in
+                                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
                                         withAnimation {
                                             self.showSecondView = true
                                         }
@@ -324,7 +312,6 @@ struct MainView: View {
                                 }
                             }
                         }
-                        
                         ScannerHalfModalView(isShown: $halfModal_shown, modalHeight: 600) {
                             ScannerView()
                         }

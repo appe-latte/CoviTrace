@@ -34,7 +34,7 @@ struct UploadInformationView: View {
                     
                     Spacer()
                         .frame(height: 20)
-                    // MARK: First Row
+                    
                     HStack {
                         
                         // MARK: Log First Vaccine Dose
@@ -106,8 +106,6 @@ struct UploadInformationView: View {
                                 }
                         }
                     }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
-                    
-                    // MARK: Second Row
                     
                     HStack {
                         
@@ -181,31 +179,6 @@ struct UploadInformationView: View {
                         }
                     }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
                     
-                    // MARK: Third Row
-                    HStack {
-                        // MARK: Upload Digital Vaccine Cert. sheet
-                        VStack(spacing: 10){
-                            Button(action: {
-                                self.showDigiCertSheetView.toggle()
-                            }, label: {
-                                VStack {
-                                    Text("+ Digital")
-                                        .foregroundColor(Color.white)
-                                        .font(.system(size: 10))
-                                    Text("Certificate")
-                                        .foregroundColor(Color.white)
-                                        .font(.system(size: 10))
-                                }
-                            }).frame(width: 80, height: 80)
-                                .background(purple)
-                                .clipShape(Circle())
-                                .sheet(isPresented: $showDigiCertSheetView) {
-                                    DigitalCertUploadView()
-                                }
-                        }
-                        
-                    }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
-                    
                     Spacer()
                     
                 }.padding()
@@ -213,8 +186,7 @@ struct UploadInformationView: View {
                 Spacer()
                 
             }
-            .navigationBarTitle("Upload Information", displayMode: .inline)
-            
+            .navigationBarTitle("", displayMode: .inline)
         }
     }
 }

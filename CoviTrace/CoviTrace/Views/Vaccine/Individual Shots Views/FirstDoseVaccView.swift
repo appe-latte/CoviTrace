@@ -23,8 +23,10 @@ struct FirstDoseVaccView: View {
     
     var body: some View {
         ZStack {
-            Background()
+            bgPurple()
+            
             Form {
+                
                 // MARK: Booster Shot Information
                 Section(header: Text("First Vaccine Dose")) {
                     List(doseModel.firstDoseData) { firstDoseData in
@@ -116,6 +118,7 @@ struct FirstDoseVaccView: View {
             .onAppear() {
                 self.doseModel.fetchData(id: authModel.userSession!.uid)
             }
+            
             Spacer()
         }
     }

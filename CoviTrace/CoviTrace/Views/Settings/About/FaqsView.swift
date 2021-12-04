@@ -46,7 +46,6 @@ struct FaqsView: View {
                     }
                     
                     Spacer()
-                    
                 }.frame(width: UIScreen.main.bounds.size.width - 40, height: UIScreen.main.bounds.size.height - 1)
                     .foregroundColor(purple)
                     .font(.custom("Avenir", size: 10))

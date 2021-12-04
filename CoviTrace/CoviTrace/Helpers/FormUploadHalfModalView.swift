@@ -47,13 +47,13 @@ struct FormUploadHalfModalView<Content: View> : View {
                     // MARK: Bottom Sheet
                     ZStack {
                         Color.white.opacity(0.9)
-                            .frame(width: UIScreen.main.bounds.size.width, height: 400)
+                            .frame(width: UIScreen.main.bounds.size.width, height: 300)
                             .cornerRadius(10)
                             .shadow(radius: 5)
                         self.content()
                             .padding()
                             .padding(.bottom, 65)
-                            .frame(width: UIScreen.main.bounds.size.width, height: 400)
+                            .frame(width: UIScreen.main.bounds.size.width, height: 300)
                             .clipped()
                     }
                     .offset(y: isShown ? ((self.dragState.isDragging && dragState.translation.height >= 1) ? dragState.translation.height : 0) : modalHeight)

@@ -17,7 +17,7 @@ struct TestResults: Identifiable, Codable {
     var testProvider : String
     var userId: String?
     var testVerified: String
-    var image: String?
+    var pcrImageUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -28,7 +28,7 @@ struct TestResults: Identifiable, Codable {
         case testResult
         case userId
         case testVerified
-        case image
+        case pcrImageUrl
     }
 }
 

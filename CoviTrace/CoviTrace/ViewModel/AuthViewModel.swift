@@ -78,7 +78,7 @@ class AuthViewModel: ObservableObject {
                     
                     Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
                         self.userSession = result?.user
-                        
+                        self.fetchUser()
                     }
                 }
             }
