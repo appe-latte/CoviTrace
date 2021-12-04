@@ -42,7 +42,7 @@ struct MainView: View {
         barTintColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().backgroundColor = UIColor.init(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
         UITextView.appearance().backgroundColor = .white
-        UIDatePicker.appearance().backgroundColor = UIColor.init(red: 46 / 255, green: 153 / 255, blue: 168 / 255, alpha: 1.0)
+        UIDatePicker.appearance().backgroundColor = UIColor.clear
         UIDatePicker.appearance().tintColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
         UINavigationBar.appearance().scrollEdgeAppearance = barTintColor
         UINavigationBar.appearance().standardAppearance = barTintColor
@@ -169,7 +169,10 @@ struct MainView: View {
                                                 }
                                         }
                                     }
-                                }
+                                    
+                                    Spacer()
+                                }.padding(.horizontal, 15)
+                                
                                 Spacer()
                                     .frame(height: 2)
                             }

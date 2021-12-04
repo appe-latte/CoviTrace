@@ -174,3 +174,10 @@ extension UIApplication {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 }
+
+// MARK: "Share" app function
+func shareSheet() {
+    guard let data = URL(string: "https://apps.apple.com/us/app/covitrace/id1553975926") else { return }
+    let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+    UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+}
