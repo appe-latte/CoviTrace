@@ -150,7 +150,7 @@ struct AddFirstDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose1 = dateFormatter.string(from: firstDoseDate)
-        db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_vacc_dose_country": firstVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "vacc_status": vaccStatus])
+        db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_vacc_dose_country": firstVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "vacc_status": vaccStatus], merge: true)
     }
 }
 

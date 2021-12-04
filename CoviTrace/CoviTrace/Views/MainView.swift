@@ -171,7 +171,7 @@ struct MainView: View {
                                     }
                                 }
                                 Spacer()
-                                    .frame(height: 5)
+                                    .frame(height: 2)
                             }
                             .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)).edgesIgnoringSafeArea(.all)
                             

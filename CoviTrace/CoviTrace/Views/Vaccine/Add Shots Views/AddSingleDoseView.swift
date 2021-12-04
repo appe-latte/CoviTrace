@@ -125,7 +125,7 @@ struct AddSingleDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose4 = dateFormatter.string(from: singleDoseDate)
-        db.collection("single_dose").document("Si_D: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate])
+        db.collection("single_dose").document("Si_D: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate], merge: true)
     }
     
     // MARK: update vaccination status

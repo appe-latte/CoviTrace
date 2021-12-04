@@ -148,7 +148,7 @@ struct AddSecondDoseView: View {
     func upload_data(){
         let db = Firestore.firestore()
         let dose2 = dateFormatter.string(from: secondDoseDate)
-        db.collection("second_dose").document("SD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "2nd_vacc_dose_country": secondVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate])
+        db.collection("second_dose").document("SD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "2nd_vacc_dose_country": secondVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate], merge: true)
     }
     
     // MARK: Update vaccination status
