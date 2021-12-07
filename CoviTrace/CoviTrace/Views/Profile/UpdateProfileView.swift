@@ -136,7 +136,7 @@ struct UpdateProfileView: View {
                         .frame(width: 50, height: 50)
                         .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         .cornerRadius(10)
-                        .padding(.top, 2)
+                        .padding(.leading, 2)
                 }
                 
                 Spacer()

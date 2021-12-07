@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import SwiftUI
 import WebKit
+import SwiftUI
 import SafariServices
 
 struct SettingsView: View {
@@ -54,11 +54,11 @@ struct SettingsView: View {
                         // MARK: Privacy Settings
                         NavigationLink(
                             destination: PrivacySettingsView()){
-                                Image(systemName: "lock")
+                                Image(systemName: "lock.fill")
                                     .font(.system(size: 26))
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                     .padding(.trailing, 5)
-                                Text("Secure App")
+                                Text("Account Settings")
                                     .font(.custom("Avenir", size: 17))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -78,45 +78,6 @@ struct SettingsView: View {
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     .padding(.leading, 15)
                             }
-                        
-                        // MARK: Terms and Conditions
-                        NavigationLink(
-                            destination: TermsCondView()){
-                                Image(systemName: "link.circle")
-                                    .font(.system(size: 26))
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.trailing, 5)
-                                Text("Terms & Conditions")
-                                    .font(.custom("Avenir", size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
-                        
-                        // MARK: Developer's Website
-                        HStack {
-                            Image(systemName: "globe")
-                                .font(.system(size: 26))
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                .padding(.trailing, 5)
-                            Text("Developer's Site")
-                                .font(.custom("Avenir", size: 17))
-                                .fontWeight(.bold)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.leading, 15)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .resizable()
-                                .scaledToFit()
-                                .font(Font.title.weight(.semibold))
-                                .foregroundColor(Color(.gray)).opacity(0.5)
-                                .frame(width: 13, height: 13)
-                        }.onTapGesture {
-                            showSafari.toggle()
-                        }
-                        .fullScreenCover(isPresented: $showSafari, content: {
-                            SFSafariViewWrapper(url: URL(string: "https://www.appe-latte.co.uk")!)
-                        })
                         
                         // MARK: Share The App
                         Button(action: shareSheet) {
@@ -139,8 +100,88 @@ struct SettingsView: View {
                                     .frame(width: 13, height: 13)
                             }
                         }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    }.foregroundColor(.white)
+                    
+                    Section(header: Text("health.gov.za")) {
+                        // MARK: SA Health Dept. Website
+                        HStack {
+                            Image(systemName: "globe")
+                                .font(.system(size: 26))
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
+                            Text("RSA Covid Statistics")
+                                .font(.custom("Avenir", size: 17))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .scaledToFit()
+                                .font(Font.title.weight(.semibold))
+                                .foregroundColor(Color(.gray)).opacity(0.5)
+                                .frame(width: 13, height: 13)
+                        }.onTapGesture {
+                            showSafari.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showSafari, content: {
+                            SFSafariViewWrapper(url: URL(string: "https://www.sacoronavirus.co.za")!)
+                        })
                         
-                        // MARK: Sign Out Button
+                        // MARK: EVDS Registration
+                        HStack {
+                            Image(systemName: "globe")
+                                .font(.system(size: 26))
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
+                            Text("EVDS Registration")
+                                .font(.custom("Avenir", size: 17))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .scaledToFit()
+                                .font(Font.title.weight(.semibold))
+                                .foregroundColor(Color(.gray)).opacity(0.5)
+                                .frame(width: 13, height: 13)
+                        }.onTapGesture {
+                            showSafari.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showSafari, content: {
+                            SFSafariViewWrapper(url: URL(string: "https://vaccine.enroll.health.gov.za")!)
+                        })
+                        
+                        // MARK: Vaccination Bookings
+                        HStack {
+                            Image(systemName: "globe")
+                                .font(.system(size: 26))
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .padding(.trailing, 5)
+                            Text("Book Vaccination")
+                                .font(.custom("Avenir", size: 17))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .scaledToFit()
+                                .font(Font.title.weight(.semibold))
+                                .foregroundColor(Color(.gray)).opacity(0.5)
+                                .frame(width: 13, height: 13)
+                        }.onTapGesture {
+                            showSafari.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showSafari, content: {
+                            SFSafariViewWrapper(url: URL(string: "https://vaccine.booking.health.gov.za")!)
+                        })
+                    }.foregroundColor(.gray)
+                    
+                    // MARK: Sign Out Button
+                    Section {
+                        
                         Button(action: {
                             authModel.signOut()
                         }) {
@@ -153,8 +194,8 @@ struct SettingsView: View {
                             }
                         }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             .padding(.leading, 105)
-                        
-                    }.foregroundColor(.white)
+                    }
+                    
                 }.background(Color.black)
                 
                 // MARK: App Version Number

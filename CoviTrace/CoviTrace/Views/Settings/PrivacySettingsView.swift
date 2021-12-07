@@ -11,6 +11,9 @@ import Combine
 struct PrivacySettingsView: View {
     @EnvironmentObject private var appLockModel : AppLockViewModel
     var isAppLockEnabled = false
+    @State private var previousCellNum = ""
+    @State private var newCellNum = ""
+    @State private var otpCode = ""
     
     var body: some View {
         ZStack {
@@ -37,9 +40,82 @@ struct PrivacySettingsView: View {
                             .font(.custom("Avenir", size: 12).bold())
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                     }
+                    
+                    // MARK: Previous cellphone number
+                    Section(header: Text("Change Cell Number")) {
+                        SimpleTextField(text: $previousCellNum, placeholder: Text("Previous cellphone number"))
+                            .font(.custom("Avenir", size: 14).bold())
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        
+                        // MARK: New cellphone number
+                        SimpleTextField(text: $newCellNum, placeholder: Text("New cellphone number"))
+                            .font(.custom("Avenir", size: 14).bold())
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                // <---- code for submitting new number
+                            }, label: {
+                                Text("Submit")
+                                    .font(.custom("Avenir", size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }).frame(width: 150, height: 30)
+                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .cornerRadius(10)
+                                .padding(.top, 2)
+                            
+                            Spacer()
+                        }
+                    }
+                    
+                    // MARK: OTP confirmation
+                    Section {
+                        SimpleTextField(text: $otpCode, placeholder: Text("Enter OTP code"))
+                            .font(.custom("Avenir", size: 14).bold())
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                // <---- code for OTP goes here
+                            }, label: {
+                                Text("Confirm")
+                                    .font(.custom("Avenir", size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }).frame(width: 150, height: 30)
+                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .cornerRadius(10)
+                                .padding(.top, 2)
+                            
+                            Spacer()
+                        }
+                    }
+                    
+                    // MARK: Delete Account
+                    Section(header: Text("Permanently Delete Account")) {
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                // <---- code for OTP goes here
+                            }, label: {
+                                Text("Delete Account")
+                                    .font(.custom("Avenir", size: 16))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.red)
+                            }).frame(width: 150, height: 30)
+                            
+                            Spacer()
+                        }
+                    }
                 }
             }
-        }.navigationBarTitle("Privacy Settings")
+        }.navigationBarTitle("Account Settings")
             .navigationBarTitleDisplayMode(.inline)
     }
 }
