@@ -7,13 +7,19 @@
 
 import SwiftUI
 import Combine
+import FirebaseAuth
+import FirebaseFirestore
 
 struct PrivacySettingsView: View {
-    @EnvironmentObject private var appLockModel : AppLockViewModel
-    var isAppLockEnabled = false
     @State private var previousCellNum = ""
     @State private var newCellNum = ""
     @State private var otpCode = ""
+    
+    // MARK: Objects
+    @EnvironmentObject private var appLockModel : AppLockViewModel
+    @EnvironmentObject var authModel : AuthViewModel
+    
+    var isAppLockEnabled = false
     
     var body: some View {
         ZStack {
@@ -102,7 +108,7 @@ struct PrivacySettingsView: View {
                             Spacer()
                             
                             Button(action: {
-                                // <---- code for OTP goes here
+                                self.deleteUser()
                             }, label: {
                                 Text("Delete Account")
                                     .font(.custom("Avenir", size: 16))
@@ -117,5 +123,26 @@ struct PrivacySettingsView: View {
             }
         }.navigationBarTitle("Account Settings")
             .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    // MARK: Delete User function
+    
+    func deleteUser() {
+        let userId = Auth.auth().currentUser!.uid
+        
+        Firestore.firestore().collection("users").document(userId).delete() { err in
+            if let err = err  {
+                print("Error: \(err)")
+            } else {
+                Auth.auth().currentUser!.delete { error in
+                    if let error = error {
+                        print("Error deleting the user: \(error)")
+                    } else {
+                        print("Account has been deleted")
+                    }
+                    
+                }
+            }
+        }
     }
 }
