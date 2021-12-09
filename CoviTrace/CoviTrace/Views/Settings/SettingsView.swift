@@ -121,7 +121,7 @@ struct SettingsView: View {
                         }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }.foregroundColor(.white)
                     
-                    Section(header: Text("health.gov.za")) {
+                    Section(header: Text("Covid Statistics")) {
                         // MARK: SA Health Dept. Website
                         HStack {
                             Image("discovery")
@@ -145,56 +145,6 @@ struct SettingsView: View {
                         }
                         .fullScreenCover(isPresented: $showSafari, content: {
                             SFSafariViewWrapper(url: URL(string: "https://www.sacoronavirus.co.za")!)
-                        })
-                        
-                        // MARK: EVDS Registration
-                        HStack {
-                            Image("discovery")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(1)
-                            Text("EVDS Registration")
-                                .font(.custom("Avenir", size: 17))
-                                .fontWeight(.bold)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.leading, 15)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .resizable()
-                                .scaledToFit()
-                                .font(Font.title.weight(.semibold))
-                                .foregroundColor(Color(.gray)).opacity(0.5)
-                                .frame(width: 13, height: 13)
-                        }.onTapGesture {
-                            showSafari.toggle()
-                        }
-                        .fullScreenCover(isPresented: $showSafari, content: {
-                            SFSafariViewWrapper(url: URL(string: "https://vaccine.enroll.health.gov.za")!)
-                        })
-                        
-                        // MARK: Vaccination Bookings
-                        HStack {
-                            Image("discovery")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(1)
-                            Text("Book Vaccination")
-                                .font(.custom("Avenir", size: 17))
-                                .fontWeight(.bold)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.leading, 15)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .resizable()
-                                .scaledToFit()
-                                .font(Font.title.weight(.semibold))
-                                .foregroundColor(Color(.gray)).opacity(0.5)
-                                .frame(width: 13, height: 13)
-                        }.onTapGesture {
-                            showSafari.toggle()
-                        }
-                        .fullScreenCover(isPresented: $showSafari, content: {
-                            SFSafariViewWrapper(url: URL(string: "https://vaccine.booking.health.gov.za")!)
                         })
                     }.foregroundColor(.gray)
                     
@@ -221,7 +171,6 @@ struct SettingsView: View {
                         }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             .padding(.leading, 105)
                     }
-                    
                 }.background(Color.black)
                 
                 // MARK: App Version Number

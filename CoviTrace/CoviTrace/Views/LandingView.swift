@@ -13,6 +13,7 @@ struct LandingView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                bgPurple()
                 VStack(alignment:.center){
                     VStack{
                         Image("logo")
@@ -58,9 +59,7 @@ struct LandingView: View {
                         .cornerRadius(10)
                 }.padding(.bottom, 20)
                 
-            }.background(bgPurple())
-                .navigationBarHidden(true)
-                .edgesIgnoringSafeArea(.all)
+            }.navigationBarHidden(true)
                 .accentColor(Color.white)
             
         }

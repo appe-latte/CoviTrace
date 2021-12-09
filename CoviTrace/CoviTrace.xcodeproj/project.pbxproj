@@ -43,7 +43,6 @@
 		2F524193263B38CB0016D87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524192263B38CB0016D87D /* Constants.swift */; };
 		2F524195263B3E810016D87D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524194263B3E810016D87D /* UserProfileView.swift */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
-		2F5BABC72756ED900065D13C /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BABC62756ED900065D13C /* UpdateProfileView.swift */; };
 		2F5FB50A2748668E006A7F46 /* FormUploadHalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */; };
 		2F5FB50B274869C3006A7F46 /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
 		2F5FB50F274869D4006A7F46 /* CarBode in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5FB50E274869D4006A7F46 /* CarBode */; };
@@ -124,7 +123,6 @@
 		2F524192263B38CB0016D87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2F524194263B3E810016D87D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		2F5BABC62756ED900065D13C /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUploadHalfModalView.swift; sourceTree = "<group>"; };
 		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		2F6150F025D1A471003AAB52 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 			isa = PBXGroup;
 			children = (
 				2F524194263B3E810016D87D /* UserProfileView.swift */,
-				2F5BABC62756ED900065D13C /* UpdateProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -623,7 +620,6 @@
 				2F40129426738E2B00AFA9E5 /* SettingsView.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
 				2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */,
-				2F5BABC72756ED900065D13C /* UpdateProfileView.swift in Sources */,
 				2F3680C226F0FE840002F8A0 /* AddSecondDoseView.swift in Sources */,
 				2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */,
 				2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */,

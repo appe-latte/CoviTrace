@@ -7,15 +7,13 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 struct UserProfileView: View {
-    @State private var lastName = ""
-    @State private var firstName = ""
-    
     @State private var updateProfileSheetView = false
     @State private var showVaccCardView = false
     
-    @ObservedObject private var authModel = AuthViewModel()
+    @ObservedObject var authModel = AuthViewModel()
     
     var body: some View {
         let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
@@ -84,32 +82,10 @@ struct UserProfileView: View {
                         }
                     }
                     
-                    // MARK: Update Profile
                     Section {
-                        Button(action:  {
-                            self.updateProfileSheetView.toggle()
-                        }, label: {
-                            HStack {
-                                Image("edit-button")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(1)
-                                Text("Update User information")
-                                    .font(.custom("Avenir", size: 15))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(.leading, 15)
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .font(Font.title.weight(.semibold))
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .frame(width: 13, height: 13)
-                            }
-                        }).sheet(isPresented: $updateProfileSheetView){
-                            UpdateProfileView()
-                        }
+                        Text("To update your User Information above go to: Menu > Account Settings")
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            .font(.custom("Avenir", size: 12).bold())
                     }
                     
                     // MARK: Verification Section
@@ -149,7 +125,7 @@ struct UserProfileView: View {
                         
                         Text("To have your profile verified please email a copy of your Govt issued identity document to: verify@covitrace.co.za").lineLimit(nil)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .font(.custom("Avenir", size: 11).bold())
+                            .font(.custom("Avenir", size: 12).bold())
                             .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                 }
