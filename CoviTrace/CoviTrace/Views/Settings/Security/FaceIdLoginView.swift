@@ -14,8 +14,6 @@ struct FaceIdLoginView: View {
     
     var body: some View {
         ZStack {
-            bgPurple()
-            
             VStack(alignment: .center) {
                 Spacer()
                 VStack(spacing: 10) {
@@ -65,6 +63,6 @@ struct FaceIdLoginView: View {
                     })
                 }.padding(.horizontal, 30)
             }
-        }
+        }.background(bgPurple())
     }
 }

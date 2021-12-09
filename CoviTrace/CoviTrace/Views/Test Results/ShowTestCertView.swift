@@ -28,8 +28,8 @@ struct ShowTestCertView: View {
                     if url != nil{
                         AsyncImage(url:url! ,
                                    placeholder: {
-                            Text("Loading ...")
-                                .font(.custom("Avenir", size: 16).bold())
+                            Text("Loading Test Result ...")
+                                .font(.custom("Avenir", size: 14).bold())
                                 .foregroundColor(purple)
                         },
                                    image: { Image(uiImage: $0).resizable() }).frame(width: UIScreen.main.bounds.size.width - 40, height: 580)

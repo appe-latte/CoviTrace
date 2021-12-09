@@ -37,8 +37,6 @@ struct VaccPassView: View {
     
     var body: some View {
         ZStack {
-            bgPurple()
-            
             VStack(alignment: .leading, spacing: 10) {
                 Text("Certificate of Vaccination")
                     .multilineTextAlignment(.leading)
@@ -144,7 +142,8 @@ struct VaccPassView: View {
                 self.firstDoseVaccModel.fetchData(id: authModel.userSession!.uid)
                 
             }.padding(.top, 20)
-        }.navigationBarTitle("Vaccination Pass")
+        }.background(bgPurple())
+            .navigationBarTitle("Vaccination Pass")
             .navigationBarTitleDisplayMode(.inline)
     }
     

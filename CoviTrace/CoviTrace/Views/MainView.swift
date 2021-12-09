@@ -55,7 +55,7 @@ struct MainView: View {
                     ZStack {
                         bgWhite()
                         
-                        VStack(spacing: 0){
+                        VStack {
                             VStack(spacing: 22){
                                 Spacer()
                                     .frame(height: 15)
@@ -68,25 +68,27 @@ struct MainView: View {
                                             .foregroundColor(Color(.white))
                                         
                                         Spacer()
+                                        
                                     }
                                     .padding(.horizontal)
                                 }
                                 
-                                HStack(spacing: 20){
+                                HStack(spacing: 15){
                                     
-                                    // MARK: Home Screen
+                                    // MARK: "upload"
                                     VStack(spacing: 1) {
                                         HStack {
                                             Button(action: {
                                                 self.formHalfModal_shown.toggle()
                                             }, label: {
                                                 VStack {
-                                                    Image(systemName: "plus")
-                                                        .foregroundColor(.white)
+                                                    Image("add")
+                                                        .resizable()
+                                                        .frame(width: 25, height: 25)
                                                         .padding(10)
                                                         .background(Color.white.opacity(0.1))
                                                         .clipShape(Circle())
-                                                    Text("add")
+                                                    Text("Add")
                                                         .font(.system(size: 11))
                                                         .foregroundColor(Color.white)
                                                 }
@@ -100,8 +102,9 @@ struct MainView: View {
                                             NavigationLink(
                                                 destination: UserProfileView()){
                                                     VStack {
-                                                        Image(systemName: "person.fill")
-                                                            .foregroundColor(.white)
+                                                        Image("user")
+                                                            .resizable()
+                                                            .frame(width: 25, height: 25)
                                                             .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
@@ -113,18 +116,19 @@ struct MainView: View {
                                         }
                                     }
                                     
-                                    // MARK: Previous Check-ins
+                                    // MARK: Vaccination Card
                                     VStack(spacing: 1) {
                                         HStack {
                                             NavigationLink(
-                                                destination: CheckInView()){
+                                                destination: VaccinationCardView()){
                                                     VStack {
-                                                        Image(systemName: "map")
-                                                            .foregroundColor(.white)
+                                                        Image("card-w")
+                                                            .resizable()
+                                                            .frame(width: 25, height: 25)
                                                             .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
-                                                        Text("Venues")
+                                                        Text("Card")
                                                             .font(.system(size: 12))
                                                             .foregroundColor(Color.white)
                                                     }
@@ -138,13 +142,34 @@ struct MainView: View {
                                             NavigationLink(
                                                 destination: TestResultView()){
                                                     VStack {
-                                                        Image(systemName: "tray.fill")
-                                                            .foregroundColor(.white)
+                                                        Image("folder")
+                                                            .resizable()
+                                                            .frame(width: 25, height: 25)
                                                             .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
                                                         Text("Results")
                                                             .font(.system(size: 11))
+                                                            .foregroundColor(Color.white)
+                                                    }
+                                                }
+                                        }
+                                    }
+                                    
+                                    // MARK: Previous Check-ins
+                                    VStack(spacing: 1) {
+                                        HStack {
+                                            NavigationLink(
+                                                destination: CheckInView()){
+                                                    VStack {
+                                                        Image("venue")
+                                                            .resizable()
+                                                            .frame(width: 25, height: 25)
+                                                            .padding(10)
+                                                            .background(Color.white.opacity(0.1))
+                                                            .clipShape(Circle())
+                                                        Text("Venues")
+                                                            .font(.system(size: 12))
                                                             .foregroundColor(Color.white)
                                                     }
                                                 }
@@ -157,12 +182,13 @@ struct MainView: View {
                                             NavigationLink(
                                                 destination: SettingsView()){
                                                     VStack {
-                                                        Image(systemName: "gearshape")
-                                                            .foregroundColor(.white)
-                                                            .padding(9)
+                                                        Image("menu")
+                                                            .resizable()
+                                                            .frame(width: 25, height: 25)
+                                                            .padding(10)
                                                             .background(Color.white.opacity(0.1))
                                                             .clipShape(Circle())
-                                                        Text("Settings")
+                                                        Text("Menu")
                                                             .font(.system(size: 12))
                                                             .foregroundColor(Color.white)
                                                     }
@@ -176,13 +202,12 @@ struct MainView: View {
                                 Spacer()
                                     .frame(height: 2)
                             }
-                            .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)).edgesIgnoringSafeArea(.all)
+                            .background(bgPurple()).edgesIgnoringSafeArea(.all)
                             
                             ScrollView(.vertical, showsIndicators: false) {
                                 
                                 // MARK: Profile Summary
                                 VStack(alignment: .center){
-                                    
                                     if showSecondView {
                                         VStack(alignment:.center){
                                             
@@ -204,7 +229,7 @@ struct MainView: View {
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                                 
                                                 // MARK: ID Number
-                                                HStack{
+                                                HStack {
                                                     Text("ID Number: ")
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
@@ -235,8 +260,9 @@ struct MainView: View {
                                                             destination: VaccPassView()){
                                                                 VStack(spacing: 1) {
                                                                     Image(systemName: "qrcode")
-                                                                        .font(.system(size: 18))
+                                                                        .font(.system(size: 22))
                                                                         .foregroundColor(Color(.white))
+                                                                        .padding(2)
                                                                     Text("Vaccine")
                                                                         .foregroundColor(Color(.white))
                                                                         .font(.custom("Avenir", size: 12))
@@ -258,9 +284,10 @@ struct MainView: View {
                                                             self.halfModal_shown.toggle()
                                                         }, label: {
                                                             VStack(spacing: 1) {
-                                                                Image(systemName: "barcode")
-                                                                    .font(.system(size: 18))
-                                                                    .foregroundColor(Color(.white))
+                                                                Image("location")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(1)
                                                                 Text("Venue")
                                                                     .foregroundColor(Color(.white))
                                                                     .font(.custom("Avenir", size: 11))
@@ -281,9 +308,10 @@ struct MainView: View {
                                                         NavigationLink(
                                                             destination: DigitalCertView()){
                                                                 VStack(spacing: 1) {
-                                                                    Image(systemName: "seal.fill")
-                                                                        .font(.system(size: 18))
-                                                                        .foregroundColor(Color(.white))
+                                                                    Image("checkmark")
+                                                                        .resizable()
+                                                                        .frame(width: 25, height: 25)
+                                                                        .padding(1)
                                                                     Text("Digital")
                                                                         .foregroundColor(Color(.white))
                                                                         .font(.custom("Avenir", size: 10))
@@ -301,8 +329,7 @@ struct MainView: View {
                                                     }
                                                 }
                                             }
-                                        }
-                                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 525)
+                                        }.frame(width: UIScreen.main.bounds.size.width - 40, height: 525)
                                     }
                                     
                                     Spacer()

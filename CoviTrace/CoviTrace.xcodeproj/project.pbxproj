@@ -35,6 +35,8 @@
 		2F4012962673A68C00AFA9E5 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012952673A68C00AFA9E5 /* PrivacyPolicyView.swift */; };
 		2F4012982673B93800AFA9E5 /* TermsCondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012972673B93800AFA9E5 /* TermsCondView.swift */; };
 		2F451F06272091FB001BB7A4 /* BoosterShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */; };
+		2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F495B15276192FE006EF22E /* VaccinationCardView.swift */; };
+		2F495B182761AE84006EF22E /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F495B172761AE84006EF22E /* NotificationsView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
 		2F4F573D2655241600EFB454 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573C2655241600EFB454 /* AboutView.swift */; };
 		2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5742265524FA00EFB454 /* FaqsView.swift */; };
@@ -63,7 +65,7 @@
 		2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96097E260E21A700D0090B /* ResultsViewModel.swift */; };
 		2F96A3502732AB8D00719DF7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96A34F2732AB8D00719DF7 /* MainView.swift */; };
 		2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9908CE265BD1DB006D977D /* PasswordResetView.swift */; };
-		2FD6C4DD273DCE2E00A0D7B1 /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DC273DCE2E00A0D7B1 /* PrivacySettingsView.swift */; };
+		2FD6C4DD273DCE2E00A0D7B1 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DC273DCE2E00A0D7B1 /* AccountSettingsView.swift */; };
 		2FD6C4DF273DEF8700A0D7B1 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */; };
 		2FD6C4E1273DF2A400A0D7B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4E0273DF2A400A0D7B1 /* SceneDelegate.swift */; };
 		2FD6C4E4273DFDF200A0D7B1 /* VaccCardUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4E3273DFDF100A0D7B1 /* VaccCardUploadView.swift */; };
@@ -114,6 +116,8 @@
 		2F4012952673A68C00AFA9E5 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		2F4012972673B93800AFA9E5 /* TermsCondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCondView.swift; sourceTree = "<group>"; };
 		2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterShotViewModel.swift; sourceTree = "<group>"; };
+		2F495B15276192FE006EF22E /* VaccinationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCardView.swift; sourceTree = "<group>"; };
+		2F495B172761AE84006EF22E /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddResultsView.swift; path = "../New Group/AddResultsView.swift"; sourceTree = "<group>"; };
 		2F4F573C2655241600EFB454 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2F4F5742265524FA00EFB454 /* FaqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsView.swift; sourceTree = "<group>"; };
@@ -141,7 +145,7 @@
 		2F96097E260E21A700D0090B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		2F96A34F2732AB8D00719DF7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2F9908CE265BD1DB006D977D /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
-		2FD6C4DC273DCE2E00A0D7B1 /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
+		2FD6C4DC273DCE2E00A0D7B1 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		2FD6C4E0273DF2A400A0D7B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2FD6C4E3273DFDF100A0D7B1 /* VaccCardUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCardUploadView.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				2F2C84A825FA9C290002F2C3 /* DigitalCertView.swift */,
 				2FFA964A2725E63A001254AF /* VaccPassView.swift */,
 				2F81DCFB26726E7900897201 /* VaccCardView.swift */,
+				2F495B15276192FE006EF22E /* VaccinationCardView.swift */,
 				2FF650AB2728C66E00C697E4 /* Individual Shots Views */,
 				2FF650B02728CC6700C697E4 /* Add Shots Views */,
 			);
@@ -269,7 +274,7 @@
 				2F40129326738E2B00AFA9E5 /* SettingsView.swift */,
 				2F4012952673A68C00AFA9E5 /* PrivacyPolicyView.swift */,
 				2F4012972673B93800AFA9E5 /* TermsCondView.swift */,
-				2FD6C4DC273DCE2E00A0D7B1 /* PrivacySettingsView.swift */,
+				2FD6C4DC273DCE2E00A0D7B1 /* AccountSettingsView.swift */,
 				2F92CBC82751C5050057DD95 /* Security */,
 				2F123F6A2654313F00BA3D53 /* About */,
 			);
@@ -365,6 +370,7 @@
 				2F9908CE265BD1DB006D977D /* PasswordResetView.swift */,
 				2F0F2A6B25B5BD4A00103879 /* ContentView.swift */,
 				2F96A34F2732AB8D00719DF7 /* MainView.swift */,
+				2F495B172761AE84006EF22E /* NotificationsView.swift */,
 				2FDA20D92749AD2900B40EDE /* Check-in */,
 				2F3452ED26FA427300A7D3F8 /* Test Results */,
 				2F3680BA26F0E5430002F8A0 /* Vaccine */,
@@ -562,7 +568,7 @@
 				2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* FirstDoseVaccViewModel.swift in Sources */,
 				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,
-				2FD6C4DD273DCE2E00A0D7B1 /* PrivacySettingsView.swift in Sources */,
+				2FD6C4DD273DCE2E00A0D7B1 /* AccountSettingsView.swift in Sources */,
 				2F4012962673A68C00AFA9E5 /* PrivacyPolicyView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
@@ -570,6 +576,7 @@
 				2F3680BE26F0EE320002F8A0 /* AddSingleDoseView.swift in Sources */,
 				2F4F573D2655241600EFB454 /* AboutView.swift in Sources */,
 				2FFA964B2725E63A001254AF /* VaccPassView.swift in Sources */,
+				2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */,
 				2F23F91227275B9D00B0F11F /* FaceIdLoginView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */,
@@ -591,6 +598,7 @@
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
 				2FFB3FCF273C9D570005431F /* CameraPreview.swift in Sources */,
+				2F495B182761AE84006EF22E /* NotificationsView.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */,
 				18598839275A365B0061D47A /* AsyncImage.swift in Sources */,
@@ -751,7 +759,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CoviTrace/CoviTraceDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CoviTrace/Preview Content\"";
 				DEVELOPMENT_TEAM = QACLP69RHJ;
 				ENABLE_PREVIEWS = YES;
@@ -777,7 +785,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CoviTrace/CoviTrace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CoviTrace/Preview Content\"";
 				DEVELOPMENT_TEAM = QACLP69RHJ;
 				ENABLE_PREVIEWS = YES;

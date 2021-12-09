@@ -92,9 +92,10 @@ struct TestResultView: View {
                             }
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                             
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(Color.gray)
-                                .padding(.leading, 5)
+                            Image("arrow-right")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .padding(1)
                         }
                     }
                     .onAppear() {

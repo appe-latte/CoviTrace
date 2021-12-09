@@ -47,10 +47,8 @@ struct AddResultsView: View {
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-            bgPurple()
             VStack {
                 HStack {
                     Text("Add PCR Results")
@@ -62,12 +60,11 @@ struct AddResultsView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("dismiss")
-                            .font(.custom("Avenir", size: 10))
-                            .foregroundColor(purple)
-                    }).frame(width: 40, height: 20)
-                        .background(Color.white)
-                        .clipShape(Capsule())
+                        Image("close")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }).padding(5)
+                        .clipShape(Circle())
                 }
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
@@ -111,39 +108,39 @@ struct AddResultsView: View {
                     .cornerRadius(15)
                 
                 // MARK: Test Result Picker
+               
+                
                 HStack {
-                    Text("Choose Result:")
+                    Text("Test Result:")
                         .padding(.leading)
-                        .foregroundColor(Color(.white)).font(.system(size: 14))
+                        .font(.custom("Avenir", size: 14).bold())
+                        .foregroundColor(Color(.white))
                     
                     Spacer()
                     
                     Picker("Result", selection: $testResult) {
                         ForEach(selectResult, id: \.self) {
                             Text($0)
+                                .font(.custom("Avenir", size: 14))
                         }
-                    }
+                    }.frame(width: 110)
                 }.padding(.trailing, 50)
                     .foregroundColor(Color(.white))
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
                     .background(Color(.white).opacity(0.1))
                     .cornerRadius(15)
                 
                 Button(action: {
                     self.showActionSheet = true
                 }, label: {
-                    HStack(spacing: 1) {
-                        Image(systemName: "photo")
-                            .imageScale(.medium)
-                            .scaledToFill()
-                            .foregroundColor(purple)
+                    HStack(spacing: 2) {
+                        Image("camera")
+                            .resizable()
+                            .frame(width: 25, height: 25)
                         Text("upload image")
-                            .font(.custom("Avenir", size: 16))
-                            .fontWeight(.bold)
+                            .font(.custom("Avenir", size: 14).bold())
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .padding(.trailing, 10)
                     }
-                    
                 }).frame(width: 150, height: 50)
                     .background(Color.white)
                     .cornerRadius(10)
@@ -185,7 +182,6 @@ struct AddResultsView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
-                    
                 }).frame(width: 150, height: 50)
                     .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     .cornerRadius(10)
@@ -196,8 +192,8 @@ struct AddResultsView: View {
                 
                 Spacer()
             }.padding(.top, 15)
-            
-        }.navigationBarHidden(false)
+        }.background(bgPurple())
+            .navigationBarHidden(false)
             .accentColor(Color.white)
     }
     

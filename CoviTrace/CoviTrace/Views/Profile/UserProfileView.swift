@@ -11,7 +11,9 @@ import Firebase
 struct UserProfileView: View {
     @State private var lastName = ""
     @State private var firstName = ""
+    
     @State private var updateProfileSheetView = false
+    @State private var showVaccCardView = false
     
     @ObservedObject private var authModel = AuthViewModel()
     
@@ -28,8 +30,9 @@ struct UserProfileView: View {
         ZStack {
             VStack {
                 Form {
+                    
+                    // MARK: User Information section
                     Section {
-                        // MARK: Name
                         HStack {
                             Text("Name:")
                                 .font(.custom("Avenir", size: 15).bold())
@@ -40,7 +43,6 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
-                        // MARK: D.O.B
                         HStack {
                             Text("Date of Birth:")
                                 .font(.custom("Avenir", size: 15).bold())
@@ -51,7 +53,6 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
-                        // MARK: ID number
                         HStack {
                             Text("ID Number:")
                                 .font(.custom("Avenir", size: 15).bold())
@@ -62,7 +63,6 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
-                        // MARK: Email
                         HStack {
                             Text("Email:")
                                 .font(.custom("Avenir", size: 15).bold())
@@ -73,7 +73,6 @@ struct UserProfileView: View {
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
-                        // MARK: Cell number
                         HStack {
                             Text("Cell Number:")
                                 .font(.custom("Avenir", size: 15).bold())
@@ -83,13 +82,37 @@ struct UserProfileView: View {
                                 .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
-                        
-                        Text("To make changes your name or email contact: admin@covitrace.co.za").lineLimit(nil)
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .font(.custom("Avenir", size: 13).bold())
-                            .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     
+                    // MARK: Update Profile
+                    Section {
+                        Button(action:  {
+                            self.updateProfileSheetView.toggle()
+                        }, label: {
+                            HStack {
+                                Image("edit-button")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding(1)
+                                Text("Update User information")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .frame(width: 13, height: 13)
+                            }
+                        }).sheet(isPresented: $updateProfileSheetView){
+                            UpdateProfileView()
+                        }
+                    }
+                    
+                    // MARK: Verification Section
                     Section(header: Text("Verification")) {
                         // MARK: Reg Country
                         HStack {
@@ -121,46 +144,18 @@ struct UserProfileView: View {
                             Spacer()
                             Text(idType)
                                 .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                         
                         Text("To have your profile verified please email a copy of your Govt issued identity document to: verify@covitrace.co.za").lineLimit(nil)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .font(.custom("Avenir", size: 13).bold())
+                            .font(.custom("Avenir", size: 11).bold())
                             .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                 }
             }
             
             Spacer()
-            
-            VStack {
-                
-                Spacer()
-                
-                HStack {
-                    
-                    Spacer()
-                    
-                    // MARK: Update missing information
-                    Button(action: {
-                        self.updateProfileSheetView.toggle()
-                    }, label: {
-                        Text("Update Info.")
-                            .font(.custom("Avenir", size: 10))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                    }).frame(width: 80, height: 80)
-                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                        .clipShape(Circle())
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
-                        .sheet(isPresented: $updateProfileSheetView){
-                            UpdateProfileView()
-                        }
-                }
-            }
-            
         }.navigationTitle("User Information")
             .navigationBarTitleDisplayMode(.inline)
     }

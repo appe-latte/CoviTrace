@@ -27,6 +27,7 @@ struct CustomTextField: View {
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .foregroundColor(Color(.white))
+                    .padding(.leading, 10)
                 
                 TextField("", text: $text)
                     .font(.custom("Avenir", size: 14).bold())

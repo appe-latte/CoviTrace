@@ -28,8 +28,8 @@ struct DigitalCertView: View {
                     if url != nil{
                         AsyncImage(url: url!,
                                    placeholder: {
-                            Text("Loading ...")
-                                .font(.custom("Avenir", size: 16).bold())
+                            Text("Loading Digital Certificate ...")
+                                .font(.custom("Avenir", size: 14).bold())
                                 .foregroundColor(purple)
                         },
                                    image: { Image(uiImage: $0).resizable() })

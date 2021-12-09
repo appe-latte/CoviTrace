@@ -42,10 +42,10 @@ struct ScannerView: View {
                                 Button(action: {
                                     self.showingScanner.toggle()
                                 }, label: {
-                                    Image(systemName: "qrcode")
-                                        .imageScale(.large)
-                                        .foregroundColor(Color.white)
-                                        .padding()
+                                    Image("scan")
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                        .padding(1)
                                 })
                                 
                             }.frame(width: 50, height: 50)
@@ -118,10 +118,10 @@ struct ScannerView: View {
                                         print("Unknown location")
                                     }
                                 }, label: {
-                                    Image(systemName: "mappin")
-                                        .imageScale(.large)
-                                        .foregroundColor(Color.white)
-                                        .padding()
+                                    Image("location")
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                        .padding(1)
                                 })
                             }.frame(width: 50, height: 50)
                                 .background(purple)

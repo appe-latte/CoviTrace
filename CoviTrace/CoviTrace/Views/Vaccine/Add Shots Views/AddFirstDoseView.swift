@@ -35,11 +35,7 @@ struct AddFirstDoseView: View {
     }()
     
     var body: some View {
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-        
         ZStack {
-            bgPurple()
-            
             VStack {
                 HStack {
                     Text("Add First Dose")
@@ -51,12 +47,11 @@ struct AddFirstDoseView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("dismiss")
-                            .font(.custom("Avenir", size: 10))
-                            .foregroundColor(purple)
-                    }).frame(width: 40, height: 20)
-                        .background(Color.white)
-                        .clipShape(Capsule())
+                        Image("close")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }).padding(5)
+                        .clipShape(Circle())
                 }
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
@@ -141,7 +136,8 @@ struct AddFirstDoseView: View {
                 
                 Spacer()
             }
-        }.navigationTitle("")
+        }.background(bgPurple())
+            .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .accentColor(Color.white)
     }

@@ -32,11 +32,8 @@ struct VaccCardUploadView: View {
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
-            bgPurple()
-            
             VStack(spacing: 10) {
                 HStack {
                     Text("Add Vaccination Card")
@@ -48,12 +45,11 @@ struct VaccCardUploadView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("dismiss")
-                            .font(.custom("Avenir", size: 10))
-                            .foregroundColor(purple)
-                    }).frame(width: 40, height: 20)
-                        .background(Color.white)
-                        .clipShape(Capsule())
+                        Image("close")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }).padding(5)
+                        .clipShape(Circle())
                 }
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
@@ -66,7 +62,7 @@ struct VaccCardUploadView: View {
                             Image(uiImage: upload_image!)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
+                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
                                 .cornerRadius(10)
                         } else {
                             HStack {
@@ -78,7 +74,7 @@ struct VaccCardUploadView: View {
                                 Text("add vaccination card image.")
                                     .font(.system(size: 14))
                                     .foregroundColor(Color.white)
-                            }.frame(width: UIScreen.main.bounds.size.width - 40, height: 500)
+                            }.frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
                                 .background(Color.white.opacity(0.1))
                                 .cornerRadius(10)
                         }
@@ -88,20 +84,13 @@ struct VaccCardUploadView: View {
                     Button(action: {
                         self.showActionSheet = true
                     }) {
-                        HStack {
-                            Image(systemName: "camera")
-                                .imageScale(.medium)
-                                .scaledToFill()
-                                .foregroundColor(green)
-                            
-                            Text(" / ")
-                                .font(.system(size: 12))
-                                .foregroundColor(green)
-                            
-                            Image(systemName: "photo")
-                                .imageScale(.medium)
-                                .scaledToFill()
-                                .foregroundColor(green)
+                        HStack(spacing: 2) {
+                            Image("camera")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                            Text("upload image")
+                                .font(.custom("Avenir", size: 14).bold())
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
                     }.frame(width: 150, height: 50)
                         .background(Color.white)
@@ -149,7 +138,7 @@ struct VaccCardUploadView: View {
             }.toast(isPresenting: $showToastAlert){
                 AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
             }
-        }
+        }.background(bgPurple())
     }
     
     func uploadVaccCardImage(image:UIImage){
@@ -165,7 +154,7 @@ struct VaccCardUploadView: View {
                     self.showToastAlert = true
                 } else {
                     self.errTitle = "Success!"
-                    self.errMessage = "Vaccination Card uploaded."
+                    self.errMessage = "Vaccination Card uploaded"
                     self.showToastAlert = true
                     
                     storageRef.downloadURL { url, _ in
