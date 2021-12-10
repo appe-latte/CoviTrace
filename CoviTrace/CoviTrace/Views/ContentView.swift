@@ -97,7 +97,7 @@ struct TabBarButton: View {
 struct ProgressLoadingView: View {
     var body: some View {
         ZStack {
-            bgPurple()
+            bgGrad()
                 .ignoresSafeArea()
             
             ProgressView()

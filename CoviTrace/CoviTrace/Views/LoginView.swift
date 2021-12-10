@@ -19,7 +19,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                bgPurple()
+                bgGrad()
                 
                 VStack (spacing: 2){
                     
@@ -65,9 +65,9 @@ struct LoginView: View {
                         Text("Login")
                             .font(.custom("Avenir", size: 18))
                             .fontWeight(.bold)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }).frame(width: 150, height: 50)
-                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
                         .alert(isPresented: $viewModel.isError, content: {

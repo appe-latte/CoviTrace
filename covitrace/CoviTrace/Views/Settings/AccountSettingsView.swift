@@ -12,10 +12,12 @@ import AlertToast
 import FirebaseFirestore
 
 struct AccountSettingsView: View {
-    @State var cellNum = ""
-    @State var idNumber = ""
-    @State var email  = ""
     @State var dob = ""
+    @State var showProfileImgSheetView = false
+    @State var showUpdateEmailSheetView = false
+    @State var showUpdateCellNumSheetView = false
+    @State var showUpdateIdNumSheetView = false
+    @State var showUpdateDobSheetView = false
     
     // MARK: Alert
     @State private var showToastAlert : Bool = false
@@ -34,102 +36,141 @@ struct AccountSettingsView: View {
         ZStack {
             VStack {
                 Form {
-                    Section(header: Text("Update User Information")){
-                        // MARK: New cellphone number
-                        HStack {
-                            SimpleTextField(text: $cellNum, placeholder: Text("enter cellphone number"))
-                                .font(.custom("Avenir", size: 12).bold())
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            
-                            Button(action: {
-                                submit_cellNum()
-                                showToastAlert = true
-                                cellNum.removeAll()
-                                self.hideKeyboard()
-                            }, label: {
-                                Image("check")
+                    Section(header: Text("Update User Information")) {
+                        // MARK: Update Email
+                        Button(action: {
+                            self.showUpdateEmailSheetView.toggle()
+                        }, label: {
+                            HStack {
+                                Image("edit-button")
                                     .resizable()
-                                    .frame(width: 20, height: 20)
+                                    .frame(width: 30, height: 30)
                                     .padding(1)
-                            }).frame(width: 30, height: 30)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
-                                .padding(.top, 2)
-                                .disabled((cellNum != "") ? false : true)
-                                .opacity((cellNum != "") ? 1 : 0.6)
-                        }.padding(.horizontal, 2)
+                                Text("Change email address")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }).foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .sheet(isPresented: $showUpdateEmailSheetView) {
+                                UpdateEmailView()
+                            }
                         
                         // MARK: Update ID Number
-                        HStack {
-                            SimpleTextField(text: $idNumber, placeholder: Text("enter id number"))
-                                .font(.custom("Avenir", size: 12).bold())
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            
-                            Button(action: {
-                                submit_idNum()
-                                showToastAlert = true
-                                idNumber.removeAll()
-                                self.hideKeyboard()
-                            }, label: {
-                                Image("check")
+                        Button(action: {
+                            self.showUpdateIdNumSheetView.toggle()
+                        }, label: {
+                            HStack {
+                                Image("edit-button")
                                     .resizable()
-                                    .frame(width: 20, height: 20)
+                                    .frame(width: 30, height: 30)
                                     .padding(1)
-                            }).frame(width: 30, height: 30)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
-                                .padding(.top, 2)
-                                .disabled((idNumber != "") ? false : true)
-                                .opacity((idNumber != "") ? 1 : 0.6)
-                        }.padding(.horizontal, 2)
+                                Text("Change ID number")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }).foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .sheet(isPresented: $showUpdateIdNumSheetView) {
+                                UpdateIdNumView()
+                            }
                         
-                        // MARK: Update DoB
-                        HStack {
-                            SimpleTextField(text: $dob, placeholder: Text("dd/mm/yyyy"))
-                                .font(.custom("Avenir", size: 12).bold())
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            
-                            Button(action: {
-                                submit_dob()
-                                showToastAlert = true
-                                dob.removeAll()
-                                self.hideKeyboard()
-                            }, label: {
-                                Image("check")
+                        // MARK: Update DOB
+                        Button(action: {
+                            self.showUpdateDobSheetView.toggle()
+                        }, label: {
+                            HStack {
+                                Image("edit-button")
                                     .resizable()
-                                    .frame(width: 20, height: 20)
+                                    .frame(width: 30, height: 30)
                                     .padding(1)
-                            }).frame(width: 30, height: 30)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
-                                .padding(.top, 2)
-                                .disabled((dob != "") ? false : true)
-                                .opacity((dob != "") ? 1 : 0.6)
-                        }.padding(.horizontal, 2)
+                                Text("Change DOB")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }).foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .sheet(isPresented: $showUpdateDobSheetView) {
+                                UpdateDobView()
+                            }
                         
-                        // MARK: Update Email Address
-                        HStack {
-                            SimpleTextField(text: $email, placeholder: Text("enter email"))
-                                .font(.custom("Avenir", size: 12).bold())
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            
-                            Button(action: {
-                                submit_email()
-                                showToastAlert = true
-                                email.removeAll()
-                                self.hideKeyboard()
-                            }, label: {
-                                Image("check")
+                        // MARK: Update Cellphone number
+                        Button(action: {
+                            self.showUpdateCellNumSheetView.toggle()
+                        }, label: {
+                            HStack {
+                                Image("edit-button")
                                     .resizable()
-                                    .frame(width: 20, height: 20)
+                                    .frame(width: 30, height: 30)
                                     .padding(1)
-                            }).frame(width: 30, height: 30)
-                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .cornerRadius(10)
-                                .padding(.top, 2)
-                                .disabled((email != "") ? false : true)
-                                .opacity((email != "") ? 1 : 0.6)
-                        }.padding(.horizontal, 2)
+                                Text("Change cellphone number")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }).foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .sheet(isPresented: $showUpdateCellNumSheetView) {
+                                UpdateCellNumView()
+                            }
+                        
+                        // MARK: Update Profile Image
+                        Button(action: {
+                            self.showProfileImgSheetView.toggle()
+                        }, label: {
+                            HStack {
+                                Image("image")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding(1)
+                                Text("Change profile image")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }).foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .sheet(isPresented: $showProfileImgSheetView) {
+                                UpdateProfileImageView()
+                            }
                     }
                     
                     // MARK: Delete Account
@@ -138,10 +179,8 @@ struct AccountSettingsView: View {
                             Spacer()
                             
                             Button(action: {
-                                
                                 self.deleteUser()
                                 showToastAlert = true
-                                //                                authModel.signOut()
                             }, label: {
                                 HStack {
                                     Image("trash")
@@ -188,43 +227,6 @@ struct AccountSettingsView: View {
                 }
             }
         }
-    }
-    
-    // MARK: Upload to "Vaccinations" DB
-    func submit_email(){
-        let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["email": email], merge: true)
-        
-        self.errTitle = "Success!"
-        self.errMessage = "Email has successfully been updated"
-        self.showToastAlert = true
-    }
-    
-    func submit_dob(){
-        let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["dob": dob], merge: true)
-        
-        self.errTitle = "Success!"
-        self.errMessage = "DOB has successfully been updated"
-        self.showToastAlert = true
-    }
-    
-    func submit_idNum(){
-        let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["id_num": idNumber], merge: true)
-        
-        self.errTitle = "Success!"
-        self.errMessage = "ID number has successfully been updated"
-        self.showToastAlert = true
-    }
-    
-    func submit_cellNum(){
-        let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["cell_num": cellNum], merge: true)
-        
-        self.errTitle = "Success!"
-        self.errMessage = "Cellphone number has successfully been updated"
-        self.showToastAlert = true
     }
 }
 

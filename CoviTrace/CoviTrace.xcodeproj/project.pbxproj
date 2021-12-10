@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18598835275937670061D47A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18598834275937670061D47A /* GoogleService-Info.plist */; };
 		18598839275A365B0061D47A /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18598838275A365B0061D47A /* AsyncImage.swift */; };
+		2F0617B72762B62D00A4D687 /* UpdateProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0617B62762B62D00A4D687 /* UpdateProfileImageView.swift */; };
 		2F06A7522725197800B90464 /* ModalScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06A7512725197800B90464 /* ModalScannerView.swift */; };
 		2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F2A6925B5BD4A00103879 /* CoviTraceApp.swift */; };
 		2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F2A6B25B5BD4A00103879 /* ContentView.swift */; };
@@ -41,7 +42,6 @@
 		2F4F573D2655241600EFB454 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573C2655241600EFB454 /* AboutView.swift */; };
 		2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5742265524FA00EFB454 /* FaqsView.swift */; };
 		2F524193263B38CB0016D87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524192263B38CB0016D87D /* Constants.swift */; };
-		2F524195263B3E810016D87D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524194263B3E810016D87D /* UserProfileView.swift */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
 		2F5FB50A2748668E006A7F46 /* FormUploadHalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */; };
 		2F5FB50B274869C3006A7F46 /* Pods_CoviTrace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */; };
@@ -53,6 +53,11 @@
 		2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6150F925D1A4FA003AAB52 /* LandingView.swift */; };
 		2F682B9825DEC14F00873C15 /* LocationFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9725DEC14F00873C15 /* LocationFetch.swift */; };
 		2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9E25DEDA1F00873C15 /* LocationManager.swift */; };
+		2F6F10C52763F93500C686D1 /* UpdateEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F10C42763F93500C686D1 /* UpdateEmailView.swift */; };
+		2F6F10C72763FB7400C686D1 /* UpdateCellNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F10C62763FB7400C686D1 /* UpdateCellNumView.swift */; };
+		2F6F10C9276407EF00C686D1 /* UpdateIdNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F10C8276407EF00C686D1 /* UpdateIdNumView.swift */; };
+		2F6F10CB2764094F00C686D1 /* UpdateDobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F10CA2764094F00C686D1 /* UpdateDobView.swift */; };
+		2F70A4C3276338A500928BE0 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70A4C2276338A500928BE0 /* UserProfileView.swift */; };
 		2F75F4AF26FCECCB008BB653 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */; };
 		2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FC1652741F4DD00C3D9B7 /* DigitalCertUploadView.swift */; };
 		2F8043B62620A0F4004949B2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8043B52620A0F4004949B2 /* ImagePicker.swift */; };
@@ -87,6 +92,7 @@
 		18598834275937670061D47A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18598838275A365B0061D47A /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		1859883A275AA22B0061D47A /* CoviTraceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoviTraceDebug.entitlements; sourceTree = "<group>"; };
+		2F0617B62762B62D00A4D687 /* UpdateProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpdateProfileImageView.swift; path = "../New Group/UpdateProfileImageView.swift"; sourceTree = "<group>"; };
 		2F06A7512725197800B90464 /* ModalScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalScannerView.swift; sourceTree = "<group>"; };
 		2F0F2A6625B5BD4A00103879 /* CoviTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoviTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0F2A6925B5BD4A00103879 /* CoviTraceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoviTraceApp.swift; sourceTree = "<group>"; };
@@ -121,7 +127,6 @@
 		2F4F573C2655241600EFB454 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2F4F5742265524FA00EFB454 /* FaqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsView.swift; sourceTree = "<group>"; };
 		2F524192263B38CB0016D87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2F524194263B3E810016D87D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUploadHalfModalView.swift; sourceTree = "<group>"; };
 		2F6150E925D1A438003AAB52 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
@@ -131,6 +136,11 @@
 		2F6150F925D1A4FA003AAB52 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		2F682B9725DEC14F00873C15 /* LocationFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetch.swift; sourceTree = "<group>"; };
 		2F682B9E25DEDA1F00873C15 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2F6F10C42763F93500C686D1 /* UpdateEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailView.swift; sourceTree = "<group>"; };
+		2F6F10C62763FB7400C686D1 /* UpdateCellNumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCellNumView.swift; sourceTree = "<group>"; };
+		2F6F10C8276407EF00C686D1 /* UpdateIdNumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIdNumView.swift; sourceTree = "<group>"; };
+		2F6F10CA2764094F00C686D1 /* UpdateDobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDobView.swift; sourceTree = "<group>"; };
+		2F70A4C2276338A500928BE0 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
 		2F7FC1652741F4DD00C3D9B7 /* DigitalCertUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertUploadView.swift; sourceTree = "<group>"; };
 		2F8043B52620A0F4004949B2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -282,7 +292,8 @@
 		2F52418F263B378E0016D87D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				2F524194263B3E810016D87D /* UserProfileView.swift */,
+				2F70A4C2276338A500928BE0 /* UserProfileView.swift */,
+				2F6F10C32763F91600C686D1 /* UpdateUser */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -317,6 +328,18 @@
 				2FFB3FCA273C90C30005431F /* QrScanViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2F6F10C32763F91600C686D1 /* UpdateUser */ = {
+			isa = PBXGroup;
+			children = (
+				2F0617B62762B62D00A4D687 /* UpdateProfileImageView.swift */,
+				2F6F10C42763F93500C686D1 /* UpdateEmailView.swift */,
+				2F6F10C62763FB7400C686D1 /* UpdateCellNumView.swift */,
+				2F6F10C8276407EF00C686D1 /* UpdateIdNumView.swift */,
+				2F6F10CA2764094F00C686D1 /* UpdateDobView.swift */,
+			);
+			path = UpdateUser;
 			sourceTree = "<group>";
 		};
 		2F84D221273DA1E2007C2EF0 /* Delegates */ = {
@@ -569,12 +592,14 @@
 				2F4012962673A68C00AFA9E5 /* PrivacyPolicyView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
+				2F6F10C52763F93500C686D1 /* UpdateEmailView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F3680BE26F0EE320002F8A0 /* AddSingleDoseView.swift in Sources */,
 				2F4F573D2655241600EFB454 /* AboutView.swift in Sources */,
 				2FFA964B2725E63A001254AF /* VaccPassView.swift in Sources */,
 				2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */,
 				2F23F91227275B9D00B0F11F /* FaceIdLoginView.swift in Sources */,
+				2F6F10C9276407EF00C686D1 /* UpdateIdNumView.swift in Sources */,
 				2F6150EA25D1A438003AAB52 /* TextArea.swift in Sources */,
 				2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */,
 				2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */,
@@ -594,18 +619,20 @@
 				2F3D8B24263B2CA7005D91D6 /* User.swift in Sources */,
 				2F31980A25B5CC9700AB182C /* Model.swift in Sources */,
 				2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */,
+				2F70A4C3276338A500928BE0 /* UserProfileView.swift in Sources */,
 				2FFB3FCF273C9D570005431F /* CameraPreview.swift in Sources */,
 				2F495B182761AE84006EF22E /* NotificationsView.swift in Sources */,
+				2F6F10CB2764094F00C686D1 /* UpdateDobView.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */,
 				18598839275A365B0061D47A /* AsyncImage.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* BackgroundColors.swift in Sources */,
+				2F6F10C72763FB7400C686D1 /* UpdateCellNumView.swift in Sources */,
 				2FF650AD2728C6A500C697E4 /* SingleDoseVaccView.swift in Sources */,
 				2FF650A62728C04100C697E4 /* BoosterVaccView.swift in Sources */,
 				2FF650A82728C35B00C697E4 /* FirstDoseVaccView.swift in Sources */,
 				2FD6C4E4273DFDF200A0D7B1 /* VaccCardUploadView.swift in Sources */,
 				2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */,
-				2F524195263B3E810016D87D /* UserProfileView.swift in Sources */,
 				2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */,
 				2F2BA38A275484BD00A98A84 /* SecondDoseVaccViewModel.swift in Sources */,
 				2F96A3502732AB8D00719DF7 /* MainView.swift in Sources */,
@@ -620,6 +647,7 @@
 				2F40129426738E2B00AFA9E5 /* SettingsView.swift in Sources */,
 				2F0F2A6A25B5BD4A00103879 /* CoviTraceApp.swift in Sources */,
 				2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */,
+				2F0617B72762B62D00A4D687 /* UpdateProfileImageView.swift in Sources */,
 				2F3680C226F0FE840002F8A0 /* AddSecondDoseView.swift in Sources */,
 				2F9908CF265BD1DB006D977D /* PasswordResetView.swift in Sources */,
 				2F80848225D6E847000A50B6 /* CheckInView.swift in Sources */,

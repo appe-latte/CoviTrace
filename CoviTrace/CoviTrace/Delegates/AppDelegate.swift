@@ -5,6 +5,7 @@
 //  Created by Appè Latte on 11/11/2021.
 //
 
+import UIKit
 import SwiftUI
 import Combine
 import Firebase
@@ -12,58 +13,14 @@ import CoreData
 import FirebaseAuth
 import LocalAuthentication
 
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
-    let gcmMessageIDKey = "gcm.message_id"
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-//        Messaging.messaging().delegate = self
-//
-//        if #available(iOS 14.0, *) {
-//            UNUserNotificationCenter.current().delegate = self
-//
-//            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-//            UNUserNotificationCenter.current().requestAuthorization(
-//                options: authOptions,
-//                completionHandler: {_, _ in })
-//        } else {
-//            let settings: UIUserNotificationSettings =
-//            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-//            application.registerUserNotificationSettings(settings)
-//        }
-        
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, _ in
-//            guard success else {
-//                return
-//            }
-            
-//            print("Successful APNs registration")
-//        }
         
         application.registerForRemoteNotifications()
         return true
     }
-    
-//    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-//        messaging.token { token, _ in
-//            guard let token = token else {
-//                return
-//            }
-//            print("FCM Token: \(token)")
-//        }
-//    }
-    
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-//                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//
-//        if let messageID = userInfo[gcmMessageIDKey] {
-//            print("Message ID: \(messageID)")
-//        }
-//
-//        print(userInfo)
-//
-//        completionHandler(UIBackgroundFetchResult.newData)
-//    }
     
     // MARK: UISceneSession Lifecycle
     

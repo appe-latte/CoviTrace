@@ -30,3 +30,12 @@ struct bgGreen: View {
             .edgesIgnoringSafeArea(.all)
     }
 }
+
+struct bgGrad: View {
+    var body: some View {
+        let gradient = LinearGradient(colors: [Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255), Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)], startPoint: .top, endPoint: .bottom)
+        
+        gradient
+            .ignoresSafeArea(.all)
+    }
+}

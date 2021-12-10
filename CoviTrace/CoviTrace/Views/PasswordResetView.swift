@@ -18,11 +18,7 @@ struct PasswordResetView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-        
         ZStack {
-            bgPurple()
-            
             VStack (alignment: .center){
                 HStack {
                     Text("Reset Password")
@@ -34,12 +30,11 @@ struct PasswordResetView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("dismiss")
-                            .font(.custom("Avenir", size: 10))
-                            .foregroundColor(purple)
-                    }).frame(width: 40, height: 20)
-                        .background(Color.white)
-                        .clipShape(Capsule())
+                        Image("close")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }).padding(5)
+                        .clipShape(Circle())
                 }
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
@@ -64,13 +59,14 @@ struct PasswordResetView: View {
                     Text("Reset Password")
                         .font(.custom("Avenir", size: 16))
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }).frame(width: 150, height: 50)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .background(Color.white)
                     .cornerRadius(10)
             }.font(.subheadline)
                 .padding(10)
-        }.navigationBarTitle("Reset Password")
+        }.background(bgGrad())
+            .navigationBarTitle("Reset Password")
             .navigationBarTitleDisplayMode(.inline)
     }
 }

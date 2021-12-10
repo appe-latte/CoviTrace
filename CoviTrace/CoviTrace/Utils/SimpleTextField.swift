@@ -15,15 +15,14 @@ struct SimpleTextField: View {
         ZStack(alignment: .leading){
             if text.isEmpty{
                 placeholder
-                    .foregroundColor(Color(.gray))
+                    .foregroundColor(Color.white).opacity(0.7)
                     .padding(.leading)
                     .font(.custom("Avenir", size: 14))
             }
             
             TextField("", text: $text)
                 .font(.custom("Avenir", size: 14).bold())
-                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                
-        }.foregroundColor(.white)
+                .foregroundColor(Color.white)
+        }
     }
 }

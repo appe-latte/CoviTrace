@@ -102,9 +102,9 @@ struct AddSingleDoseView: View {
                         Text("Submit")
                             .font(.custom("Avenir", size: 18))
                             .fontWeight(.bold)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }).frame(width: 150, height: 50)
-                        .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
                     
@@ -112,7 +112,7 @@ struct AddSingleDoseView: View {
                 
                 Spacer()
             }
-        }.background(bgPurple())
+        }.background(bgGrad())
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .accentColor(Color.white)

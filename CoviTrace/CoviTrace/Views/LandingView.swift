@@ -13,7 +13,7 @@ struct LandingView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                bgPurple()
+                bgGrad()
                 VStack(alignment:.center){
                     VStack{
                         Image("logo")

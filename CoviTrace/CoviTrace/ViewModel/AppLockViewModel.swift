@@ -42,10 +42,10 @@ class AppLockViewModel: ObservableObject {
         if checkIfBioMetricAvailable(){
             var reason = ""
             if appLockState{
-                reason = "To enable the app lock please provide Touch ID / Face ID."
+                reason = "To enable this biometric security feature for added safety."
             }
             else{
-                reason = "To disable the app lock please provide the Touch ID / Face ID."
+                reason = "To disable this biometric security feature."
             }
             laContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason){ (success,error) in
                 if success{
@@ -74,7 +74,7 @@ class AppLockViewModel: ObservableObject {
     func appLockValidation(){
         let laContext = LAContext()
         if checkIfBioMetricAvailable(){
-            let reason = "Unlock app to view your Covitrace pass."
+            let reason = "Unlock to view your Covitrace pass."
             laContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason){(success, error) in
                 if success {
                     DispatchQueue.main.async {

@@ -63,6 +63,6 @@ struct FaceIdLoginView: View {
                     })
                 }.padding(.horizontal, 30)
             }
-        }.background(bgPurple())
+        }.background(bgGrad())
     }
 }

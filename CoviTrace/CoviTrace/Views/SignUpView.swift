@@ -47,7 +47,7 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack {
-            bgPurple()
+            bgGrad()
             
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
@@ -137,8 +137,9 @@ struct SignUpView: View {
                     Text("Sign Up")
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
+                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }).frame(width: 150, height: 50)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .background(Color.white)
                     .cornerRadius(10)
                     .disabled((lastName != "" && firstName != "" && email != "" && userPassword != "") ? false : true)
                     .opacity((lastName != "" && firstName != "" && email != "" && userPassword != "") ? 1 : 0.6)

@@ -192,7 +192,7 @@ struct AddResultsView: View {
                 
                 Spacer()
             }.padding(.top, 15)
-        }.background(bgPurple())
+        }.background(bgGrad())
             .navigationBarHidden(false)
             .accentColor(Color.white)
     }

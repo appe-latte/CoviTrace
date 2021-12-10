@@ -1,8 +1,8 @@
 //
-//  VaccCardUploadView.swift
+//  UpdateProfileImageView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 11/11/2021.
+//  Created by Stanford L. Khumalo on 09/12/2021.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import Firebase
 import AlertToast
 import FirebaseFirestore
 
-struct VaccCardUploadView: View {
+struct UpdateProfileImageView: View {
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @ObservedObject private var boosterModel = BoosterShotViewModel()
@@ -36,7 +36,7 @@ struct VaccCardUploadView: View {
         ZStack {
             VStack(spacing: 10) {
                 HStack {
-                    Text("Add Vaccination Card")
+                    Text("Update Profile Image")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                     
@@ -71,7 +71,7 @@ struct VaccCardUploadView: View {
                                     .scaledToFit()
                                     .foregroundColor(Color.white)
                                     .frame(width:15, height:15)
-                                Text("add vaccination card image.")
+                                Text("profile image")
                                     .font(.system(size: 14))
                                     .foregroundColor(Color.white)
                             }.frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
@@ -96,7 +96,7 @@ struct VaccCardUploadView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .actionSheet(isPresented: $showActionSheet){
-                            ActionSheet(title: Text("Add Vaccincation Card"), message: nil, buttons: [
+                            ActionSheet(title: Text("Select profile image"), message: nil, buttons: [
                                 
                                 // MARK: take image using camera
                                 .default(Text("Camera"), action: {
@@ -120,10 +120,12 @@ struct VaccCardUploadView: View {
                     // MARK: Upload image to Firebase
                     Button(action: {
                         if let thisImage = self.upload_image {
-                            uploadVaccCardImage(image: thisImage)
+                            uploadProfileImage(image: thisImage)
                         } else {
                             showToastAlert.toggle()
                         }
+                        
+                        self.presentationMode.wrappedValue.dismiss()
                     }){
                         Text("Submit")
                             .font(.custom("Avenir", size: 16))
@@ -141,10 +143,10 @@ struct VaccCardUploadView: View {
         }.background(bgGrad())
     }
     
-    func uploadVaccCardImage(image:UIImage){
+    func uploadProfileImage(image:UIImage){
         if let imageData = image.jpegData(compressionQuality: 0.6){
             let filename = NSUUID().uuidString
-            let storageRef = Storage.storage().reference(withPath: "/vaccination_card/\(filename)")
+            let storageRef = Storage.storage().reference(withPath: "/profile_images/\(filename)")
             
             storageRef.putData(imageData, metadata: nil) {
                 (_, err) in
@@ -154,12 +156,12 @@ struct VaccCardUploadView: View {
                     self.showToastAlert = true
                 } else {
                     self.errTitle = "Success!"
-                    self.errMessage = "Vaccination Card uploaded"
+                    self.errMessage = "Image uploaded"
                     self.showToastAlert = true
                     
                     storageRef.downloadURL { url, _ in
-                        guard let vaccCardViewUrl = url?.absoluteString else { return }
-                        saveVaccCardViewURL(urlStr: vaccCardViewUrl)
+                        guard let profileImageViewUrl = url?.absoluteString else { return }
+                        saveProfileImageViewURL(urlStr: profileImageViewUrl)
                     }
                 }
             }
@@ -168,9 +170,9 @@ struct VaccCardUploadView: View {
         }
     }
     
-    func saveVaccCardViewURL(urlStr : String ){
+    func saveProfileImageViewURL(urlStr : String ){
         let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["vaccCardImageUrl": urlStr], merge: true)
+        db.collection("users").document(authModel.userSession!.uid).setData(["profileImageUrl": urlStr], merge: true)
     }
     
 }

@@ -32,7 +32,7 @@ struct SettingsView: View {
                                 .frame(width: 30, height: 30)
                                 .padding(1)
                             Text("About Covitrace")
-                                .font(.custom("Avenir", size: 17))
+                                .font(.custom("Avenir", size: 15))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
@@ -45,7 +45,7 @@ struct SettingsView: View {
                                 .frame(width: 30, height: 30)
                                 .padding(1)
                             Text("FAQs")
-                                .font(.custom("Avenir", size: 17))
+                                .font(.custom("Avenir", size: 15))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
@@ -59,7 +59,7 @@ struct SettingsView: View {
                                     .frame(width: 30, height: 30)
                                     .padding(1)
                                 Text("Account Settings")
-                                    .font(.custom("Avenir", size: 17))
+                                    .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     .padding(.leading, 15)
@@ -92,7 +92,7 @@ struct SettingsView: View {
                                     .frame(width: 30, height: 30)
                                     .padding(1)
                                 Text("Privacy Policy")
-                                    .font(.custom("Avenir", size: 17))
+                                    .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     .padding(.leading, 15)
@@ -106,7 +106,7 @@ struct SettingsView: View {
                                     .frame(width: 30, height: 30)
                                     .padding(1)
                                 Text("Share")
-                                    .font(.custom("Avenir", size: 17))
+                                    .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     .padding(.leading, 15)
@@ -129,7 +129,7 @@ struct SettingsView: View {
                                 .frame(width: 30, height: 30)
                                 .padding(1)
                             Text("RSA Covid Statistics")
-                                .font(.custom("Avenir", size: 17))
+                                .font(.custom("Avenir", size: 15))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
@@ -148,6 +148,38 @@ struct SettingsView: View {
                         })
                     }.foregroundColor(.gray)
                     
+                    //                    Section(header: Text("In partnership with:")) {
+                    //                        HStack(spacing: 10) {
+                    //                            // Partner
+                    //                            Image("logo")
+                    //                                .resizable()
+                    //                                .frame(width: 80, height: 80)
+                    //                                .clipShape(Circle())
+                    //                                .padding(1)
+                    //                            
+                    //                            // Partner
+                    //                            Image("logo")
+                    //                                .resizable()
+                    //                                .frame(width: 80, height: 80)
+                    //                                .clipShape(Circle())
+                    //                                .padding(1)
+                    //                            
+                    //                            // Partner
+                    //                            Image("logo")
+                    //                                .resizable()
+                    //                                .frame(width: 80, height: 80)
+                    //                                .clipShape(Circle())
+                    //                                .padding(1)
+                    //                            
+                    //                            // Partner
+                    //                            Image("logo")
+                    //                                .resizable()
+                    //                                .frame(width: 80, height: 80)
+                    //                                .clipShape(Circle())
+                    //                                .padding(1)
+                    //                        }
+                    //                    }
+                    
                     // MARK: Sign Out Button
                     Section {
                         Text("For all account related enquiries email the administrator at: admin@covitrace.co.za").lineLimit(nil)
@@ -164,7 +196,7 @@ struct SettingsView: View {
                                     .frame(width: 25, height: 25)
                                     .padding(2)
                                 Text("Sign Out")
-                                    .font(.custom("Avenir", size: 17))
+                                    .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 249 / 255, green: 73 / 255, blue: 73 / 255))
                             }

@@ -137,7 +137,7 @@ struct DigitalCertUploadView : View {
                     AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
                 }
             }.ignoresSafeArea()
-        }.background(bgPurple())
+        }.background(bgGrad())
     }
     
     func uploadDcertImage(image:UIImage){

@@ -2,14 +2,19 @@
 //  UserProfileView.swift
 //  CoviTrace
 //
-//  Created by Stanford L. Khumalo on 29/04/2021.
+//  Created by Stanford L. Khumalo on 10/12/2021.
 //
 
 import SwiftUI
-import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 struct UserProfileView: View {
+    @State var cellNum = ""
+    @State var idNumber = ""
+    @State var email  = ""
+    @State var dob = ""
+    
     @State private var updateProfileSheetView = false
     @State private var showVaccCardView = false
     

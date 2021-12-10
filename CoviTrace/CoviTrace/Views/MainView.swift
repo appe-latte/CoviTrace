@@ -242,7 +242,7 @@ struct MainView: View {
                                                 
                                                 // MARK: Verification Status
                                                 HStack{
-                                                    Text("Profile Status: ")
+                                                    Text("Vaccination Status: ")
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -274,7 +274,7 @@ struct MainView: View {
                                                                 }
                                                             }.frame(width: 80, height: 80)
                                                             .foregroundColor(.white)
-                                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                            .background(bgPurple())
                                                             .clipShape(Circle())
                                                     }
                                                     
@@ -298,7 +298,7 @@ struct MainView: View {
                                                                     .fontWeight(.semibold)
                                                             }.frame(width: 80, height: 80)
                                                                 .foregroundColor(.white)
-                                                                .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                                .background(bgPurple())
                                                                 .clipShape(Circle())
                                                         })
                                                     }
@@ -324,7 +324,7 @@ struct MainView: View {
                                                                 
                                                             }.frame(width: 80, height: 80)
                                                             .foregroundColor(.white)
-                                                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                            .background(bgPurple())
                                                             .clipShape(Circle())
                                                     }
                                                 }
