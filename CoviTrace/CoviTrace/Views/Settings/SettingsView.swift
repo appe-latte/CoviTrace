@@ -85,18 +85,29 @@ struct SettingsView: View {
                             .padding(5)
                         
                         // MARK: Privacy Policy
-                        NavigationLink(
-                            destination: PrivacyPolicyView()){
-                                Image("pages")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(1)
-                                Text("Privacy Policy")
-                                    .font(.custom("Avenir", size: 15))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
+                        HStack {
+                            Image("pages")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .padding(1)
+                            Text("Privacy Policy")
+                                .font(.custom("Avenir", size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .scaledToFit()
+                                .font(Font.title.weight(.semibold))
+                                .foregroundColor(Color(.gray)).opacity(0.5)
+                                .frame(width: 13, height: 13)
+                        }.onTapGesture {
+                            showSafari.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showSafari, content: {
+                            SFSafariViewWrapper(url: URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
+                        })
                         
                         // MARK: Share The App
                         Button(action: shareSheet) {
