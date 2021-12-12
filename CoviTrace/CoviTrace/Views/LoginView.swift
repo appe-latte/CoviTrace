@@ -92,6 +92,8 @@ struct LoginView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
+                    .disabled((email != "" && userPassword != "") ? false : true)
+                    .opacity((email != "" && userPassword != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {
                         Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
                     })

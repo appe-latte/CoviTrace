@@ -24,7 +24,7 @@ struct LandingView: View {
                         .clipShape(Circle())
                     Text("CoviTrace")
                         .foregroundColor(.white)
-                        .font(.custom("Avenir", size: 24))
+                        .font(.custom("Avenir", size: 32))
                         .fontWeight(.bold)
                 }.padding(.top, 20)
                 

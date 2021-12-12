@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 
 struct PasswordResetView: View {
-    @State var userEmail = ""
+    @State var email = ""
     
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -40,7 +40,7 @@ struct PasswordResetView: View {
                 .padding(.horizontal, 15)
                 
                 // MARK: User Email Text
-                CustomTextField(text: $userEmail, placeholder: Text("Email"), imageName: "envelope")
+                CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                     .padding(5)
                     .foregroundColor(Color(.white))
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
@@ -53,7 +53,7 @@ struct PasswordResetView: View {
                 
                 // MARK: "Reset" Button
                 Button(action: {
-                    passwordReset(withEmail: userEmail)
+                    passwordReset(withEmail: email)
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Reset Password")
@@ -63,6 +63,8 @@ struct PasswordResetView: View {
                 }).frame(width: 150, height: 50)
                     .background(Color.white)
                     .cornerRadius(10)
+                    .disabled((email != "") ? false : true)
+                    .opacity((email != "") ? 1 : 0.6)
             }.font(.subheadline)
                 .padding(10)
         }.background(bgGrad())
