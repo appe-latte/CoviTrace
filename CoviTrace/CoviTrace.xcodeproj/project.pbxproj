@@ -22,6 +22,7 @@
 		2F23F91227275B9D00B0F11F /* FaceIdLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */; };
 		2F23F9142727606500B0F11F /* AppLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F23F9132727606500B0F11F /* AppLockViewModel.swift */; };
 		2F2500D7272352BC00794187 /* ShowTestCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2500D6272352BC00794187 /* ShowTestCertView.swift */; };
+		2F2812F827667FA10048EC52 /* CurvedSidedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2812F727667FA10048EC52 /* CurvedSidedRectangle.swift */; };
 		2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B361825FA676E004140D4 /* TestResultView.swift */; };
 		2F2BA38A275484BD00A98A84 /* SecondDoseVaccViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BA389275484BD00A98A84 /* SecondDoseVaccViewModel.swift */; };
 		2F2C84A925FA9C290002F2C3 /* DigitalCertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C84A825FA9C290002F2C3 /* DigitalCertView.swift */; };
@@ -107,6 +108,7 @@
 		2F23F91127275B9D00B0F11F /* FaceIdLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdLoginView.swift; sourceTree = "<group>"; };
 		2F23F9132727606500B0F11F /* AppLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockViewModel.swift; sourceTree = "<group>"; };
 		2F2500D6272352BC00794187 /* ShowTestCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTestCertView.swift; sourceTree = "<group>"; };
+		2F2812F727667FA10048EC52 /* CurvedSidedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedSidedRectangle.swift; sourceTree = "<group>"; };
 		2F2B361825FA676E004140D4 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
 		2F2BA389275484BD00A98A84 /* SecondDoseVaccViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDoseVaccViewModel.swift; sourceTree = "<group>"; };
 		2F2C84A825FA9C290002F2C3 /* DigitalCertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertView.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */,
 				2F524192263B38CB0016D87D /* Constants.swift */,
 				18598838275A365B0061D47A /* AsyncImage.swift */,
+				2F2812F727667FA10048EC52 /* CurvedSidedRectangle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */,
 				18598839275A365B0061D47A /* AsyncImage.swift in Sources */,
+				2F2812F827667FA10048EC52 /* CurvedSidedRectangle.swift in Sources */,
 				2F1217E125D5B88B00D62B18 /* BackgroundColors.swift in Sources */,
 				2F6F10C72763FB7400C686D1 /* UpdateCellNumView.swift in Sources */,
 				2FF650AD2728C6A500C697E4 /* SingleDoseVaccView.swift in Sources */,

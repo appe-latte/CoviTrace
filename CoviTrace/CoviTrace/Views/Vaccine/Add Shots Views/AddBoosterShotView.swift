@@ -131,6 +131,8 @@ struct AddBoosterShotView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
+                        .disabled((boosterDosebatchNum != "" && boosterDoseVaccProvider != "" && boosterDoseCountry != "") ? false : true)
+                        .opacity((boosterDosebatchNum != "" && boosterDoseVaccProvider != "" && boosterDoseCountry != "") ? 1 : 0.6)
                     
                 }.padding(.top, 10)
                 

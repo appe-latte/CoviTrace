@@ -47,6 +47,7 @@ struct AddResultsView: View {
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack {
@@ -108,7 +109,7 @@ struct AddResultsView: View {
                     .cornerRadius(15)
                 
                 // MARK: Test Result Picker
-               
+                
                 
                 HStack {
                     Text("Test Result:")
@@ -183,9 +184,11 @@ struct AddResultsView: View {
                             .foregroundColor(.white)
                     }
                 }).frame(width: 150, height: 50)
-                    .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    .background(purple)
                     .cornerRadius(10)
                     .padding(.top, 2)
+                    .disabled((testRefNum != "" && testProvider != "") ? false : true)
+                    .opacity((testRefNum != "" && testProvider != "") ? 1 : 0.6)
                     .toast(isPresenting: $showToastAlert){
                         AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
                     }

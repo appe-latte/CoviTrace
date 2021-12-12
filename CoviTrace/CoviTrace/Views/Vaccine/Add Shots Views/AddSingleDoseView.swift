@@ -107,7 +107,8 @@ struct AddSingleDoseView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
-                    
+                        .disabled((singleDosebatchNum != "" && singleDoseVaccProvider != "" && vaccDoseCountry != "") ? false : true)
+                        .opacity((singleDosebatchNum != "" && singleDoseVaccProvider != "" && vaccDoseCountry != "") ? 1 : 0.6)
                 }.padding(.top, 10)
                 
                 Spacer()

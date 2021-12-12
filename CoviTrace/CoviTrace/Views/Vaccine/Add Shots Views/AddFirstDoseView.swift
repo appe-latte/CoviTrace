@@ -132,6 +132,8 @@ struct AddFirstDoseView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
+                        .disabled((firstDosebatchNum != "" && firstDoseVaccProvider != "" && firstVaccDoseCountry != "") ? false : true)
+                        .opacity((firstDosebatchNum != "" && firstDoseVaccProvider != "" && firstVaccDoseCountry != "") ? 1 : 0.6)
                 }.padding(.top, 10)
                 
                 Spacer()

@@ -70,6 +70,8 @@ struct UpdateEmailView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
+                    .disabled((email != "") ? false : true)
+                    .opacity((email != "") ? 1 : 0.6)
                 
                 Spacer()
             }.padding(.top, 15)

@@ -70,6 +70,8 @@ struct UpdateDobView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
+                    .disabled((dob != "") ? false : true)
+                    .opacity((dob != "") ? 1 : 0.6)
                 
                 Spacer()
             }.padding(.top, 15)

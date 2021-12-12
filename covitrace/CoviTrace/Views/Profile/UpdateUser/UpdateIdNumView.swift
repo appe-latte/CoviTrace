@@ -70,6 +70,8 @@ struct UpdateIdNumView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
+                    .disabled((idNumber != "") ? false : true)
+                    .opacity((idNumber != "") ? 1 : 0.6)
                 
                 Spacer()
             }.padding(.top, 15)

@@ -70,6 +70,8 @@ struct UpdateCellNumView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .padding(.top, 2)
+                    .disabled((cellNum != "") ? false : true)
+                    .opacity((cellNum != "") ? 1 : 0.6)
                 
                 Spacer()
             }.padding(.top, 15)

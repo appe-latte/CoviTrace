@@ -32,6 +32,7 @@ struct VaccCardUploadView: View {
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack(spacing: 10) {
@@ -130,7 +131,7 @@ struct VaccCardUploadView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }.frame(width: 150, height: 50)
-                        .background(green)
+                        .background(purple)
                         .cornerRadius(10)
                 }
                 

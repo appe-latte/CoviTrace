@@ -49,6 +49,8 @@ struct MainView: View {
     }
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         Group {
             if authModel.userSession != nil {
                 NavigationView {
@@ -56,153 +58,158 @@ struct MainView: View {
                         bgWhite()
                         
                         VStack {
-                            VStack(spacing: 22){
-                                Spacer()
-                                    .frame(height: 15)
-                                
-                                if !isHide {
-                                    HStack(spacing: 12){
-                                        Text("Covitrace")
-                                            .font(.largeTitle)
-                                            .fontWeight(.heavy)
-                                            .foregroundColor(Color(.white))
+                            
+                            CurvedSidedRectangle()
+                                .frame(height: 275)
+                                .foregroundColor(purple).edgesIgnoringSafeArea(.all)
+                                .overlay(
+                                    VStack(spacing: 22){
+                                        //                                        Spacer()
+                                        //                                            .frame(height: 15)
+                                        
+                                        if !isHide {
+                                            HStack(spacing: 12){
+                                                Text("Covitrace")
+                                                    .font(.largeTitle)
+                                                    .fontWeight(.heavy)
+                                                    .foregroundColor(Color(.white))
+                                                
+                                                Spacer()
+                                                
+                                            }
+                                            .padding(.horizontal)
+                                        }
+                                        
+                                        HStack(spacing: 15){
+                                            
+                                            // MARK: "upload"
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    Button(action: {
+                                                        self.formHalfModal_shown.toggle()
+                                                    }, label: {
+                                                        VStack {
+                                                            Image("add")
+                                                                .resizable()
+                                                                .frame(width: 25, height: 25)
+                                                                .padding(10)
+                                                                .background(Color.white.opacity(0.1))
+                                                                .clipShape(Circle())
+                                                            Text("Add")
+                                                                .font(.system(size: 11))
+                                                                .foregroundColor(Color.white)
+                                                        }
+                                                    })
+                                                }
+                                            }
+                                            
+                                            // MARK: User Profile
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: UserProfileView()){
+                                                            VStack {
+                                                                Image("user")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Profile")
+                                                                    .font(.system(size: 11))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                            
+                                            // MARK: Vaccination Card
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: VaccinationCardView()){
+                                                            VStack {
+                                                                Image("card-w")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Card")
+                                                                    .font(.system(size: 12))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                            
+                                            // MARK: Test Results
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: TestResultView()){
+                                                            VStack {
+                                                                Image("folder")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Results")
+                                                                    .font(.system(size: 11))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                            
+                                            // MARK: Previous Check-ins
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: CheckInView()){
+                                                            VStack {
+                                                                Image("venue")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Venues")
+                                                                    .font(.system(size: 12))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                            
+                                            // MARK: Settings
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: SettingsView()){
+                                                            VStack {
+                                                                Image("menu")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Menu")
+                                                                    .font(.system(size: 12))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                            
+                                            Spacer()
+                                        }.padding(.horizontal, 15)
                                         
                                         Spacer()
-                                        
+                                            .frame(height: 2)
                                     }
-                                    .padding(.horizontal)
-                                }
-                                
-                                HStack(spacing: 15){
-                                    
-                                    // MARK: "upload"
-                                    VStack(spacing: 1) {
-                                        HStack {
-                                            Button(action: {
-                                                self.formHalfModal_shown.toggle()
-                                            }, label: {
-                                                VStack {
-                                                    Image("add")
-                                                        .resizable()
-                                                        .frame(width: 25, height: 25)
-                                                        .padding(10)
-                                                        .background(Color.white.opacity(0.1))
-                                                        .clipShape(Circle())
-                                                    Text("Add")
-                                                        .font(.system(size: 11))
-                                                        .foregroundColor(Color.white)
-                                                }
-                                            })
-                                        }
-                                    }
-                                    
-                                    // MARK: User Profile
-                                    VStack(spacing: 1) {
-                                        HStack {
-                                            NavigationLink(
-                                                destination: UserProfileView()){
-                                                    VStack {
-                                                        Image("user")
-                                                            .resizable()
-                                                            .frame(width: 25, height: 25)
-                                                            .padding(10)
-                                                            .background(Color.white.opacity(0.1))
-                                                            .clipShape(Circle())
-                                                        Text("Profile")
-                                                            .font(.system(size: 11))
-                                                            .foregroundColor(Color.white)
-                                                    }
-                                                }
-                                        }
-                                    }
-                                    
-                                    // MARK: Vaccination Card
-                                    VStack(spacing: 1) {
-                                        HStack {
-                                            NavigationLink(
-                                                destination: VaccinationCardView()){
-                                                    VStack {
-                                                        Image("card-w")
-                                                            .resizable()
-                                                            .frame(width: 25, height: 25)
-                                                            .padding(10)
-                                                            .background(Color.white.opacity(0.1))
-                                                            .clipShape(Circle())
-                                                        Text("Card")
-                                                            .font(.system(size: 12))
-                                                            .foregroundColor(Color.white)
-                                                    }
-                                                }
-                                        }
-                                    }
-                                    
-                                    // MARK: Test Results
-                                    VStack(spacing: 1) {
-                                        HStack {
-                                            NavigationLink(
-                                                destination: TestResultView()){
-                                                    VStack {
-                                                        Image("folder")
-                                                            .resizable()
-                                                            .frame(width: 25, height: 25)
-                                                            .padding(10)
-                                                            .background(Color.white.opacity(0.1))
-                                                            .clipShape(Circle())
-                                                        Text("Results")
-                                                            .font(.system(size: 11))
-                                                            .foregroundColor(Color.white)
-                                                    }
-                                                }
-                                        }
-                                    }
-                                    
-                                    // MARK: Previous Check-ins
-                                    VStack(spacing: 1) {
-                                        HStack {
-                                            NavigationLink(
-                                                destination: CheckInView()){
-                                                    VStack {
-                                                        Image("venue")
-                                                            .resizable()
-                                                            .frame(width: 25, height: 25)
-                                                            .padding(10)
-                                                            .background(Color.white.opacity(0.1))
-                                                            .clipShape(Circle())
-                                                        Text("Venues")
-                                                            .font(.system(size: 12))
-                                                            .foregroundColor(Color.white)
-                                                    }
-                                                }
-                                        }
-                                    }
-                                    
-                                    // MARK: Settings
-                                    VStack(spacing: 1) {
-                                        HStack {
-                                            NavigationLink(
-                                                destination: SettingsView()){
-                                                    VStack {
-                                                        Image("menu")
-                                                            .resizable()
-                                                            .frame(width: 25, height: 25)
-                                                            .padding(10)
-                                                            .background(Color.white.opacity(0.1))
-                                                            .clipShape(Circle())
-                                                        Text("Menu")
-                                                            .font(.system(size: 12))
-                                                            .foregroundColor(Color.white)
-                                                    }
-                                                }
-                                        }
-                                    }
-                                    
-                                    Spacer()
-                                }.padding(.horizontal, 15)
-                                
-                                Spacer()
-                                    .frame(height: 2)
-                            }
-                            .background(bgPurple()).edgesIgnoringSafeArea(.all)
+                                )
                             
                             ScrollView(.vertical, showsIndicators: false) {
                                 
@@ -274,7 +281,7 @@ struct MainView: View {
                                                                 }
                                                             }.frame(width: 80, height: 80)
                                                             .foregroundColor(.white)
-                                                            .background(bgPurple())
+                                                            .background(purple)
                                                             .clipShape(Circle())
                                                     }
                                                     
@@ -298,7 +305,7 @@ struct MainView: View {
                                                                     .fontWeight(.semibold)
                                                             }.frame(width: 80, height: 80)
                                                                 .foregroundColor(.white)
-                                                                .background(bgPurple())
+                                                                .background(purple)
                                                                 .clipShape(Circle())
                                                         })
                                                     }
@@ -324,7 +331,7 @@ struct MainView: View {
                                                                 
                                                             }.frame(width: 80, height: 80)
                                                             .foregroundColor(.white)
-                                                            .background(bgPurple())
+                                                            .background(purple)
                                                             .clipShape(Circle())
                                                     }
                                                 }

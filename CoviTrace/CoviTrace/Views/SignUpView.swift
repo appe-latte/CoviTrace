@@ -30,7 +30,7 @@ struct SignUpView: View {
     
     // MARK: Objects
     @EnvironmentObject var viewModel : AuthViewModel
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     
     init() {
@@ -50,6 +50,25 @@ struct SignUpView: View {
             bgGrad()
             
             VStack {
+                HStack {
+                    Text("User Registration")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image("close")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }).padding(5)
+                        .clipShape(Circle())
+                }
+                .padding(.top, 5)
+                .padding(.horizontal, 5)
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     Group {
                         
@@ -146,17 +165,6 @@ struct SignUpView: View {
                     .alert(isPresented: $viewModel.isError, content: {
                         Alert(title: Text("Registration Error"), message: Text(viewModel.errorMsg))
                     })
-                
-                // MARK: "Existing User"
-                NavigationLink(
-                    destination: LoginView()){
-                        Text("Existing User?")
-                            .font(.custom("Avenir", size: 12))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color(.white))
-                            .padding(.top, 2)
-                    }
-                
             }.navigationBarTitle("User Registration")
                 .navigationBarTitleDisplayMode(.inline)
                 .padding()

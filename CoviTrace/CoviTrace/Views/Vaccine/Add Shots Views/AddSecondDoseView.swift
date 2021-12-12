@@ -130,7 +130,8 @@ struct AddSecondDoseView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.top, 2)
-                    
+                        .disabled((secondDosebatchNum != "" && secondDoseVaccProvider != "" && secondVaccDoseCountry != "") ? false : true)
+                        .opacity((secondDosebatchNum != "" && secondDoseVaccProvider != "" && secondVaccDoseCountry != "") ? 1 : 0.6)
                 }.padding(.top, 10)
                 
                 Spacer()
