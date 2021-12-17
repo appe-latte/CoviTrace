@@ -93,6 +93,7 @@ struct LoginView: View {
                         .foregroundColor(.white)
                 }).buttonStyle(purpleButton())
                     .padding(.top, 2)
+                    .padding(.bottom, 10)
                     .disabled((email != "" && userPassword != "") ? false : true)
                     .opacity((email != "" && userPassword != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {
