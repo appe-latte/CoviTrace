@@ -14,11 +14,11 @@ struct LandingView: View {
     
     var body: some View {
         ZStack {
-            
             Image("background")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 VStack(alignment:.center) {
                     Spacer()
