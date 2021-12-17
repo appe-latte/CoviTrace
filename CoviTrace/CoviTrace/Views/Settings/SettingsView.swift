@@ -220,7 +220,9 @@ struct SettingsView: View {
                 
                 // MARK: App Version Number
                 HStack(spacing: 5){
-                    Text("App Version: \(UIApplication.appVersion!)")
+                    Text("v:\(UIApplication.appVersion!) ~")
+                        .font(.custom("Avenir", size: 12))
+                    Text("Covitrace © All Rights Reserved (2022)")
                         .font(.custom("Avenir", size: 12))
                 }.foregroundColor(Color(.white))
                 

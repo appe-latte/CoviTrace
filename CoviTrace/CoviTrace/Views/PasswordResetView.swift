@@ -22,7 +22,7 @@ struct PasswordResetView: View {
             VStack (alignment: .center){
                 HStack {
                     Text("Reset Password")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -30,7 +30,7 @@ struct PasswordResetView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -42,9 +42,9 @@ struct PasswordResetView: View {
                 // MARK: User Email Text
                 CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                     .padding(5)
-                    .foregroundColor(Color(.white))
+                    .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
+                    .background(purple.opacity(0.1))
                     .cornerRadius(15)
                     .keyboardType(.emailAddress).autocapitalization(.none)
                     .padding(.top, 10)
@@ -59,15 +59,14 @@ struct PasswordResetView: View {
                     Text("Reset Password")
                         .font(.custom("Avenir", size: 16))
                         .fontWeight(.bold)
-                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                }).buttonStyle(whiteButton())
+                        .foregroundColor(.white)
+                }).buttonStyle(purpleButton())
                     .disabled((email != "") ? false : true)
                     .opacity((email != "") ? 1 : 0.6)
             }.font(.subheadline)
                 .padding(10)
-        }.background(bgGrad())
-            .navigationBarTitle("Reset Password")
-            .navigationBarTitleDisplayMode(.inline)
+        }.background(bgWhite())
+            .accentColor(purple)
     }
 }
 

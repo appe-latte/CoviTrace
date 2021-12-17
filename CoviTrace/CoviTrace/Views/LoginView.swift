@@ -8,6 +8,7 @@
 import SwiftUI
 import os
 import Combine
+import FirebaseAuth
 
 struct LoginView: View {
     @State var email = ""
@@ -22,13 +23,11 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            bgGrad()
-            
             VStack (spacing: 2){
                 
                 HStack {
                     Text("User Login")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -36,7 +35,7 @@ struct LoginView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -49,33 +48,37 @@ struct LoginView: View {
                     // MARK: User Email Text
                     CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                         .padding(5)
-                        .foregroundColor(Color(.white))
+                        .foregroundColor(purple)
                         .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                         .keyboardType(.emailAddress).autocapitalization(.none)
                     
                     // MARK: User Password Text
                     CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
                         .padding(5)
-                        .foregroundColor(Color(.white))
+                        .foregroundColor(purple)
                         .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                 }
                 
                 // MARK: "Password Recovery"
-                Button(action: {
-                    self.showPwdResetSheetView.toggle()
-                }, label: {
-                    Text("Forgot Password?")
-                        .font(.custom("Avenir", size: 12))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(.white))
-                        .padding(2)
-                        .padding(.leading, 175)
-                }).sheet(isPresented: $showPwdResetSheetView){
-                    PasswordResetView()
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        self.showPwdResetSheetView.toggle()
+                    }, label: {
+                        Text("Forgot Password?")
+                            .font(.custom("Avenir", size: 12))
+                            .fontWeight(.bold)
+                            .foregroundColor(purple)
+                            .padding(.top, 5)
+                            .padding(.horizontal, 20)
+                    }).sheet(isPresented: $showPwdResetSheetView){
+                        PasswordResetView()
+                    }
                 }
                 
                 Spacer()
@@ -87,8 +90,8 @@ struct LoginView: View {
                     Text("Login")
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
-                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                }).buttonStyle(whiteButton())
+                        .foregroundColor(.white)
+                }).buttonStyle(purpleButton())
                     .padding(.top, 2)
                     .disabled((email != "" && userPassword != "") ? false : true)
                     .opacity((email != "" && userPassword != "") ? 1 : 0.6)
@@ -96,6 +99,7 @@ struct LoginView: View {
                         Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
                     })
             }.font(.subheadline)
-        }
+        }.background(bgWhite())
+            .accentColor(purple)
     }
 }

@@ -13,10 +13,12 @@ struct CustomTextField: View {
     let imageName: String
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack(alignment: .leading){
             if text.isEmpty{
                 placeholder
-                    .foregroundColor(Color(.white))
+                    .foregroundColor(purple)
                     .padding(.leading, 40)
                     .font(.custom("Avenir", size: 14).bold())
             }
@@ -26,7 +28,7 @@ struct CustomTextField: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
-                    .foregroundColor(Color(.white))
+                    .foregroundColor(purple)
                     .padding(.leading, 10)
                 
                 TextField("", text: $text)

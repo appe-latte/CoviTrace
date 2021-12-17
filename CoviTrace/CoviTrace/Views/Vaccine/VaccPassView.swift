@@ -73,53 +73,14 @@ struct VaccPassView: View {
                                 .interpolation(.none)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 125, height: 125)
-                                .padding(.vertical, 5)
-                                .padding(.trailing, 5)
-                            
-                            // MARK: User Details
-                            VStack(alignment: .leading, spacing: 5) {
-                                VStack(alignment: .leading){
-                                    Text("Date of Birth:")
-                                        .font(.custom("Avenir", size: 16))
-                                        .fontWeight(.bold)
-                                    Text(authModel.user!.dob)
-                                        .font(.custom("Avenir", size: 16))
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                }
-                                
-                                // MARK: Vaccination Status
-                                VStack(alignment: .leading) {
-                                    Text("Vaccination:")
-                                        .font(.custom("Avenir", size: 16))
-                                        .fontWeight(.bold)
-                                    HStack{
-                                        Text(firstDoseData.vaccStatus)
-                                            .font(.custom("Avenir", size: 16))
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    }
-                                }
-                                
-                                // MARK: Vaccination Country
-                                VStack(alignment: .leading) {
-                                    Text("Reg. Country:")
-                                        .font(.custom("Avenir", size: 16))
-                                        .fontWeight(.bold)
-                                    HStack{
-                                        Text(authModel.user!.regCountry)
-                                            .font(.custom("Avenir", size: 16))
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    }
-                                }
-                            }
+                                .frame(width: 175, height: 175)
+                                .padding(5)
                         }
+                        
                         // MARK: Disclaimer
                         Text("This is to certify that the user's Covid-19 vaccination has been verified as legitimate and this certificate eligible for use as proof for the purpose of travel.")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
-                            .font(.custom("Avenir", size: 14))
+                            .font(.custom("Avenir", size: 12))
                             .multilineTextAlignment(.leading)
                             .lineLimit(10)
                     }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

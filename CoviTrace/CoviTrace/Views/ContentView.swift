@@ -26,8 +26,6 @@ struct ContentView: View {
     @StateObject var appLockModel = AppLockViewModel()
     
     var body: some View {
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-        
         ZStack {
             Group {
                 if viewModel.userSession != nil {
@@ -49,7 +47,7 @@ struct ContentView: View {
                     LandingView()
                 }
                 
-                // MARK: progress loading
+                // MARK: "Loading" view
                 if isLoading {
                     ProgressLoadingView()
                 }
@@ -97,8 +95,10 @@ struct TabBarButton: View {
 struct ProgressLoadingView: View {
     var body: some View {
         ZStack {
-            bgPurple()
-                .ignoresSafeArea()
+            Image("background")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 1){
                 ProgressView()

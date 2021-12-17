@@ -47,12 +47,10 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack {
-            bgGrad()
-            
             VStack {
                 HStack {
                     Text("User Registration")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -60,7 +58,7 @@ struct SignUpView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -87,14 +85,14 @@ struct SignUpView: View {
                                     } else {
                                         VStack {
                                             Text("+ profile")
-                                                .font(.system(size: 14))
-                                                .foregroundColor(Color.white)
+                                                .font(.system(size: 12))
+                                                .foregroundColor(purple)
                                             Text("picture")
-                                                .font(.system(size: 14))
-                                                .foregroundColor(Color.white)
+                                                .font(.system(size: 12))
+                                                .foregroundColor(purple)
                                         }.frame(width: 125, height: 125)
                                             .padding(.vertical, 5)
-                                            .background(Color.white.opacity(0.1))
+                                            .background(purple.opacity(0.1))
                                             .clipShape(Circle())
                                     }
                                 }
@@ -109,35 +107,35 @@ struct SignUpView: View {
                             // MARK: First Name Text
                             CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
                                 .padding(5)
-                                .foregroundColor(Color(.white))
+                                .foregroundColor(purple)
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
+                                .background(purple.opacity(0.1))
                                 .cornerRadius(10)
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
                             // MARK: Last Name Text
                             CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person.fill")
                                 .padding(5)
-                                .foregroundColor(Color(.white))
+                                .foregroundColor(purple)
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
+                                .background(purple.opacity(0.1))
                                 .cornerRadius(10)
                             
                             // MARK: User Email Text
                             CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                                 .padding(5)
-                                .foregroundColor(Color(.white))
+                                .foregroundColor(purple)
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
+                                .background(purple.opacity(0.1))
                                 .cornerRadius(10)
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
                             // MARK: User Password Text
                             CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
                                 .padding(5)
-                                .foregroundColor(Color(.white))
+                                .foregroundColor(purple)
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                                .background(Color(.white).opacity(0.1))
+                                .background(purple.opacity(0.1))
                                 .cornerRadius(10)
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
@@ -156,8 +154,8 @@ struct SignUpView: View {
                     Text("Sign Up")
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
-                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                }).buttonStyle(whiteButton())
+                        .foregroundColor(Color.white)
+                }).buttonStyle(purpleButton())
                     .disabled((lastName != "" && firstName != "" && email != "" && userPassword != "") ? false : true)
                     .opacity((lastName != "" && firstName != "" && email != "" && userPassword != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {
@@ -168,7 +166,8 @@ struct SignUpView: View {
                 .padding()
                 .keyboardAdaptive()
                 .ignoresSafeArea(.keyboard)
-        }.accentColor(Color.white)
+        }.background(bgWhite())
+            .accentColor(purple)
     }
     
     // MARK: Keyboard Height listener
