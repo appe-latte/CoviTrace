@@ -58,9 +58,7 @@ struct DigitalCertView: View {
                                         .foregroundColor(Color.white)
                                 }
                             })
-                        }.frame(width: 80, height: 80)
-                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .clipShape(Circle())
+                        }.buttonStyle(purpleRoundButton())
                             .padding(.horizontal, 20)
                             .sheet(isPresented: $showDigiCertSheetView) {
                                 DigitalCertUploadView()

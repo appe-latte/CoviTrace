@@ -39,3 +39,11 @@ struct bgGrad: View {
             .ignoresSafeArea(.all)
     }
 }
+
+struct bgGray: View {
+    var body: some View {
+        Rectangle()
+            .fill(Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255))
+            .edgesIgnoringSafeArea(.all)
+    }
+}

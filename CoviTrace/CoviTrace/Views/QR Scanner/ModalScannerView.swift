@@ -30,7 +30,7 @@ struct ModalScannerView: View {
             VStack(spacing: 5) {
                 HStack {
                     Text("Scan QR code")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -38,7 +38,7 @@ struct ModalScannerView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -112,10 +112,10 @@ struct ModalScannerView: View {
                         }) {
                             Image(systemName: "flashlight.on.fill")
                                 .imageScale(.large)
-                                .foregroundColor(green)
+                                .foregroundColor(Color.white)
                         }
                     }.frame(width: 60, height: 60)
-                        .background(Color.white)
+                        .background(green)
                         .clipShape(Circle())
                     
                     Text("Toggle Torch Light")
@@ -127,7 +127,8 @@ struct ModalScannerView: View {
                 
                 Spacer()
             }
-        }.background(bgPurple())
+        }.background(bgWhite())
+            .accentColor(purple)
     }
 }
 

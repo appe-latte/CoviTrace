@@ -38,7 +38,6 @@ struct VaccinationCardView: View {
                     }
                     Spacer()
                 }
-                
             }
         }.navigationBarTitle("Vaccination Card")
             .navigationBarTitleDisplayMode(.inline)

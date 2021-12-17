@@ -30,8 +30,6 @@ struct UploadInformationView: View {
             VStack {
                 VStack(spacing: 30) {
                     
-                    let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-                    
                     Spacer()
                         .frame(height: 20)
                     
@@ -50,9 +48,7 @@ struct UploadInformationView: View {
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
-                            }).frame(width: 80, height: 80)
-                                .background(purple)
-                                .clipShape(Circle())
+                            }).buttonStyle(purpleRoundButton())
                                 .sheet(isPresented: $showFirstDoseSheetView) {
                                     AddFirstDoseView()
                                 }
@@ -74,9 +70,7 @@ struct UploadInformationView: View {
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
-                            }).frame(width: 80, height: 80)
-                                .background(purple)
-                                .clipShape(Circle())
+                            }).buttonStyle(purpleRoundButton())
                                 .sheet(isPresented: $showSecondDoseSheetView) {
                                     AddSecondDoseView()
                                 }
@@ -98,9 +92,7 @@ struct UploadInformationView: View {
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
-                            }).frame(width: 80, height: 80)
-                                .background(purple)
-                                .clipShape(Circle())
+                            }).buttonStyle(purpleRoundButton())
                                 .sheet(isPresented: $showSingleDoseSheetView) {
                                     AddSingleDoseView()
                                 }
@@ -122,9 +114,7 @@ struct UploadInformationView: View {
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
-                            }).frame(width: 80, height: 80)
-                                .background(purple)
-                                .clipShape(Circle())
+                            }).buttonStyle(purpleRoundButton())
                                 .sheet(isPresented: $showBoosterShotSheetView) {
                                     AddBoosterShotView()
                                 }
@@ -146,9 +136,7 @@ struct UploadInformationView: View {
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
-                            }).frame(width: 80, height: 80)
-                                .background(purple)
-                                .clipShape(Circle())
+                            }).buttonStyle(purpleRoundButton())
                                 .sheet(isPresented: $showUploadPcrTestSheetView) {
                                     AddResultsView()
                                 }
@@ -170,9 +158,7 @@ struct UploadInformationView: View {
                                         .foregroundColor(Color.white)
                                         .font(.system(size: 10))
                                 }
-                            }).frame(width: 80, height: 80)
-                                .background(purple)
-                                .clipShape(Circle())
+                            }).buttonStyle(purpleRoundButton())
                                 .sheet(isPresented: $showVaccCardUploadSheetView) {
                                     VaccCardUploadView()
                                 }
@@ -184,9 +170,7 @@ struct UploadInformationView: View {
                 }.padding()
                 
                 Spacer()
-                
             }
-            .navigationBarTitle("", displayMode: .inline)
         }
     }
 }

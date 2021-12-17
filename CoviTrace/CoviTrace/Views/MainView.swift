@@ -50,6 +50,7 @@ struct MainView: View {
     
     var body: some View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
         
         Group {
             if authModel.userSession != nil {
@@ -58,15 +59,11 @@ struct MainView: View {
                         bgWhite()
                         
                         VStack {
-                            
-                            CurvedSidedRectangle()
+                            CustomHeaderShape()
                                 .frame(height: 275)
                                 .foregroundColor(purple).edgesIgnoringSafeArea(.all)
                                 .overlay(
                                     VStack(spacing: 22){
-                                        //                                        Spacer()
-                                        //                                            .frame(height: 15)
-                                        
                                         if !isHide {
                                             HStack(spacing: 12){
                                                 Text("Covitrace")
@@ -75,7 +72,6 @@ struct MainView: View {
                                                     .foregroundColor(Color(.white))
                                                 
                                                 Spacer()
-                                                
                                             }
                                             .padding(.horizontal)
                                         }
@@ -279,10 +275,7 @@ struct MainView: View {
                                                                         .font(.custom("Avenir", size: 11))
                                                                         .fontWeight(.semibold)
                                                                 }
-                                                            }.frame(width: 80, height: 80)
-                                                            .foregroundColor(.white)
-                                                            .background(purple)
-                                                            .clipShape(Circle())
+                                                            }.buttonStyle(purpleRoundButton())
                                                     }
                                                     
                                                     // MARK: Venue Check-in
@@ -303,11 +296,8 @@ struct MainView: View {
                                                                     .foregroundColor(Color(.white))
                                                                     .font(.custom("Avenir", size: 11))
                                                                     .fontWeight(.semibold)
-                                                            }.frame(width: 80, height: 80)
-                                                                .foregroundColor(.white)
-                                                                .background(purple)
-                                                                .clipShape(Circle())
-                                                        })
+                                                            }
+                                                        }).buttonStyle(purpleRoundButton())
                                                     }
                                                     
                                                     // MARK: Digital Certificate
@@ -329,10 +319,7 @@ struct MainView: View {
                                                                         .fontWeight(.semibold)
                                                                 }
                                                                 
-                                                            }.frame(width: 80, height: 80)
-                                                            .foregroundColor(.white)
-                                                            .background(purple)
-                                                            .clipShape(Circle())
+                                                            }.buttonStyle(purpleRoundButton())
                                                     }
                                                 }
                                             }

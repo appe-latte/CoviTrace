@@ -26,6 +26,8 @@ struct ContentView: View {
     @StateObject var appLockModel = AppLockViewModel()
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack {
             Group {
                 if viewModel.userSession != nil {
@@ -50,7 +52,7 @@ struct ContentView: View {
                 // MARK: progress loading
                 if isLoading {
                     ProgressLoadingView()
-                } 
+                }
             }
         }
     }
@@ -75,9 +77,7 @@ struct TabBarButton: View {
         Button(action: {
             withAnimation{current = image}
         }) {
-            
             VStack(spacing: 5){
-                
                 Image(systemName: image)
                     .font(.title2)
                     .foregroundColor(current == image ? Color(.white) : Color.white.opacity(0.3))
@@ -97,12 +97,21 @@ struct TabBarButton: View {
 struct ProgressLoadingView: View {
     var body: some View {
         ZStack {
-            bgGrad()
+            bgPurple()
                 .ignoresSafeArea()
             
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: Color(.white)))
-                .scaleEffect(2)
+            VStack(spacing: 1){
+                ProgressView()
+                    .frame(width: 60, height: 60)
+                    .progressViewStyle(CircularProgressViewStyle(tint: purple))
+                    .scaleEffect(2)
+                
+                Text("Please Wait")
+                    .foregroundColor(purple)
+                    .font(.custom("Avenir", size: 12).bold())
+            }.frame(width: 80, height: 100)
+                .background(Color.white)
+                .cornerRadius(10)
         }
     }
 }

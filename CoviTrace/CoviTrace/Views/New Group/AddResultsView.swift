@@ -53,7 +53,7 @@ struct AddResultsView: View {
             VStack {
                 HStack {
                     Text("Add PCR Results")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -61,7 +61,7 @@ struct AddResultsView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -71,41 +71,41 @@ struct AddResultsView: View {
                 .padding(.horizontal, 15)
                 
                 // MARK: Test Reference Number TextField
-                SimpleTextField(text: $testRefNum, placeholder: Text("Enter Test Reference number"))
-                    .foregroundColor(Color(.white))
+                SimpleTextField(text: $testRefNum, placeholder: Text("Enter test ref. number"))
+                    .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
+                    .background(purple.opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Lab Ref Number TextField
-                SimpleTextField(text: $labRefNum, placeholder: Text("Enter Lab Reference Number"))
-                    .foregroundColor(Color(.white))
+                SimpleTextField(text: $labRefNum, placeholder: Text("Enter lab ref. number"))
+                    .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
+                    .background(purple.opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Specimen Number
-                SimpleTextField(text: $specimenNum, placeholder: Text("Enter Specimen Number"))
-                    .foregroundColor(Color(.white))
+                SimpleTextField(text: $specimenNum, placeholder: Text("Enter specimen number"))
+                    .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
+                    .background(purple.opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Test Location TextField
-                SimpleTextField(text: $testProvider, placeholder: Text("Enter Test Provider"))
-                    .foregroundColor(Color(.white))
+                SimpleTextField(text: $testProvider, placeholder: Text("Enter test provider"))
+                    .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
+                    .background(purple.opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: Test Date Picker
                 DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
                     Text("Test Date:")
                         .padding(.leading)
-                        .foregroundColor(Color(.white)).font(.system(size: 14))
-                }.foregroundColor(Color(.white))
+                        .foregroundColor(purple).font(.system(size: 12))
+                }.foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1)).font(.system(size: 14))
+                    .background(purple.opacity(0.1)).font(.system(size: 12))
                     .cornerRadius(15)
                 
                 // MARK: Test Result Picker
@@ -115,7 +115,7 @@ struct AddResultsView: View {
                     Text("Test Result:")
                         .padding(.leading)
                         .font(.custom("Avenir", size: 14).bold())
-                        .foregroundColor(Color(.white))
+                        .foregroundColor(purple)
                     
                     Spacer()
                     
@@ -126,9 +126,9 @@ struct AddResultsView: View {
                         }
                     }.frame(width: 110)
                 }.padding(.trailing, 50)
-                    .foregroundColor(Color(.white))
+                    .foregroundColor(purple)
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
+                    .background(purple.opacity(0.1))
                     .cornerRadius(15)
                 
                 Button(action: {
@@ -142,9 +142,7 @@ struct AddResultsView: View {
                             .font(.custom("Avenir", size: 14).bold())
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                     }
-                }).frame(width: 150, height: 50)
-                    .background(Color.white)
-                    .cornerRadius(10)
+                }).buttonStyle(purpleBorderButton())
                     .padding(.top, 2)
                     .actionSheet(isPresented: $showActionSheet){
                         ActionSheet(title: Text("Upload PCR Results"), message: nil, buttons: [
@@ -183,9 +181,7 @@ struct AddResultsView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
-                }).frame(width: 150, height: 50)
-                    .background(purple)
-                    .cornerRadius(10)
+                }).buttonStyle(purpleButton())
                     .padding(.top, 2)
                     .disabled((testRefNum != "" && testProvider != "") ? false : true)
                     .opacity((testRefNum != "" && testProvider != "") ? 1 : 0.6)
@@ -195,9 +191,8 @@ struct AddResultsView: View {
                 
                 Spacer()
             }.padding(.top, 15)
-        }.background(bgGrad())
-            .navigationBarHidden(false)
-            .accentColor(Color.white)
+        }.background(bgWhite())
+            .accentColor(purple)
     }
     
     func uploadPcrImage(image:UIImage){

@@ -24,7 +24,8 @@ struct AddSecondDoseView: View {
     @ObservedObject private var viewModel = SecondDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
-    let vaccineType = ["Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johnson"]
+    
+    let vaccineType = ["choose vaccine", "Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johnson"]
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -33,11 +34,13 @@ struct AddSecondDoseView: View {
     }()
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack {
             VStack {
                 HStack {
                     Text("Add Second Dose")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -45,7 +48,7 @@ struct AddSecondDoseView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -59,61 +62,61 @@ struct AddSecondDoseView: View {
                     DatePicker(selection: $secondDoseDate, in: ...Date(), displayedComponents: .date) {
                         Text("Pick Date:")
                             .padding(.leading)
-                            .font(.custom("Avenir", size: 14).bold())
-                            .foregroundColor(Color(.white)).font(.system(size: 14))
-                    }.foregroundColor(Color(.white))
+                            .font(.custom("Avenir", size: 12).bold())
+                            .foregroundColor(purple).font(.system(size: 14))
+                    }.foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1)).font(.system(size: 12))
+                        .background(purple.opacity(0.1)).font(.system(size: 12))
                         .cornerRadius(10)
-                        .font(.custom("Avenir", size: 14))
+                        .font(.custom("Avenir", size: 12))
                     
                     // MARK: Second Dose Batch Number
-                    SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Batch Number"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $secondDosebatchNum, placeholder: Text("Enter batch number"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Second Dose Vaccination Make
                     HStack {
                         Text("Vaccine Type:")
                             .padding(.leading)
-                            .font(.custom("Avenir", size: 14).bold())
-                            .foregroundColor(Color(.white))
+                            .font(.custom("Avenir", size: 12).bold())
+                            .foregroundColor(purple)
                         
                         Spacer()
                         
                         Picker("Vaccine Type", selection: $secondDoseVaccType) {
                             ForEach(vaccineType, id: \.self) {
                                 Text($0)
-                                    .font(.custom("Avenir", size: 14))
+                                    .font(.custom("Avenir", size: 12))
                             }
                         }.frame(width: 110)
                     }.padding(.trailing, 50)
-                        .foregroundColor(Color(.white))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(15)
                     
                     // MARK: Second Dose Vaccination Provider
-                    SimpleTextField(text: $secondDoseVaccProvider, placeholder: Text("Vaccine Provider"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $secondDoseVaccProvider, placeholder: Text("Enter vaccination provider"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Second Dose Vaccination Location
-                    SimpleTextField(text: $secondDosageLocation, placeholder: Text("Vaccination Centre"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $secondDosageLocation, placeholder: Text("Enter vaccination centre"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Second Dose Vaccination Country
-                    SimpleTextField(text: $secondVaccDoseCountry, placeholder: Text("Vaccination Country"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $secondVaccDoseCountry, placeholder: Text("Enter country of vaccination"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: "Submit" button
@@ -125,10 +128,8 @@ struct AddSecondDoseView: View {
                         Text("Submit")
                             .font(.custom("Avenir", size: 18))
                             .fontWeight(.bold)
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    }).frame(width: 150, height: 50)
-                        .background(Color.white)
-                        .cornerRadius(10)
+                            .foregroundColor(Color.white)
+                    }).buttonStyle(purpleButton())
                         .padding(.top, 2)
                         .disabled((secondDosebatchNum != "" && secondDoseVaccProvider != "" && secondVaccDoseCountry != "") ? false : true)
                         .opacity((secondDosebatchNum != "" && secondDoseVaccProvider != "" && secondVaccDoseCountry != "") ? 1 : 0.6)
@@ -136,20 +137,16 @@ struct AddSecondDoseView: View {
                 
                 Spacer()
             }
-        }.background(bgGrad())
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .accentColor(Color.white)
+        }.background(bgWhite())
+            .accentColor(purple)
     }
     
-    // MARK: Upload to "Vaccinations" DB
     func upload_data(){
         let db = Firestore.firestore()
         let dose2 = dateFormatter.string(from: secondDoseDate)
         db.collection("second_dose").document("SD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "2nd_dose_date": dose2, "2nd_dose_batch_num": secondDosebatchNum, "2nd_dose_vacc_type": secondDoseVaccType, "2nd_provider" : secondDoseVaccProvider, "2nd_issued_by" : secondDosageLocation, "2nd_vacc_dose_country": secondVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "2nd_dose_upload_date" : secondDoseUploadDate], merge: true)
     }
     
-    // MARK: Update vaccination status
     func update_vacc_status() {
         let db = Firestore.firestore()
         // MARK: Update vacc_status to reflect in VaccPassView

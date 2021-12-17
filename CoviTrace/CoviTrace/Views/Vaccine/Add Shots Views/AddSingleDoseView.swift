@@ -18,7 +18,7 @@ struct AddSingleDoseView: View {
     @State var singleDoseVaccProvider = ""
     @State var vaccDoseCountry = ""
     @State var vaccCardVerified = "Not Verified"
-    @State var singleDoseUploadDate = Date() // Logs the date the dose is uploaded onto the system.
+    @State var singleDoseUploadDate = Date()
     
     @ObservedObject private var viewModel = FirstDoseVaccViewModel()
     @ObservedObject private var authModel = AuthViewModel()
@@ -31,11 +31,13 @@ struct AddSingleDoseView: View {
     }()
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack {
             VStack {
                 HStack {
                     Text("Add Single Dose")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -43,7 +45,7 @@ struct AddSingleDoseView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -57,40 +59,40 @@ struct AddSingleDoseView: View {
                     DatePicker(selection: $singleDoseDate, in: ...Date(), displayedComponents: .date) {
                         Text("Pick Date:")
                             .padding(.leading)
-                            .font(.custom("Avenir", size: 14).bold())
-                            .foregroundColor(Color(.white)).font(.system(size: 14))
-                    }.foregroundColor(Color(.white))
+                            .font(.custom("Avenir", size: 12).bold())
+                            .foregroundColor(purple).font(.system(size: 12))
+                    }.foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1)).font(.system(size: 12))
-                        .font(.custom("Avenir", size: 14))
+                        .background(purple.opacity(0.1)).font(.system(size: 12))
+                        .font(.custom("Avenir", size: 12))
                         .cornerRadius(10)
                     
                     // MARK: Single Dose Batch Number
-                    SimpleTextField(text: $singleDosebatchNum, placeholder: Text("Batch Number"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $singleDosebatchNum, placeholder: Text("Enter batch number"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Single Dose Vaccination Provider
-                    SimpleTextField(text: $singleDoseVaccProvider, placeholder: Text("Vaccine Provider"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $singleDoseVaccProvider, placeholder: Text("Enter vaccination provider"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Vaccination Location
-                    SimpleTextField(text: $singleDoseLocation, placeholder: Text("Vaccination Centre"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $singleDoseLocation, placeholder: Text("Enter vaccination centre"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: Vaccination Country
-                    SimpleTextField(text: $vaccDoseCountry, placeholder: Text("Vaccination Country"))
-                        .foregroundColor(Color(.white))
+                    SimpleTextField(text: $vaccDoseCountry, placeholder: Text("Enter country of vaccination"))
+                        .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(Color(.white).opacity(0.1))
+                        .background(purple.opacity(0.1))
                         .cornerRadius(10)
                     
                     // MARK: "Submit" button
@@ -102,10 +104,8 @@ struct AddSingleDoseView: View {
                         Text("Submit")
                             .font(.custom("Avenir", size: 18))
                             .fontWeight(.bold)
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    }).frame(width: 150, height: 50)
-                        .background(Color.white)
-                        .cornerRadius(10)
+                            .foregroundColor(Color.white)
+                    }).buttonStyle(purpleButton())
                         .padding(.top, 2)
                         .disabled((singleDosebatchNum != "" && singleDoseVaccProvider != "" && vaccDoseCountry != "") ? false : true)
                         .opacity((singleDosebatchNum != "" && singleDoseVaccProvider != "" && vaccDoseCountry != "") ? 1 : 0.6)
@@ -113,20 +113,16 @@ struct AddSingleDoseView: View {
                 
                 Spacer()
             }
-        }.background(bgGrad())
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .accentColor(Color.white)
+        }.background(bgWhite())
+            .accentColor(purple)
     }
     
-    // MARK: Upload to "Single Dose" DB
     func upload_data(){
         let db = Firestore.firestore()
         let dose4 = dateFormatter.string(from: singleDoseDate)
         db.collection("single_dose").document("Si_D: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "single_date": dose4, "single_batch_num": singleDosebatchNum, "single_vacc_type": singleDoseVaccType, "single_provider": singleDoseVaccProvider, "single_issued_by" : singleDoseLocation, "vacc_dose_country": vaccDoseCountry, "vacc_card_verified": vaccCardVerified, "single_dose_upload_date": singleDoseUploadDate], merge: true)
     }
     
-    // MARK: update vaccination status
     func update_vacc_status(){
         let db = Firestore.firestore()
         db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["vacc_status": vaccStatus], merge: true)

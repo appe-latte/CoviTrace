@@ -38,7 +38,7 @@ struct UpdateProfileImageView: View {
             VStack(spacing: 10) {
                 HStack {
                     Text("Update Profile Image")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -46,7 +46,7 @@ struct UpdateProfileImageView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -70,13 +70,13 @@ struct UpdateProfileImageView: View {
                                 Image(systemName: "plus")
                                     .resizable()
                                     .scaledToFit()
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(purple)
                                     .frame(width:15, height:15)
                                 Text("profile image")
                                     .font(.system(size: 14))
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(purple)
                             }.frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
-                                .background(Color.white.opacity(0.1))
+                                .background(purple.opacity(0.1))
                                 .cornerRadius(10)
                         }
                     }.padding(5)
@@ -93,9 +93,8 @@ struct UpdateProfileImageView: View {
                                 .font(.custom("Avenir", size: 14).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
-                    }.frame(width: 150, height: 50)
-                        .background(Color.white)
-                        .cornerRadius(10)
+                    }.buttonStyle(purpleBorderButton())
+                        .padding(.top, 2)
                         .actionSheet(isPresented: $showActionSheet){
                             ActionSheet(title: Text("Select profile image"), message: nil, buttons: [
                                 
@@ -131,16 +130,16 @@ struct UpdateProfileImageView: View {
                             .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                    }.frame(width: 150, height: 50)
-                        .background(purple)
-                        .cornerRadius(10)
+                    }.buttonStyle(purpleButton())
+                        .padding(.top, 2)
                 }
                 
                 Spacer()
             }.toast(isPresenting: $showToastAlert){
                 AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
             }
-        }.background(bgGrad())
+        }.background(bgWhite())
+            .accentColor(purple)
     }
     
     func uploadProfileImage(image:UIImage){

@@ -13,7 +13,9 @@ import SafariServices
 struct SettingsView: View {
     @EnvironmentObject private var appLockModel : AppLockViewModel
     @EnvironmentObject var authModel : AuthViewModel
-    @State private var showSafari : Bool = false
+    @State private var showPrivacyWeb : Bool = false
+    @State private var showSaCovidStatsWeb : Bool = false
+    
     @Environment(\.openURL) var openURL
     
     let appVersion = ""
@@ -71,7 +73,7 @@ struct SettingsView: View {
                                 .frame(width: 30, height: 30)
                                 .padding(1)
                             Toggle("Secure App", isOn: $appLockModel.isAppLockEnabled)
-                                .font(.custom("Avenir", size: 17).bold())
+                                .font(.custom("Avenir", size: 15).bold())
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
                         }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
@@ -103,9 +105,9 @@ struct SettingsView: View {
                                 .foregroundColor(Color(.gray)).opacity(0.5)
                                 .frame(width: 13, height: 13)
                         }.onTapGesture {
-                            showSafari.toggle()
+                            showPrivacyWeb.toggle()
                         }
-                        .fullScreenCover(isPresented: $showSafari, content: {
+                        .fullScreenCover(isPresented: $showPrivacyWeb, content: {
                             SFSafariViewWrapper(url: URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
                         })
                         
@@ -152,9 +154,9 @@ struct SettingsView: View {
                                 .foregroundColor(Color(.gray)).opacity(0.5)
                                 .frame(width: 13, height: 13)
                         }.onTapGesture {
-                            showSafari.toggle()
+                            showSaCovidStatsWeb.toggle()
                         }
-                        .fullScreenCover(isPresented: $showSafari, content: {
+                        .fullScreenCover(isPresented: $showSaCovidStatsWeb, content: {
                             SFSafariViewWrapper(url: URL(string: "https://www.sacoronavirus.co.za")!)
                         })
                     }.foregroundColor(.gray)
@@ -167,21 +169,21 @@ struct SettingsView: View {
                     //                                .frame(width: 80, height: 80)
                     //                                .clipShape(Circle())
                     //                                .padding(1)
-                    //                            
+                    //
                     //                            // Partner
                     //                            Image("logo")
                     //                                .resizable()
                     //                                .frame(width: 80, height: 80)
                     //                                .clipShape(Circle())
                     //                                .padding(1)
-                    //                            
+                    //
                     //                            // Partner
                     //                            Image("logo")
                     //                                .resizable()
                     //                                .frame(width: 80, height: 80)
                     //                                .clipShape(Circle())
                     //                                .padding(1)
-                    //                            
+                    //
                     //                            // Partner
                     //                            Image("logo")
                     //                                .resizable()

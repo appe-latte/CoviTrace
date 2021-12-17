@@ -24,12 +24,13 @@ struct UpdateEmailView: View {
     
     var body: some View {
         let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack {
                 HStack {
                     Text("Update Email Address")
-                        .foregroundColor(.white)
+                        .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
@@ -37,7 +38,7 @@ struct UpdateEmailView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Image("close")
+                        Image("close-p")
                             .resizable()
                             .frame(width: 30, height: 30)
                     }).padding(5)
@@ -48,9 +49,9 @@ struct UpdateEmailView: View {
                 
                 // MARK: Test Reference Number TextField
                 SimpleTextField(text: $email, placeholder: Text("Enter email address"))
-                    .foregroundColor(Color(.white))
+                    .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(Color(.white).opacity(0.1))
+                    .background(purple.opacity(0.1))
                     .cornerRadius(15)
                 
                 // MARK: "Log Results" Button
@@ -64,10 +65,10 @@ struct UpdateEmailView: View {
                         Text("Submit")
                             .font(.custom("Avenir", size: 18))
                             .fontWeight(.bold)
-                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                            .foregroundColor(Color.white)
                     }
                 }).frame(width: 150, height: 50)
-                    .background(Color.white)
+                    .background(purple)
                     .cornerRadius(10)
                     .padding(.top, 2)
                     .disabled((email != "") ? false : true)
@@ -78,9 +79,8 @@ struct UpdateEmailView: View {
                 .toast(isPresenting: $showToastAlert){
                     AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
                 }
-        }.background(bgGrad())
-            .navigationBarHidden(false)
-            .accentColor(Color.white)
+        }.background(bgWhite())
+            .accentColor(purple)
     }
     
     func submit_email(){

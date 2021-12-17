@@ -15,14 +15,16 @@ struct LandingView: View {
     var body: some View {
         ZStack {
             bgGrad()
-            VStack(alignment:.center){
-                VStack{
-                    Image("logo")
+            VStack(alignment:.center) {
+                Spacer()
+                    .frame(height: 100)
+                VStack {
+                    Image("logo-circle")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 150, height: 150)
                         .clipShape(Circle())
-                    Text("CoviTrace")
+                    Text("Covitrace")
                         .foregroundColor(.white)
                         .font(.custom("Avenir", size: 32))
                         .fontWeight(.bold)
@@ -45,9 +47,7 @@ struct LandingView: View {
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                 }).sheet(isPresented: $showSignUpSheetView) {
                     SignUpView()
-                }.frame(width: 150, height: 50)
-                    .background(Color(.white))
-                    .cornerRadius(10)
+                }.buttonStyle(whiteButton())
                 
                 // MARK: "Login" Button
                 Button(action: {
@@ -59,9 +59,7 @@ struct LandingView: View {
                         .foregroundColor(Color.white)
                 }).sheet(isPresented: $showLoginSheetView) {
                     LoginView()
-                }.frame(width: 150, height: 50)
-                    .background(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                    .cornerRadius(10)
+                }.buttonStyle(purpleButton())
             }.padding(.bottom, 20)
         }
     }

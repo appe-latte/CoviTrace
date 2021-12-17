@@ -12,17 +12,19 @@ struct SimpleTextField: View {
     let placeholder: Text
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack(alignment: .leading){
             if text.isEmpty{
                 placeholder
-                    .foregroundColor(Color.white).opacity(0.7)
+                    .foregroundColor(purple).opacity(0.7)
                     .padding(.leading)
-                    .font(.custom("Avenir", size: 14))
+                    .font(.custom("Avenir", size: 12))
             }
             
             TextField("", text: $text)
-                .font(.custom("Avenir", size: 14).bold())
-                .foregroundColor(Color.white)
+                .font(.custom("Avenir", size: 12).bold())
+                .foregroundColor(purple)
         }
     }
 }

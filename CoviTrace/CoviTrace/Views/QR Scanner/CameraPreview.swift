@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import AVFoundation
 
-
 class CameraPreview: UIView {
     private var label : UILabel?
     

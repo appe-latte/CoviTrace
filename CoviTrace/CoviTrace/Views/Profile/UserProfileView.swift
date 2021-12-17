@@ -16,6 +16,7 @@ struct UserProfileView: View {
     @State var dob = ""
     
     @State private var updateProfileSheetView = false
+    @State private var verifyIdSheetView = false
     @State private var showVaccCardView = false
     
     @ObservedObject var authModel = AuthViewModel()
@@ -132,6 +133,29 @@ struct UserProfileView: View {
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .font(.custom("Avenir", size: 12).bold())
                             .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    }
+                    
+                    // MARK: Verification View
+                    HStack {
+                        Button(action: {
+                            self.verifyIdSheetView.toggle()
+                        }, label: {
+                            HStack {
+                                Text("Profile Verification")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                
+                                Spacer()
+                                
+                                Image("arrow-right")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .padding(2)
+                            }
+                        })
+                    }.sheet(isPresented: $verifyIdSheetView) {
+                        VerificationDocView()
                     }
                 }
             }
