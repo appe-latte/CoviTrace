@@ -50,7 +50,7 @@ struct MainView: View {
     
     var body: some View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+//        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
         
         Group {
             if authModel.userSession != nil {

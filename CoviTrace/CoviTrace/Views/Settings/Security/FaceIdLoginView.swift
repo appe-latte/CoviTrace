@@ -14,41 +14,16 @@ struct FaceIdLoginView: View {
     
     var body: some View {
         ZStack {
+            GeometryReader { geo in
             Image("background")
                 .resizable()
-                .scaledToFill()
+//                .scaledToFill()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: geo.size.width, height: geo.size.height)
+            }
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .center) {
-                HStack {
-                    
-                    // MARK: Logout Button
-                    Button(action: {
-                        authModel.signOut()
-                    },
-                           label: {
-                        Text("Logout")
-                            .font(.custom("Avenir", size: 16))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(5)
-                    })
-                    
-                    Spacer()
-                    
-                    // MARK: Unlock with Face ID
-                    Button(action: {
-                        appLockModel.appLockValidation()
-                    },
-                           label: {
-                        Text("Unlock")
-                            .font(.custom("Avenir", size: 16))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(5)
-                    })
-                }.padding(.top, 75)
-                
                 Spacer()
                 
                 VStack(spacing: 10) {
@@ -71,34 +46,34 @@ struct FaceIdLoginView: View {
 //                    .frame(height: 150)
                 
                 
-//                HStack {
-//
-//                    // MARK: Logout Button
-//                    Button(action: {
-//                        authModel.signOut()
-//                    },
-//                           label: {
-//                        Text("Logout")
-//                            .font(.custom("Avenir", size: 16))
-//                            .fontWeight(.bold)
-//                            .foregroundColor(.white)
-//                            .padding(5)
-//                    })
-//
-//                    Spacer()
-//
-//                    // MARK: Unlock with Face ID
-//                    Button(action: {
-//                        appLockModel.appLockValidation()
-//                    },
-//                           label: {
-//                        Text("Unlock")
-//                            .font(.custom("Avenir", size: 16))
-//                            .fontWeight(.bold)
-//                            .foregroundColor(.white)
-//                            .padding(5)
-//                    })
-//                }.padding(.horizontal, 20)
+                HStack {
+
+                    // MARK: Logout Button
+                    Button(action: {
+                        authModel.signOut()
+                    },
+                           label: {
+                        Text("Logout")
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(5)
+                    })
+
+                    Spacer()
+
+                    // MARK: Unlock with Face ID
+                    Button(action: {
+                        appLockModel.appLockValidation()
+                    },
+                           label: {
+                        Text("Unlock")
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(5)
+                    })
+                }.padding(.horizontal, 20)
             }
         }
     }

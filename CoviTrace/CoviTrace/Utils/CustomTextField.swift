@@ -24,7 +24,7 @@ struct CustomTextField: View {
             }
             
             HStack(spacing: 16){
-                Image(systemName: imageName)
+                Image(imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)

@@ -14,32 +14,36 @@ struct LandingView: View {
     
     var body: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
+            GeometryReader { geo in
+                Image("background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geo.size.width, height: geo.size.height)
+            }.edgesIgnoringSafeArea(.all)
             
             VStack {
-                VStack(alignment:.center) {
+                VStack {
                     Spacer()
-                        .frame(height: 120)
-                    VStack {
-                        Circle()
-                            .foregroundColor(Color.white)
-                            .frame(width: 160, height: 160)
-                            .clipShape(Circle())
-                            .overlay(
-                                Image("logo-icon")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 140, height: 140)
-                                    .clipShape(Circle())
-                            )
-                        Text("Covitrace")
-                            .foregroundColor(.white)
-                            .font(.custom("Avenir", size: 32))
-                            .fontWeight(.bold)
-                    }.padding(.top, 20)
+                        .frame(height: 50)
+                    GeometryReader { geo in
+                        VStack(alignment: .center) {
+                            Circle()
+                                .foregroundColor(Color.white)
+                                .frame(width: 160, height: 160)
+                                .clipShape(Circle())
+                                .overlay(
+                                    Image("logo-icon")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 140, height: 140)
+                                        .clipShape(Circle())
+                                )
+                            Text("Covitrace")
+                                .foregroundColor(.white)
+                                .font(.custom("Avenir", size: 32))
+                                .fontWeight(.bold)
+                        }.frame(width: geo.size.width, height: geo.size.height)
+                    }
                     
                     Spacer()
                 }
@@ -50,35 +54,34 @@ struct LandingView: View {
                     
                     //MARK: "Register" Button
                     Button(action: {
-                        self.showSignUpSheetView.toggle()
+                        self.showSignUpSheetView = true
                     }, label: {
                         Text("Register")
                             .font(.custom("Avenir", size: 18))
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    }).sheet(isPresented: $showSignUpSheetView) {
-                        SignUpView()
-                    }.buttonStyle(whiteButton())
+                    }).buttonStyle(whiteButton())
+                        .sheet(isPresented: $showSignUpSheetView) {
+                            SignUpView()
+                        }
                     
                     // MARK: "Login" Button
                     Button(action: {
-                        self.showLoginSheetView.toggle()
+                        self.showLoginSheetView = true
                     }, label: {
                         Text("Login")
                             .font(.custom("Avenir", size: 18))
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
-                    }).sheet(isPresented: $showLoginSheetView) {
-                        LoginView()
-                    }.buttonStyle(greenButton())
+                    }).buttonStyle(greenButton())
+                        .sheet(isPresented: $showLoginSheetView) {
+                            LoginView()
+                        }
                     
                     Text("Developed by: Appè Latte")
                         .font(.custom("Avenir", size: 12))
                         .foregroundColor(.white)
-                }.padding(.bottom, 30)
-                
-                Spacer()
-                    .frame(height: 50)
+                }.padding(.bottom, 10)
             }
         }
     }

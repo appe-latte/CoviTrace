@@ -23,11 +23,12 @@ struct CustomSecureTextField: View {
             }
             
             HStack(spacing: 16){
-                Image(systemName: "lock")
+                Image("padlock")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .foregroundColor(purple)
+                    .padding(.leading, 10)
                 
                 SecureField("", text: $text).textContentType(.newPassword)
                     .font(.custom("Avenir", size: 14).bold())

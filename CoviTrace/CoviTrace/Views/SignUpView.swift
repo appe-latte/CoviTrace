@@ -46,6 +46,8 @@ struct SignUpView: View {
     }
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack {
             VStack {
                 HStack {
@@ -105,7 +107,7 @@ struct SignUpView: View {
                         VStack(spacing: 5) {
                             
                             // MARK: First Name Text
-                            CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "person")
+                            CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "user-2")
                                 .padding(5)
                                 .foregroundColor(purple)
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
@@ -114,7 +116,7 @@ struct SignUpView: View {
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
                             // MARK: Last Name Text
-                            CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "person.fill")
+                            CustomTextField(text: $lastName, placeholder: Text("Last Name"), imageName: "user-2")
                                 .padding(5)
                                 .foregroundColor(purple)
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
@@ -161,13 +163,10 @@ struct SignUpView: View {
                     .alert(isPresented: $viewModel.isError, content: {
                         Alert(title: Text("Registration Error"), message: Text(viewModel.errorMsg))
                     })
-            }.navigationBarTitle("User Registration")
-                .navigationBarTitleDisplayMode(.inline)
-                .padding()
-                .keyboardAdaptive()
-                .ignoresSafeArea(.keyboard)
+            }
         }.background(bgWhite())
             .accentColor(purple)
+            .keyboardAdaptive()
     }
     
     // MARK: Keyboard Height listener
@@ -249,4 +248,3 @@ extension UIResponder {
         return view.superview?.convert(view.frame, to: nil)
     }
 }
-

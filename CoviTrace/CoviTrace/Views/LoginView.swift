@@ -22,9 +22,10 @@ struct LoginView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
+        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        
         ZStack {
             VStack (spacing: 2){
-                
                 HStack {
                     Text("User Login")
                         .foregroundColor(purple)
@@ -68,7 +69,7 @@ struct LoginView: View {
                     Spacer()
                     
                     Button(action: {
-                        self.showPwdResetSheetView.toggle()
+                        self.showPwdResetSheetView = true
                     }, label: {
                         Text("Forgot Password?")
                             .font(.custom("Avenir", size: 12))
@@ -99,7 +100,7 @@ struct LoginView: View {
                     .alert(isPresented: $viewModel.isError, content: {
                         Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
                     })
-            }.font(.subheadline)
+            }
         }.background(bgWhite())
             .accentColor(purple)
     }

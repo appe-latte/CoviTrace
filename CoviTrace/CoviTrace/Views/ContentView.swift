@@ -95,10 +95,12 @@ struct TabBarButton: View {
 struct ProgressLoadingView: View {
     var body: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
+            GeometryReader { geo in
+                Image("background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geo.size.width, height: geo.size.height)
+            }.edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 1){
                 ProgressView()

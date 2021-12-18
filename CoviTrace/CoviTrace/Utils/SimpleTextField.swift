@@ -19,11 +19,11 @@ struct SimpleTextField: View {
                 placeholder
                     .foregroundColor(purple).opacity(0.7)
                     .padding(.leading)
-                    .font(.custom("Avenir", size: 12))
+                    .font(.custom("Avenir", size: 14))
             }
             
             TextField("", text: $text)
-                .font(.custom("Avenir", size: 12).bold())
+                .font(.custom("Avenir", size: 14).bold())
                 .foregroundColor(purple)
         }
     }
