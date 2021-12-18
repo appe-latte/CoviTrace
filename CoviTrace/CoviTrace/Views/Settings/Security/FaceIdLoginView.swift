@@ -15,13 +15,12 @@ struct FaceIdLoginView: View {
     var body: some View {
         ZStack {
             GeometryReader { geo in
-            Image("background")
-                .resizable()
-//                .scaledToFill()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: geo.size.width, height: geo.size.height)
+                Image("background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geo.size.width, height: geo.size.height)
             }
-                .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .center) {
                 Spacer()
@@ -43,35 +42,43 @@ struct FaceIdLoginView: View {
                 }
                 
                 Spacer()
-//                    .frame(height: 150)
-                
                 
                 HStack {
-
+                    
                     // MARK: Logout Button
                     Button(action: {
                         authModel.signOut()
                     },
                            label: {
-                        Text("Logout")
-                            .font(.custom("Avenir", size: 16))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(5)
+                        VStack {
+                            Image("turn-off-w")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .padding(1)
+                            Text("Logout")
+                                .font(.custom("Avenir", size: 16))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }.padding(5)
                     })
-
+                    
                     Spacer()
-
+                    
                     // MARK: Unlock with Face ID
                     Button(action: {
                         appLockModel.appLockValidation()
                     },
                            label: {
-                        Text("Unlock")
-                            .font(.custom("Avenir", size: 16))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(5)
+                        VStack {
+                            Image("unlock-w")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .padding(1)
+                            Text("Unlock")
+                                .font(.custom("Avenir", size: 16))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }.padding(5)
                     })
                 }.padding(.horizontal, 20)
             }

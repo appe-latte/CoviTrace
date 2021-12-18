@@ -54,7 +54,7 @@ struct LandingView: View {
                     
                     //MARK: "Register" Button
                     Button(action: {
-                        self.showSignUpSheetView = true
+                        self.showSignUpSheetView.toggle()
                     }, label: {
                         Text("Register")
                             .font(.custom("Avenir", size: 18))
@@ -67,7 +67,7 @@ struct LandingView: View {
                     
                     // MARK: "Login" Button
                     Button(action: {
-                        self.showLoginSheetView = true
+                        self.showLoginSheetView.toggle()
                     }, label: {
                         Text("Login")
                             .font(.custom("Avenir", size: 18))
