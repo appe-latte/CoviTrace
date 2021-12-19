@@ -65,27 +65,4 @@ struct AccountDeletionView: View {
             AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
         }
     }
-    
-    // MARK: Delete User functiona
-    func deleteUser() {
-        let userId = Auth.auth().currentUser!.uid
-        Firestore.firestore().collection("users").document(userId).delete() { err in
-            if let err = err  {
-                print("Error: \(err)")
-            } else {
-                Auth.auth().currentUser!.delete { error in
-                    if let error = error {
-                        self.errTitle = "Error!"
-                        self.errMessage = "Error deleting the user: \(error)"
-                        self.showToastAlert = true
-                    } else {
-                        self.errTitle = "Account Deleted"
-                        self.errMessage = "Your user account has successfully been deleted"
-                        self.showToastAlert = true
-                        authModel.signOut()
-                    }
-                }
-            }
-        }
-    }
 }

@@ -18,7 +18,11 @@ struct AccountSettingsView: View {
     @State var showUpdateIdNumSheetView = false
     @State var showUpdateDobSheetView = false
     
-    @State var accountDeletionModal_shown = false
+    // MARK: Alert
+    @State var showDeleteAlert = false
+    @State private var showToastAlert : Bool = false
+    @State private var errTitle = ""
+    @State private var errMessage = ""
     
     // MARK: Objects
     @EnvironmentObject private var appLockModel : AppLockViewModel
@@ -145,7 +149,7 @@ struct AccountSettingsView: View {
                     Section(header: Text("Permanently Delete Account")) {
                         HStack {
                             Button(action: {
-                                self.accountDeletionModal_shown.toggle()
+                                self.showDeleteAlert = true
                             }, label: {
                                 HStack {
                                     Image("trash")
@@ -165,14 +169,45 @@ struct AccountSettingsView: View {
                                         .foregroundColor(Color(.gray)).opacity(0.5)
                                         .frame(width: 13, height: 13)
                                 }
-                            })
+                            }).alert(isPresented:$showDeleteAlert) {
+                                Alert(
+                                    title: Text("Are you sure you want to delete your account?"),
+                                    message: Text("This action cannot be reversed once completed."),
+                                    primaryButton: .destructive(Text("Delete")) {
+                                        deleteUser()
+                                    },
+                                    secondaryButton: .cancel()
+                                )
+                            }
                         }
+                        Text("This action permanently deletes your account and removes all of your information from our servers.")
+                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                            .font(.custom("Avenir", size: 12).bold())
                     }
                 }
             }.background(bgPurple())
-            
-            AccountDeletionModalView(isShown: $accountDeletionModal_shown, modalHeight: 400) {
-                AccountDeletionView()
+        }
+    }
+    
+    // MARK: Delete User functiona
+    func deleteUser() {
+        let userId = Auth.auth().currentUser!.uid
+        Firestore.firestore().collection("users").document(userId).delete() { err in
+            if let err = err  {
+                print("Error: \(err)")
+            } else {
+                Auth.auth().currentUser!.delete { error in
+                    if let error = error {
+                        self.errTitle = "Error!"
+                        self.errMessage = "Error deleting the user: \(error)"
+                        self.showToastAlert = true
+                    } else {
+                        self.errTitle = "Account Deleted"
+                        self.errMessage = "Your user account has successfully been deleted"
+                        self.showToastAlert = true
+                        authModel.signOut()
+                    }
+                }
             }
         }
     }

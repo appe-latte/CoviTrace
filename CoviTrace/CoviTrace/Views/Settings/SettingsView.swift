@@ -15,6 +15,7 @@ struct SettingsView: View {
     @EnvironmentObject var authModel : AuthViewModel
     @State private var showPrivacyWeb : Bool = false
     @State private var showSaCovidStatsWeb : Bool = false
+    @State var showSignOutAlert = false
     
     @Environment(\.openURL) var openURL
     
@@ -201,8 +202,8 @@ struct SettingsView: View {
                             .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         
                         Button(action: {
-                            authModel.signOut()
-                        }) {
+                            self.showSignOutAlert.toggle()
+                        }, label: {
                             HStack {
                                 Image("turn-off")
                                     .resizable()
@@ -213,10 +214,19 @@ struct SettingsView: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 249 / 255, green: 73 / 255, blue: 73 / 255))
                             }
-                        }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                            .padding(.leading, 105)
+                        }).padding(.leading, 105)
+                            .alert(isPresented: $showSignOutAlert) {
+                                Alert(
+                                    title: Text("Sign Out"),
+                                    message: Text("Continue to log out of the Covitrace app."),
+                                    primaryButton: .destructive(Text("Sign Out")) {
+                                        authModel.signOut()
+                                    },
+                                    secondaryButton: .cancel()
+                                )
+                            }
                     }
-                }.background(Color.black)
+                }
                 
                 // MARK: App Version Number
                 HStack(spacing: 5){

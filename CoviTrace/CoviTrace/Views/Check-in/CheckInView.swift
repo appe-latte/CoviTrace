@@ -13,16 +13,14 @@ import FirebaseFirestore
 
 struct CheckInView: View {
     let locationFetch = LocationFetch()
-  
+    
     @EnvironmentObject var viewModel : AuthViewModel
     @ObservedObject var resultsViewModel = ResultsViewModel()
     @ObservedObject private var vaccModel = FirstDoseVaccViewModel()
     
     var body: some View {
-        ZStack{
-            bgPurple()
-            
-            VStack(){
+        ZStack {
+            VStack {
                 VStack {
                     List(resultsViewModel.results1) { results in
                         HStack {
@@ -38,9 +36,10 @@ struct CheckInView: View {
                     }.onAppear() {
                         self.resultsViewModel.fetchLocationData(id: viewModel.userSession!.uid)
                     }
-                }.background(Color.white)
+                }.background(bgWhite())
             }
-        }.navigationBarTitle("Previous Check-ins", displayMode: .inline)
+        }.background(bgPurple())
+            .navigationBarTitle("Previous Check-ins", displayMode: .inline)
     }
 }
 
