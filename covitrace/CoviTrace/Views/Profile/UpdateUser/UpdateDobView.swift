@@ -48,11 +48,9 @@ struct UpdateDobView: View {
                 .padding(.horizontal, 15)
                 
                 // MARK: Test Reference Number TextField
-                SimpleTextField(text: $dob, placeholder: Text("dd/mm/yyyy"))
+                SimpleTextField(text: $dob, placeholder: Text("DD/MM/YYYY"))
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
                 
                 // MARK: "Log Results" Button
                 Button(action: {

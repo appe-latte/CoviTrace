@@ -33,6 +33,6 @@ struct CustomSecureTextField: View {
                 SecureField("", text: $text).textContentType(.newPassword)
                     .font(.custom("Avenir", size: 14).bold())
             }
-        }
+        }.underlineTextField()
     }
 }

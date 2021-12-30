@@ -34,6 +34,6 @@ struct CustomTextField: View {
                 TextField("", text: $text)
                     .font(.custom("Avenir", size: 14).bold())
             }
-        }
+        }.underlineTextField()
     }
 }

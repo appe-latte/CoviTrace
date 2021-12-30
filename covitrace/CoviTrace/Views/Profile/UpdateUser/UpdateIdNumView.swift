@@ -51,8 +51,6 @@ struct UpdateIdNumView: View {
                 SimpleTextField(text: $idNumber, placeholder: Text("Enter ID number"))
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
                 
                 // MARK: "Log Results" Button
                 Button(action: {

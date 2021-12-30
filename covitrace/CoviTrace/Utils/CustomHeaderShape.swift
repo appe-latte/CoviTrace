@@ -13,18 +13,13 @@ struct CustomHeaderShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         
-//        path.move(to: .zero)
-//        path.addLine(to: CGPoint(x: rect.maxX, y: 0))
-//        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
-//        path.addLine(to: CGPoint(x: 0, y: rect.maxY * offset))
-//
         path.move(to: CGPoint.zero)
         path.addLine(to: CGPoint(x: rect.maxX, y: 0))
         path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
         path.addQuadCurve(to: CGPoint(x: 0, y: rect.maxY), control: CGPoint(x: rect.midX, y: rect.maxY -
                                                                             100))
         path.closeSubpath()
-    
+        
         return path
     }
 }

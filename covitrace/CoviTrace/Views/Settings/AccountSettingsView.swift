@@ -45,7 +45,7 @@ struct AccountSettingsView: View {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                                     .padding(1)
-                                Text("Update ID number")
+                                Text("Update ID No.")
                                     .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -72,7 +72,7 @@ struct AccountSettingsView: View {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                                     .padding(1)
-                                Text("Update date of birth")
+                                Text("Update Date of Birth")
                                     .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -90,7 +90,7 @@ struct AccountSettingsView: View {
                                 UpdateDobView()
                             }
                         
-                        // MARK: Update Cellphone number
+                        // MARK: Update Cellphone No.
                         Button(action: {
                             self.showUpdateCellNumSheetView.toggle()
                         }, label: {
@@ -99,7 +99,7 @@ struct AccountSettingsView: View {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                                     .padding(1)
-                                Text("Update cellphone number")
+                                Text("Update Cellphone No.")
                                     .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -126,7 +126,7 @@ struct AccountSettingsView: View {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                                     .padding(1)
-                                Text("Update profile image")
+                                Text("Update Profile Image")
                                     .font(.custom("Avenir", size: 15))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))

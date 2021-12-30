@@ -46,8 +46,6 @@ struct PasswordResetView: View {
                     .padding(5)
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
                     .keyboardType(.emailAddress).autocapitalization(.none)
                     .padding(.top, 10)
                 
@@ -67,8 +65,9 @@ struct PasswordResetView: View {
                     .opacity((email != "") ? 1 : 0.6)
             }.font(.subheadline)
                 .padding(10)
-        }.background(bgWhite())
-            .accentColor(purple)
+        }
+        .background(bgWhite())
+        .accentColor(purple)
     }
 }
 

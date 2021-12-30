@@ -54,51 +54,44 @@ struct AddSingleDoseView: View {
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
                 
-                VStack {
-                    // MARK: Single Dose Date
-                    DatePicker(selection: $singleDoseDate, in: ...Date(), displayedComponents: .date) {
+                VStack(spacing: 10) {
+                    
+                    // MARK: First Dose Date
+                    HStack {
                         Text("Pick Date:")
                             .padding(.leading)
-                            .font(.custom("Avenir", size: 12).bold())
+                            .font(.custom("Avenir", size: 14).bold())
                             .foregroundColor(purple).font(.system(size: 12))
-                    }.foregroundColor(purple)
+                        DatePicker(selection: $singleDoseDate, in: ...Date(), displayedComponents: .date) {}
+                    }.foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1)).font(.system(size: 12))
+                        .font(.system(size: 12))
                         .font(.custom("Avenir", size: 12))
-                        .cornerRadius(10)
                     
-                    // MARK: Single Dose Batch Number
+                    // MARK: First Dose Batch Number
                     SimpleTextField(text: $singleDosebatchNum, placeholder: Text("Enter batch number"))
+                        .font(.custom("Avenir", size: 12))
                         .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                     
                     // MARK: Single Dose Vaccination Provider
                     SimpleTextField(text: $singleDoseVaccProvider, placeholder: Text("Enter vaccination provider"))
                         .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                     
-                    // MARK: Vaccination Location
+                    // MARK: Single Dose Vaccination Location
                     SimpleTextField(text: $singleDoseLocation, placeholder: Text("Enter vaccination centre"))
-                        .foregroundColor(purple)
+                        .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                     
-                    // MARK: Vaccination Country
+                    // MARK: Single Dose Vaccination Country
                     SimpleTextField(text: $vaccDoseCountry, placeholder: Text("Enter country of vaccination"))
-                        .foregroundColor(purple)
+                        .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                     
                     // MARK: "Submit" button
                     Button(action: {
                         upload_data()
-                        update_vacc_status()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Submit")
@@ -114,7 +107,7 @@ struct AddSingleDoseView: View {
                 Spacer()
             }
         }.background(bgWhite())
-            .accentColor(purple)
+            .accentColor(green)
     }
     
     func upload_data(){

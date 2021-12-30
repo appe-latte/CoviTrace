@@ -26,7 +26,7 @@ struct AddFirstDoseView: View {
     @ObservedObject private var authModel = AuthViewModel()
     @Environment(\.presentationMode) var presentationMode
     
-    let vaccineType = ["choose vaccine", "Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johnson"]
+    let vaccineType = ["Select Vaccine", "Pfizer-BioNTech", "Moderna", "AstraZeneca", "Johnson & Johnson", "Sinovac", "Novavax"]
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -58,32 +58,13 @@ struct AddFirstDoseView: View {
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
                 
-                VStack {
-                    // MARK: First Dose Date
-                    DatePicker(selection: $firstDoseDate, in: ...Date(), displayedComponents: .date) {
-                        Text("Pick Date:")
-                            .padding(.leading)
-                            .font(.custom("Avenir", size: 14).bold())
-                            .foregroundColor(purple).font(.system(size: 12))
-                    }.foregroundColor(Color(.white))
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1)).font(.system(size: 12))
-                        .font(.custom("Avenir", size: 12))
-                        .cornerRadius(10)
-                    
-                    // MARK: First Dose Batch Number
-                    SimpleTextField(text: $firstDosebatchNum, placeholder: Text("Enter batch number"))
-                        .font(.custom("Avenir", size: 12))
-                        .foregroundColor(purple)
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
+                VStack(spacing: 10) {
                     
                     // MARK: First Dose Vaccination Make
                     HStack {
                         Text("Vaccine Type:")
                             .padding(.leading)
-                            .font(.custom("Avenir", size: 12).bold())
+                            .font(.custom("Avenir", size: 14).bold())
                             .foregroundColor(purple)
                         
                         Spacer()
@@ -94,32 +75,42 @@ struct AddFirstDoseView: View {
                                     .font(.custom("Avenir", size: 12))
                             }
                         }.frame(width: 110)
-                    }.padding(.trailing, 50)
+                    }.padding(.trailing, 10)
                         .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(15)
                     
-                    // MARK: Single Dose Vaccination Provider
+                    // MARK: First Dose Date
+                    HStack {
+                        Text("Pick Date:")
+                            .padding(.leading)
+                            .font(.custom("Avenir", size: 14).bold())
+                            .foregroundColor(purple).font(.system(size: 12))
+                        DatePicker(selection: $firstDoseDate, in: ...Date(), displayedComponents: .date) {}
+                    }.foregroundColor(Color(.white))
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                        .font(.system(size: 12))
+                        .font(.custom("Avenir", size: 12))
+                    
+                    // MARK: First Dose Batch Number
+                    SimpleTextField(text: $firstDosebatchNum, placeholder: Text("Enter batch number"))
+                        .font(.custom("Avenir", size: 12))
+                        .foregroundColor(purple)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    
+                    // MARK: First Dose Vaccination Provider
                     SimpleTextField(text: $firstDoseVaccProvider, placeholder: Text("Enter vaccination provider"))
                         .foregroundColor(purple)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                     
                     // MARK: Vaccination Location
                     SimpleTextField(text: $firstDosageLocation, placeholder: Text("Enter vaccination centre"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                     
                     // MARK: Vaccination Country
                     SimpleTextField(text: $firstVaccDoseCountry, placeholder: Text("Enter country of vaccination"))
                         .foregroundColor(Color(.white))
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                     
                     // MARK: "Submit" button
                     Button(action: {
@@ -139,7 +130,7 @@ struct AddFirstDoseView: View {
                 Spacer()
             }
         }.background(bgWhite())
-            .accentColor(purple)
+            .accentColor(green)
     }
     
     func upload_data(){

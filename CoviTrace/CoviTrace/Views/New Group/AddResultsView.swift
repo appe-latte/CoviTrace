@@ -22,7 +22,7 @@ struct AddResultsView: View {
     @State private var specimenNum = ""
     @State private var pcrImageUrl = ""
     @State private var testResult = ""
-    let selectResult = ["Pick Result", "NEGATIVE", "POSITIVE"]
+    let selectResult = ["Select Result", "Negative", "Positive"]
     
     // MARK: Image Picker Properties
     @State private var showActionSheet = false
@@ -70,129 +70,119 @@ struct AddResultsView: View {
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
                 
-                // MARK: Test Reference Number TextField
-                SimpleTextField(text: $testRefNum, placeholder: Text("Enter test ref. number"))
-                    .foregroundColor(purple)
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
-                
-                // MARK: Lab Ref Number TextField
-                SimpleTextField(text: $labRefNum, placeholder: Text("Enter lab ref. number"))
-                    .foregroundColor(purple)
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
-                
-                // MARK: Specimen Number
-                SimpleTextField(text: $specimenNum, placeholder: Text("Enter specimen number"))
-                    .foregroundColor(purple)
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
-                
-                // MARK: Test Location TextField
-                SimpleTextField(text: $testProvider, placeholder: Text("Enter test provider"))
-                    .foregroundColor(purple)
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
-                
-                // MARK: Test Date Picker
-                DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
-                    Text("Test Date:")
-                        .padding(.leading)
-                        .foregroundColor(purple).font(.system(size: 12))
-                }.foregroundColor(purple)
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1)).font(.system(size: 12))
-                    .cornerRadius(15)
-                
-                // MARK: Test Result Picker
-                
-                
-                HStack {
-                    Text("Test Result:")
-                        .padding(.leading)
-                        .font(.custom("Avenir", size: 14).bold())
-                        .foregroundColor(purple)
-                    
-                    Spacer()
-                    
-                    Picker("Result", selection: $testResult) {
-                        ForEach(selectResult, id: \.self) {
-                            Text($0)
-                                .font(.custom("Avenir", size: 14))
-                        }
-                    }.frame(width: 110)
-                }.padding(.trailing, 50)
+                VStack(spacing: 10) {
+                    // MARK: Test Result Picker
+                    HStack {
+                        Text("Test Result:")
+                            .padding(.leading)
+                            .font(.custom("Avenir", size: 14).bold())
+                            .foregroundColor(purple)
+                        
+                        Spacer()
+                        
+                        Picker("Result", selection: $testResult) {
+                            ForEach(selectResult, id: \.self) {
+                                Text($0)
+                                    .font(.custom("Avenir", size: 14))
+                            }
+                        }.frame(width: 110)
+                    }
                     .foregroundColor(purple)
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
-                
-                Button(action: {
-                    self.showActionSheet = true
-                }, label: {
-                    HStack(spacing: 2) {
-                        Image("camera")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                        Text("upload image")
-                            .font(.custom("Avenir", size: 14).bold())
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                    }
-                }).buttonStyle(purpleBorderButton())
-                    .padding(.top, 2)
-                    .actionSheet(isPresented: $showActionSheet){
-                        ActionSheet(title: Text("Upload PCR Results"), message: nil, buttons: [
-                            // MARK: take image using camera
-                            .default(Text("Camera"), action: {
-                                self.showImagePicker = true
-                                self.sourceType = .camera
-                            }),
-                            
-                            // MARK: pick image from Photo Library
-                            .default(Text("Photo Library"), action: {
-                                self.showImagePicker = true
-                                self.sourceType = .photoLibrary
-                            }),
-                            
-                            // MARK: "Cancel" button
-                            .cancel()
-                            
-                        ])
-                    }.sheet(isPresented: $showImagePicker){
-                        ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
-                    }
-                
-                // MARK: "Log Results" Button
-                Button(action: {
-                    if let thisImage = self.upload_image {
-                        uploadPcrImage(image: thisImage)
-                    } else {
-                        showToastAlert.toggle()
-                    }
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    HStack {
-                        Text("Submit")
-                            .font(.custom("Avenir", size: 18))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                    }
-                }).buttonStyle(purpleButton())
-                    .padding(.top, 2)
-                    .disabled((testRefNum != "" && testProvider != "") ? false : true)
-                    .opacity((testRefNum != "" && testProvider != "") ? 1 : 0.6)
-                    .toast(isPresenting: $showToastAlert){
-                        AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
-                    }
+                    
+                    // MARK: Test Date Picker
+                    DatePicker(selection: $testDate, in: ...Date(), displayedComponents: .date) {
+                        Text("Test Date:")
+                            .padding(.leading)
+                            .foregroundColor(purple).font(.system(size: 14))
+                    }.foregroundColor(purple)
+                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                    
+                    // MARK: Test Reference Number TextField
+                    SimpleTextField(text: $testRefNum, placeholder: Text("Enter test ref. number"))
+                        .foregroundColor(purple)
+                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                    
+                    // MARK: Lab Ref Number TextField
+                    SimpleTextField(text: $labRefNum, placeholder: Text("Enter lab ref. number"))
+                        .foregroundColor(purple)
+                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                    
+                    // MARK: Specimen Number
+                    SimpleTextField(text: $specimenNum, placeholder: Text("Enter specimen number"))
+                        .foregroundColor(purple)
+                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                    
+                    // MARK: Test Location TextField
+                    SimpleTextField(text: $testProvider, placeholder: Text("Enter test provider"))
+                        .foregroundColor(purple)
+                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                    
+                    Button(action: {
+                        self.showActionSheet = true
+                    }, label: {
+                        HStack(spacing: 2) {
+                            Image("camera")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                            Text("upload image")
+                                .font(.custom("Avenir", size: 14).bold())
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        }
+                    }).buttonStyle(purpleBorderButton())
+                        .padding(.top, 2)
+                        .actionSheet(isPresented: $showActionSheet){
+                            ActionSheet(title: Text("Upload PCR Results"), message: nil, buttons: [
+                                // MARK: take image using camera
+                                .default(Text("Camera"), action: {
+                                    self.showImagePicker = true
+                                    self.sourceType = .camera
+                                }),
+                                
+                                // MARK: pick image from Photo Library
+                                .default(Text("Photo Library"), action: {
+                                    self.showImagePicker = true
+                                    self.sourceType = .photoLibrary
+                                }),
+                                
+                                // MARK: "Cancel" button
+                                .cancel()
+                                
+                            ])
+                        }.sheet(isPresented: $showImagePicker){
+                            ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
+                        }
+                    
+                    
+                    // MARK: "Log Results" Button
+                    Button(action: {
+                        if let thisImage = self.upload_image {
+                            uploadPcrImage(image: thisImage)
+                        } else {
+                            showToastAlert.toggle()
+                        }
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        HStack {
+                            Text("Submit")
+                                .font(.custom("Avenir", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                    }).buttonStyle(purpleButton())
+                        .padding(.top, 2)
+                        .disabled((testRefNum != "" && testProvider != "") ? false : true)
+                        .opacity((testRefNum != "" && testProvider != "") ? 1 : 0.6)
+                        .toast(isPresenting: $showToastAlert){
+                            AlertToast(displayMode: .alert, type: .complete(green), title: Optional(errTitle), subTitle: Optional(errMessage))
+                        }
+                    
+                }.padding(.top, 10)
                 
                 Spacer()
-            }.padding(.top, 15)
+            }
         }.background(bgWhite())
-            .accentColor(purple)
+            .accentColor(green)
     }
     
     func uploadPcrImage(image:UIImage){

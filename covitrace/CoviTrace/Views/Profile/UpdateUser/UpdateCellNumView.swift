@@ -51,8 +51,6 @@ struct UpdateCellNumView: View {
                 SimpleTextField(text: $cellNum, placeholder: Text("Enter cellphone number"))
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
                 
                 // MARK: "Log Results" Button
                 Button(action: {

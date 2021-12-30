@@ -45,14 +45,12 @@ struct LoginView: View {
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
                 
-                VStack {
+                VStack(spacing: 10) {
                     // MARK: User Email Text
                     CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                         .padding(5)
                         .foregroundColor(purple)
                         .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                         .keyboardType(.emailAddress).autocapitalization(.none)
                     
                     // MARK: User Password Text
@@ -60,8 +58,6 @@ struct LoginView: View {
                         .padding(5)
                         .foregroundColor(purple)
                         .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                        .background(purple.opacity(0.1))
-                        .cornerRadius(10)
                 }
                 
                 // MARK: "Password Recovery"
@@ -101,7 +97,8 @@ struct LoginView: View {
                         Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
                     })
             }
-        }.background(bgWhite())
-            .accentColor(purple)
+        }
+        .background(bgWhite())
+        .accentColor(purple)
     }
 }
