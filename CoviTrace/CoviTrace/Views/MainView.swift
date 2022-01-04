@@ -43,14 +43,14 @@ struct MainView: View {
         UINavigationBar.appearance().backgroundColor = UIColor.init(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
         UITextView.appearance().backgroundColor = .white
         UIDatePicker.appearance().backgroundColor = UIColor.clear
-        UIDatePicker.appearance().tintColor = UIColor.init(red: 83 / 255, green: 82 / 255, blue: 116 / 255, alpha: 1.0)
+        UIDatePicker.appearance().tintColor = UIColor.init(red: 220 / 255, green: 220 / 255, blue: 220 / 255, alpha: 1.0)
         UINavigationBar.appearance().scrollEdgeAppearance = barTintColor
         UINavigationBar.appearance().standardAppearance = barTintColor
     }
     
     var body: some View {
         let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-//        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+        //        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
         
         Group {
             if authModel.userSession != nil {
@@ -210,19 +210,42 @@ struct MainView: View {
                             ScrollView(.vertical, showsIndicators: false) {
                                 
                                 // MARK: Profile Summary
-                                VStack(alignment: .center){
+                                VStack(spacing: 5){
                                     if showSecondView {
-                                        VStack(alignment:.center){
+                                        VStack {
                                             
                                             // MARK: Profile Image
-                                            Image(systemName: "person.crop.circle.fill")
-                                                .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
-                                                .scaledToFit()
-                                                .clipShape(Circle())
-                                                .frame(width: 300, height: 200)
-                                                .foregroundColor(Color(.white))
-                                                .padding(5)
-                                                .padding(.bottom, 20)
+                                            if authModel.user!.verified == "Verified" ||  authModel.user!.verified == "verified" {
+                                                Image(systemName: "person.crop.circle.fill")
+                                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
+                                                    .scaledToFit()
+                                                    .clipShape(Circle())
+                                                    .frame(width: 350, height: 250)
+                                                    .foregroundColor(Color(.white))
+                                                    .padding(6.5)
+                                                    .background(Circle()
+                                                                    .fill(green))
+                                            } else if authModel.user!.verified == "Pending" || authModel.user!.verified == "pending" {
+                                                Image(systemName: "person.crop.circle.fill")
+                                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
+                                                    .scaledToFit()
+                                                    .clipShape(Circle())
+                                                    .frame(width: 350, height: 250)
+                                                    .foregroundColor(Color(.white))
+                                                    .padding(6.5)
+                                                    .background(Circle()
+                                                                    .fill(Color.orange))
+                                            } else {
+                                                Image(systemName: "person.crop.circle.fill")
+                                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
+                                                    .scaledToFit()
+                                                    .clipShape(Circle())
+                                                    .frame(width: 350, height: 250)
+                                                    .foregroundColor(Color(.white))
+                                                    .padding(6.5)
+                                                    .background(Circle()
+                                                                    .fill(purple))
+                                            }
                                             
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 5) {
@@ -245,7 +268,7 @@ struct MainView: View {
                                                 
                                                 // MARK: Verification Status
                                                 HStack{
-                                                    Text("Vaccination Status: ")
+                                                    Text("Profile: ")
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

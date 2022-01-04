@@ -68,24 +68,30 @@ struct SettingsView: View {
                                     .padding(.leading, 15)
                             }
                         
-                        HStack {
-                            Image("face-id")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(1)
-                            Toggle("Secure App", isOn: $appLockModel.isAppLockEnabled)
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.leading, 15)
-                        }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
-                            .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
-                                appLockModel.appLockStateChange(appLockState: value)
-                            })
-                        
-                        Text("Use Face ID / Touch ID to unlock when re-opening the app.")
-                            .font(.custom("Avenir", size: 11).bold())
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .padding(5)
+                        VStack {
+                            HStack {
+                                Image("face-id")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding(1)
+                                Toggle("Secure App", isOn: $appLockModel.isAppLockEnabled)
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
+                                .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
+                                    appLockModel.appLockStateChange(appLockState: value)
+                                })
+                            
+                            HStack {
+                                Text("Use Face ID / Touch ID to unlock when re-opening the app.")
+                                    .font(.custom("Avenir", size: 11).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(1)
+                                
+                                Spacer()
+                            }
+                        }
                         
                         // MARK: Privacy Policy
                         HStack {

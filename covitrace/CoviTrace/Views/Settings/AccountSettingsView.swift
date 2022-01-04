@@ -172,7 +172,6 @@ struct AccountSettingsView: View {
                             }).alert(isPresented:$showDeleteAlert) {
                                 Alert(
                                     title: Text("Are you sure you want to delete your account?"),
-                                    message: Text("This action cannot be reversed once completed."),
                                     primaryButton: .destructive(Text("Delete")) {
                                         deleteUser()
                                     },

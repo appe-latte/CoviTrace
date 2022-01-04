@@ -86,10 +86,10 @@ struct VaccCardUploadView: View {
                         self.showActionSheet = true
                     }) {
                         HStack(spacing: 2) {
-                            Image("camera")
+                            Image("image")
                                 .resizable()
                                 .frame(width: 25, height: 25)
-                            Text("upload image")
+                            Text("Upload Image")
                                 .font(.custom("Avenir", size: 14).bold())
                                 .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                         }
