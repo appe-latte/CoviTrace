@@ -134,9 +134,10 @@ struct UserProfileView: View {
                     }
                     
                     Section {
-                        Text("To update your User Information above go to: Menu > Account Settings")
+                        Text("To update your account name and cell phone number contact: admin@covitrace.co.za")
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .font(.custom("Avenir", size: 12).bold())
+                            .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     
                     // MARK: Verification Section

@@ -168,37 +168,32 @@ struct SettingsView: View {
                         })
                     }.foregroundColor(.gray)
                     
-                    //                    Section(header: Text("In partnership with:")) {
-                    //                        HStack(spacing: 10) {
-                    //                            // Partner
-                    //                            Image("logo")
-                    //                                .resizable()
-                    //                                .frame(width: 80, height: 80)
-                    //                                .clipShape(Circle())
-                    //                                .padding(1)
-                    //
-                    //                            // Partner
-                    //                            Image("logo")
-                    //                                .resizable()
-                    //                                .frame(width: 80, height: 80)
-                    //                                .clipShape(Circle())
-                    //                                .padding(1)
-                    //
-                    //                            // Partner
-                    //                            Image("logo")
-                    //                                .resizable()
-                    //                                .frame(width: 80, height: 80)
-                    //                                .clipShape(Circle())
-                    //                                .padding(1)
-                    //
-                    //                            // Partner
-                    //                            Image("logo")
-                    //                                .resizable()
-                    //                                .frame(width: 80, height: 80)
-                    //                                .clipShape(Circle())
-                    //                                .padding(1)
-                    //                        }
-                    //                    }
+                                        Section(header: Text("In partnership with:")) {
+                                            HStack {
+                                                Image("discovery")
+                                                    .resizable()
+                                                    .frame(width: 30, height: 30)
+                                                    .padding(1)
+                                                Text("DiasporaMeds")
+                                                    .font(.custom("Avenir", size: 15))
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                                    .padding(.leading, 15)
+                                                Spacer()
+                                                Image(systemName: "chevron.right")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .font(Font.title.weight(.semibold))
+                                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                                    .frame(width: 13, height: 13)
+                                            }.onTapGesture {
+//                                                showPrivacyWeb.toggle()
+                                            }
+                                            .fullScreenCover(isPresented: $showPrivacyWeb, content: {
+//                                                SFSafariViewWrapper(url: URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
+                                            })
+                                            
+                                        }
                     
                     // MARK: Sign Out Button
                     Section {

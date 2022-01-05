@@ -10,6 +10,7 @@ import os
 import Combine
 import FirebaseAuth
 import CountryPicker
+import AlertToast
 
 struct LoginView: View {
     @State private var isLoggedIn : Bool = false
@@ -25,6 +26,11 @@ struct LoginView: View {
     // MARK: Country Picker
     @State private var country: Country?
     @State private var showCountryPicker = false
+    
+    // MARK: Alert
+    @State private var showToastAlert : Bool = false
+    @State private var errTitle = ""
+    @State private var errMessage = ""
     
     // MARK: Objects
     @Environment(\.presentationMode) var presentationMode
@@ -113,7 +119,8 @@ struct LoginView: View {
                     .opacity((phoneNumber != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {
                         Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
-                    }).sheet(isPresented: $showOTPSheetView, onDismiss: {
+                    })
+                    .sheet(isPresented: $showOTPSheetView, onDismiss: {
                         if viewModel.userSession != nil {
                             UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
                         } else {
@@ -122,6 +129,8 @@ struct LoginView: View {
                     }) {
                         PhoneOTPView(verificationID: $verificationID)
                     }
+            }.toast(isPresenting: $showToastAlert){
+                AlertToast(displayMode: .alert, type: .error(.red), title: Optional(errTitle), subTitle: Optional(errMessage))
             }
         }
         .background(bgWhite())
@@ -144,6 +153,9 @@ struct LoginView: View {
                 if let error = error {
                     print("======= Phone auth error :: \(error.localizedDescription)")
                     // self.showMessagePrompt(error.localizedDescription)
+                    self.errTitle = "Error"
+                    self.errMessage = "\(error.localizedDescription)"
+                    self.showToastAlert = true
                     return
                 }
                 
