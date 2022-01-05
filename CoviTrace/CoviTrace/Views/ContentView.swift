@@ -29,7 +29,9 @@ struct ContentView: View {
         ZStack {
             Group {
                 if viewModel.userSession != nil {
-                    if !appLockModel.isAppLockEnabled {
+                    if viewModel.showSaveUserInfoView {
+                        SignUpView()
+                    } else if !appLockModel.isAppLockEnabled {
                         MainView()
                             .environmentObject(appLockModel)
                             .onAppear { UserNetworkingCall() }

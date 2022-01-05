@@ -11,6 +11,7 @@ import SwiftUI
 import CarBode
 import AVFoundation
 import SafariServices
+import CryptoSwift
 
 struct ModalScannerView: View {
     @State var barcodeValue = ""
@@ -55,7 +56,8 @@ struct ModalScannerView: View {
                         cameraPosition: $cameraPosition
                     ){
                         print("BarCodeType =",$0.type.rawValue, "Value =",$0.value)
-                        barcodeValue = $0.value
+                        barcodeValue = $0.value.sha256()
+                        //                        let hash = barcodeValue.sha256()
                     }
                 onDraw: {
                     

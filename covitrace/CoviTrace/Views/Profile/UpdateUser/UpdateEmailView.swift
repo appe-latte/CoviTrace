@@ -23,8 +23,6 @@ struct UpdateEmailView: View {
     @ObservedObject private var authModel = AuthViewModel()
     
     var body: some View {
-        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack {
@@ -51,8 +49,6 @@ struct UpdateEmailView: View {
                 SimpleTextField(text: $email, placeholder: Text("Enter email address"))
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                    .background(purple.opacity(0.1))
-                    .cornerRadius(15)
                 
                 // MARK: "Log Results" Button
                 Button(action: {

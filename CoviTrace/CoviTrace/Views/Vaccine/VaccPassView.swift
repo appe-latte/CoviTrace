@@ -9,7 +9,6 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 import CoreImage.CIFilterBuiltins
-import CryptoSwift
 
 struct VaccPassView: View {
     @State private var lastName = ""
@@ -45,8 +44,8 @@ struct VaccPassView: View {
                     .foregroundColor(Color(.white))
                     .padding(.leading, 20)
                 
-                let fullName = authModel.user!.firstName.sha256 + " " + authModel.user!.lastName.sha256
-                let cellNum = authModel.user!.cellNum.sha256
+                let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
+                let cellNum = authModel.user!.cellNum
                 let checkDate = Date()
                 
                 HStack {

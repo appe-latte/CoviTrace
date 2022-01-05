@@ -16,9 +16,11 @@ struct UserProfileView: View {
     @State var dob = ""
     @State var fullName = ""
     
-    @State private var updateProfileSheetView = false
+    
     @State private var verifyIdSheetView = false
-    @State private var showVaccCardView = false
+    @State private var showDobUpdateSheetView = false
+    @State private var showEmailUpdateSheetView = false
+    @State private var showIdUpdateSheetView = false
     
     @ObservedObject var authModel = AuthViewModel()
     
@@ -48,26 +50,9 @@ struct UserProfileView: View {
                                     .font(.custom("Avenir", size: 15).bold())
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
-                                Button(action: {
-                                    
-                                }, label: {
-                                    Text("EDIT")
-                                        .font(.custom("Avenir", size: 15))
-                                        .foregroundColor(green)
-                                }).buttonStyle(PlainButtonStyle())
                             }
                             TextField("\(fullName)", text: $fullName)
                                 .disabled(disableTextField)
-                                .onChange(of: editMode?.wrappedValue) { newValue in
-                                    if (newValue != nil) && (newValue!.isEditing) {
-                                        // Edit button tapped
-                                        disableTextField = false
-                                    }
-                                    else {
-                                        // Done button tapped
-                                        disableTextField = true
-                                    }
-                                }
                         }
                         
                         // MARK: DoB
@@ -78,25 +63,17 @@ struct UserProfileView: View {
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
                                 Button(action: {
-                                    
+                                    self.showDobUpdateSheetView.toggle()
                                 }, label: {
                                     Text("EDIT")
-                                        .font(.custom("Avenir", size: 15))
+                                        .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
                             }
                             TextField("\(dob)", text: $dob)
                                 .disabled(disableTextField)
-                                .onChange(of: editMode?.wrappedValue) { newValue in
-                                    if (newValue != nil) && (newValue!.isEditing) {
-                                        // Edit button tapped
-                                        disableTextField = false
-                                    }
-                                    else {
-                                        // Done button tapped
-                                        disableTextField = true
-                                    }
-                                }
+                        }.sheet(isPresented: $showDobUpdateSheetView) {
+                            UpdateDobView()
                         }
                         
                         // MARK: ID No.
@@ -107,25 +84,17 @@ struct UserProfileView: View {
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
                                 Button(action: {
-                                    
+                                    self.showIdUpdateSheetView.toggle()
                                 }, label: {
                                     Text("EDIT")
-                                        .font(.custom("Avenir", size: 15))
+                                        .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
                             }
                             TextField("\(idNum)", text: $idNumber)
                                 .disabled(disableTextField)
-                                .onChange(of: editMode?.wrappedValue) { newValue in
-                                    if (newValue != nil) && (newValue!.isEditing) {
-                                        // Edit button tapped
-                                        disableTextField = false
-                                    }
-                                    else {
-                                        // Done button tapped
-                                        disableTextField = true
-                                    }
-                                }
+                        }.sheet(isPresented: $showIdUpdateSheetView) {
+                            UpdateIdNumView()
                         }
                         
                         // MARK: Email
@@ -136,26 +105,18 @@ struct UserProfileView: View {
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
                                 Button(action: {
-                                    
+                                    self.showEmailUpdateSheetView.toggle()
                                 }, label: {
                                     Text("EDIT")
-                                        .font(.custom("Avenir", size: 15))
+                                        .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
                             }
                             TextField("\(email)", text: $email)
                                 .disabled(disableTextField)
                                 .foregroundColor(purple)
-                                .onChange(of: editMode?.wrappedValue) { newValue in
-                                    if (newValue != nil) && (newValue!.isEditing) {
-                                        // Edit button tapped
-                                        disableTextField = true
-                                    }
-                                    else {
-                                        // Done button tapped
-                                        disableTextField = true
-                                    }
-                                }
+                        }.sheet(isPresented: $showEmailUpdateSheetView) {
+                            UpdateEmailView()
                         }
                         
                         // MARK: Cell No.
@@ -165,27 +126,10 @@ struct UserProfileView: View {
                                     .font(.custom("Avenir", size: 15).bold())
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
-                                Button(action: {
-                                    
-                                }, label: {
-                                    Text("EDIT")
-                                        .font(.custom("Avenir", size: 15))
-                                        .foregroundColor(green)
-                                }).buttonStyle(PlainButtonStyle())
                             }
                             TextField("\(cellNum)", text: $cellNum)
                                 .disabled(disableTextField)
                                 .foregroundColor(purple)
-                                .onChange(of: editMode?.wrappedValue) { newValue in
-                                    if (newValue != nil) && (newValue!.isEditing) {
-                                        // Edit button tapped
-                                        disableTextField = true
-                                    }
-                                    else {
-                                        // Done button tapped
-                                        disableTextField = true
-                                    }
-                                }
                         }
                     }
                     
@@ -262,7 +206,8 @@ struct UserProfileView: View {
             }
             
             Spacer()
-        }.navigationTitle("User Information")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationTitle("User Information")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

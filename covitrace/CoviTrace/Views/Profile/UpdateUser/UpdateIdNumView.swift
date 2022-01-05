@@ -23,6 +23,7 @@ struct UpdateIdNumView: View {
     @ObservedObject private var authModel = AuthViewModel()
     
     var body: some View {
+        let idNum = authModel.user?.idNumber ?? ""
         
         ZStack {
             VStack {
@@ -46,7 +47,7 @@ struct UpdateIdNumView: View {
                 .padding(.horizontal, 15)
                 
                 // MARK: Test Reference Number TextField
-                SimpleTextField(text: $idNumber, placeholder: Text("Enter ID number"))
+                SimpleTextField(text: $idNumber, placeholder: Text("\(idNum)"))
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                 

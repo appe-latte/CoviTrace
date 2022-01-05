@@ -8,10 +8,12 @@
 import SwiftUI
 import Combine
 import UIKit
+import FirebaseAuth
 
 struct SignUpView: View {
     @State private var lastName = ""
     @State private var firstName = ""
+    @State private var phoneNumber = ""
     @State private var idNumber = "-"
     @State private var email = ""
     @State private var userPassword = ""
@@ -27,11 +29,14 @@ struct SignUpView: View {
     @State var selectedUIImage: UIImage?
     @State var image: Image?
     @State var showImagePicker = false
+    @State var selectedImage: UIImage = UIImage()
     
     // MARK: Objects
     @EnvironmentObject var viewModel : AuthViewModel
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
+    
+    @State var showOTPSheetView = false
     
     init() {
         self.listenForKeyboardNotifications()
@@ -56,14 +61,14 @@ struct SignUpView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image("close-p")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    }).padding(5)
-                        .clipShape(Circle())
+                    //                    Button(action: {
+                    //                        self.presentationMode.wrappedValue.dismiss()
+                    //                    }, label: {
+                    //                        Image("close-p")
+                    //                            .resizable()
+                    //                            .frame(width: 30, height: 30)
+                    //                    }).padding(5)
+                    //                        .clipShape(Circle())
                 }
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
@@ -103,7 +108,7 @@ struct SignUpView: View {
                         }
                         
                         // MARK: Textfields
-                        VStack(spacing: 10) {
+                        VStack(spacing: 5) {
                             
                             // MARK: First Name Text
                             CustomTextField(text: $firstName, placeholder: Text("First Name"), imageName: "user-2")
@@ -125,13 +130,6 @@ struct SignUpView: View {
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
-                            // MARK: User Password Text
-                            CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
-                                .padding(5)
-                                .foregroundColor(purple)
-                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-                            
                             Spacer()
                             
                         }.font(.subheadline)
@@ -142,22 +140,27 @@ struct SignUpView: View {
                 // MARK: "Sign Up" Button
                 Button(action: {
                     guard let image = selectedUIImage else {return}
-                    viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum, dob: dob, regCountry: regCountry, idType: idType)
+                    //                    viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum, dob: dob, regCountry: regCountry, idType: idType)
+                    viewModel.saveUserInfo(email: email, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum, dob: dob, regCountry: regCountry, idType: idType)
+                    
                 }, label: {
                     Text("Sign Up")
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                 }).buttonStyle(purpleButton())
-                    .disabled((lastName != "" && firstName != "" && email != "" && userPassword != "") ? false : true)
-                    .opacity((lastName != "" && firstName != "" && email != "" && userPassword != "") ? 1 : 0.6)
+                    .disabled((lastName != "" && firstName != "" && email != "") ? false : true)
+                    .opacity((lastName != "" && firstName != "" && email != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {
                         Alert(title: Text("Registration Error"), message: Text(viewModel.errorMsg))
-                    })
+                    }).sheet(isPresented: $showOTPSheetView){}
             }
-        }.background(bgWhite())
-            .accentColor(purple)
-            .keyboardAdaptive()
+        }
+        .background(bgWhite())
+        .accentColor(purple)
+        .keyboardAdaptive()
+        .navigationBarTitle("")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: Keyboard Height listener

@@ -18,8 +18,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         
-//        application.registerForRemoteNotifications()
+        //        application.registerForRemoteNotifications()
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Pass device token to auth
+        Auth.auth().setAPNSToken(deviceToken, type: .prod)
+        
+        // Further handling of the device token if needed by the app
+        // ...
+    }
+    
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification notification: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if Auth.auth().canHandleNotification(notification) {
+            completionHandler(.noData)
+            return
+        }
+        // This notification is not auth related, developer should handle it.
+    }
+    
+    // For iOS 9+
+    func application(_ application: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        if Auth.auth().canHandle(url) {
+            return true
+        }
+        return false
+        // URL not auth related, developer should handle it.
+    }
+    
+    // For iOS 8-
+    func application(_ application: UIApplication,
+                     open url: URL,
+                     sourceApplication: String?,
+                     annotation: Any) -> Bool {
+        if Auth.auth().canHandle(url) {
+            return true
+        }
+        return false
+        // URL not auth related, developer should handle it.
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        for urlContext in URLContexts {
+            let url = urlContext.url
+            Auth.auth().canHandle(url)
+        }
+        // URL not auth related, developer should handle it.
     }
     
     // MARK: UISceneSession Lifecycle

@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import Firebase
+import Kingfisher
 import FirebaseFirestore
 
 struct DigitalCertView: View {
@@ -25,14 +26,16 @@ struct DigitalCertView: View {
                     // MARK: Digital Certificate
                     let url = URL(string: authModel.user!.digiCertImageUrl )
                     if url != nil{
-                        AsyncImage(url: url!,
-                                   placeholder: {
-                            Text("Loading Digital Certificate ...")
-                                .font(.custom("Avenir", size: 14).bold())
-                                .foregroundColor(purple)
-                        },
-                                   image: { Image(uiImage: $0).resizable() })
+                        KFImage(url)
+                            .placeholder({ progress in
+                                Text("Loading Digital Certificate ...")
+                                    .font(.custom("Avenir", size: 14).bold())
+                                    .foregroundColor(purple)
+                            })
+                            .resizable()
+                            .scaledToFill()
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
+                            .foregroundColor(Color(.white))
                             .cornerRadius(10)
                     }
                     Spacer()

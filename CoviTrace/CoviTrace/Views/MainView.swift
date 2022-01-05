@@ -215,7 +215,7 @@ struct MainView: View {
                                             // MARK: Profile Image
                                             if authModel.user!.verified == "Verified" ||  authModel.user!.verified == "verified" {
                                                 Image(systemName: "person.crop.circle.fill")
-                                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
+                                                    .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)                             .resizable()
                                                     .scaledToFit()
                                                     .clipShape(Circle())
                                                     .frame(width: 350, height: 250)
@@ -373,7 +373,8 @@ struct MainView: View {
                     .navigationBarTitleDisplayMode(.inline)
                 }.accentColor(.white)
             } else {
-                LandingView()
+//                LandingView()
+                ProgressLoadingView()
             }
         }
     }
@@ -388,6 +389,7 @@ extension Image {
     }
 }
 
+// MARK: Corner radius for "HeaderTop"
 struct RoundedCorner: Shape {
     
     var radius: CGFloat = .infinity

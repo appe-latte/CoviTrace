@@ -54,20 +54,6 @@ struct SettingsView: View {
                                 .padding(.leading, 15)
                         }
                         
-                        // MARK: Privacy Settings
-                        NavigationLink(
-                            destination: AccountSettingsView()){
-                                Image("edit")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(1)
-                                Text("Account Settings")
-                                    .font(.custom("Avenir", size: 15))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
-                        
                         VStack {
                             HStack {
                                 Image("face-id")
@@ -92,6 +78,20 @@ struct SettingsView: View {
                                 Spacer()
                             }
                         }
+                        
+                        // MARK: Delete Account Settings
+                        NavigationLink(
+                            destination: AccountDeletionView()){
+                                Image("edit")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding(1)
+                                Text("Delete Account")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }
                         
                         // MARK: Privacy Policy
                         HStack {

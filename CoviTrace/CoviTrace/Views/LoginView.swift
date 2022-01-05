@@ -9,13 +9,22 @@ import SwiftUI
 import os
 import Combine
 import FirebaseAuth
+import CountryPicker
 
 struct LoginView: View {
-    @State var email = ""
-    @State var userPassword = ""
     @State private var isLoggedIn : Bool = false
     @State var showPwdResetSheetView = false
     @State var showSignUpSheetView = false
+    
+    // MARK: OTP
+    @State var showOTPSheetView = false
+    @State var phoneNumber = ""
+    @State private var verificationID = ""
+    @State var showProgressView = false
+    
+    // MARK: Country Picker
+    @State private var country: Country?
+    @State private var showCountryPicker = false
     
     // MARK: Objects
     @Environment(\.presentationMode) var presentationMode
@@ -26,78 +35,124 @@ struct LoginView: View {
         ZStack {
             VStack (spacing: 2){
                 HStack {
-                    Text("User Login")
+                    Text("Phone Validation")
                         .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
                     Spacer()
                     
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image("close-p")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    }).padding(5)
-                        .clipShape(Circle())
+                    //                    Button(action: {
+                    //                        self.presentationMode.wrappedValue.dismiss()
+                    //                    }, label: {
+                    //                        Image("close-p")
+                    //                            .resizable()
+                    //                            .frame(width: 30, height: 30)
+                    //                    }).padding(5)
+                    //                        .clipShape(Circle())
                 }
                 .padding(.top, 15)
                 .padding(.horizontal, 15)
                 
-                VStack(spacing: 10) {
-                    // MARK: User Email Text
-                    CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
-                        .padding(5)
+                // MARK: Phone Number entry
+                HStack(spacing: 16){
+                    Button {
+                        self.showCountryPicker = true
+                    } label: {
+                        Text(country != nil ? "\(country!.isoCode.getFlag())+\(country!.phoneCode)" : "\("ZA".getFlag())+27").font(.custom("Avenir", size: 18))
+                    }.sheet(isPresented: $showCountryPicker) {
+                        CountryPickerView(country: $country)
+                    }.frame(width: 65, height: 30)
                         .foregroundColor(purple)
-                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                        .keyboardType(.emailAddress).autocapitalization(.none)
+                        .padding(.leading, 5)
                     
-                    // MARK: User Password Text
-                    CustomSecureTextField(text: $userPassword, placeholder: Text("Password"))
-                        .padding(5)
-                        .foregroundColor(purple)
-                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
-                }
+                    TextField("Enter Cellphone Number", text: $phoneNumber)
+                        .font(.custom("Avenir", size: 14).bold())
+                        .keyboardType(.numberPad)
+                    
+                }.padding(5)
+                    .foregroundColor(purple)
+                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50)
+                    .padding(.leading,5)
+                    .background(purple.opacity(0.1))
+                    .cornerRadius(10)
                 
-                // MARK: "Password Recovery"
-                HStack {
-                    Spacer()
-                    
-                    Button(action: {
-                        self.showPwdResetSheetView = true
-                    }, label: {
-                        Text("Forgot Password?")
-                            .font(.custom("Avenir", size: 12))
-                            .fontWeight(.bold)
+                Spacer()
+                
+                if self.showProgressView {
+                    VStack(spacing: 1){
+                        ProgressView()
+                            .frame(width: 60, height: 60)
+                            .progressViewStyle(CircularProgressViewStyle(tint: purple))
+                            .scaleEffect(2)
+                        
+                        Text("Please Wait")
                             .foregroundColor(purple)
-                            .padding(.top, 5)
-                            .padding(.horizontal, 20)
-                    }).sheet(isPresented: $showPwdResetSheetView){
-                        PasswordResetView()
-                    }
+                            .font(.custom("Avenir", size: 12).bold())
+                    }.frame(width: 80, height: 100)
+                        .background(Color.white)
+                        .cornerRadius(10)
                 }
                 
                 Spacer()
                 
                 // MARK: "Login" Button
                 Button(action: {
-                    viewModel.userLogin(withEmail: email, password: userPassword)
+                    self.showProgressView = true
+                    self.sendOTP()
+                    //                    self.showOTPSheetView = true
+                    //                    viewModel.userLogin(withEmail: email, password: userPassword)
                 }, label: {
-                    Text("Login")
+                    Text("Validate")
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                 }).buttonStyle(purpleButton())
                     .padding(.top, 2)
                     .padding(.bottom, 10)
-                    .disabled((email != "" && userPassword != "") ? false : true)
-                    .opacity((email != "" && userPassword != "") ? 1 : 0.6)
+                    .disabled((phoneNumber != "") ? false : true)
+                    .opacity((phoneNumber != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {
                         Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
-                    })
+                    }).sheet(isPresented: $showOTPSheetView, onDismiss: {
+                        if viewModel.userSession != nil {
+                            UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+                        } else {
+                            self.showProgressView = false
+                        }
+                    }) {
+                        PhoneOTPView(verificationID: $verificationID)
+                    }
             }
         }
         .background(bgWhite())
         .accentColor(purple)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("")
+    }
+    
+    // MARK: Send OTP method
+    func sendOTP() {
+        
+        var countryCode = "+27"
+        if country != nil {
+            countryCode = "+\(country!.phoneCode)"
+        }
+        let phoneNo = "\(countryCode)\(phoneNumber)"
+        
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(phoneNo, uiDelegate: nil) { verificationID, error in
+                if let error = error {
+                    print("======= Phone auth error :: \(error.localizedDescription)")
+                    // self.showMessagePrompt(error.localizedDescription)
+                    return
+                }
+                
+                if let mVerificationID = verificationID {
+                    print(mVerificationID)
+                    self.verificationID = mVerificationID
+                    self.showOTPSheetView = true
+                }
+            }
     }
 }
+
