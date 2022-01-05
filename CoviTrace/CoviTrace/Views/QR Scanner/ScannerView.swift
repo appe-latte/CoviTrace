@@ -30,8 +30,6 @@ struct ScannerView: View {
     @State private var showToastAlert : Bool = false
     
     var body: some View {
-        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack(alignment: .center) {

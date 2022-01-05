@@ -139,8 +139,6 @@ struct AddFirstDoseView: View {
                             .disabled(true)
                             .opacity(0.6)
                     }
-//                        .disabled((firstDosebatchNum != "" && firstDoseVaccProvider != "" && firstVaccDoseCountry != "") ? false : true)
-//                        .opacity((firstDosebatchNum != "" && firstDoseVaccProvider != "" && firstVaccDoseCountry != "") ? 1 : 0.6)
                 }.padding(.top, 10)
                 
                 Spacer()
@@ -155,4 +153,3 @@ struct AddFirstDoseView: View {
         db.collection("first_dose").document("FD: \(self.authModel.userSession!.uid)").setData(["userId": authModel.userSession!.uid, "1st_dose_date": dose1, "1st_dose_batch_num": firstDosebatchNum, "1st_dose_vacc_type": firstDoseVaccType, "1st_provider" : firstDoseVaccProvider, "1st_issued_by" : firstDosageLocation, "1st_vacc_dose_country": firstVaccDoseCountry, "vacc_card_verified": vaccCardVerified, "1st_dose_upload_date": firstDoseUploadDate, "vacc_status": vaccStatus], merge: true)
     }
 }
-

@@ -34,7 +34,6 @@ struct AddSecondDoseView: View {
     }()
     
     var body: some View {
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack {
@@ -114,6 +113,7 @@ struct AddSecondDoseView: View {
                     // MARK: "Submit" button
                     Button(action: {
                         upload_data()
+                        update_vacc_status()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Submit")

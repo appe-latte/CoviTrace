@@ -128,6 +128,16 @@ struct SingleDoseData: Identifiable, Codable {
     }
 }
 
+struct VaccinationStatus: Identifiable, Codable {
+    var id : String? = UUID().uuidString
+    var vaccStatus : String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case vaccStatus
+    }
+}
+
 struct LocationResults: Identifiable, Codable {
     var id : String? = UUID().uuidString
     var latitude : String

@@ -9,6 +9,7 @@ import SwiftUI
 
 let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
 let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+let orange = Color(red: 255 / 255, green: 166 / 255, blue: 177 / 255)
 
 struct purpleButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {

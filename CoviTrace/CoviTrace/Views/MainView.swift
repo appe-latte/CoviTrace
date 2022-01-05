@@ -49,8 +49,6 @@ struct MainView: View {
     }
     
     var body: some View {
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-        //        let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
         
         Group {
             if authModel.userSession != nil {
@@ -59,8 +57,8 @@ struct MainView: View {
                         bgWhite()
                         
                         VStack {
-                            CustomHeaderShape()
-                                .frame(height: 275)
+                            HeaderTop()
+                                .frame(height: 225)
                                 .foregroundColor(purple).edgesIgnoringSafeArea(.all)
                                 .overlay(
                                     VStack(spacing: 22){
@@ -222,7 +220,7 @@ struct MainView: View {
                                                     .clipShape(Circle())
                                                     .frame(width: 350, height: 250)
                                                     .foregroundColor(Color(.white))
-                                                    .padding(6.5)
+                                                    .padding(7.5)
                                                     .background(Circle()
                                                                     .fill(green))
                                             } else if authModel.user!.verified == "Pending" || authModel.user!.verified == "pending" {
@@ -232,7 +230,7 @@ struct MainView: View {
                                                     .clipShape(Circle())
                                                     .frame(width: 350, height: 250)
                                                     .foregroundColor(Color(.white))
-                                                    .padding(6.5)
+                                                    .padding(7.5)
                                                     .background(Circle()
                                                                     .fill(Color.orange))
                                             } else {
@@ -242,7 +240,7 @@ struct MainView: View {
                                                     .clipShape(Circle())
                                                     .frame(width: 350, height: 250)
                                                     .foregroundColor(Color(.white))
-                                                    .padding(6.5)
+                                                    .padding(7.5)
                                                     .background(Circle()
                                                                     .fill(purple))
                                             }
@@ -268,7 +266,7 @@ struct MainView: View {
                                                 
                                                 // MARK: Verification Status
                                                 HStack{
-                                                    Text("Profile: ")
+                                                    Text("Profile Verification: ")
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))

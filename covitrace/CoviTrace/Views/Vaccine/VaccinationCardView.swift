@@ -15,7 +15,6 @@ struct VaccinationCardView: View {
     @State private var showDigiCertSheetView = false
     
     var body: some View {
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack {
             VStack(alignment: .center) {
