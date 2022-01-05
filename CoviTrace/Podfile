@@ -16,5 +16,6 @@ target 'CoviTrace' do
   pod 'Kingfisher'
   pod 'AlertToast'
   pod 'SDWebImageSwiftUI'
+  pod 'CryptoSwift'
   
 end

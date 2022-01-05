@@ -344,12 +344,11 @@ struct MainView: View {
                                                     }
                                                 }
                                             }
-                                        }.frame(width: UIScreen.main.bounds.size.width - 40, height: UIScreen.main.bounds.height / 2)
+                                        }.frame(width: UIScreen.main.bounds.size.width - 40, height: 525)
                                     }
                                     
                                     Spacer()
                                 }
-                                .cornerRadius(15, corners: [.topLeft, .topRight])
                                 .onAppear() {
                                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
                                         withAnimation {

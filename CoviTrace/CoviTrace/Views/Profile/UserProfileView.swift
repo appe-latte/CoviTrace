@@ -14,12 +14,16 @@ struct UserProfileView: View {
     @State var idNumber = ""
     @State var email  = ""
     @State var dob = ""
+    @State var fullName = ""
     
     @State private var updateProfileSheetView = false
     @State private var verifyIdSheetView = false
     @State private var showVaccCardView = false
     
     @ObservedObject var authModel = AuthViewModel()
+    
+    @Environment(\.editMode) private var editMode
+    @State private var disableTextField = true
     
     var body: some View {
         let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
@@ -37,54 +41,151 @@ struct UserProfileView: View {
                     
                     // MARK: User Information section
                     Section {
-                        HStack {
-                            Text("Name:")
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            Spacer()
-                            Text(fullName)
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        // MARK: Name
+                        VStack {
+                            HStack {
+                                Text("Name:")
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                Spacer()
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Text("EDIT")
+                                        .font(.custom("Avenir", size: 15))
+                                        .foregroundColor(green)
+                                }).buttonStyle(PlainButtonStyle())
+                            }
+                            TextField("\(fullName)", text: $fullName)
+                                .disabled(disableTextField)
+                                .onChange(of: editMode?.wrappedValue) { newValue in
+                                    if (newValue != nil) && (newValue!.isEditing) {
+                                        // Edit button tapped
+                                        disableTextField = false
+                                    }
+                                    else {
+                                        // Done button tapped
+                                        disableTextField = true
+                                    }
+                                }
                         }
                         
-                        HStack {
-                            Text("Date of Birth:")
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            Spacer()
-                            Text(dob)
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        // MARK: DoB
+                        VStack {
+                            HStack {
+                                Text("Date of Birth:")
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                Spacer()
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Text("EDIT")
+                                        .font(.custom("Avenir", size: 15))
+                                        .foregroundColor(green)
+                                }).buttonStyle(PlainButtonStyle())
+                            }
+                            TextField("\(dob)", text: $dob)
+                                .disabled(disableTextField)
+                                .onChange(of: editMode?.wrappedValue) { newValue in
+                                    if (newValue != nil) && (newValue!.isEditing) {
+                                        // Edit button tapped
+                                        disableTextField = false
+                                    }
+                                    else {
+                                        // Done button tapped
+                                        disableTextField = true
+                                    }
+                                }
                         }
                         
-                        HStack {
-                            Text("ID Number:")
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            Spacer()
-                            Text(idNum)
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        // MARK: ID No.
+                        VStack {
+                            HStack {
+                                Text("ID Number:")
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                Spacer()
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Text("EDIT")
+                                        .font(.custom("Avenir", size: 15))
+                                        .foregroundColor(green)
+                                }).buttonStyle(PlainButtonStyle())
+                            }
+                            TextField("\(idNum)", text: $idNumber)
+                                .disabled(disableTextField)
+                                .onChange(of: editMode?.wrappedValue) { newValue in
+                                    if (newValue != nil) && (newValue!.isEditing) {
+                                        // Edit button tapped
+                                        disableTextField = false
+                                    }
+                                    else {
+                                        // Done button tapped
+                                        disableTextField = true
+                                    }
+                                }
                         }
                         
-                        HStack {
-                            Text("Email:")
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            Spacer()
-                            Text(email)
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        // MARK: Email
+                        VStack {
+                            HStack {
+                                Text("Email:")
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                Spacer()
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Text("EDIT")
+                                        .font(.custom("Avenir", size: 15))
+                                        .foregroundColor(green)
+                                }).buttonStyle(PlainButtonStyle())
+                            }
+                            TextField("\(email)", text: $email)
+                                .disabled(disableTextField)
+                                .foregroundColor(purple)
+                                .onChange(of: editMode?.wrappedValue) { newValue in
+                                    if (newValue != nil) && (newValue!.isEditing) {
+                                        // Edit button tapped
+                                        disableTextField = true
+                                    }
+                                    else {
+                                        // Done button tapped
+                                        disableTextField = true
+                                    }
+                                }
                         }
                         
-                        HStack {
-                            Text("Cell Number:")
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            Spacer()
-                            Text(cellNum)
-                                .font(.custom("Avenir", size: 15).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        // MARK: Cell No.
+                        VStack {
+                            HStack {
+                                Text("Cell Number:")
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                Spacer()
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Text("EDIT")
+                                        .font(.custom("Avenir", size: 15))
+                                        .foregroundColor(green)
+                                }).buttonStyle(PlainButtonStyle())
+                            }
+                            TextField("\(cellNum)", text: $cellNum)
+                                .disabled(disableTextField)
+                                .foregroundColor(purple)
+                                .onChange(of: editMode?.wrappedValue) { newValue in
+                                    if (newValue != nil) && (newValue!.isEditing) {
+                                        // Edit button tapped
+                                        disableTextField = true
+                                    }
+                                    else {
+                                        // Done button tapped
+                                        disableTextField = true
+                                    }
+                                }
                         }
                     }
                     

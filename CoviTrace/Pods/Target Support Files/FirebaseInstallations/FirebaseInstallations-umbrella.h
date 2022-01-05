@@ -10,9 +10,15 @@
 #endif
 #endif
 
+#import "FirebaseInstallations 5.h"
 #import "FirebaseInstallations.h"
+#import "FIRInstallations 2.h"
+#import "FIRInstallations 3.h"
+#import "FIRInstallations 4.h"
 #import "FIRInstallations.h"
+#import "FIRInstallationsAuthTokenResult 5.h"
 #import "FIRInstallationsAuthTokenResult.h"
+#import "FIRInstallationsErrors 5.h"
 #import "FIRInstallationsErrors.h"
 
 FOUNDATION_EXPORT double FirebaseInstallationsVersionNumber;
