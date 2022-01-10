@@ -73,14 +73,14 @@ struct VaccPassView: View {
                                 .interpolation(.none)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 175, height: 175, alignment: .leading)
+                                .frame(width: 175, height: 175)
                                 .padding(5)
                         }
                         
                         // MARK: Disclaimer
-                        Text("Valid only with an identity document")
+                        Text("*Valid only when accompanied with an Government issued identity document.")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
-                            .font(.custom("Avenir", size: 12))
+                            .font(.custom("Avenir", size: 12).bold())
                             .multilineTextAlignment(.leading)
                             .lineLimit(10)
                     }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -110,7 +110,7 @@ struct VaccPassView: View {
     
     // MARK: Function for creating QR code
     func generateQRCode(from string: String) -> UIImage {
-        let encryptedString = string.aesEncrypt(key: "CDJmG*CsYKULK68FcxWHZMEwc_LG") ?? ""
+        let encryptedString = string.aesEncrypt(key: "mXCXLv6gB!VgQ*kpt8E_tNeU7yfvMtbkCdyF2K24uY7qukrVAEM*z8w6g_Di8gY4") ?? ""
         let data = Data(encryptedString.utf8)
         filter.setValue(data, forKey: "inputMessage")
         
