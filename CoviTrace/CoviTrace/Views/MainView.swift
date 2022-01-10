@@ -225,9 +225,7 @@ struct MainView: View {
                                             
                                             // MARK: Profile Image
                                             if authModel.user!.verified == "Verified" ||  authModel.user!.verified == "verified" {
-                                                Image(systemName: "person.crop.circle.fill")
-                                                    .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)                             .resizable()
-                                                    .scaledToFit()
+                                                ProfileImageView()
                                                     .clipShape(Circle())
                                                     .frame(width: 350, height: 250)
                                                     .foregroundColor(Color(.white))
@@ -235,9 +233,7 @@ struct MainView: View {
                                                     .background(Circle()
                                                                     .fill(green))
                                             } else if authModel.user!.verified == "Pending" || authModel.user!.verified == "pending" {
-                                                Image(systemName: "person.crop.circle.fill")
-                                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
-                                                    .scaledToFit()
+                                                ProfileImageView()
                                                     .clipShape(Circle())
                                                     .frame(width: 350, height: 250)
                                                     .foregroundColor(Color(.white))
@@ -245,9 +241,7 @@ struct MainView: View {
                                                     .background(Circle()
                                                                     .fill(Color.orange))
                                             } else {
-                                                Image(systemName: "person.crop.circle.fill")
-                                                    .data(url: URL(string: "\(authModel.user!.profileImageUrl)")!)                             .resizable()
-                                                    .scaledToFit()
+                                                ProfileImageView()
                                                     .clipShape(Circle())
                                                     .frame(width: 350, height: 250)
                                                     .foregroundColor(Color(.white))
@@ -287,7 +281,7 @@ struct MainView: View {
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                                 }.padding(.bottom, 10)
                                                 
-                                                HStack(spacing: 10) {
+                                                HStack(spacing: 5) {
                                                     
                                                     // MARK: Vaccination Pass
                                                     HStack {
@@ -499,6 +493,22 @@ class QrCodeCameraDelegate : NSObject, AVCaptureMetadataOutputObjectsDelegate {
         if now.timeIntervalSince(lastTime) >= scanInterval {
             lastTime = now
             self.onResult(stringValue)
+        }
+    }
+}
+
+struct ProfileImageView: View {
+    @EnvironmentObject var authModel : AuthViewModel
+    
+    var body: some View {
+        ZStack {
+            Image(systemName: "person.crop.circle.fill")
+                .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)
+                .resizable()
+                .scaledToFill()
+                .clipped()
+                .frame(width: 350, height: 250)
+                .clipShape(Circle())
         }
     }
 }

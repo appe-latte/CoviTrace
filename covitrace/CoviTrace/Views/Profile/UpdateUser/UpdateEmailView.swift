@@ -23,7 +23,7 @@ struct UpdateEmailView: View {
     @ObservedObject private var authModel = AuthViewModel()
     
     var body: some View {
-        
+        let userEmail = authModel.user?.email ?? ""
         ZStack {
             VStack {
                 HStack {
@@ -46,7 +46,7 @@ struct UpdateEmailView: View {
                 .padding(.horizontal, 15)
                 
                 // MARK: Test Reference Number TextField
-                SimpleTextField(text: $email, placeholder: Text("Enter email address"))
+                SimpleTextField(text: $email, placeholder: Text("\(userEmail)"))
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                 

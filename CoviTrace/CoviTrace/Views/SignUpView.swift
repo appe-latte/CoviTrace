@@ -130,6 +130,13 @@ struct SignUpView: View {
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                                 .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
+                            Text("* Please ensure that information is entered in all the available fields and that a profile image is selected.")
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
+                                .font(.custom("Avenir", size: 10).bold())
+                                .foregroundColor(purple)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(10)
+                            
                             Spacer()
                             
                         }.font(.subheadline)

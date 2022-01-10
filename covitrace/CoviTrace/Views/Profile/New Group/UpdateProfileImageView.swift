@@ -171,5 +171,4 @@ struct UpdateProfileImageView: View {
         let db = Firestore.firestore()
         db.collection("users").document(authModel.userSession!.uid).setData(["profileImageUrl": urlStr], merge: true)
     }
-    
 }

@@ -21,6 +21,7 @@ struct UserProfileView: View {
     @State private var showDobUpdateSheetView = false
     @State private var showEmailUpdateSheetView = false
     @State private var showIdUpdateSheetView = false
+    @State private var showProfileImageUpdateSheetView = false
     
     @ObservedObject var authModel = AuthViewModel()
     
@@ -65,7 +66,7 @@ struct UserProfileView: View {
                                 Button(action: {
                                     self.showDobUpdateSheetView.toggle()
                                 }, label: {
-                                    Text("EDIT")
+                                    Text("UPDATE")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
@@ -86,7 +87,7 @@ struct UserProfileView: View {
                                 Button(action: {
                                     self.showIdUpdateSheetView.toggle()
                                 }, label: {
-                                    Text("EDIT")
+                                    Text("UPDATE")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
@@ -107,7 +108,7 @@ struct UserProfileView: View {
                                 Button(action: {
                                     self.showEmailUpdateSheetView.toggle()
                                 }, label: {
-                                    Text("EDIT")
+                                    Text("UPDATE")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
@@ -130,6 +131,34 @@ struct UserProfileView: View {
                             TextField("\(cellNum)", text: $cellNum)
                                 .disabled(disableTextField)
                                 .foregroundColor(purple)
+                        }
+                        
+                        // MARK: Profile Image
+                        VStack {
+                            HStack {
+                                Text("Profile Image")
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                Spacer()
+                                Button(action: {
+                                    self.showProfileImageUpdateSheetView.toggle()
+                                }, label: {
+                                    Text("UPDATE")
+                                        .font(.custom("Avenir", size: 13))
+                                        .foregroundColor(green)
+                                }).buttonStyle(PlainButtonStyle())
+                            }
+                            HStack {
+                                MiniProfileImageView()
+                                    .scaledToFit()
+                                    .clipped()
+                                    .frame(width: 50, height: 50)
+                                    .padding(5)
+                                
+                                Spacer()
+                            }
+                        }.sheet(isPresented: $showProfileImageUpdateSheetView) {
+                            UpdateProfileImageView()
                         }
                     }
                     
@@ -210,5 +239,22 @@ struct UserProfileView: View {
         }
         .navigationTitle("User Information")
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct MiniProfileImageView: View {
+    @EnvironmentObject var authModel : AuthViewModel
+    
+    var body: some View {
+        ZStack {
+            Image(systemName: "person.crop.circle.fill")
+                .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)
+                .resizable()
+                .scaledToFill()
+                .clipped()
+                .frame(width: 90, height: 70)
+                .clipShape(Circle())
+                .padding(5)
+        }
     }
 }

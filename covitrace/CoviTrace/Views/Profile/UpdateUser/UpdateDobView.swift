@@ -53,7 +53,7 @@ struct UpdateDobView: View {
                 
                 // MARK: Test Reference Number TextField
                 HStack {
-                    Text("Select DoB:")
+                    Text("Select DOB:")
                         .padding(.leading)
                         .font(.custom("Avenir", size: 14).bold())
                         .foregroundColor(purple).font(.system(size: 12))

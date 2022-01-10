@@ -78,7 +78,7 @@ struct VaccPassView: View {
                         }
                         
                         // MARK: Disclaimer
-                        Text("*Valid only when accompanied with an Government issued identity document.")
+                        Text("*Valid only when accompanied with a Government issued identity document.")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
                             .font(.custom("Avenir", size: 12).bold())
                             .multilineTextAlignment(.leading)
