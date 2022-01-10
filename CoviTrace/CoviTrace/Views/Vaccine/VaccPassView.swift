@@ -110,7 +110,7 @@ struct VaccPassView: View {
     
     // MARK: Function for creating QR code
     func generateQRCode(from string: String) -> UIImage {
-        let encryptedString = string.aesEncrypt(key: "mXCXLv6gB!VgQ*kpt8E_tNeU7yfvMtbkCdyF2K24uY7qukrVAEM*z8w6g_Di8gY4") ?? ""
+        let encryptedString = string.aesEncrypt(key: "dx84p-34WEbeLFzET_z@bQvz.M.emAeEojkyC3Pek4VhC9hW*igk.3J_s.cNkgfU!i6*bNJBZ62krzbbKNxGwB*ZtPMMHR-Y6Cu7") ?? ""
         let data = Data(encryptedString.utf8)
         filter.setValue(data, forKey: "inputMessage")
         

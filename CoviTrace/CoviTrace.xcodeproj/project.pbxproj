@@ -86,7 +86,6 @@
 		2FF6BF0B263CA02D00349F00 /* FirstDoseVaccViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6BF0A263CA02D00349F00 /* FirstDoseVaccViewModel.swift */; };
 		2FFA964B2725E63A001254AF /* VaccPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA964A2725E63A001254AF /* VaccPassView.swift */; };
 		2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB3FCA273C90C30005431F /* QrScanViewModel.swift */; };
-		2FFB3FCD273C9D2B0005431F /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB3FCC273C9D2B0005431F /* ScannerView.swift */; };
 		2FFB3FCF273C9D570005431F /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB3FCE273C9D570005431F /* CameraPreview.swift */; };
 /* End PBXBuildFile section */
 
@@ -172,7 +171,6 @@
 		2FF6BF0A263CA02D00349F00 /* FirstDoseVaccViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDoseVaccViewModel.swift; sourceTree = "<group>"; };
 		2FFA964A2725E63A001254AF /* VaccPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccPassView.swift; sourceTree = "<group>"; };
 		2FFB3FCA273C90C30005431F /* QrScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScanViewModel.swift; sourceTree = "<group>"; };
-		2FFB3FCC273C9D2B0005431F /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		2FFB3FCE273C9D570005431F /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		7F4F1166A0C45BBE1D33A6E4 /* Pods_CoviTrace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoviTrace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA987EADCC41908FCE51E52C /* Pods-CoviTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoviTrace.debug.xcconfig"; path = "Target Support Files/Pods-CoviTrace/Pods-CoviTrace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -370,7 +368,6 @@
 			isa = PBXGroup;
 			children = (
 				2F06A7512725197800B90464 /* ModalScannerView.swift */,
-				2FFB3FCC273C9D2B0005431F /* ScannerView.swift */,
 				2FFB3FCE273C9D570005431F /* CameraPreview.swift */,
 			);
 			path = "QR Scanner";
@@ -595,7 +592,6 @@
 				2FE7C2CB2747521F00A8F32A /* ScannerHalfModalView.swift in Sources */,
 				2FD6C4DF273DEF8700A0D7B1 /* ImageUploader.swift in Sources */,
 				2F96097F260E21A700D0090B /* ResultsViewModel.swift in Sources */,
-				2FFB3FCD273C9D2B0005431F /* ScannerView.swift in Sources */,
 				2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* FirstDoseVaccViewModel.swift in Sources */,
 				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,

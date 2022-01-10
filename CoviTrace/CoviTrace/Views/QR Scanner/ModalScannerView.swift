@@ -63,7 +63,7 @@ struct ModalScannerView: View {
                         print("BarCodeType =",$0.type.rawValue, "Value =",$0.value)
                         do {
                             let encryptedValue = $0.value
-                            barcodeValue = encryptedValue.aesDecrypt(key: "mXCXLv6gB!VgQ*kpt8E_tNeU7yfvMtbkCdyF2K24uY7qukrVAEM*z8w6g_Di8gY4") ?? ""
+                            barcodeValue = encryptedValue.aesDecrypt(key: "dx84p-34WEbeLFzET_z@bQvz.M.emAeEojkyC3Pek4VhC9hW*igk.3J_s.cNkgfU!i6*bNJBZ62krzbbKNxGwB*ZtPMMHR-Y6Cu7") ?? ""
                             print(barcodeValue)
                             showingAlert = true
                         } catch {
@@ -99,7 +99,7 @@ struct ModalScannerView: View {
                         Spacer()
                         VStack(spacing: 5) {
                             Button(action: {
-                                    self.torchIsOn.toggle()
+                                self.torchIsOn.toggle()
                             }, label: {
                                 Image(systemName: "flashlight.on.fill")
                                     .imageScale(.large)

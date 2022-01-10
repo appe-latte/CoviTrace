@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import CarBode
 import Combine
 import SwiftUI
 import Firebase
+import AlertToast
 import Kingfisher
 import AVFoundation
+import CoreLocation
+import FirebaseFirestore
 import CoreImage.CIFilterBuiltins
 
 struct MainView: View {
@@ -22,6 +26,7 @@ struct MainView: View {
     @State var halfModal_shown = false
     @State var formHalfModal_shown = false
     @State var isHide = false
+    @State var showingScanner = false
     
     @State private var patientNumber = ""
     @State private var showSecondView = false
@@ -29,10 +34,17 @@ struct MainView: View {
     @State private var selectedItem = 0
     @State private var showCovidPassSheetView = false
     
+    let locationFetch = LocationFetch()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     // MARK: Objects
     @EnvironmentObject var authModel : AuthViewModel
     @EnvironmentObject var resultsModel : ResultsViewModel
     @EnvironmentObject var vaccModel : FirstDoseVaccViewModel
+    @ObservedObject var qrModel = QrScanViewModel()
+    
+    // MARK: Alert Toast property
+    @State private var showToastAlert : Bool = false
     
     init() {
         let barTintColor = UINavigationBarAppearance()
@@ -49,7 +61,6 @@ struct MainView: View {
     }
     
     var body: some View {
-        
         Group {
             if authModel.userSession != nil {
                 NavigationView {
@@ -302,7 +313,56 @@ struct MainView: View {
                                                     // MARK: Venue Check-in
                                                     HStack {
                                                         Button(action: {
-                                                            self.halfModal_shown.toggle()
+                                                            if let locationCheckin = self.locationFetch.lastLocation{
+                                                                print("Your location is: \(locationCheckin)")
+                                                                var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+                                                                let ceo: CLGeocoder = CLGeocoder()
+                                                                center.latitude = locationCheckin.latitude
+                                                                center.longitude = locationCheckin.longitude
+                                                                
+                                                                let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+                                                                
+                                                                ceo.reverseGeocodeLocation(loc, completionHandler:
+                                                                                            {(placemarks, error) in
+                                                                    if (error != nil)
+                                                                    {
+                                                                        print("reverse geodcode fail: \(error!.localizedDescription)")
+                                                                    }
+                                                                    let pm = placemarks! as [CLPlacemark]
+                                                                    if pm.count > 0 {
+                                                                        let pm = placemarks![0]
+                                                                        var addressString : String = ""
+                                                                        
+                                                                        if pm.name != nil {
+                                                                            addressString = addressString + pm.name! + ", "
+                                                                        }
+                                                                        if pm.subLocality != nil {
+                                                                            addressString = addressString + pm.subLocality! + ", "
+                                                                        }
+                                                                        if pm.thoroughfare != nil {
+                                                                            addressString = addressString + pm.thoroughfare! + ", "
+                                                                        }
+                                                                        if pm.locality != nil {
+                                                                            addressString = addressString + pm.locality! + ", "
+                                                                        }
+                                                                        if pm.country != nil {
+                                                                            addressString = addressString + pm.country!
+                                                                        }
+                                                                        
+                                                                        let formatter = DateFormatter()
+                                                                        formatter.locale = Locale(identifier: "nl_NL")
+                                                                        formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
+                                                                        
+                                                                        let now = Date()
+                                                                        let datetime = formatter.string(from: now)
+                                                                        
+                                                                        let db = Firestore.firestore();                                db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
+                                                                    }
+                                                                    showToastAlert.toggle()
+                                                                })
+                                                            } else {
+                                                                print("Unknown location")
+                                                            }
                                                         }, label: {
                                                             VStack(spacing: 1) {
                                                                 Image("location")
@@ -342,6 +402,35 @@ struct MainView: View {
                                                                 
                                                             }.buttonStyle(purpleRoundButton())
                                                     }
+                                                    
+                                                    // MARK: Scan QR
+                                                    VStack(spacing: 5) {
+                                                        VStack {
+                                                            Button(action: {
+                                                                self.showingScanner.toggle()
+                                                            }, label: {
+                                                                VStack(spacing: 1) {
+                                                                    Image("scan")
+                                                                        .resizable()
+                                                                        .frame(width: 25, height: 25)
+                                                                        .padding(1)
+                                                                    Text("Scan")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.custom("Avenir", size: 10))
+                                                                        .fontWeight(.semibold)
+                                                                    Text("QR code")
+                                                                        .foregroundColor(Color(.white))
+                                                                        .font(.custom("Avenir", size: 10))
+                                                                        .fontWeight(.semibold)
+                                                                }
+                                                            })
+                                                            
+                                                        }
+                                                        .buttonStyle(purpleRoundButton())
+                                                        .sheet(isPresented: $showingScanner) {
+                                                            ModalScannerView()
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }.frame(width: UIScreen.main.bounds.size.width - 40, height: 525)
@@ -359,12 +448,6 @@ struct MainView: View {
                                 .animation(.easeIn)
                             }
                         }
-                        ScannerHalfModalView(isShown: $halfModal_shown, modalHeight: 600) {
-                            ScannerView()
-                        }
-                        
-                        Spacer()
-                        
                         FormUploadHalfModalView(isShown: $formHalfModal_shown, modalHeight: 600) {
                             UploadInformationView()
                         }
@@ -373,9 +456,11 @@ struct MainView: View {
                     .navigationBarTitleDisplayMode(.inline)
                 }.accentColor(.white)
             } else {
-                //                LandingView()
                 ProgressLoadingView()
             }
+        }
+        .toast(isPresenting: $showToastAlert){
+            AlertToast(displayMode: .alert, type: .complete(green), title: Optional("Check-in Complete"))
         }
     }
 }
@@ -386,6 +471,35 @@ extension Image {
             return Image(uiImage: UIImage(data: data)!).resizable()
         }
         return self.resizable()
+    }
+}
+
+// MARK: QR Code Camera Delegate
+class QrCodeCameraDelegate : NSObject, AVCaptureMetadataOutputObjectsDelegate {
+    var scanInterval : Double = 1.0
+    var lastTime = Date(timeIntervalSince1970: 0)
+    
+    var onResult: (String) -> Void = {_ in }
+    var mockData: String?
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringValue = readableObject.stringValue else { return }
+            foundQrCode(stringValue)
+        }
+    }
+    
+    @objc func onSimulateScanning() {
+        foundQrCode(mockData ?? "Simulated Qr code result..")
+    }
+    
+    func foundQrCode(_ stringValue: String) {
+        let now = Date()
+        if now.timeIntervalSince(lastTime) >= scanInterval {
+            lastTime = now
+            self.onResult(stringValue)
+        }
     }
 }
 
