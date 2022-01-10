@@ -60,7 +60,7 @@ struct ContentView: View {
     // MARK:  User created networking delay for loading screen
     func UserNetworkingCall() {
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             isLoading = false
         }
     }

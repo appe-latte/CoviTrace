@@ -94,28 +94,28 @@ struct ModalScannerView: View {
                     .frame(height: 10)
                 
                 // MARK: Toggle Torch
-                VStack(spacing: 5) {
+                VStack {
                     HStack {
                         Spacer()
-                        HStack {
+                        VStack(spacing: 5) {
                             Button(action: {
-                                self.torchIsOn.toggle()
-                            }) {
+                                    self.torchIsOn.toggle()
+                            }, label: {
                                 Image(systemName: "flashlight.on.fill")
                                     .imageScale(.large)
                                     .foregroundColor(Color.white)
-                            }
-                        }.frame(width: 60, height: 60)
-                            .background(green)
-                            .clipShape(Circle())
-                        
-                        Text("Toggle Torch Light")
-                            .font(.custom("Avenir", size: 12))
-                            .fontWeight(.semibold)
-                            .foregroundColor(green)
-                            .padding(.top, 2)
+                            }).frame(width: 60, height: 60)
+                                .background(green)
+                                .clipShape(Circle())
+                            
+                            Text("Toggle Torch Light")
+                                .font(.custom("Avenir", size: 12))
+                                .fontWeight(.semibold)
+                                .foregroundColor(green)
+                                .padding(.top, 2)
+                        }
                     }
-                }
+                }.padding(15)
                 
                 Spacer()
             }
