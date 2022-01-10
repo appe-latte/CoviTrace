@@ -14,7 +14,6 @@ import MapKit
 import AlertToast
 
 struct PhoneOTPView: View {
-    
     @State var phoneOTP = ""
     @EnvironmentObject  var viewModel : AuthViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -29,7 +28,7 @@ struct PhoneOTPView: View {
         ZStack {
             VStack (alignment: .center){
                 HStack {
-                    Text("Enter the code sent to your phone.")
+                    Text("Verification")
                         .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
@@ -72,9 +71,10 @@ struct PhoneOTPView: View {
                         self.showCharacterErrorAlert = true
                     } else {
                         self.viewModel.verifyOTPAndSignIn(verificationID: self.verificationID, phoneOTP: phoneOTP)
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                 }, label: {
-                    Text("Verify")
+                    Text("Confirm")
                         .font(.custom("Avenir", size: 16))
                         .fontWeight(.bold)
                         .foregroundColor(.white)

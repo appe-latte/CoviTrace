@@ -12,6 +12,7 @@ import CarBode
 import AVFoundation
 import SafariServices
 import CryptoSwift
+import AlertToast
 
 struct ModalScannerView: View {
     @State var barcodeValue = ""
@@ -23,8 +24,12 @@ struct ModalScannerView: View {
     @Environment(\.openURL) var openURL
     @Environment(\.presentationMode) var presentationMode
     
+    // MARK: Alert
+    @State private var showToastAlert : Bool = false
+    @State private var errTitle = ""
+    @State private var errMessage = ""
+    
     var body: some View {
-        
         ZStack {
             VStack(spacing: 5) {
                 HStack {
@@ -56,8 +61,14 @@ struct ModalScannerView: View {
                         cameraPosition: $cameraPosition
                     ){
                         print("BarCodeType =",$0.type.rawValue, "Value =",$0.value)
-                        barcodeValue = $0.value.sha256()
-                        //                        let hash = barcodeValue.sha256()
+                        do {
+                            let encryptedValue = $0.value
+                            barcodeValue = encryptedValue.aesDecrypt(key: "CDJmG*CsYKULK68FcxWHZMEwc_LG") ?? ""
+                            print(barcodeValue)
+                            showingAlert = true
+                        } catch {
+                            print("Error: \(error.localizedDescription)")
+                        }
                     }
                 onDraw: {
                     
@@ -72,34 +83,12 @@ struct ModalScannerView: View {
                                     .stroke(lineWidth: 5)
                                     .frame(width: 500, height: 250)
                                     .foregroundColor(green))
-                }.alert(isPresented: $showingAlert) {
-                    Alert(title: Text("QR code found!"), message: Text("\(barcodeValue)"), dismissButton: .default(Text("Close")))
+                }.toast(isPresenting: $showingAlert){
+                    AlertToast(type: .regular, title: "Vaccination Status", subTitle: "\(barcodeValue)")
                 }
                 
                 Spacer()
                     .frame(height: 10)
-                
-                // MARK: Button to open link from QR code
-                HStack {
-                    Image(systemName: "link")
-                        .foregroundColor(Color.white)
-                        .imageScale(.small)
-                    Text("Open Link")
-                        .font(.custom("Avenir", size: 12))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.white)
-                } .frame(width: 120, height: 40)
-                    .background(green)
-                    .clipShape(Capsule())
-                    .padding(2)
-                    .disabled((barcodeValue != "" ) ? false : true)
-                    .opacity((barcodeValue != "") ? 1 : 0.4)
-                    .onTapGesture {
-                        showSafari.toggle()
-                    }
-                    .fullScreenCover(isPresented: $showSafari, content: {
-                        SFSafariViewWrapper(url: URL(string: "\(barcodeValue)")!)
-                    })
                 
                 Spacer()
                     .frame(height: 10)
@@ -107,22 +96,25 @@ struct ModalScannerView: View {
                 // MARK: Toggle Torch
                 VStack(spacing: 5) {
                     HStack {
-                        Button(action: {
-                            self.torchIsOn.toggle()
-                        }) {
-                            Image(systemName: "flashlight.on.fill")
-                                .imageScale(.large)
-                                .foregroundColor(Color.white)
-                        }
-                    }.frame(width: 60, height: 60)
-                        .background(green)
-                        .clipShape(Circle())
-                    
-                    Text("Toggle Torch Light")
-                        .font(.custom("Avenir", size: 12))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.white)
-                        .padding(.top, 2)
+                        Spacer()
+                        HStack {
+                            Button(action: {
+                                self.torchIsOn.toggle()
+                            }) {
+                                Image(systemName: "flashlight.on.fill")
+                                    .imageScale(.large)
+                                    .foregroundColor(Color.white)
+                            }
+                        }.frame(width: 60, height: 60)
+                            .background(green)
+                            .clipShape(Circle())
+                        
+                        Text("Toggle Torch Light")
+                            .font(.custom("Avenir", size: 12))
+                            .fontWeight(.semibold)
+                            .foregroundColor(green)
+                            .padding(.top, 2)
+                    }
                 }
                 
                 Spacer()

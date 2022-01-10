@@ -57,6 +57,7 @@ struct UpdateIdNumView: View {
                     showToastAlert = true
                     idNumber.removeAll()
                     self.hideKeyboard()
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     HStack {
                         Text("Submit")

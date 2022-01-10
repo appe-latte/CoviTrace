@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 struct UpdateDobView: View {
     @State private var isPresented = true
-    @State var dob = ""
+    @State var dob = Date()
     
     // MARK: Alert
     @State private var showToastAlert : Bool = false
@@ -21,6 +21,12 @@ struct UpdateDobView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var authModel = AuthViewModel()
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/YYYY"
+        return formatter
+    }
     
     var body: some View {
         
@@ -46,16 +52,22 @@ struct UpdateDobView: View {
                 .padding(.horizontal, 15)
                 
                 // MARK: Test Reference Number TextField
-                SimpleTextField(text: $dob, placeholder: Text("DD/MM/YYYY"))
-                    .foregroundColor(purple)
-                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                HStack {
+                    Text("Select DoB:")
+                        .padding(.leading)
+                        .font(.custom("Avenir", size: 14).bold())
+                        .foregroundColor(purple).font(.system(size: 12))
+                    DatePicker(selection: $dob, in: ...Date(), displayedComponents: .date) {}
+                }.foregroundColor(Color(.white))
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    .font(.system(size: 12))
+                    .font(.custom("Avenir", size: 12))
                 
                 // MARK: "Log Results" Button
                 Button(action: {
                     submit_dob()
                     showToastAlert = true
-                    dob.removeAll()
-                    self.hideKeyboard()
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     HStack {
                         Text("Submit")
@@ -65,8 +77,6 @@ struct UpdateDobView: View {
                     }
                 }).buttonStyle(purpleButton())
                     .padding(.top, 2)
-                    .disabled((dob != "") ? false : true)
-                    .opacity((dob != "") ? 1 : 0.6)
                 
                 Spacer()
             }.padding(.top, 15)
@@ -79,7 +89,8 @@ struct UpdateDobView: View {
     
     func submit_dob(){
         let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["dob": dob], merge: true)
+        let dob_update = dateFormatter.string(from: dob)
+        db.collection("users").document(authModel.userSession!.uid).setData(["dob": dob_update], merge: true)
         
         self.errTitle = "Success!"
         self.errMessage = "DOB has successfully been updated"

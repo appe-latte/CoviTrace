@@ -6,7 +6,7 @@ target 'CoviTrace' do
   use_frameworks!
   
   # Pods for CoviTrace
-#  
+  
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Firebase/Auth'

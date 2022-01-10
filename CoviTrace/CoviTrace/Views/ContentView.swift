@@ -36,7 +36,7 @@ struct ContentView: View {
                             .environmentObject(appLockModel)
                             .onAppear { UserNetworkingCall() }
                     } else {
-                        if appLockModel.isAppUnlocked{
+                        if appLockModel.isAppUnlocked {
                             MainView()
                                 .environmentObject(appLockModel)
                                 .onAppear { UserNetworkingCall() }

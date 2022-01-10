@@ -51,7 +51,6 @@ struct SignUpView: View {
     }
     
     var body: some View {
-        
         ZStack {
             VStack {
                 HStack {
@@ -122,6 +121,7 @@ struct SignUpView: View {
                                 .padding(5)
                                 .foregroundColor(purple)
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
+                                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
                             
                             // MARK: User Email Text
                             CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
@@ -140,7 +140,6 @@ struct SignUpView: View {
                 // MARK: "Sign Up" Button
                 Button(action: {
                     guard let image = selectedUIImage else {return}
-                    //                    viewModel.userRegistration(email: email, userPwd: userPassword, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum, dob: dob, regCountry: regCountry, idType: idType)
                     viewModel.saveUserInfo(email: email, firstName: firstName, lastName: lastName, profileImage: image, verified: verified, idNumber: idNumber, cellNum: cellNum, dob: dob, regCountry: regCountry, idType: idType)
                     
                 }, label: {

@@ -10,10 +10,9 @@ import SwiftUI
 struct SimpleTextField: View {
     @Binding var text: String
     let placeholder: Text
-//    static let bgPurple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
     
     var body: some View {
-       let bgPurple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+        let bgPurple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
         
         ZStack(alignment: .leading){
             if text.isEmpty{
@@ -30,7 +29,7 @@ struct SimpleTextField: View {
 }
 
 extension View {
-func underlineTextField() -> some View {
+    func underlineTextField() -> some View {
         self
             .padding(.vertical, 10)
             .overlay(Rectangle().frame(height: 2).padding(.top, 35))

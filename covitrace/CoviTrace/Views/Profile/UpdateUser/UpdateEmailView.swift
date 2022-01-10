@@ -56,6 +56,7 @@ struct UpdateEmailView: View {
                     showToastAlert = true
                     email.removeAll()
                     self.hideKeyboard()
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     HStack {
                         Text("Submit")

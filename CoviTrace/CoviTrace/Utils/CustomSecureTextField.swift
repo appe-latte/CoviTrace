@@ -12,8 +12,6 @@ struct CustomSecureTextField: View {
     let placeholder: Text
     
     var body: some View {
-        let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
-        
         ZStack(alignment: .leading){
             if text.isEmpty{
                 placeholder

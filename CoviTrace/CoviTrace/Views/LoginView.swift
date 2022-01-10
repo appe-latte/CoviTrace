@@ -37,11 +37,10 @@ struct LoginView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
-        
         ZStack {
             VStack (spacing: 2){
                 HStack {
-                    Text("Phone Validation")
+                    Text("Validate Number")
                         .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
@@ -105,10 +104,8 @@ struct LoginView: View {
                 Button(action: {
                     self.showProgressView = true
                     self.sendOTP()
-                    //                    self.showOTPSheetView = true
-                    //                    viewModel.userLogin(withEmail: email, password: userPassword)
                 }, label: {
-                    Text("Validate")
+                    Text("Verify")
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -118,7 +115,8 @@ struct LoginView: View {
                     .disabled((phoneNumber != "") ? false : true)
                     .opacity((phoneNumber != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {
-                        Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg))
+                        Alert(title: Text("Login Error"), message: Text(viewModel.errorMsg)
+                                .environmentObject(self.viewModel) as? Text)
                     })
                     .sheet(isPresented: $showOTPSheetView, onDismiss: {
                         if viewModel.userSession != nil {
@@ -127,7 +125,7 @@ struct LoginView: View {
                             self.showProgressView = false
                         }
                     }) {
-                        PhoneOTPView(verificationID: $verificationID)
+                        PhoneOTPView(verificationID: $verificationID).environmentObject(self.viewModel)
                     }
             }.toast(isPresenting: $showToastAlert){
                 AlertToast(displayMode: .alert, type: .error(.red), title: Optional(errTitle), subTitle: Optional(errMessage))
@@ -141,7 +139,6 @@ struct LoginView: View {
     
     // MARK: Send OTP method
     func sendOTP() {
-        
         var countryCode = "+27"
         if country != nil {
             countryCode = "+\(country!.phoneCode)"

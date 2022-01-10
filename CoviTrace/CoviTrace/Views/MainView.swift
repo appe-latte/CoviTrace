@@ -247,7 +247,7 @@ struct MainView: View {
                                             
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 5) {
-                                                Text("\(authModel.user!.firstName)" + " " + "\(authModel.user!.lastName)")
+                                                Text("\(authModel.user?.firstName ?? "")" + " " + "\(authModel.user?.lastName ?? "")")
                                                     .font(.custom("Avenir", size: 21))
                                                     .fontWeight(.bold)
                                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
@@ -258,7 +258,7 @@ struct MainView: View {
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                                    Text(authModel.user!.idNumber)
+                                                    Text(authModel.user?.idNumber ?? "")
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.bold)
                                                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -373,7 +373,7 @@ struct MainView: View {
                     .navigationBarTitleDisplayMode(.inline)
                 }.accentColor(.white)
             } else {
-//                LandingView()
+                //                LandingView()
                 ProgressLoadingView()
             }
         }
@@ -389,20 +389,3 @@ extension Image {
     }
 }
 
-// MARK: Corner radius for "HeaderTop"
-struct RoundedCorner: Shape {
-    
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-    
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
-    }
-}
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners))
-    }
-}

@@ -184,6 +184,8 @@ class AuthViewModel: ObservableObject {
                 if let error = error {
                     let authError = error as NSError
                     print(authError.description)
+                    self.isError.toggle()
+                    self.errorMsg = error.localizedDescription
                     return
                 }
                 

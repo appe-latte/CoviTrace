@@ -11,6 +11,7 @@ import Combine
 struct LandingView: View {
     @State var showSignUpSheetView = false
     @State var showLoginSheetView = false
+    @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
         NavigationView {
@@ -47,7 +48,7 @@ struct LandingView: View {
                         }
                         
                         Spacer()
-                    }
+                    }.padding(.bottom, 50)
                     
                     VStack(spacing: 5) {
                         

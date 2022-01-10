@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+let green = Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)
+let purple = Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255)
+let orange = Color(red: 255 / 255, green: 166 / 255, blue: 177 / 255)
+
 struct bgPurple: View {
     var body: some View {
         Rectangle()
@@ -27,23 +31,6 @@ struct bgGreen: View {
     var body: some View {
         Rectangle()
             .fill(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-            .edgesIgnoringSafeArea(.all)
-    }
-}
-
-struct bgGrad: View {
-    var body: some View {
-        let gradient = LinearGradient(colors: [Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255), Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)], startPoint: .top, endPoint: .bottom)
-        
-        gradient
-            .ignoresSafeArea(.all)
-    }
-}
-
-struct bgGray: View {
-    var body: some View {
-        Rectangle()
-            .fill(Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255))
             .edgesIgnoringSafeArea(.all)
     }
 }

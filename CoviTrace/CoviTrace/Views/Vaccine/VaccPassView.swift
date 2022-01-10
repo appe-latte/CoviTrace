@@ -9,14 +9,14 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 import CoreImage.CIFilterBuiltins
+import CryptoKit
 
 struct VaccPassView: View {
     @State private var lastName = ""
     @State private var firstName = ""
     @State private var vaccStatus = ""
     @State private var dob = ""
-    @State private var firstDoseDate = ""
-    @State private var secondDoseDate = ""
+    @State private var idNum = ""
     
     @ObservedObject private var firstDoseVaccModel = FirstDoseVaccViewModel()
     @ObservedObject private var secondDoseVaccModel = SecondDoseVaccViewModel()
@@ -45,8 +45,8 @@ struct VaccPassView: View {
                     .padding(.leading, 20)
                 
                 let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
-                let cellNum = authModel.user!.cellNum
-                let checkDate = Date()
+                let dob = authModel.user!.dob
+                let idNum = authModel.user!.idNumber
                 
                 HStack {
                     // MARK: ID Number
@@ -69,16 +69,16 @@ struct VaccPassView: View {
                 List(firstDoseVaccModel.firstDoseData) { firstDoseData in
                     VStack {
                         HStack{
-                            Image(uiImage: generateQRCode(from: " Full Name: \(fullName)\n Status: \(firstDoseData.vaccStatus)\n Cellphone: \(cellNum)\n Date: \(checkDate)"))
+                            Image(uiImage: generateQRCode(from: " Name: \(fullName)\n Status: \(firstDoseData.vaccStatus)\n DOB: \(dob)\n ID: \(idNum)"))
                                 .interpolation(.none)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 175, height: 175)
+                                .frame(width: 175, height: 175, alignment: .leading)
                                 .padding(5)
                         }
                         
                         // MARK: Disclaimer
-                        Text("This is to certify that the user's Covid-19 vaccination has been verified as legitimate and this certificate eligible for use as proof for the purpose of travel.")
+                        Text("Valid only with an identity document")
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
                             .font(.custom("Avenir", size: 12))
                             .multilineTextAlignment(.leading)
@@ -110,7 +110,8 @@ struct VaccPassView: View {
     
     // MARK: Function for creating QR code
     func generateQRCode(from string: String) -> UIImage {
-        let data = Data(string.utf8)
+        let encryptedString = string.aesEncrypt(key: "CDJmG*CsYKULK68FcxWHZMEwc_LG") ?? ""
+        let data = Data(encryptedString.utf8)
         filter.setValue(data, forKey: "inputMessage")
         
         if let outputImage = filter.outputImage {
