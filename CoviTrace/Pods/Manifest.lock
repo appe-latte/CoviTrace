@@ -346,7 +346,6 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
-  - CryptoSwift (1.4.2)
   - Firebase/Auth (8.10.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 8.10.0)
@@ -500,7 +499,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlertToast
-  - CryptoSwift
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -515,7 +513,6 @@ SPEC REPOS:
     - Alamofire
     - AlertToast
     - BoringSSL-GRPC
-    - CryptoSwift
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -543,7 +540,6 @@ SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   AlertToast: 8c9d5efb2df6ea728b32b62bce99d876ec3e5393
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
-  CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
   FirebaseAnalytics: 319c9b3b1bdd400d60e2f415dff0c5f6959e6760
   FirebaseAuth: 59a2d2b933b5b79e18fb1e6ad230c6abdaa73d26
@@ -566,6 +562,6 @@ SPEC CHECKSUMS:
   SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 1383cd56dc5a7183c211057aef52d625be485213
+PODFILE CHECKSUM: 7908aa0ddd3bcd17901bfe34588df2dd63d0bf00
 
 COCOAPODS: 1.11.2

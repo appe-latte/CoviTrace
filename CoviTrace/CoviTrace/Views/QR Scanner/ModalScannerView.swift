@@ -63,7 +63,7 @@ struct ModalScannerView: View {
                         print("BarCodeType =",$0.type.rawValue, "Value =",$0.value)
                         do {
                             let encryptedValue = $0.value
-                            barcodeValue = encryptedValue.aesDecrypt(key: "dx84p-34WEbeLFzET_z@bQvz.M.emAeEojkyC3Pek4VhC9hW*igk.3J_s.cNkgfU!i6*bNJBZ62krzbbKNxGwB*ZtPMMHR-Y6Cu7") ?? ""
+                            barcodeValue = encryptedValue.aesDecrypt(key: "HR-HFg_AQab*jAW4VE8W@3xQ6*CTv.LwPGu*BmoDmy*wgWeeuhPvusP9e.2@KpMk") ?? ""
                             print(barcodeValue)
                             showingAlert = true
                         } catch {

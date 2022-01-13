@@ -140,7 +140,7 @@ struct MainView: View {
                                                                     .padding(10)
                                                                     .background(Color.white.opacity(0.1))
                                                                     .clipShape(Circle())
-                                                                Text("Vacc. Card")
+                                                                Text("Vac. Card")
                                                                     .font(.system(size: 12))
                                                                     .foregroundColor(Color.white)
                                                             }
