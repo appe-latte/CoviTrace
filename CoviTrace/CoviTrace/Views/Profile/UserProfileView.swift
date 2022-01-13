@@ -16,7 +16,7 @@ struct UserProfileView: View {
     @State var dob = ""
     @State var fullName = ""
     
-    
+    // MARK: Sheets
     @State private var verifyIdSheetView = false
     @State private var showDobUpdateSheetView = false
     @State private var showEmailUpdateSheetView = false
@@ -44,6 +44,28 @@ struct UserProfileView: View {
                     
                     // MARK: User Information section
                     Section {
+                        // MARK: Profile Image
+                        VStack {
+                            HStack {
+                                Text("Update Profile Image")
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    self.showProfileImageUpdateSheetView.toggle()
+                                }, label: {
+                                    Text("UPDATE")
+                                        .font(.custom("Avenir", size: 13))
+                                        .foregroundColor(green)
+                                }).buttonStyle(PlainButtonStyle())
+                                    .padding(5)
+                            }
+                        }.sheet(isPresented: $showProfileImageUpdateSheetView) {
+                            UpdateProfileImageView()
+                        }
+                        
                         // MARK: Name
                         VStack {
                             HStack {
@@ -131,34 +153,6 @@ struct UserProfileView: View {
                             TextField("\(cellNum)", text: $cellNum)
                                 .disabled(disableTextField)
                                 .foregroundColor(purple)
-                        }
-                        
-                        // MARK: Profile Image
-                        VStack {
-                            HStack {
-                                Text("Profile Image")
-                                    .font(.custom("Avenir", size: 15).bold())
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                Spacer()
-                                Button(action: {
-                                    self.showProfileImageUpdateSheetView.toggle()
-                                }, label: {
-                                    Text("UPDATE")
-                                        .font(.custom("Avenir", size: 13))
-                                        .foregroundColor(green)
-                                }).buttonStyle(PlainButtonStyle())
-                            }
-                            HStack {
-                                MiniProfileImageView()
-                                    .scaledToFit()
-                                    .clipped()
-                                    .frame(width: 50, height: 50)
-                                    .padding(5)
-                                
-                                Spacer()
-                            }
-                        }.sheet(isPresented: $showProfileImageUpdateSheetView) {
-                            UpdateProfileImageView()
                         }
                     }
                     

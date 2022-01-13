@@ -56,64 +56,49 @@ struct VaccCardUploadView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     // MARK: Image frame
-                    HStack{
-                        if upload_image != nil {
-                            Image(uiImage: upload_image!)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
-                                .cornerRadius(10)
-                        } else {
-                            HStack {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundColor(purple)
-                                    .frame(width:15, height:15)
-                                Text("add vaccination card image.")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(purple)
-                            }.frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
-                                .background(purple.opacity(0.1))
-                                .cornerRadius(10)
-                        }
-                    }.padding(5)
-                    
-                    // MARK: Image Picker button
                     Button(action: {
                         self.showActionSheet = true
-                    }) {
-                        HStack(spacing: 2) {
-                            Image("image")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                            Text("Upload Image")
-                                .font(.custom("Avenir", size: 14).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                    }, label: {
+                        VStack {
+                            if upload_image != nil {
+                                Image(uiImage: upload_image!)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 5)
+                            } else {
+                                VStack {
+                                    Text("+ tap to add vacc. card image")
+                                        .font(.system(size: 12))
+                                        .foregroundColor(purple)
+                                }
+                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
+                                .background(purple.opacity(0.1))                                                                    .cornerRadius(10)
+                                .padding(.vertical, 5)
+                            }
                         }
-                    }.buttonStyle(purpleBorderButton())
-                        .padding(.top, 2)
-                        .actionSheet(isPresented: $showActionSheet){
-                            ActionSheet(title: Text("Add Vaccincation Card"), message: nil, buttons: [
-                                
-                                // MARK: take image using camera
-                                .default(Text("Camera"), action: {
-                                    self.showImagePicker = true
-                                    self.sourceType = .camera
-                                }),
-                                
-                                // MARK: pick image from Photo Library
-                                .default(Text("Photo Library"), action: {
-                                    self.showImagePicker = true
-                                    self.sourceType = .photoLibrary
-                                }),
-                                
-                                // MARK: "Cancel" button
-                                .cancel()
-                            ])
-                        }.sheet(isPresented: $showImagePicker){
-                            ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
-                        }
+                    }).actionSheet(isPresented: $showActionSheet){
+                        ActionSheet(title: Text("Add Vaccincation Card"), message: nil, buttons: [
+                            
+                            // MARK: take image using camera
+                            .default(Text("Camera"), action: {
+                                self.showImagePicker = true
+                                self.sourceType = .camera
+                            }),
+                            
+                            // MARK: pick image from Photo Library
+                            .default(Text("Photo Library"), action: {
+                                self.showImagePicker = true
+                                self.sourceType = .photoLibrary
+                            }),
+                            
+                            // MARK: "Cancel" button
+                            .cancel()
+                        ])
+                    }.sheet(isPresented: $showImagePicker){
+                        ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
+                    }
                     
                     // MARK: Upload image to Firebase
                     Button(action: {
@@ -122,6 +107,7 @@ struct VaccCardUploadView: View {
                         } else {
                             showToastAlert.toggle()
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                     }){
                         Text("Submit")
                             .font(.custom("Avenir", size: 16))

@@ -23,8 +23,8 @@ struct VaccinationCardView: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
-                    // MARK: Digital Certificate
-                    let url = URL(string: authModel.user!.vaccCardImageUrl )
+                    // MARK: Vaccincation Card
+                    let url = URL(string: authModel.user!.vaccCardImageUrl)
                     if url != nil{
                         KFImage(url)
                             .placeholder({ progress in

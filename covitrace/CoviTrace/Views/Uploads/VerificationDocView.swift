@@ -54,52 +54,30 @@ struct VerificationDocView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     // MARK: Image frame
-                    HStack{
-                        if upload_image != nil {
-                            Image(uiImage: upload_image!)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
-                                .cornerRadius(10)
-                        } else {
+                    VStack(spacing: 5) {
+                        Button(action: {
+                            self.showActionSheet = true
+                        }, label: {
                             VStack {
-                                HStack {
-                                    Image(systemName: "plus")
+                                if upload_image != nil {
+                                    Image(uiImage: upload_image!)
                                         .resizable()
-                                        .scaledToFit()
-                                        .foregroundColor(purple)
-                                        .frame(width:15, height:15)
-                                    Text("add ID image for verification")
-                                        .font(.system(size: 14))
-                                        .foregroundColor(purple)
-                                }.frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
-                                    .background(purple.opacity(0.1))
-                                    .cornerRadius(10)
-                                
-                                HStack {
-                                    Text("NOTE: On completion of verification this image will be immediately deleted from our server.").lineLimit(nil)
-                                        .foregroundColor(purple)
-                                        .font(.custom("Avenir", size: 12).bold())
+                                        .scaledToFill()
+                                        .frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
+                                        .cornerRadius(10)
+                                        .padding(.vertical, 5)
+                                } else {
+                                    VStack {
+                                        Text("+ tap to add ID image")
+                                            .font(.system(size: 12))
+                                            .foregroundColor(purple)
+                                    }
+                                    .frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
+                                    .background(purple.opacity(0.1))                                                                    .cornerRadius(10)
+                                    .padding(.vertical, 5)
                                 }
                             }
-                        }
-                    }.padding(5)
-                    
-                    // MARK: Image Picker button
-                    Button(action: {
-                        self.showActionSheet = true
-                    }) {
-                        HStack(spacing: 2) {
-                            Image("image")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                            Text("Upload Image")
-                                .font(.custom("Avenir", size: 14).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                        }
-                    }.buttonStyle(purpleBorderButton())
-                        .padding(.top, 2)
-                        .actionSheet(isPresented: $showActionSheet){
+                        }).actionSheet(isPresented: $showActionSheet){
                             ActionSheet(title: Text("Add proof of ID"), message: nil, buttons: [
                                 
                                 // MARK: take image using camera
@@ -120,14 +98,23 @@ struct VerificationDocView: View {
                         }.sheet(isPresented: $showImagePicker){
                             ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                         }
+                        
+                        HStack {
+                            Text("NOTE: On completion of verification this image will be immediately deleted from our server.").lineLimit(nil)
+                                .foregroundColor(purple)
+                                .font(.custom("Avenir", size: 12).bold())
+                        }.padding(.horizontal, 10)
+                    }
                     
                     // MARK: Upload image to Firebase
                     Button(action: {
                         if let thisImage = self.upload_image {
                             uploadVerImage(image: thisImage)
+                            
                         } else {
                             showToastAlert.toggle()
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                     }){
                         Text("Submit")
                             .font(.custom("Avenir", size: 16))
