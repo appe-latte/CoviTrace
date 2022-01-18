@@ -113,7 +113,7 @@ struct VaccCardUploadView: View {
                             .font(.custom("Avenir", size: 16))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                    }.buttonStyle(purpleButton())
+                    }.buttonStyle(purpleButtonLong())
                         .padding(.top, 2)
                 }
                 

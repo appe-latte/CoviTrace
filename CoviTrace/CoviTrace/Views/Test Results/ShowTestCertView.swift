@@ -42,32 +42,6 @@ struct ShowTestCertView: View {
                     
                     Spacer()
                 }
-                
-                // MARK: Download certificate
-                //                HStack {
-                //                    Spacer()
-                //                    VStack(spacing: 5) {
-                //                        HStack {
-                //                            Button(action: {
-                //                                // <---- code missing
-                //                            }, label: {
-                //                                VStack(spacing: 2) {
-                //                                    Text("Download")
-                //                                        .font(.custom("Avenir", size: 10))
-                //                                        .fontWeight(.bold)
-                //                                        .foregroundColor(Color.white)
-                //                                    Text("Certificate")
-                //                                        .font(.custom("Avenir", size: 10))
-                //                                        .fontWeight(.bold)
-                //                                        .foregroundColor(Color.white)
-                //                                }
-                //                            })
-                //                        }.frame(width: 80, height: 80)
-                //                            .background(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                //                            .clipShape(Circle())
-                //                            .padding(.horizontal, 20)
-                //                    }
-                //                }
             }
         }
     }

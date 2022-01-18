@@ -15,7 +15,9 @@ struct TestResultView: View {
     @State private var testResult = ""
     @State private var testLocation = ""
     @State private var testVerified = ""
+    
     @State var showTestCertView = false
+    @State private var showUploadPcrTestSheetView = false
     @ObservedObject private var viewModel = ResultsViewModel()
     @ObservedObject private var authModel = AuthViewModel()
     
@@ -102,7 +104,19 @@ struct TestResultView: View {
                         self.viewModel.fetchData(id: authModel.userSession!.uid)
                     }
                 }
-            }.navigationBarTitle("Saved Test Results", displayMode: .inline)
+            }
+            .navigationBarTitle("Saved PCR Results", displayMode: .inline)
+            .toolbar {
+                Button(action: {
+                    self.showUploadPcrTestSheetView.toggle()
+                }, label: {
+                    Text("+ Add")
+                        .font(.system(size: 13))
+                        .foregroundColor(Color.white)
+                }).sheet(isPresented: $showUploadPcrTestSheetView) {
+                    AddResultsView()
+                }
+            }
         }
     }
 }

@@ -13,7 +13,6 @@ struct UploadInformationView: View {
     @State private var showSingleDoseSheetView = false
     @State private var showFirstDoseSheetView = false
     @State private var showSecondDoseSheetView = false
-    @State private var showUploadPcrTestSheetView = false
     @State private var showBoosterShotSheetView = false
     @State private var showVaccCardUploadSheetView = false
     @State private var showDigiCertSheetView = false
@@ -118,55 +117,12 @@ struct UploadInformationView: View {
                                 .sheet(isPresented: $showBoosterShotSheetView) {
                                     AddBoosterShotView()
                                 }
-                        }
+                        }.padding(.leading, 30)
                         
                         Spacer()
-                            .frame(width: 30)
-                        
-                        // MARK: Upload Test Results sheet
-                        VStack(spacing: 10){
-                            Button(action: {
-                                self.showUploadPcrTestSheetView.toggle()
-                            }, label: {
-                                VStack {
-                                    Text("+ PCR")
-                                        .foregroundColor(Color.white)
-                                        .font(.system(size: 10))
-                                    Text("Results")
-                                        .foregroundColor(Color.white)
-                                        .font(.system(size: 10))
-                                }
-                            }).buttonStyle(purpleRoundButton())
-                                .sheet(isPresented: $showUploadPcrTestSheetView) {
-                                    AddResultsView()
-                                }
-                        }
-                        
-                        Spacer()
-                            .frame(width: 30)
-                        
-                        // MARK: Upload Vaccination Card
-                        VStack(spacing: 10){
-                            Button(action: {
-                                self.showVaccCardUploadSheetView.toggle()
-                            }, label: {
-                                VStack {
-                                    Text("+ Vaccination")
-                                        .foregroundColor(Color.white)
-                                        .font(.system(size: 10))
-                                    Text("Card")
-                                        .foregroundColor(Color.white)
-                                        .font(.system(size: 10))
-                                }
-                            }).buttonStyle(purpleRoundButton())
-                                .sheet(isPresented: $showVaccCardUploadSheetView) {
-                                    VaccCardUploadView()
-                                }
-                        }
                     }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
                     
                     Spacer()
-                    
                 }.padding()
                 
                 Spacer()

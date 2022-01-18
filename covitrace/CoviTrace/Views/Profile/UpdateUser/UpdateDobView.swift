@@ -63,7 +63,7 @@ struct UpdateDobView: View {
                     .font(.system(size: 12))
                     .font(.custom("Avenir", size: 12))
                 
-                // MARK: "Log Results" Button
+                // MARK: Update DOB
                 Button(action: {
                     submit_dob()
                     showToastAlert = true
@@ -75,7 +75,7 @@ struct UpdateDobView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                     }
-                }).buttonStyle(purpleButton())
+                }).buttonStyle(purpleButtonLong())
                     .padding(.top, 2)
                 
                 Spacer()

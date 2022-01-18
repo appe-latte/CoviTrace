@@ -111,7 +111,7 @@ struct DigitalCertUploadView : View {
                             .font(.custom("Avenir", size: 14))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                    }.buttonStyle(purpleButton())
+                    }.buttonStyle(purpleButtonLong())
                         .padding(.top, 2)
                     
                     Spacer()

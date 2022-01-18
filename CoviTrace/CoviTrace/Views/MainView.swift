@@ -24,7 +24,6 @@ struct MainView: View {
     @Namespace var animation
     
     @State var halfModal_shown = false
-    @State var formHalfModal_shown = false
     @State var isHide = false
     @State var showingScanner = false
     
@@ -44,7 +43,7 @@ struct MainView: View {
     @ObservedObject var qrModel = QrScanViewModel()
     
     // MARK: Alert Toast property
-    @State private var showToastAlert : Bool = false
+    @State private var showToastAlert = false
     
     init() {
         let barTintColor = UINavigationBarAppearance()
@@ -79,6 +78,7 @@ struct MainView: View {
                                                     .font(.largeTitle)
                                                     .fontWeight(.heavy)
                                                     .foregroundColor(Color(.white))
+                                                    .padding(.leading, 15)
                                                 
                                                 Spacer()
                                             }
@@ -86,41 +86,19 @@ struct MainView: View {
                                         }
                                         
                                         HStack(spacing: 15){
-                                            
-                                            // MARK: "upload"
-                                            VStack(spacing: 1) {
-                                                HStack {
-                                                    Button(action: {
-                                                        self.formHalfModal_shown.toggle()
-                                                    }, label: {
-                                                        VStack {
-                                                            Image("add")
-                                                                .resizable()
-                                                                .frame(width: 25, height: 25)
-                                                                .padding(10)
-                                                                .background(Color.white.opacity(0.1))
-                                                                .clipShape(Circle())
-                                                            Text("Add")
-                                                                .font(.system(size: 11))
-                                                                .foregroundColor(Color.white)
-                                                        }
-                                                    })
-                                                }
-                                            }
-                                            
-                                            // MARK: User Profile
+                                            // MARK: Vaccine Pass
                                             VStack(spacing: 1) {
                                                 HStack {
                                                     NavigationLink(
-                                                        destination: UserProfileView()){
+                                                        destination: VaccPassView()){
                                                             VStack {
-                                                                Image("user")
+                                                                Image(systemName:"qrcode")
                                                                     .resizable()
                                                                     .frame(width: 25, height: 25)
                                                                     .padding(10)
                                                                     .background(Color.white.opacity(0.1))
                                                                     .clipShape(Circle())
-                                                                Text("Profile")
+                                                                Text("Pass")
                                                                     .font(.system(size: 11))
                                                                     .foregroundColor(Color.white)
                                                             }
@@ -141,7 +119,27 @@ struct MainView: View {
                                                                     .background(Color.white.opacity(0.1))
                                                                     .clipShape(Circle())
                                                                 Text("Vac. Card")
-                                                                    .font(.system(size: 12))
+                                                                    .font(.system(size: 11))
+                                                                    .foregroundColor(Color.white)
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                            
+                                            // MARK: Digital Cert.
+                                            VStack(spacing: 1) {
+                                                HStack {
+                                                    NavigationLink(
+                                                        destination: DigitalCertView()){
+                                                            VStack {
+                                                                Image("checkmark")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(10)
+                                                                    .background(Color.white.opacity(0.1))
+                                                                    .clipShape(Circle())
+                                                                Text("Certificate")
+                                                                    .font(.system(size: 11))
                                                                     .foregroundColor(Color.white)
                                                             }
                                                         }
@@ -160,13 +158,14 @@ struct MainView: View {
                                                                     .padding(10)
                                                                     .background(Color.white.opacity(0.1))
                                                                     .clipShape(Circle())
-                                                                Text("Results")
+                                                                Text("PCR")
                                                                     .font(.system(size: 11))
                                                                     .foregroundColor(Color.white)
                                                             }
                                                         }
                                                 }
                                             }
+                                            
                                             
                                             // MARK: Previous Check-ins
                                             VStack(spacing: 1) {
@@ -180,27 +179,7 @@ struct MainView: View {
                                                                     .padding(10)
                                                                     .background(Color.white.opacity(0.1))
                                                                     .clipShape(Circle())
-                                                                Text("Venues")
-                                                                    .font(.system(size: 12))
-                                                                    .foregroundColor(Color.white)
-                                                            }
-                                                        }
-                                                }
-                                            }
-                                            
-                                            // MARK: Settings
-                                            VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: SettingsView()){
-                                                            VStack {
-                                                                Image("menu")
-                                                                    .resizable()
-                                                                    .frame(width: 25, height: 25)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("Menu")
+                                                                Text("Check-ins")
                                                                     .font(.system(size: 12))
                                                                     .foregroundColor(Color.white)
                                                             }
@@ -283,25 +262,51 @@ struct MainView: View {
                                                 
                                                 HStack(spacing: 5) {
                                                     
-                                                    // MARK: Vaccination Pass
-                                                    HStack {
-                                                        NavigationLink(
-                                                            destination: VaccPassView()){
+                                                    // MARK: User Profile
+                                                    NavigationLink(
+                                                        destination: UserProfileView()){
+                                                            VStack(spacing: 1) {
+                                                                Image("user")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(1)
+                                                                Text("User")
+                                                                    .foregroundColor(Color(.white))
+                                                                    .font(.custom("Avenir", size: 10))
+                                                                    .fontWeight(.semibold)
+                                                                Text("Profile")
+                                                                    .foregroundColor(Color(.white))
+                                                                    .font(.custom("Avenir", size: 10))
+                                                                    .fontWeight(.semibold)
+                                                            }
+                                                        }.buttonStyle(purpleRoundButton())
+                                                    
+                                                    // MARK: Scan QR
+                                                    VStack(spacing: 5) {
+                                                        VStack {
+                                                            Button(action: {
+                                                                self.showingScanner.toggle()
+                                                            }, label: {
                                                                 VStack(spacing: 1) {
-                                                                    Image(systemName: "qrcode")
-                                                                        .font(.system(size: 22))
+                                                                    Image("scan")
+                                                                        .resizable()
+                                                                        .frame(width: 25, height: 25)
+                                                                        .padding(1)
+                                                                    Text("Scan")
                                                                         .foregroundColor(Color(.white))
-                                                                        .padding(2)
-                                                                    Text("Vaccine")
-                                                                        .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 12))
+                                                                        .font(.custom("Avenir", size: 10))
                                                                         .fontWeight(.semibold)
-                                                                    Text("Pass")
+                                                                    Text("QR code")
                                                                         .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 11))
+                                                                        .font(.custom("Avenir", size: 10))
                                                                         .fontWeight(.semibold)
                                                                 }
-                                                            }.buttonStyle(purpleRoundButton())
+                                                            })
+                                                        }
+                                                        .buttonStyle(purpleRoundButton())
+                                                        .sheet(isPresented: $showingScanner) {
+                                                            ModalScannerView()
+                                                        }
                                                     }
                                                     
                                                     // MARK: Venue Check-in
@@ -375,56 +380,24 @@ struct MainView: View {
                                                         }).buttonStyle(purpleRoundButton())
                                                     }
                                                     
-                                                    // MARK: Digital Certificate
-                                                    HStack {
-                                                        NavigationLink(
-                                                            destination: DigitalCertView()){
-                                                                VStack(spacing: 1) {
-                                                                    Image("checkmark")
-                                                                        .resizable()
-                                                                        .frame(width: 25, height: 25)
-                                                                        .padding(1)
-                                                                    Text("Digital")
-                                                                        .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 10))
-                                                                        .fontWeight(.semibold)
-                                                                    Text("Certificate")
-                                                                        .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 10))
-                                                                        .fontWeight(.semibold)
-                                                                }
-                                                                
-                                                            }.buttonStyle(purpleRoundButton())
-                                                    }
-                                                    
-                                                    // MARK: Scan QR
-                                                    VStack(spacing: 5) {
-                                                        VStack {
-                                                            Button(action: {
-                                                                self.showingScanner.toggle()
-                                                            }, label: {
-                                                                VStack(spacing: 1) {
-                                                                    Image("scan")
-                                                                        .resizable()
-                                                                        .frame(width: 25, height: 25)
-                                                                        .padding(1)
-                                                                    Text("Scan")
-                                                                        .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 10))
-                                                                        .fontWeight(.semibold)
-                                                                    Text("QR code")
-                                                                        .foregroundColor(Color(.white))
-                                                                        .font(.custom("Avenir", size: 10))
-                                                                        .fontWeight(.semibold)
-                                                                }
-                                                            })
-                                                            
-                                                        }
-                                                        .buttonStyle(purpleRoundButton())
-                                                        .sheet(isPresented: $showingScanner) {
-                                                            ModalScannerView()
-                                                        }
-                                                    }
+                                                    // MARK: Settings
+                                                    NavigationLink(
+                                                        destination: SettingsView()){
+                                                            VStack(spacing: 1) {
+                                                                Image("more")
+                                                                    .resizable()
+                                                                    .frame(width: 25, height: 25)
+                                                                    .padding(1)
+                                                                Text("Settings")
+                                                                    .foregroundColor(Color(.white))
+                                                                    .font(.custom("Avenir", size: 10))
+                                                                    .fontWeight(.semibold)
+                                                                Text("")
+                                                                    .foregroundColor(Color(.white))
+                                                                    .font(.custom("Avenir", size: 10))
+                                                                    .fontWeight(.semibold)
+                                                            }
+                                                        }.buttonStyle(purpleRoundButton())
                                                 }
                                             }
                                         }.frame(width: UIScreen.main.bounds.size.width - 40, height: 525)
@@ -441,9 +414,6 @@ struct MainView: View {
                                 }
                                 .animation(.easeIn)
                             }
-                        }
-                        FormUploadHalfModalView(isShown: $formHalfModal_shown, modalHeight: 600) {
-                            UploadInformationView()
                         }
                     }
                     .navigationBarHidden(true)

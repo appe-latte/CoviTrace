@@ -51,7 +51,7 @@ struct UpdateIdNumView: View {
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                 
-                // MARK: "Log Results" Button
+                // MARK: Update ID no.
                 Button(action: {
                     submit_idNum()
                     showToastAlert = true
@@ -65,7 +65,7 @@ struct UpdateIdNumView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
-                }).buttonStyle(purpleButton())
+                }).buttonStyle(purpleButtonLong())
                     .padding(.top, 2)
                     .disabled((idNumber != "") ? false : true)
                     .opacity((idNumber != "") ? 1 : 0.6)

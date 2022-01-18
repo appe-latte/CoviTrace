@@ -13,7 +13,7 @@ import FirebaseFirestore
 
 struct VaccinationCardView: View {
     @EnvironmentObject private var authModel : AuthViewModel
-    @State private var showDigiCertSheetView = false
+    @State private var showVaccCardSheetView = false
     
     var body: some View {
         
@@ -39,6 +39,32 @@ struct VaccinationCardView: View {
                             .cornerRadius(10)
                     }
                     Spacer()
+                }
+                // MARK: Upload Vaccination Card
+                HStack {
+                    Spacer()
+                    VStack(spacing: 5) {
+                        HStack {
+                            Button(action: {
+                                self.showVaccCardSheetView.toggle()
+                            }, label: {
+                                VStack(spacing: 2) {
+                                    Text("+ Vaccination")
+                                        .font(.custom("Avenir", size: 10))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.white)
+                                    Text("Card")
+                                        .font(.custom("Avenir", size: 10))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.white)
+                                }
+                            })
+                        }.buttonStyle(purpleRoundButton())
+                            .padding(.horizontal, 20)
+                            .sheet(isPresented: $showVaccCardSheetView) {
+                                VaccCardUploadView()
+                            }
+                    }
                 }
             }
         }.navigationBarTitle("Vaccination Card")

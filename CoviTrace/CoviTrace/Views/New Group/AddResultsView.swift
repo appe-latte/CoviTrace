@@ -46,7 +46,6 @@ struct AddResultsView: View {
     }
     
     var body: some View {
-        
         ZStack {
             VStack {
                 HStack {
@@ -116,41 +115,50 @@ struct AddResultsView: View {
                         .foregroundColor(purple)
                         .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                     
+                    // MARK: Image frame
                     Button(action: {
                         self.showActionSheet = true
                     }, label: {
-                        HStack(spacing: 2) {
-                            Image("image")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                            Text("Upload Image")
-                                .font(.custom("Avenir", size: 14).bold())
-                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        VStack {
+                            if upload_image != nil {
+                                Image(uiImage: upload_image!)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 120, height: 100)
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 5)
+                            } else {
+                                VStack {
+                                    Text("+ tap to add pcr image")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(purple)
+                                }
+                                .frame(width: 120, height: 100)
+                                .background(purple.opacity(0.1))                                                                    .cornerRadius(10)
+                                .padding(.vertical, 5)
+                            }
                         }
-                    }).buttonStyle(purpleBorderButton())
-                        .padding(.top, 2)
-                        .actionSheet(isPresented: $showActionSheet){
-                            ActionSheet(title: Text("Upload PCR Results"), message: nil, buttons: [
-                                // MARK: take image using camera
-                                .default(Text("Camera"), action: {
-                                    self.showImagePicker = true
-                                    self.sourceType = .camera
-                                }),
-                                
-                                // MARK: pick image from Photo Library
-                                .default(Text("Photo Library"), action: {
-                                    self.showImagePicker = true
-                                    self.sourceType = .photoLibrary
-                                }),
-                                
-                                // MARK: "Cancel" button
-                                .cancel()
-                                
-                            ])
-                        }.sheet(isPresented: $showImagePicker){
-                            ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
-                        }
-                    
+                    }).actionSheet(isPresented: $showActionSheet){
+                        ActionSheet(title: Text("Add Vaccincation Card"), message: nil, buttons: [
+                            
+                            // MARK: take image using camera
+                            .default(Text("Camera"), action: {
+                                self.showImagePicker = true
+                                self.sourceType = .camera
+                            }),
+                            
+                            // MARK: pick image from Photo Library
+                            .default(Text("Photo Library"), action: {
+                                self.showImagePicker = true
+                                self.sourceType = .photoLibrary
+                            }),
+                            
+                            // MARK: "Cancel" button
+                            .cancel()
+                        ])
+                    }.sheet(isPresented: $showImagePicker){
+                        ImageUploader(image: self.$upload_image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
+                    }
                     
                     // MARK: "Log Results" Button
                     Button(action: {
@@ -167,7 +175,7 @@ struct AddResultsView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                         }
-                    }).buttonStyle(purpleButton())
+                    }).buttonStyle(purpleButtonLong())
                         .padding(.top, 2)
                         .disabled((testRefNum != "" && testProvider != "") ? false : true)
                         .opacity((testRefNum != "" && testProvider != "") ? 1 : 0.6)

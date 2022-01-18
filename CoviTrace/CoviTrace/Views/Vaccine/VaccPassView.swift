@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import CoreImage.CIFilterBuiltins
 import CryptoKit
+import AlertToast
 
 struct VaccPassView: View {
     @State private var lastName = ""
@@ -24,6 +25,12 @@ struct VaccPassView: View {
     @ObservedObject private var boosterModel = BoosterShotViewModel()
     
     @State private var selectDose: doseSelection = .first
+    @State var formHalfModal_shown = false
+    
+    // MARK: Alert
+    @State var showIdTypeAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = "Acceptable identification documents include: a valid Passport, National ID, a driver's licence and a Military / Police ID."
     
     // MARK: for QR Code generation
     let context = CIContext()
@@ -37,12 +44,15 @@ struct VaccPassView: View {
     
     var body: some View {
         ZStack {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(spacing: 10) {
+                Spacer()
+                
                 Text("Certificate of Vaccination")
                     .multilineTextAlignment(.leading)
                     .font(.custom("Avenir", size: 22).bold())
                     .foregroundColor(Color(.white))
-                    .padding(.leading, 20)
+                    .padding(.horizontal)
+                    .padding(.top, 25)
                 
                 let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
                 let dob = authModel.user!.dob
@@ -64,11 +74,12 @@ struct VaccPassView: View {
                         .foregroundColor(Color(.white))
                     
                 }.padding(.horizontal, 20)
+                    .padding(.vertical, 5)
                 
                 // MARK: QR Code and Certificate information
                 List(firstDoseVaccModel.firstDoseData) { firstDoseData in
                     VStack {
-                        HStack{
+                        HStack {
                             Image(uiImage: generateQRCode(from: " Name: \(fullName)\n Status: \(firstDoseData.vaccStatus)\n DOB: \(dob)\n ID: \(idNum)"))
                                 .interpolation(.none)
                                 .resizable()
@@ -78,15 +89,47 @@ struct VaccPassView: View {
                         }
                         
                         // MARK: Disclaimer
-                        Text("*Valid only when accompanied with a Government issued identity document.")
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
-                            .font(.custom("Avenir", size: 12).bold())
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(10)
-                    }.foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                        HStack {
+                            Button(action: {
+                                self.showIdTypeAlert.toggle()
+                            }, label: {
+                                Image(systemName: "info.circle")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                            })
+                                
+                            Text("This pass is only acceptable when accompanied with a valid government identity document.")
+                                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
+                                .font(.custom("Avenir", size: 12).bold())
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(10)
+                        }
+                    }
+                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                } .toast(isPresenting: $showIdTypeAlert){
+                    AlertToast(type: .regular, title: "Acceptable Identification", subTitle: "\(alertMessage)")
                 }
                 
                 VStack {
+                    HStack {
+                        Text("Vaccination Information")
+                            .foregroundColor(.white)
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            self.formHalfModal_shown.toggle()
+                        }, label: {
+                            Text("+ add vaccination")
+                                .foregroundColor(purple)
+                                .font(.custom("Avenir", size: 12))
+                                .fontWeight(.bold)
+                        }).frame(width: 110, height: 20)
+                            .background(bgWhite())
+                            .cornerRadius(5)
+                    }.padding(.horizontal)
                     
                     // MARK: Segmented Control for Dose Selection
                     Picker("Dose Selection:", selection: $selectDose) {
@@ -103,6 +146,9 @@ struct VaccPassView: View {
                 self.firstDoseVaccModel.fetchData(id: authModel.userSession!.uid)
                 
             }.padding(.top, 20)
+            FormUploadHalfModalView(isShown: $formHalfModal_shown, modalHeight: 600) {
+                UploadInformationView()
+            }
         }.background(bgPurple())
             .navigationBarTitle("Vaccination Pass")
             .navigationBarTitleDisplayMode(.inline)

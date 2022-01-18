@@ -50,7 +50,7 @@ struct UpdateEmailView: View {
                     .foregroundColor(purple)
                     .frame(width: UIScreen.main.bounds.size.width - 40, height: 50).padding(.leading,10)
                 
-                // MARK: "Log Results" Button
+                // MARK: Update Email
                 Button(action: {
                     submit_email()
                     showToastAlert = true
@@ -64,10 +64,7 @@ struct UpdateEmailView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                     }
-                }).frame(width: 150, height: 50)
-                    .background(purple)
-                    .cornerRadius(10)
-                    .padding(.top, 2)
+                }).buttonStyle(purpleButtonLong())
                     .disabled((email != "") ? false : true)
                     .opacity((email != "") ? 1 : 0.6)
                 
