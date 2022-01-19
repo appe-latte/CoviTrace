@@ -16,7 +16,6 @@ struct DigitalCertView: View {
     @State private var showDigiCertSheetView = false
     
     var body: some View {
-        
         ZStack {
             VStack(alignment: .center) {
                 Spacer()
@@ -40,35 +39,20 @@ struct DigitalCertView: View {
                     }
                     Spacer()
                 }
-                
-                // MARK: Upload Digital Certificate
-                HStack {
-                    Spacer()
-                    VStack(spacing: 5) {
-                        HStack {
-                            Button(action: {
-                                self.showDigiCertSheetView.toggle()
-                            }, label: {
-                                VStack(spacing: 2) {
-                                    Text("+ Digital")
-                                        .font(.custom("Avenir", size: 10))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color.white)
-                                    Text("Certificate")
-                                        .font(.custom("Avenir", size: 10))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color.white)
-                                }
-                            })
-                        }.buttonStyle(purpleRoundButton())
-                            .padding(.horizontal, 20)
-                            .sheet(isPresented: $showDigiCertSheetView) {
-                                DigitalCertUploadView()
-                            }
-                    }
-                }
             }
-        }.navigationBarTitle("Digital Certificate")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationBarTitle("Digital Certificate")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button(action: {
+                self.showDigiCertSheetView.toggle()
+            }, label: {
+                Text("+ Add")
+                    .font(.system(size: 13))
+                    .foregroundColor(Color.white)
+            }).sheet(isPresented: $showDigiCertSheetView) {
+                DigitalCertUploadView()
+            }
+        }
     }
 }

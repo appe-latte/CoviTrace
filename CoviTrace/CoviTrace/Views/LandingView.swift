@@ -71,5 +71,6 @@ struct LandingView: View {
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
     }
 }

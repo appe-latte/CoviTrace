@@ -11,8 +11,6 @@ import Combine
 import SwiftUI
 import Firebase
 import AlertToast
-import Kingfisher
-import AVFoundation
 import CoreLocation
 import FirebaseFirestore
 import CoreImage.CIFilterBuiltins
@@ -78,11 +76,10 @@ struct MainView: View {
                                                     .font(.largeTitle)
                                                     .fontWeight(.heavy)
                                                     .foregroundColor(Color(.white))
-                                                    .padding(.leading, 15)
                                                 
                                                 Spacer()
                                             }
-                                            .padding(.horizontal)
+                                            .padding(.horizontal, 15)
                                         }
                                         
                                         HStack(spacing: 15){
@@ -191,9 +188,8 @@ struct MainView: View {
                                         }.padding(.horizontal, 15)
                                         
                                         Spacer()
-                                            .frame(height: 2)
-                                    }
-                                )
+                                            .frame(height: 5)
+                                    }).padding(.bottom, 10)
                             
                             ScrollView(.vertical, showsIndicators: false) {
                                 
@@ -411,8 +407,7 @@ struct MainView: View {
                                             self.showSecondView = true
                                         }
                                     }
-                                }
-                                .animation(.easeIn)
+                                }.animation(.easeIn)
                             }
                         }
                     }
@@ -437,49 +432,3 @@ extension Image {
         return self.resizable()
     }
 }
-
-// MARK: QR Code Camera Delegate
-class QrCodeCameraDelegate : NSObject, AVCaptureMetadataOutputObjectsDelegate {
-    var scanInterval : Double = 1.0
-    var lastTime = Date(timeIntervalSince1970: 0)
-    
-    var onResult: (String) -> Void = {_ in }
-    var mockData: String?
-    
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            foundQrCode(stringValue)
-        }
-    }
-    
-    @objc func onSimulateScanning() {
-        foundQrCode(mockData ?? "Simulated Qr code result..")
-    }
-    
-    func foundQrCode(_ stringValue: String) {
-        let now = Date()
-        if now.timeIntervalSince(lastTime) >= scanInterval {
-            lastTime = now
-            self.onResult(stringValue)
-        }
-    }
-}
-
-struct ProfileImageView: View {
-    @EnvironmentObject var authModel : AuthViewModel
-    
-    var body: some View {
-        ZStack {
-            Image(systemName: "person.crop.circle.fill")
-                .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)
-                .resizable()
-                .scaledToFill()
-                .clipped()
-                .frame(width: 350, height: 250)
-                .clipShape(Circle())
-        }
-    }
-}
-

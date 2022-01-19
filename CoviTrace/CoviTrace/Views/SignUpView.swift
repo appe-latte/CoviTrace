@@ -154,7 +154,7 @@ struct SignUpView: View {
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
-                }).buttonStyle(purpleButton())
+                }).buttonStyle(purpleButtonLong())
                     .disabled((lastName != "" && firstName != "" && email != "") ? false : true)
                     .opacity((lastName != "" && firstName != "" && email != "") ? 1 : 0.6)
                     .alert(isPresented: $viewModel.isError, content: {

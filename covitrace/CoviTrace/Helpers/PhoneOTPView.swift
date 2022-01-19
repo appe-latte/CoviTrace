@@ -78,7 +78,7 @@ struct PhoneOTPView: View {
                         .font(.custom("Avenir", size: 16))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                }).buttonStyle(purpleButton())
+                }).buttonStyle(purpleButtonLong())
                     .disabled((phoneOTP != "") ? false : true)
                     .opacity((phoneOTP != "") ? 1 : 0.6)
                     .toast(isPresenting: $showCharacterErrorAlert){

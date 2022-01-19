@@ -13,7 +13,7 @@ struct AddFirstDoseView: View {
     @State var firstDoseVaccType = ""
     @State var firstDoseDate = Date()
     @State var firstDosebatchNum = ""
-    @State var vaccStatus = "First Dose Administered"
+    @State var vaccStatus = "Partially Vaccinated"
     @State var firstDosageLocation = ""
     @State var firstDoseVaccProvider = ""
     @State var firstVaccDoseCountry = ""

@@ -40,34 +40,20 @@ struct VaccinationCardView: View {
                     }
                     Spacer()
                 }
-                // MARK: Upload Vaccination Card
-                HStack {
-                    Spacer()
-                    VStack(spacing: 5) {
-                        HStack {
-                            Button(action: {
-                                self.showVaccCardSheetView.toggle()
-                            }, label: {
-                                VStack(spacing: 2) {
-                                    Text("+ Vaccination")
-                                        .font(.custom("Avenir", size: 10))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color.white)
-                                    Text("Card")
-                                        .font(.custom("Avenir", size: 10))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color.white)
-                                }
-                            })
-                        }.buttonStyle(purpleRoundButton())
-                            .padding(.horizontal, 20)
-                            .sheet(isPresented: $showVaccCardSheetView) {
-                                VaccCardUploadView()
-                            }
-                    }
-                }
             }
-        }.navigationBarTitle("Vaccination Card")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationBarTitle("Vaccination Card")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button(action: {
+                self.showVaccCardSheetView.toggle()
+            }, label: {
+                Text("+ Add")
+                    .font(.system(size: 13))
+                    .foregroundColor(Color.white)
+            }).sheet(isPresented: $showVaccCardSheetView) {
+                VaccCardUploadView()
+            }
+        }
     }
 }

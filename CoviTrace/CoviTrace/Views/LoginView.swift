@@ -109,7 +109,7 @@ struct LoginView: View {
                         .font(.custom("Avenir", size: 18))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                }).buttonStyle(purpleButton())
+                }).buttonStyle(purpleButtonLong())
                     .padding(.top, 2)
                     .padding(.bottom, 10)
                     .disabled((phoneNumber != "") ? false : true)

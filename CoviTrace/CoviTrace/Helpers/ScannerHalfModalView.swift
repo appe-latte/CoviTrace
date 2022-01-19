@@ -32,14 +32,13 @@ struct ScannerHalfModalView<Content: View> : View {
                 Spacer()
                     .edgesIgnoringSafeArea(.all)
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-                    .background(isShown ? Color.black.opacity( 0.5 * fraction_progress(lowerLimit: 0, upperLimit: Double(modalHeight), current: Double(dragState.translation.height), inverted: true)) : Color.clear)
+                    .background(isShown ? purple.opacity( 0.5 * fraction_progress(lowerLimit: 0, upperLimit: Double(modalHeight), current: Double(dragState.translation.height), inverted: true)) : Color.clear)
                     .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     .gesture(
                         TapGesture()
                             .onEnded { _ in
                                 self.isShown = false
-                            }
-                    )
+                            })
                 
                 VStack {
                     Spacer()
@@ -104,6 +103,5 @@ func fraction_progress(lowerLimit: Double = 0, upperLimit: Double, current: Doub
     } else {
         return val
     }
-    
 }
 

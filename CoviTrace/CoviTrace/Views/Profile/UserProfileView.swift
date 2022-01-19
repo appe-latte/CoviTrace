@@ -205,27 +205,27 @@ struct UserProfileView: View {
                     }
                     
                     // MARK: Verification View
-                    HStack {
-                        Button(action: {
-                            self.verifyIdSheetView.toggle()
-                        }, label: {
-                            HStack {
-                                Text("Profile Verification")
-                                    .font(.custom("Avenir", size: 15))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                
-                                Spacer()
-                                
-                                Image("arrow-right")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .padding(2)
-                            }
-                        })
-                    }.sheet(isPresented: $verifyIdSheetView) {
-                        VerificationDocView()
-                    }
+                    //                    HStack {
+                    //                        Button(action: {
+                    //                            self.verifyIdSheetView.toggle()
+                    //                        }, label: {
+                    //                            HStack {
+                    //                                Text("Profile Verification")
+                    //                                    .font(.custom("Avenir", size: 15))
+                    //                                    .fontWeight(.bold)
+                    //                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                    //
+                    //                                Spacer()
+                    //
+                    //                                Image("arrow-right")
+                    //                                    .resizable()
+                    //                                    .frame(width: 25, height: 25)
+                    //                                    .padding(2)
+                    //                            }
+                    //                        })
+                    //                    }.sheet(isPresented: $verifyIdSheetView) {
+                    //                        VerificationDocView()
+                    //                    }
                 }
             }
             
@@ -236,19 +236,19 @@ struct UserProfileView: View {
     }
 }
 
-struct MiniProfileImageView: View {
-    @EnvironmentObject var authModel : AuthViewModel
-    
-    var body: some View {
-        ZStack {
-            Image(systemName: "person.crop.circle.fill")
-                .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)
-                .resizable()
-                .scaledToFill()
-                .clipped()
-                .frame(width: 90, height: 70)
-                .clipShape(Circle())
-                .padding(5)
-        }
-    }
-}
+//struct MiniProfileImageView: View {
+//    @EnvironmentObject var authModel : AuthViewModel
+//
+//    var body: some View {
+//        ZStack {
+//            Image(systemName: "person.crop.circle.fill")
+//                .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)
+//                .resizable()
+//                .scaledToFill()
+//                .clipped()
+//                .frame(width: 90, height: 70)
+//                .clipShape(Circle())
+//                .padding(5)
+//        }
+//    }
+//}

@@ -128,16 +128,6 @@ struct SingleDoseData: Identifiable, Codable {
     }
 }
 
-struct VaccinationStatus: Identifiable, Codable {
-    var id : String? = UUID().uuidString
-    var vaccStatus : String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case vaccStatus
-    }
-}
-
 struct LocationResults: Identifiable, Codable {
     var id : String? = UUID().uuidString
     var latitude : String
@@ -154,3 +144,14 @@ struct LocationResults: Identifiable, Codable {
     }
 }
 
+enum VaccinationStatus : String {
+    case not_vacc = "Not Vaccinated"
+    case part_vacc = "Partially Vaccinated"
+    case full_vacc = "Fully Vaccinated"
+}
+
+enum ProfileVerifStatus : String {
+    case not_ver = "Not Verified"
+    case pend = "Pending"
+    case prof_ver = "Verified"
+}
