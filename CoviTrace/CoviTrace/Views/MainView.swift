@@ -147,7 +147,7 @@ struct MainView: View {
                                                     NavigationLink(
                                                         destination: TestResultView()){
                                                             VStack {
-                                                                Image("folder")
+                                                                Image("pcr-test-result")
                                                                     .resizable()
                                                                     .frame(width: 25, height: 25)
                                                                     .padding(10)
@@ -381,11 +381,11 @@ struct MainView: View {
                                                                     .resizable()
                                                                     .frame(width: 25, height: 25)
                                                                     .padding(1)
-                                                                Text("Settings")
+                                                                Text("User")
                                                                     .foregroundColor(Color(.white))
                                                                     .font(.custom("Avenir", size: 10))
                                                                     .fontWeight(.semibold)
-                                                                Text("")
+                                                                Text("Settings")
                                                                     .foregroundColor(Color(.white))
                                                                     .font(.custom("Avenir", size: 10))
                                                                     .fontWeight(.semibold)
