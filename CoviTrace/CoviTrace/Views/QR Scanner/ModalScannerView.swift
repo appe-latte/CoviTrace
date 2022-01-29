@@ -70,19 +70,6 @@ struct ModalScannerView: View {
                             print("Error: \(error.localizedDescription)")
                         }
                     }
-                onDraw: {
-                    
-                    let lineColor = UIColor(green)
-                    let fillColor = UIColor(purple.opacity(0.25))
-                    
-                    // MARK: Draw border around QR code edges
-                    $0.draw(lineWidth: 1.5, lineColor: lineColor, fillColor: fillColor)
-                    
-                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 400, alignment: .topLeading)
-                        .overlay(cameraFrame()
-                                    .stroke(lineWidth: 5)
-                                    .frame(width: 500, height: 250)
-                                    .foregroundColor(green))
                 }.toast(isPresenting: $showingAlert){
                     AlertToast(type: .regular, title: "Vaccination Status", subTitle: "\(barcodeValue)")
                 }
@@ -119,41 +106,9 @@ struct ModalScannerView: View {
                 
                 Spacer()
             }
-        }.background(bgWhite())
-            .accentColor(purple)
-    }
-}
-
-struct cameraFrame: Shape {
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            let width = rect.width
-            let height = rect.height
-            
-            path.addLines( [
-                CGPoint(x: 0, y: height * 0.25),
-                CGPoint(x: 0, y: 0),
-                CGPoint(x:width * 0.25, y:0)
-            ])
-            
-            path.addLines( [
-                CGPoint(x: width * 0.75, y: 0),
-                CGPoint(x: width, y: 0),
-                CGPoint(x:width, y:height * 0.25)
-            ])
-            
-            path.addLines( [
-                CGPoint(x: width, y: height * 0.75),
-                CGPoint(x: width, y: height),
-                CGPoint(x:width * 0.75, y: height)
-            ])
-            
-            path.addLines( [
-                CGPoint(x:width * 0.25, y: height),
-                CGPoint(x:0, y: height),
-                CGPoint(x:0, y:height * 0.75)
-            ])
         }
+        .background(bgWhite())
+        .accentColor(purple)
     }
 }
 

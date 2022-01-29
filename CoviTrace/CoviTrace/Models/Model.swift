@@ -15,9 +15,10 @@ struct TestResults: Identifiable, Codable {
     var testDate : String
     var testResult : String
     var testProvider : String
-    var userId: String?
-    var testVerified: String
-    var pcrImageUrl: String?
+    var userId : String?
+    var testVerified : String
+    var pcrImageUrl : String?
+    var testType : String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -29,6 +30,7 @@ struct TestResults: Identifiable, Codable {
         case userId
         case testVerified
         case pcrImageUrl
+        case testType
     }
 }
 
@@ -133,7 +135,7 @@ struct LocationResults: Identifiable, Codable {
     var latitude : String
     var longitude : String
     var date : String
-    var address: String
+    var address : String
     
     enum CodingKeys: String, CodingKey {
         case id

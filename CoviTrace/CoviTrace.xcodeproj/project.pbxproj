@@ -43,7 +43,6 @@
 		2F491F7D2786338000B8A29C /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 2F491F7C2786338000B8A29C /* CountryPicker */; };
 		2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F495B15276192FE006EF22E /* VaccinationCardView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
-		2F4F573D2655241600EFB454 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F573C2655241600EFB454 /* AboutView.swift */; };
 		2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5742265524FA00EFB454 /* FaqsView.swift */; };
 		2F524193263B38CB0016D87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524192263B38CB0016D87D /* Constants.swift */; };
 		2F5956E125D1B635004D1F53 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5956E025D1B635004D1F53 /* AuthViewModel.swift */; };
@@ -191,7 +190,6 @@
 		2F495B15276192FE006EF22E /* VaccinationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCardView.swift; sourceTree = "<group>"; };
 		2F4A7AAF2790A2DC00737ACF /* CryptoSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CryptoSwift.xcframework; path = Carthage/Build/CryptoSwift.xcframework; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddResultsView.swift; path = "../New Group/AddResultsView.swift"; sourceTree = "<group>"; };
-		2F4F573C2655241600EFB454 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2F4F5742265524FA00EFB454 /* FaqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsView.swift; sourceTree = "<group>"; };
 		2F524192263B38CB0016D87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2F5956E025D1B635004D1F53 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 		2F123F6A2654313F00BA3D53 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				2F4F573C2655241600EFB454 /* AboutView.swift */,
 				2F4F5742265524FA00EFB454 /* FaqsView.swift */,
 			);
 			path = About;
@@ -729,7 +726,6 @@
 				2F6150FA25D1A4FA003AAB52 /* LandingView.swift in Sources */,
 				2F0F2A6C25B5BD4A00103879 /* ContentView.swift in Sources */,
 				2F3680BE26F0EE320002F8A0 /* AddSingleDoseView.swift in Sources */,
-				2F4F573D2655241600EFB454 /* AboutView.swift in Sources */,
 				2FFA964B2725E63A001254AF /* VaccPassView.swift in Sources */,
 				2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */,
 				2F23F91227275B9D00B0F11F /* FaceIdLoginView.swift in Sources */,

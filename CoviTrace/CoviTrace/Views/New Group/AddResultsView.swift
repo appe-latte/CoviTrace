@@ -12,6 +12,7 @@ import FirebaseFirestore
 
 struct AddResultsView: View {
     @State private var isPresented = true
+    @State private var testType = ""
     @State private var testRefNum = ""
     @State private var labRefNum = ""
     @State private var testDate = Date()
@@ -23,6 +24,8 @@ struct AddResultsView: View {
     @State private var pcrImageUrl = ""
     @State private var testResult = ""
     let selectResult = ["Select Result", "Negative", "Positive"]
+    
+    let selectTestType = ["Select Test", "PCR", "Rapid"]
     
     // MARK: Image Picker Properties
     @State private var showActionSheet = false
@@ -49,7 +52,7 @@ struct AddResultsView: View {
         ZStack {
             VStack {
                 HStack {
-                    Text("Add PCR Results")
+                    Text("Add Test Results")
                         .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
@@ -68,6 +71,26 @@ struct AddResultsView: View {
                 .padding(.horizontal, 15)
                 
                 VStack(spacing: 10) {
+                    
+                    // MARK: Test Type Picker
+                    HStack {
+                        Text("Test Type:")
+                            .padding(.leading)
+                            .font(.custom("Avenir", size: 14).bold())
+                            .foregroundColor(purple)
+                        
+                        Spacer()
+                        
+                        Picker("Type", selection: $testType) {
+                            ForEach(selectTestType, id: \.self) {
+                                Text($0)
+                                    .font(.custom("Avenir", size: 14))
+                            }
+                        }.frame(width: 110)
+                    }
+                    .foregroundColor(purple)
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 50).padding(.leading,10)
+                    
                     // MARK: Test Result Picker
                     HStack {
                         Text("Test Result:")
@@ -212,15 +235,16 @@ struct AddResultsView: View {
                         let date = dateFormatter.string(from: testDate)
                         let pcrDictionary = [
                             "userId": authModel.userSession!.uid,
-                            "test_ref_num": self.testRefNum,
-                            "lab_ref_num": self.labRefNum,
-                            "test_provider": self.testProvider,
-                            "date": date,
-                            "test_result": self.testResult,
-                            "test_verified": self.testVerified,
-                            "pcr_upload_date": self.resultUploadDate,
-                            "specimen_num": self.specimenNum,
-                            "pcrImageUrl": self.pcrImageUrl
+                            "test_ref_num" : self.testRefNum,
+                            "lab_ref_num" : self.labRefNum,
+                            "test_provider" : self.testProvider,
+                            "date" : date,
+                            "test_result" : self.testResult,
+                            "test_verified" : self.testVerified,
+                            "pcr_upload_date"  : self.resultUploadDate,
+                            "specimen_num" : self.specimenNum,
+                            "pcrImageUrl" : self.pcrImageUrl,
+                            "test_type" : self.testType
                         ] as [String : Any]
                         
                         let filename = NSUUID().uuidString
@@ -230,7 +254,7 @@ struct AddResultsView: View {
                             if let error = error {
                                 print("Error: \(error)")
                             } else {
-                                print("Form uploaded successfully")
+                                print("Test results uploaded successfully")
                             }
                         }
                     }

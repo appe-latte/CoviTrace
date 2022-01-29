@@ -27,9 +27,6 @@ struct MainView: View {
     
     @State private var patientNumber = ""
     @State private var showSecondView = false
-    @State private var showSheetView = false
-    @State private var selectedItem = 0
-    @State private var showCovidPassSheetView = false
     
     let locationFetch = LocationFetch()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -58,9 +55,10 @@ struct MainView: View {
     }
     
     var body: some View {
-        Group {
-            if authModel.userSession != nil {
-                NavigationView {
+        NavigationView {
+            Group {
+                if authModel.userSession != nil {
+                    //                NavigationView {
                     ZStack {
                         bgWhite()
                         
@@ -69,7 +67,7 @@ struct MainView: View {
                                 .frame(height: 225)
                                 .foregroundColor(purple).edgesIgnoringSafeArea(.all)
                                 .overlay(
-                                    VStack(spacing: 22){
+                                    VStack(spacing: 22) {
                                         if !isHide {
                                             HStack(spacing: 12){
                                                 Text("Covitrace")
@@ -82,7 +80,7 @@ struct MainView: View {
                                             .padding(.horizontal, 15)
                                         }
                                         
-                                        HStack(spacing: 15){
+                                        HStack(spacing: 15) {
                                             // MARK: Vaccine Pass
                                             VStack(spacing: 1) {
                                                 HStack {
@@ -163,7 +161,6 @@ struct MainView: View {
                                                 }
                                             }
                                             
-                                            
                                             // MARK: Previous Check-ins
                                             VStack(spacing: 1) {
                                                 HStack {
@@ -194,7 +191,7 @@ struct MainView: View {
                             ScrollView(.vertical, showsIndicators: false) {
                                 
                                 // MARK: Profile Summary
-                                VStack(spacing: 5){
+                                VStack(spacing: 5) {
                                     if showSecondView {
                                         VStack {
                                             
@@ -245,7 +242,7 @@ struct MainView: View {
                                                 }
                                                 
                                                 // MARK: Verification Status
-                                                HStack{
+                                                HStack {
                                                     Text("Profile Verification: ")
                                                         .font(.custom("Avenir", size: 18))
                                                         .fontWeight(.semibold)
@@ -413,14 +410,15 @@ struct MainView: View {
                     }
                     .navigationBarHidden(true)
                     .navigationBarTitleDisplayMode(.inline)
-                }.accentColor(.white)
-            } else {
-                ProgressLoadingView()
+                    //                }.accentColor(.white)
+                } else {
+                    ProgressLoadingView()
+                }
             }
-        }
-        .toast(isPresenting: $showToastAlert){
-            AlertToast(displayMode: .alert, type: .complete(green), title: Optional("Check-in Complete"))
-        }
+            .toast(isPresenting: $showToastAlert){
+                AlertToast(displayMode: .alert, type: .complete(green), title: Optional("Check-in Complete"))
+            }
+        }.accentColor(.white)
     }
 }
 

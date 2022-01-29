@@ -154,9 +154,7 @@ struct UserProfileView: View {
                                 .disabled(disableTextField)
                                 .foregroundColor(purple)
                         }
-                    }
-                    
-                    Section {
+                        
                         Text("To update your account name and cell phone number contact: admin@covitrace.co.za")
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .font(.custom("Avenir", size: 12).bold())
@@ -235,20 +233,3 @@ struct UserProfileView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
-//struct MiniProfileImageView: View {
-//    @EnvironmentObject var authModel : AuthViewModel
-//
-//    var body: some View {
-//        ZStack {
-//            Image(systemName: "person.crop.circle.fill")
-//                .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)
-//                .resizable()
-//                .scaledToFill()
-//                .clipped()
-//                .frame(width: 90, height: 70)
-//                .clipShape(Circle())
-//                .padding(5)
-//        }
-//    }
-//}

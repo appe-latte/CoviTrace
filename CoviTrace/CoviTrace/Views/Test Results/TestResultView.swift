@@ -15,6 +15,7 @@ struct TestResultView: View {
     @State private var testResult = ""
     @State private var testLocation = ""
     @State private var testVerified = ""
+    @State private var testType = ""
     
     @State var showTestCertView = false
     @State private var showUploadPcrTestSheetView = false
@@ -30,14 +31,19 @@ struct TestResultView: View {
                     List(viewModel.results) { results in
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
-                                
-                                // MARK: Test Date
+                            
+                                // MARK: Test Date & Test Type
                                 HStack {
                                     Text(results.testDate)
                                         .font(.custom("Avenir", size: 14))
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                         .bold()
+                                    Spacer()
+                                    Text(results.testType)
+                                        .font(.custom("Avenir", size: 14))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 }
                                 
                                 // MARK: Test Reference Number
@@ -105,7 +111,7 @@ struct TestResultView: View {
                     }
                 }
             }
-            .navigationBarTitle("Saved PCR Results", displayMode: .inline)
+            .navigationBarTitle("Covid Test Results", displayMode: .inline)
             .toolbar {
                 Button(action: {
                     self.showUploadPcrTestSheetView.toggle()

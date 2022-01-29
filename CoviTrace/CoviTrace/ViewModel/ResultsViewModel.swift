@@ -31,8 +31,9 @@ class ResultsViewModel: ObservableObject {
                 let labRefNum = data["lab_ref_num"]  as? String ?? ""
                 let testVerified = data["test_verified"] as? String ?? ""
                 let pcrImageUrl = data["pcrImageUrl"] as? String ?? ""
+                let testType = data["test_type"] as? String ?? ""
                 
-                return TestResults(testRefNum: testRefNum, labRefNum: labRefNum, testDate: testDate, testResult: testResult, testProvider: testProvider, userId: userid, testVerified: testVerified , pcrImageUrl: pcrImageUrl)
+                return TestResults(testRefNum: testRefNum, labRefNum: labRefNum, testDate: testDate, testResult: testResult, testProvider: testProvider, userId: userid, testVerified: testVerified , pcrImageUrl: pcrImageUrl, testType: testType)
             }
         }
     }

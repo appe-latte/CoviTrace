@@ -11,11 +11,13 @@ import SwiftUI
 import SafariServices
 
 struct SettingsView: View {
-    @EnvironmentObject private var appLockModel : AppLockViewModel
+    @EnvironmentObject var appLockModel : AppLockViewModel
     @EnvironmentObject var authModel : AuthViewModel
-    @State private var showPrivacyWeb : Bool = false
-    @State private var showSaCovidStatsWeb : Bool = false
+    @State var showDiasporaMedsWeb : Bool = false
+    @State var showPrivacyWeb : Bool = false
+    @State var showSaCovidStatsWeb : Bool = false
     @State var showSignOutAlert = false
+    @State var isPartnersExpanded = false
     
     @Environment(\.openURL) var openURL
     
@@ -27,27 +29,13 @@ struct SettingsView: View {
             VStack(alignment: .center) {
                 Form {
                     Section {
-                        
                         // MARK: How App Works
-                        NavigationLink(destination: AboutView()){
+                        NavigationLink(destination: FaqsView()){
                             Image("info")
                                 .resizable()
                                 .frame(width: 30, height: 30)
                                 .padding(1)
                             Text("About Covitrace")
-                                .font(.custom("Avenir", size: 15))
-                                .fontWeight(.bold)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.leading, 15)
-                        }
-                        
-                        // MARK: FAQs Section
-                        NavigationLink(destination: FaqsView()){
-                            Image("question")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(1)
-                            Text("FAQs")
                                 .font(.custom("Avenir", size: 15))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
@@ -141,18 +129,36 @@ struct SettingsView: View {
                         }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }.foregroundColor(.white)
                     
-                    Section(header: Text("Covid Statistics")) {
+                    Section(header: Text("Information")) {
+                        DisclosureGroup("Our Partners", isExpanded: $isPartnersExpanded) {
+                            HStack {
+                                Image("d-meds-logo")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .padding(1)
+                                Text("Diaspora Meds")
+                                    .font(.custom("Avenir", size: 15))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                            }.onTapGesture {
+                                showDiasporaMedsWeb.toggle()
+                            }
+                            .fullScreenCover(isPresented: $showDiasporaMedsWeb, content: {
+                                SFSafariViewWrapper(url: URL(string: "https://www.diasporameds.com")!)
+                            })
+                        }
+                        .font(.custom("Avenir", size: 15).bold())
+                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                        
                         // MARK: SA Health Dept. Website
                         HStack {
-                            Image("discovery")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(1)
                             Text("RSA Covid Statistics")
                                 .font(.custom("Avenir", size: 15))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.leading, 15)
+                                .padding(1)
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .resizable()
@@ -166,33 +172,6 @@ struct SettingsView: View {
                         .fullScreenCover(isPresented: $showSaCovidStatsWeb, content: {
                             SFSafariViewWrapper(url: URL(string: "https://www.sacoronavirus.co.za")!)
                         })
-                    }.foregroundColor(.gray)
-                    
-                    Section(header: Text("In partnership with:")) {
-                        HStack {
-                            Image("discovery")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(1)
-                            Text("DiasporaMeds")
-                                .font(.custom("Avenir", size: 15))
-                                .fontWeight(.bold)
-                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                .padding(.leading, 15)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .resizable()
-                                .scaledToFit()
-                                .font(Font.title.weight(.semibold))
-                                .foregroundColor(Color(.gray)).opacity(0.5)
-                                .frame(width: 13, height: 13)
-                        }.onTapGesture {
-                            //                                                showPrivacyWeb.toggle()
-                        }
-                        .fullScreenCover(isPresented: $showPrivacyWeb, content: {
-                            //                                                SFSafariViewWrapper(url: URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
-                        })
-                        
                     }
                     
                     // MARK: Sign Out Button
@@ -236,7 +215,9 @@ struct SettingsView: View {
                 }.foregroundColor(Color(.white))
                 
                 Spacer()
-            }.navigationBarTitle("Settings", displayMode: .inline)
+            }
+            .navigationBarTitle("Settings", displayMode: .inline)
+            .accentColor(Color.gray.opacity(0.5))
         }.background(bgPurple())
     }
 }
