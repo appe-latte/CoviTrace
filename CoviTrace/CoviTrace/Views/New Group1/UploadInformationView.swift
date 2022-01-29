@@ -24,85 +24,83 @@ struct UploadInformationView: View {
     
     var body: some View {
         ZStack {
-            NavigationView {
-                VStack {
+            VStack {
+                
+                Spacer()
+                    .frame(height: 20)
+                
+                HStack(spacing: 15) {
                     
-                    Spacer()
-                        .frame(height: 20)
+                    // MARK: Log First Vaccine Dose
+                    Button(action: {
+                        self.showFirstDoseSheetView.toggle()
+                    }, label: {
+                        VStack {
+                            Text("+ First")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                            Text("Dose")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                        }
+                    }).buttonStyle(purpleRoundButton())
+                        .sheet(isPresented: $showFirstDoseSheetView) {
+                            AddFirstDoseView()
+                        }
                     
-                    HStack(spacing: 15) {
-                        
-                        // MARK: Log First Vaccine Dose
-                        Button(action: {
-                            self.showFirstDoseSheetView.toggle()
-                        }, label: {
-                            VStack {
-                                Text("+ First")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                                Text("Dose")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                            }
-                        }).buttonStyle(purpleRoundButton())
-                            .sheet(isPresented: $showFirstDoseSheetView) {
-                                AddFirstDoseView()
-                            }
-                        
-                        // MARK: Log Second Vaccine Dose
-                        Button(action: {
-                            self.showSecondDoseSheetView.toggle()
-                        }, label: {
-                            VStack {
-                                Text("+ Second")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                                Text("Dose")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                            }
-                        }).buttonStyle(purpleRoundButton())
-                            .sheet(isPresented: $showSecondDoseSheetView) {
-                                AddSecondDoseView()
-                            }
-                        
-                        // MARK: Log Single Dose
-                        Button(action: {
-                            self.showSingleDoseSheetView.toggle()
-                        }, label: {
-                            VStack {
-                                Text("+ Single")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                                Text("Dose")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                            }
-                        }).buttonStyle(purpleRoundButton())
-                            .sheet(isPresented: $showSingleDoseSheetView) {
-                                AddSingleDoseView()
-                            }
-                        
-                        // MARK: Log Booster Vacc Dose
-                        Button(action: {
-                            self.showBoosterShotSheetView.toggle()
-                        }, label: {
-                            VStack {
-                                Text("+ Booster")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                                Text("Dose")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 10))
-                            }
-                        }).buttonStyle(purpleRoundButton())
-                            .sheet(isPresented: $showBoosterShotSheetView) {
-                                AddBoosterShotView()
-                            }
-                    }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
+                    // MARK: Log Second Vaccine Dose
+                    Button(action: {
+                        self.showSecondDoseSheetView.toggle()
+                    }, label: {
+                        VStack {
+                            Text("+ Second")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                            Text("Dose")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                        }
+                    }).buttonStyle(purpleRoundButton())
+                        .sheet(isPresented: $showSecondDoseSheetView) {
+                            AddSecondDoseView()
+                        }
                     
-                    Spacer()
-                }
+                    // MARK: Log Single Dose
+                    Button(action: {
+                        self.showSingleDoseSheetView.toggle()
+                    }, label: {
+                        VStack {
+                            Text("+ Single")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                            Text("Dose")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                        }
+                    }).buttonStyle(purpleRoundButton())
+                        .sheet(isPresented: $showSingleDoseSheetView) {
+                            AddSingleDoseView()
+                        }
+                    
+                    // MARK: Log Booster Vacc Dose
+                    Button(action: {
+                        self.showBoosterShotSheetView.toggle()
+                    }, label: {
+                        VStack {
+                            Text("+ Booster")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                            Text("Dose")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 10))
+                        }
+                    }).buttonStyle(purpleRoundButton())
+                        .sheet(isPresented: $showBoosterShotSheetView) {
+                            AddBoosterShotView()
+                        }
+                }.frame(minWidth: 0, maxWidth: UIScreen.main.bounds.size.width - 40)
+                
+                Spacer()
             }
         }
     }
