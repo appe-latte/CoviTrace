@@ -87,7 +87,7 @@ struct MainView: View {
                                                     NavigationLink(
                                                         destination: VaccPassView()){
                                                             VStack {
-                                                                Image(systemName:"qrcode")
+                                                                Image("qr-code")
                                                                     .resizable()
                                                                     .frame(width: 25, height: 25)
                                                                     .padding(10)
