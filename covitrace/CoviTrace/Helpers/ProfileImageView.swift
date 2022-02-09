@@ -20,7 +20,7 @@ struct ProfileImageView: View {
                 .scaledToFill()
                 .aspectRatio(contentMode: .fill)
                 .clipped()
-                .frame(width: 350, height: 250)
+                .frame(width: 300, height: 200)
                 .clipShape(Circle())
         }
     }

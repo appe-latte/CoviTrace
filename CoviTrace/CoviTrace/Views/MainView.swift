@@ -198,7 +198,7 @@ struct MainView: View {
                                             if authModel.user!.verified == "Verified" ||  authModel.user!.verified == "verified" {
                                                 ProfileImageView()
                                                     .clipShape(Circle())
-                                                    .frame(width: 350, height: 250)
+                                                    .frame(width: 300, height: 200)
                                                     .foregroundColor(Color(.white))
                                                     .padding(7.5)
                                                     .background(Circle()
@@ -206,7 +206,7 @@ struct MainView: View {
                                             } else if authModel.user!.verified == "Pending" || authModel.user!.verified == "pending" {
                                                 ProfileImageView()
                                                     .clipShape(Circle())
-                                                    .frame(width: 350, height: 250)
+                                                    .frame(width: 300, height: 200)
                                                     .foregroundColor(Color(.white))
                                                     .padding(7.5)
                                                     .background(Circle()
@@ -214,12 +214,15 @@ struct MainView: View {
                                             } else {
                                                 ProfileImageView()
                                                     .clipShape(Circle())
-                                                    .frame(width: 350, height: 250)
+                                                    .frame(width: 300, height: 200)
                                                     .foregroundColor(Color(.white))
                                                     .padding(7.5)
                                                     .background(Circle()
                                                                     .fill(purple))
                                             }
+                                            
+                                            Spacer()
+                                                .frame(height: 25)
                                             
                                             // MARK: User Name
                                             VStack(alignment: .leading, spacing: 5) {
@@ -304,56 +307,7 @@ struct MainView: View {
                                                     // MARK: Venue Check-in
                                                     HStack {
                                                         Button(action: {
-                                                            if let locationCheckin = self.locationFetch.lastLocation{
-                                                                print("Your location is: \(locationCheckin)")
-                                                                var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
-                                                                let ceo: CLGeocoder = CLGeocoder()
-                                                                center.latitude = locationCheckin.latitude
-                                                                center.longitude = locationCheckin.longitude
-                                                                
-                                                                let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
-                                                                
-                                                                ceo.reverseGeocodeLocation(loc, completionHandler:
-                                                                                            {(placemarks, error) in
-                                                                    if (error != nil)
-                                                                    {
-                                                                        print("reverse geodcode fail: \(error!.localizedDescription)")
-                                                                    }
-                                                                    let pm = placemarks! as [CLPlacemark]
-                                                                    if pm.count > 0 {
-                                                                        let pm = placemarks![0]
-                                                                        var addressString : String = ""
-                                                                        
-                                                                        if pm.name != nil {
-                                                                            addressString = addressString + pm.name! + ", "
-                                                                        }
-                                                                        if pm.subLocality != nil {
-                                                                            addressString = addressString + pm.subLocality! + ", "
-                                                                        }
-                                                                        if pm.thoroughfare != nil {
-                                                                            addressString = addressString + pm.thoroughfare! + ", "
-                                                                        }
-                                                                        if pm.locality != nil {
-                                                                            addressString = addressString + pm.locality! + ", "
-                                                                        }
-                                                                        if pm.country != nil {
-                                                                            addressString = addressString + pm.country!
-                                                                        }
-                                                                        
-                                                                        let formatter = DateFormatter()
-                                                                        formatter.locale = Locale(identifier: "nl_NL")
-                                                                        formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
-                                                                        
-                                                                        let now = Date()
-                                                                        let datetime = formatter.string(from: now)
-                                                                        
-                                                                        let db = Firestore.firestore();                                db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
-                                                                    }
-                                                                    showToastAlert.toggle()
-                                                                })
-                                                            } else {
-                                                                print("Unknown location")
-                                                            }
+                                                            saveLocation()
                                                         }, label: {
                                                             VStack(spacing: 1) {
                                                                 Image("location")
@@ -419,6 +373,54 @@ struct MainView: View {
             }
         }
         .accentColor(.white)
+    }
+    
+    func saveLocation() {
+        if let locationCheckin = self.locationFetch.lastLocation{
+            print("Your location is: \(locationCheckin)")
+            var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+            let ceo: CLGeocoder = CLGeocoder()
+            center.latitude = locationCheckin.latitude
+            center.longitude = locationCheckin.longitude
+            
+            let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+            
+            ceo.reverseGeocodeLocation(loc, completionHandler:
+                                        {(placemarks, error) in
+                if (error != nil)
+                {
+                    print("reverse geodcode fail: \(error!.localizedDescription)")
+                }
+                let pm = placemarks! as [CLPlacemark]
+                if pm.count > 0 {
+                    let pm = placemarks![0]
+                    var addressString : String = ""
+                    
+                    if pm.name != nil {
+                        addressString = addressString + pm.name! + ", "
+                    }
+                    if pm.locality != nil {
+                        addressString = addressString + pm.locality! + ", "
+                    }
+                    if pm.isoCountryCode != nil {
+                        addressString = addressString + pm.isoCountryCode!
+                    }
+                    
+                    let formatter = DateFormatter()
+                    formatter.locale = Locale(identifier: "nl_NL")
+                    formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
+                    
+                    let now = Date()
+                    let datetime = formatter.string(from: now)
+                    
+                    let db = Firestore.firestore();
+                    db.collection("checkins").document().setData(["userId": authModel.userSession!.uid, "latitude": locationCheckin.latitude, "longitude": locationCheckin.longitude, "date": datetime, "address": addressString])
+                }
+                showToastAlert.toggle()
+            })
+        } else {
+            print("Unknown location")
+        }
     }
 }
 

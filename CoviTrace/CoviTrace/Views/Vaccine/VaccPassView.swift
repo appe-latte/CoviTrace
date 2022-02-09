@@ -13,24 +13,24 @@ import CryptoKit
 import AlertToast
 
 struct VaccPassView: View {
-    @State private var lastName = ""
-    @State private var firstName = ""
-    @State private var vaccStatus = ""
-    @State private var dob = ""
-    @State private var idNum = ""
+    @State var lastName = ""
+    @State var firstName = ""
+    @State var vaccStatus = ""
+    @State var dob = ""
+    @State var idNum = ""
     
-    @ObservedObject private var firstDoseVaccModel = FirstDoseVaccViewModel()
-    @ObservedObject private var secondDoseVaccModel = SecondDoseVaccViewModel()
-    @ObservedObject private var authModel = AuthViewModel()
-    @ObservedObject private var boosterModel = BoosterShotViewModel()
+    @ObservedObject var firstDoseVaccModel = FirstDoseVaccViewModel()
+    @ObservedObject var secondDoseVaccModel = SecondDoseVaccViewModel()
+    @ObservedObject var authModel = AuthViewModel()
+    @ObservedObject var boosterModel = BoosterShotViewModel()
     
-    @State private var selectDose: doseSelection = .first
+    @State var selectDose: doseSelection = .first
     @State var formHalfModal_shown = false
     
     // MARK: Alert
     @State var showIdTypeAlert = false
-    @State private var alertTitle = ""
-    @State private var alertMessage = "Acceptable identification documents include: a valid Passport, National ID, a driver's licence and a Military / Police ID."
+    @State var alertTitle = ""
+    @State var alertMessage = "Acceptable identification documents include: a valid Passport, National ID, a driver's licence and a Military / Police ID."
     
     // MARK: for QR Code generation
     let context = CIContext()
@@ -97,7 +97,7 @@ struct VaccPassView: View {
                                     .resizable()
                                     .frame(width: 20, height: 20)
                             })
-                                
+                            
                             Text("This pass is only acceptable when accompanied with a valid government identity document.")
                                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: UIScreen.main.bounds.size.width - 40, minHeight: 0, maxHeight: 60, alignment: .center)
                                 .font(.custom("Avenir", size: 12).bold())
@@ -156,7 +156,7 @@ struct VaccPassView: View {
     
     // MARK: Function for creating QR code
     func generateQRCode(from string: String) -> UIImage {
-        let encryptedString = string.aesEncrypt(key: "HR-HFg_AQab*jAW4VE8W@3xQ6*CTv.LwPGu*BmoDmy*wgWeeuhPvusP9e.2@KpMk") ?? ""
+        let encryptedString = string.aesEncrypt(key: "MxGChe28!oLWavj*fmiQdq@kbYNB@jGP6-*qJtH*z2P9ptsG-kJdTfhbyDTpRC!6F*6dvYh6QLAt") ?? ""
         let data = Data(encryptedString.utf8)
         filter.setValue(data, forKey: "inputMessage")
         

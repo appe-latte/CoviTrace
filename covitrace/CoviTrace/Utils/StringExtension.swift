@@ -15,7 +15,7 @@ extension String {
            let data = self.data(using: String.Encoding.utf8),
            let cryptData    = NSMutableData(length: Int((data.count)) + kCCBlockSizeAES128) {
             
-            let keyLength              = size_t(kCCKeySizeAES128)
+            let keyLength              = size_t(kCCKeySizeAES256)
             let operation: CCOperation = UInt32(kCCEncrypt)
             let algoritm:  CCAlgorithm = UInt32(kCCAlgorithmAES128)
             let options:   CCOptions   = UInt32(kCCModeCBC + kCCOptionPKCS7Padding)
@@ -49,7 +49,7 @@ extension String {
            let data = NSData(base64Encoded: self, options: .ignoreUnknownCharacters),
            let cryptData    = NSMutableData(length: Int((data.length)) + kCCBlockSizeAES128) {
             
-            let keyLength              = size_t(kCCKeySizeAES128)
+            let keyLength              = size_t(kCCKeySizeAES256)
             let operation: CCOperation = UInt32(kCCDecrypt)
             let algoritm:  CCAlgorithm = UInt32(kCCAlgorithmAES128)
             let options:   CCOptions   = UInt32(kCCModeCBC + kCCOptionPKCS7Padding)
