@@ -42,6 +42,7 @@
 		2F451F06272091FB001BB7A4 /* BoosterShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */; };
 		2F491F7D2786338000B8A29C /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 2F491F7C2786338000B8A29C /* CountryPicker */; };
 		2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F495B15276192FE006EF22E /* VaccinationCardView.swift */; };
+		2F4CE15C27A4FD9C000C62A9 /* AccountDeletionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4CE15B27A4FD9B000C62A9 /* AccountDeletionModalView.swift */; };
 		2F4E5E9025ED92CE000B965D /* AddResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */; };
 		2F4F5743265524FA00EFB454 /* FaqsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F5742265524FA00EFB454 /* FaqsView.swift */; };
 		2F524193263B38CB0016D87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F524192263B38CB0016D87D /* Constants.swift */; };
@@ -189,6 +190,7 @@
 		2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterShotViewModel.swift; sourceTree = "<group>"; };
 		2F495B15276192FE006EF22E /* VaccinationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCardView.swift; sourceTree = "<group>"; };
 		2F4A7AAF2790A2DC00737ACF /* CryptoSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CryptoSwift.xcframework; path = Carthage/Build/CryptoSwift.xcframework; sourceTree = "<group>"; };
+		2F4CE15B27A4FD9B000C62A9 /* AccountDeletionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeletionModalView.swift; sourceTree = "<group>"; };
 		2F4E5E8F25ED92CE000B965D /* AddResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddResultsView.swift; path = "../New Group/AddResultsView.swift"; sourceTree = "<group>"; };
 		2F4F5742265524FA00EFB454 /* FaqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsView.swift; sourceTree = "<group>"; };
 		2F524192263B38CB0016D87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */,
 				2FE7C2CA2747521F00A8F32A /* ScannerHalfModalView.swift */,
 				2F5FB5092748668E006A7F46 /* FormUploadHalfModalView.swift */,
+				2F4CE15B27A4FD9B000C62A9 /* AccountDeletionModalView.swift */,
 				2FC83DE62786266B00D2200B /* CountryPickerView.swift */,
 				2FC83DE8278626D300D2200B /* PhoneOTPView.swift */,
 				2F6B11022797953E00E44842 /* ProfileImageView.swift */,
@@ -759,6 +762,7 @@
 				2F6F10CB2764094F00C686D1 /* UpdateDobView.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */,
+				2F4CE15C27A4FD9C000C62A9 /* AccountDeletionModalView.swift in Sources */,
 				2F6B11092797968300E44842 /* QrCodeCameraDelegate.swift in Sources */,
 				18598839275A365B0061D47A /* AsyncImage.swift in Sources */,
 				2F2812F827667FA10048EC52 /* CustomHeaderShape.swift in Sources */,

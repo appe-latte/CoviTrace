@@ -18,6 +18,7 @@ struct ProfileImageView: View {
                 .data(url: URL(string: "\(authModel.user?.profileImageUrl ?? "")")!)
                 .resizable()
                 .scaledToFill()
+                .aspectRatio(contentMode: .fill)
                 .clipped()
                 .frame(width: 350, height: 250)
                 .clipShape(Circle())

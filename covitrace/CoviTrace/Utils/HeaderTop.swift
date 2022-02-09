@@ -13,7 +13,7 @@ struct HeaderTop: View {
             Rectangle()
                 .fill(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
-                .frame(width: geo.size.width, height: 225)
+                .frame(width: geo.size.width, height: 190)
                 .edgesIgnoringSafeArea(.all)
         }
     }
@@ -21,7 +21,6 @@ struct HeaderTop: View {
 
 // MARK: Corner radius for "HeaderTop"
 struct RoundedCorner: Shape {
-    
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
     

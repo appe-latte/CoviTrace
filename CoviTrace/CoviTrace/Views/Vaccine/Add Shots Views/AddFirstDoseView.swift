@@ -114,17 +114,17 @@ struct AddFirstDoseView: View {
                     
                     // MARK: "Submit" button
                     if !firstDosebatchNum.isEmpty && !firstDoseVaccProvider.isEmpty && !firstVaccDoseCountry.isEmpty {
-                    Button(action: {
-                        upload_data()
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Text("Submit")
-                            .font(.custom("Avenir", size: 18))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.white)
-                    }).buttonStyle(purpleButton())
-                        .padding(.top, 2)
-                        .disabled(false)
+                        Button(action: {
+                            upload_data()
+                            self.presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Text("Submit")
+                                .font(.custom("Avenir", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                        }).buttonStyle(purpleButton())
+                            .padding(.top, 2)
+                            .disabled(false)
                     } else {
                         Button(action: {
                             upload_data()

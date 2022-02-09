@@ -58,13 +58,12 @@ struct MainView: View {
         NavigationView {
             Group {
                 if authModel.userSession != nil {
-                    //                NavigationView {
                     ZStack {
                         bgWhite()
                         
                         VStack {
                             HeaderTop()
-                                .frame(height: 225)
+                                .frame(height: 160) // positioning of buttons
                                 .foregroundColor(purple).edgesIgnoringSafeArea(.all)
                                 .overlay(
                                     VStack(spacing: 22) {
@@ -418,7 +417,8 @@ struct MainView: View {
             .toast(isPresenting: $showToastAlert){
                 AlertToast(displayMode: .alert, type: .complete(green), title: Optional("Check-in Complete"))
             }
-        }.accentColor(.white)
+        }
+        .accentColor(.white)
     }
 }
 

@@ -28,7 +28,7 @@ struct PhoneOTPView: View {
         ZStack {
             VStack (alignment: .center){
                 HStack {
-                    Text("Verification")
+                    Text("OTP Confirmation")
                         .foregroundColor(purple)
                         .fontWeight(.semibold)
                     
