@@ -83,7 +83,7 @@ struct VaccPassView: View {
                             Image(uiImage: generateQRCode(from: " Name: \(fullName)\n Status: \(firstDoseData.vaccStatus)\n DOB: \(dob)\n ID: \(idNum)"))
                                 .interpolation(.none)
                                 .resizable()
-                                .scaledToFill()
+                                .aspectRatio(contentMode: .fit)
                                 .frame(width: 175, height: 175)
                                 .padding(5)
                         }

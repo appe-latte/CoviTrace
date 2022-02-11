@@ -32,7 +32,7 @@ struct DigitalCertView: View {
                                     .foregroundColor(purple)
                             })
                             .resizable()
-                            .scaledToFill()
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
                             .foregroundColor(Color(.white))
                             .cornerRadius(10)

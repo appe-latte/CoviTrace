@@ -33,7 +33,7 @@ struct ShowTestCertView: View {
                                     .foregroundColor(purple)
                             })
                             .resizable()
-                            .scaledToFill()
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 580)
                             .foregroundColor(Color(.white))
                             .cornerRadius(10)

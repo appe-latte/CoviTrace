@@ -27,6 +27,8 @@ struct UserProfileView: View {
     
     @Environment(\.editMode) private var editMode
     @State private var disableTextField = true
+    @State private var disableIdTextField = true
+    @State private var disableEmailTextField = true
     
     var body: some View {
         let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
@@ -107,17 +109,25 @@ struct UserProfileView: View {
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
                                 Button(action: {
-                                    self.showIdUpdateSheetView.toggle()
+                                    self.disableIdTextField.toggle()
                                 }, label: {
                                     Text("UPDATE")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
                             }
-                            TextField("\(idNum)", text: $idNumber)
-                                .disabled(disableTextField)
-                        }.sheet(isPresented: $showIdUpdateSheetView) {
-                            UpdateIdNumView()
+                            // Change edit state
+                            if disableIdTextField == true {
+                                TextField("\(idNum)", text: $idNumber)
+                                    .disabled(disableTextField)
+                                    .foregroundColor(Color(UIColor.lightGray))
+                            } else {
+                                TextField("", text: $idNumber)
+                                    .foregroundColor(purple)
+                                    .accentColor(.red)
+                            }
+                        }.onSubmit {
+                            submit_idNum()
                         }
                         
                         // MARK: Email
@@ -128,18 +138,25 @@ struct UserProfileView: View {
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
                                 Button(action: {
-                                    self.showEmailUpdateSheetView.toggle()
+                                    self.disableEmailTextField.toggle()
                                 }, label: {
                                     Text("UPDATE")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
                             }
-                            TextField("\(email)", text: $email)
-                                .disabled(disableTextField)
-                                .foregroundColor(purple)
-                        }.sheet(isPresented: $showEmailUpdateSheetView) {
-                            UpdateEmailView()
+                            // Change edit state
+                            if disableEmailTextField == true {
+                                TextField("\(email)", text: $email)
+                                    .disabled(disableTextField)
+                                    .foregroundColor(Color(UIColor.lightGray))
+                            } else {
+                                TextField("", text: $email)
+                                    .foregroundColor(purple)
+                                    .accentColor(.red)
+                            }
+                        }.onSubmit {
+                            submit_email()
                         }
                         
                         // MARK: Cell No.
@@ -231,5 +248,17 @@ struct UserProfileView: View {
         }
         .navigationTitle("User Information")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func submit_email(){
+        let db = Firestore.firestore()
+        db.collection("users").document(authModel.userSession!.uid).setData(["email": email], merge: true)
+        self.disableEmailTextField.toggle()
+    }
+    
+    func submit_idNum(){
+        let db = Firestore.firestore()
+        db.collection("users").document(authModel.userSession!.uid).setData(["id_num": idNumber], merge: true)
+        self.disableIdTextField.toggle()
     }
 }
