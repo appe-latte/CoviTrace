@@ -8,13 +8,17 @@
 import UIKit
 import WebKit
 import SwiftUI
+import AlertToast
+import FirebaseAuth
 import SafariServices
+import FirebaseFirestore
 
 struct SettingsView: View {
     @EnvironmentObject var appLockModel : AppLockViewModel
     @EnvironmentObject var authModel : AuthViewModel
     @State var showDiasporaMedsWeb : Bool = false
     @State var showPrivacyWeb : Bool = false
+    @State var showTermsWeb : Bool = false
     @State var showSaCovidStatsWeb : Bool = false
     @State var showSignOutAlert = false
     @State var isPartnersExpanded = false
@@ -23,6 +27,12 @@ struct SettingsView: View {
     
     let appVersion = ""
     var isAppLockEnabled = false
+    
+    // MARK: Alert
+    @State var showDeleteAlert = false
+    @State private var showToastAlert : Bool = false
+    @State private var errTitle = ""
+    @State private var errMessage = ""
     
     var body: some View {
         ZStack {
@@ -35,51 +45,12 @@ struct SettingsView: View {
                                 .resizable()
                                 .frame(width: 30, height: 30)
                                 .padding(1)
-                            Text("About Covitrace")
+                            Text("FAQs")
                                 .font(.custom("Avenir", size: 15))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
                         }
-                        
-                        VStack {
-                            HStack {
-                                Image("face-id")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(1)
-                                Toggle("Secure App", isOn: $appLockModel.isAppLockEnabled)
-                                    .font(.custom("Avenir", size: 15).bold())
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
-                                .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
-                                    appLockModel.appLockStateChange(appLockState: value)
-                                })
-                            
-                            HStack {
-                                Text("Use Face ID / Touch ID to unlock when re-opening the app.")
-                                    .font(.custom("Avenir", size: 11).bold())
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(1)
-                                
-                                Spacer()
-                            }
-                        }
-                        
-                        // MARK: Delete Account Settings
-                        NavigationLink(
-                            destination: AccountDeletionView()){
-                                Image("edit")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(1)
-                                Text("Delete Account")
-                                    .font(.custom("Avenir", size: 15))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }
                         
                         // MARK: Privacy Policy
                         HStack {
@@ -104,6 +75,31 @@ struct SettingsView: View {
                         }
                         .fullScreenCover(isPresented: $showPrivacyWeb, content: {
                             SFSafariViewWrapper(url: URL(string: "https://www.iubenda.com/privacy-policy/52172420")!)
+                        })
+                        
+                        // MARK: Terms & Conditions
+                        HStack {
+                            Image("pages")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .padding(1)
+                            Text("Terms & Conditions")
+                                .font(.custom("Avenir", size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .scaledToFit()
+                                .font(Font.title.weight(.semibold))
+                                .foregroundColor(Color(.gray)).opacity(0.5)
+                                .frame(width: 13, height: 13)
+                        }.onTapGesture {
+                            showTermsWeb.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showTermsWeb, content: {
+                            SFSafariViewWrapper(url: URL(string: "https://www.iubenda.com/terms-and-conditions/52172420")!)
                         })
                         
                         // MARK: Share The App
@@ -175,7 +171,71 @@ struct SettingsView: View {
                     }
                     
                     // MARK: Sign Out Button
-                    Section {
+                    Section(header: Text("Account Settings")) {
+                        
+                        // MARK: FaceID toggle
+                        VStack {
+                            HStack {
+                                Image("face-id")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding(1)
+                                Toggle("Secure App", isOn: $appLockModel.isAppLockEnabled)
+                                    .font(.custom("Avenir", size: 15).bold())
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
+                                .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
+                                    appLockModel.appLockStateChange(appLockState: value)
+                                })
+                            
+                            HStack {
+                                Text("Use Face ID / Touch ID to unlock when re-opening the app.")
+                                    .font(.custom("Avenir", size: 11).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(1)
+                                
+                                Spacer()
+                            }
+                        }
+                        
+                        HStack {
+                            Button(action: {
+                                self.showDeleteAlert = true
+                            }, label: {
+                                HStack {
+                                    Image("trash")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .padding(1)
+                                    Text("Delete My Account")
+                                        .font(.custom("Avenir", size: 15))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                        .padding(.leading, 15)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .font(Font.title.weight(.semibold))
+                                        .foregroundColor(Color(.gray)).opacity(0.5)
+                                        .frame(width: 13, height: 13)
+                                }
+                            }).alert(isPresented:$showDeleteAlert) {
+                                Alert(
+                                    title: Text("Are you sure you want to delete your account?"),
+                                    primaryButton: .destructive(Text("Delete")) {
+                                        deleteUser()
+                                    },
+                                    secondaryButton: .cancel()
+                                )
+                            }
+                        }
+//                        Text("This action permanently deletes your account and removes all of your information from our servers.")
+//                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+//                            .font(.custom("Avenir", size: 12).bold())
+                        
+                        
                         Text("For all account related enquiries email the administrator at: admin@covitrace.co.za").lineLimit(nil)
                             .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             .font(.custom("Avenir", size: 11).bold())
@@ -218,7 +278,31 @@ struct SettingsView: View {
             }
             .navigationBarTitle("Settings", displayMode: .inline)
             .accentColor(Color.gray.opacity(0.5))
+            
         }.background(bgPurple())
+    }
+    
+    // MARK: Delete User functiona
+    func deleteUser() {
+        let userId = Auth.auth().currentUser!.uid
+        Firestore.firestore().collection("users").document(userId).delete() { err in
+            if let err = err  {
+                print("Error: \(err)")
+            } else {
+                Auth.auth().currentUser!.delete { error in
+                    if let error = error {
+                        self.errTitle = "Error!"
+                        self.errMessage = "Error deleting the user: \(error)"
+                        self.showToastAlert = true
+                    } else {
+                        self.errTitle = "Account Deleted"
+                        self.errMessage = "Your user account has successfully been deleted"
+                        self.showToastAlert = true
+                        authModel.signOut()
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -14,6 +14,7 @@ import FirebaseFirestore
 struct DigitalCertView: View {
     @EnvironmentObject private var authModel : AuthViewModel
     @State private var showDigiCertSheetView = false
+    @State var expandImg : Bool = false
     
     var body: some View {
         ZStack {
@@ -36,6 +37,14 @@ struct DigitalCertView: View {
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
                             .foregroundColor(Color(.white))
                             .cornerRadius(10)
+                            .gesture(
+                                TapGesture(count: 1)
+                                    .onEnded {
+                                        self.expandImg = true
+                                    }).sheet(isPresented: $expandImg){
+                                        KFImage(url)
+                                            .frame(width: UIScreen.main.bounds.size.width - 40, height: UIScreen.main.bounds.size.height - 10)
+                                    }
                     }
                     Spacer()
                 }

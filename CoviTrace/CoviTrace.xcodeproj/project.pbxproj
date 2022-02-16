@@ -39,6 +39,7 @@
 		2F40129426738E2B00AFA9E5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40129326738E2B00AFA9E5 /* SettingsView.swift */; };
 		2F4012962673A68C00AFA9E5 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012952673A68C00AFA9E5 /* PrivacyPolicyView.swift */; };
 		2F4012982673B93800AFA9E5 /* TermsCondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4012972673B93800AFA9E5 /* TermsCondView.swift */; };
+		2F40552027BDB0BD0006BF04 /* UpdateDobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40551F27BDB0BD0006BF04 /* UpdateDobView.swift */; };
 		2F451F06272091FB001BB7A4 /* BoosterShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */; };
 		2F491F7D2786338000B8A29C /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 2F491F7C2786338000B8A29C /* CountryPicker */; };
 		2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F495B15276192FE006EF22E /* VaccinationCardView.swift */; };
@@ -57,8 +58,6 @@
 		2F682B9F25DEDA1F00873C15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F682B9E25DEDA1F00873C15 /* LocationManager.swift */; };
 		2F6B11032797953E00E44842 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B11022797953E00E44842 /* ProfileImageView.swift */; };
 		2F6B11092797968300E44842 /* QrCodeCameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B11082797968300E44842 /* QrCodeCameraDelegate.swift */; };
-		2F6F10C9276407EF00C686D1 /* UpdateIdNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F10C8276407EF00C686D1 /* UpdateIdNumView.swift */; };
-		2F6F10CB2764094F00C686D1 /* UpdateDobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F10CA2764094F00C686D1 /* UpdateDobView.swift */; };
 		2F70A4C3276338A500928BE0 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70A4C2276338A500928BE0 /* UserProfileView.swift */; };
 		2F75F4AF26FCECCB008BB653 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */; };
 		2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FC1652741F4DD00C3D9B7 /* DigitalCertUploadView.swift */; };
@@ -74,8 +73,7 @@
 		2F96A3502732AB8D00719DF7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96A34F2732AB8D00719DF7 /* MainView.swift */; };
 		2FC83DE72786266C00D2200B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC83DE62786266B00D2200B /* CountryPickerView.swift */; };
 		2FC83DE9278626D300D2200B /* PhoneOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC83DE8278626D300D2200B /* PhoneOTPView.swift */; };
-		2FC83DEB27862ABE00D2200B /* UpdateEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC83DEA27862ABE00D2200B /* UpdateEmailView.swift */; };
-		2FD6C4DD273DCE2E00A0D7B1 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DC273DCE2E00A0D7B1 /* AccountSettingsView.swift */; };
+		2FD6C4DD273DCE2E00A0D7B1 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DC273DCE2E00A0D7B1 /* DeleteAccountView.swift */; };
 		2FD6C4DF273DEF8700A0D7B1 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */; };
 		2FD6C4E1273DF2A400A0D7B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4E0273DF2A400A0D7B1 /* SceneDelegate.swift */; };
 		2FD6C4E4273DFDF200A0D7B1 /* VaccCardUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C4E3273DFDF100A0D7B1 /* VaccCardUploadView.swift */; };
@@ -187,6 +185,7 @@
 		2F40129326738E2B00AFA9E5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2F4012952673A68C00AFA9E5 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		2F4012972673B93800AFA9E5 /* TermsCondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCondView.swift; sourceTree = "<group>"; };
+		2F40551F27BDB0BD0006BF04 /* UpdateDobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateDobView.swift; sourceTree = "<group>"; };
 		2F451F05272091FB001BB7A4 /* BoosterShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterShotViewModel.swift; sourceTree = "<group>"; };
 		2F495B15276192FE006EF22E /* VaccinationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCardView.swift; sourceTree = "<group>"; };
 		2F4A7AAF2790A2DC00737ACF /* CryptoSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CryptoSwift.xcframework; path = Carthage/Build/CryptoSwift.xcframework; sourceTree = "<group>"; };
@@ -204,8 +203,6 @@
 		2F682B9E25DEDA1F00873C15 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2F6B11022797953E00E44842 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		2F6B11082797968300E44842 /* QrCodeCameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeCameraDelegate.swift; sourceTree = "<group>"; };
-		2F6F10C8276407EF00C686D1 /* UpdateIdNumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIdNumView.swift; sourceTree = "<group>"; };
-		2F6F10CA2764094F00C686D1 /* UpdateDobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDobView.swift; sourceTree = "<group>"; };
 		2F70A4C2276338A500928BE0 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2F75F4AE26FCECCB008BB653 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
 		2F7FC1652741F4DD00C3D9B7 /* DigitalCertUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertUploadView.swift; sourceTree = "<group>"; };
@@ -221,8 +218,7 @@
 		2F96A34F2732AB8D00719DF7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FC83DE62786266B00D2200B /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
 		2FC83DE8278626D300D2200B /* PhoneOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneOTPView.swift; sourceTree = "<group>"; };
-		2FC83DEA27862ABE00D2200B /* UpdateEmailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateEmailView.swift; sourceTree = "<group>"; };
-		2FD6C4DC273DCE2E00A0D7B1 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
+		2FD6C4DC273DCE2E00A0D7B1 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		2FD6C4DE273DEF8700A0D7B1 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		2FD6C4E0273DF2A400A0D7B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2FD6C4E3273DFDF100A0D7B1 /* VaccCardUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccCardUploadView.swift; sourceTree = "<group>"; };
@@ -352,7 +348,7 @@
 				2F40129326738E2B00AFA9E5 /* SettingsView.swift */,
 				2F4012952673A68C00AFA9E5 /* PrivacyPolicyView.swift */,
 				2F4012972673B93800AFA9E5 /* TermsCondView.swift */,
-				2FD6C4DC273DCE2E00A0D7B1 /* AccountSettingsView.swift */,
+				2FD6C4DC273DCE2E00A0D7B1 /* DeleteAccountView.swift */,
 				2F92CBC82751C5050057DD95 /* Security */,
 				2F123F6A2654313F00BA3D53 /* About */,
 			);
@@ -407,9 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				2F0617B62762B62D00A4D687 /* UpdateProfileImageView.swift */,
-				2F6F10C8276407EF00C686D1 /* UpdateIdNumView.swift */,
-				2FC83DEA27862ABE00D2200B /* UpdateEmailView.swift */,
-				2F6F10CA2764094F00C686D1 /* UpdateDobView.swift */,
+				2F40551F27BDB0BD0006BF04 /* UpdateDobView.swift */,
 			);
 			path = UpdateUser;
 			sourceTree = "<group>";
@@ -722,7 +716,7 @@
 				2FFB3FCB273C90C30005431F /* QrScanViewModel.swift in Sources */,
 				2FF6BF0B263CA02D00349F00 /* FirstDoseVaccViewModel.swift in Sources */,
 				2F3680C026F0FCC90002F8A0 /* AddFirstDoseView.swift in Sources */,
-				2FD6C4DD273DCE2E00A0D7B1 /* AccountSettingsView.swift in Sources */,
+				2FD6C4DD273DCE2E00A0D7B1 /* DeleteAccountView.swift in Sources */,
 				2FC83DE9278626D300D2200B /* PhoneOTPView.swift in Sources */,
 				2F4012962673A68C00AFA9E5 /* PrivacyPolicyView.swift in Sources */,
 				2F6150F125D1A471003AAB52 /* CustomTextField.swift in Sources */,
@@ -732,8 +726,6 @@
 				2FFA964B2725E63A001254AF /* VaccPassView.swift in Sources */,
 				2F495B16276192FE006EF22E /* VaccinationCardView.swift in Sources */,
 				2F23F91227275B9D00B0F11F /* FaceIdLoginView.swift in Sources */,
-				2FC83DEB27862ABE00D2200B /* UpdateEmailView.swift in Sources */,
-				2F6F10C9276407EF00C686D1 /* UpdateIdNumView.swift in Sources */,
 				2F2B361925FA676E004140D4 /* TestResultView.swift in Sources */,
 				2FC83DE72786266C00D2200B /* CountryPickerView.swift in Sources */,
 				2F3680BC26F0E5710002F8A0 /* UploadInformationView.swift in Sources */,
@@ -759,7 +751,7 @@
 				2F70A4C3276338A500928BE0 /* UserProfileView.swift in Sources */,
 				2FFB3FCF273C9D570005431F /* CameraPreview.swift in Sources */,
 				2F2812FA2766CA9F0048EC52 /* VerificationDocView.swift in Sources */,
-				2F6F10CB2764094F00C686D1 /* UpdateDobView.swift in Sources */,
+				2F40552027BDB0BD0006BF04 /* UpdateDobView.swift in Sources */,
 				2F524193263B38CB0016D87D /* Constants.swift in Sources */,
 				2F7FC1662741F4DD00C3D9B7 /* DigitalCertUploadView.swift in Sources */,
 				2F4CE15C27A4FD9C000C62A9 /* AccountDeletionModalView.swift in Sources */,
