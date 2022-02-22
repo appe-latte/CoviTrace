@@ -26,9 +26,10 @@ struct UserProfileView: View {
     @ObservedObject var authModel = AuthViewModel()
     
     @Environment(\.editMode) private var editMode
-    @State private var disableTextField = true
-    @State private var disableIdTextField = true
-    @State private var disableEmailTextField = true
+    @State var disableTextField = true
+    @State var disableIdTextField = true
+    @State var disableEmailTextField = true
+    @State var rowHeight = 50.0
     
     var body: some View {
         let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
@@ -124,7 +125,7 @@ struct UserProfileView: View {
                             } else {
                                 TextField("", text: $idNumber)
                                     .foregroundColor(purple)
-                                    .accentColor(.red)
+                                    .accentColor(purple)
                             }
                         }.onSubmit {
                             submit_idNum()
@@ -153,7 +154,7 @@ struct UserProfileView: View {
                             } else {
                                 TextField("", text: $email)
                                     .foregroundColor(purple)
-                                    .accentColor(.red)
+                                    .accentColor(purple)
                             }
                         }.onSubmit {
                             submit_email()
@@ -242,6 +243,7 @@ struct UserProfileView: View {
                     //                        VerificationDocView()
                     //                    }
                 }
+                .environment(\.defaultMinListRowHeight, rowHeight)
             }
             
             Spacer()

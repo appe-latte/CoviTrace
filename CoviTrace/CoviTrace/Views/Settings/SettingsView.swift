@@ -22,6 +22,7 @@ struct SettingsView: View {
     @State var showSaCovidStatsWeb : Bool = false
     @State var showSignOutAlert = false
     @State var isPartnersExpanded = false
+    @State var rowHeight = 50.0
     
     @Environment(\.openURL) var openURL
     
@@ -45,11 +46,37 @@ struct SettingsView: View {
                                 .resizable()
                                 .frame(width: 30, height: 30)
                                 .padding(1)
-                            Text("FAQs")
-                                .font(.custom("Avenir", size: 15))
+                            Text("About")
+                                .font(.custom("Avenir", size: 17))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
+                        }
+                        
+                        // MARK: FaceID toggle
+                        VStack {
+                            HStack {
+                                Image("face-id")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding(1)
+                                Toggle("Secure App", isOn: $appLockModel.isAppLockEnabled)
+                                    .font(.custom("Avenir", size: 17).bold())
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                            }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
+                                .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
+                                    appLockModel.appLockStateChange(appLockState: value)
+                                })
+                            
+                            HStack {
+                                Text("Use Face ID / Touch ID to unlock when re-opening the app.")
+                                    .font(.custom("Avenir", size: 11).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                    .padding(1)
+                                
+                                Spacer()
+                            }
                         }
                         
                         // MARK: Privacy Policy
@@ -59,7 +86,7 @@ struct SettingsView: View {
                                 .frame(width: 30, height: 30)
                                 .padding(1)
                             Text("Privacy Policy")
-                                .font(.custom("Avenir", size: 15))
+                                .font(.custom("Avenir", size: 17))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
@@ -84,7 +111,7 @@ struct SettingsView: View {
                                 .frame(width: 30, height: 30)
                                 .padding(1)
                             Text("Terms & Conditions")
-                                .font(.custom("Avenir", size: 15))
+                                .font(.custom("Avenir", size: 17))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(.leading, 15)
@@ -110,7 +137,7 @@ struct SettingsView: View {
                                     .frame(width: 30, height: 30)
                                     .padding(1)
                                 Text("Share")
-                                    .font(.custom("Avenir", size: 15))
+                                    .font(.custom("Avenir", size: 17))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     .padding(.leading, 15)
@@ -125,7 +152,7 @@ struct SettingsView: View {
                         }.foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }.foregroundColor(.white)
                     
-                    Section(header: Text("Information")) {
+                    Section(header: Text("Resources")) {
                         DisclosureGroup("Our Partners", isExpanded: $isPartnersExpanded) {
                             HStack {
                                 Image("d-meds-logo")
@@ -133,7 +160,7 @@ struct SettingsView: View {
                                     .frame(width: 25, height: 25)
                                     .padding(1)
                                 Text("Diaspora Meds")
-                                    .font(.custom("Avenir", size: 15))
+                                    .font(.custom("Avenir", size: 17))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                     .padding(.leading, 15)
@@ -151,7 +178,7 @@ struct SettingsView: View {
                         // MARK: SA Health Dept. Website
                         HStack {
                             Text("RSA Covid Statistics")
-                                .font(.custom("Avenir", size: 15))
+                                .font(.custom("Avenir", size: 17))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                                 .padding(1)
@@ -171,75 +198,45 @@ struct SettingsView: View {
                     }
                     
                     // MARK: Sign Out Button
-                    Section(header: Text("Account Settings")) {
-                        
-                        // MARK: FaceID toggle
+                    Section(header: Text("Account")) {
+                        // MARK: Delete Account
                         VStack {
                             HStack {
-                                Image("face-id")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(1)
-                                Toggle("Secure App", isOn: $appLockModel.isAppLockEnabled)
-                                    .font(.custom("Avenir", size: 15).bold())
-                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                    .padding(.leading, 15)
-                            }.toggleStyle(SwitchToggleStyle(tint: Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255)))
-                                .onChange(of: appLockModel.isAppLockEnabled, perform: { value in
-                                    appLockModel.appLockStateChange(appLockState: value)
-                                })
-                            
-                            HStack {
-                                Text("Use Face ID / Touch ID to unlock when re-opening the app.")
-                                    .font(.custom("Avenir", size: 11).bold())
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                    .padding(1)
-                                
-                                Spacer()
-                            }
-                        }
-                        
-                        HStack {
-                            Button(action: {
-                                self.showDeleteAlert = true
-                            }, label: {
-                                HStack {
-                                    Image("trash")
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .padding(1)
-                                    Text("Delete My Account")
-                                        .font(.custom("Avenir", size: 15))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                                        .padding(.leading, 15)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .font(Font.title.weight(.semibold))
-                                        .foregroundColor(Color(.gray)).opacity(0.5)
-                                        .frame(width: 13, height: 13)
+                                Button(action: {
+                                    self.showDeleteAlert = true
+                                }, label: {
+                                    HStack {
+                                        Image("trash")
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                            .padding(1)
+                                        Text("Delete My Account")
+                                            .font(.custom("Avenir", size: 17))
+                                            .fontWeight(.bold)
+                                            .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                            .padding(.leading, 15)
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .font(Font.title.weight(.semibold))
+                                            .foregroundColor(Color(.gray)).opacity(0.5)
+                                            .frame(width: 13, height: 13)
+                                    }
+                                }).alert(isPresented:$showDeleteAlert) {
+                                    Alert(
+                                        title: Text("Are you sure you want to delete your account?"),
+                                        primaryButton: .destructive(Text("Delete")) {
+                                            deleteUser()
+                                        },
+                                        secondaryButton: .cancel()
+                                    )
                                 }
-                            }).alert(isPresented:$showDeleteAlert) {
-                                Alert(
-                                    title: Text("Are you sure you want to delete your account?"),
-                                    primaryButton: .destructive(Text("Delete")) {
-                                        deleteUser()
-                                    },
-                                    secondaryButton: .cancel()
-                                )
                             }
+                            Text("This action permanently deletes your account and removes all of your information from our servers.").lineLimit(nil)
+                                .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
+                                .font(.custom("Avenir", size: 11).bold())
                         }
-//                        Text("This action permanently deletes your account and removes all of your information from our servers.")
-//                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-//                            .font(.custom("Avenir", size: 12).bold())
-                        
-                        
-                        Text("For all account related enquiries email the administrator at: admin@covitrace.co.za").lineLimit(nil)
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .font(.custom("Avenir", size: 11).bold())
-                            .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         
                         Button(action: {
                             self.showSignOutAlert.toggle()
@@ -247,34 +244,51 @@ struct SettingsView: View {
                             HStack {
                                 Image("turn-off")
                                     .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .padding(2)
+                                    .frame(width: 30, height: 30)
+                                    .padding(1)
                                 Text("Sign Out")
-                                    .font(.custom("Avenir", size: 15))
+                                    .font(.custom("Avenir", size: 17))
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color(red: 249 / 255, green: 73 / 255, blue: 73 / 255))
+                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                    .padding(.leading, 15)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .font(Font.title.weight(.semibold))
+                                    .foregroundColor(Color(.gray)).opacity(0.5)
+                                    .frame(width: 13, height: 13)
                             }
-                        }).padding(.leading, 105)
-                            .alert(isPresented: $showSignOutAlert) {
-                                Alert(
-                                    title: Text("Sign Out"),
-                                    message: Text("Continue to log out of the Covitrace app."),
-                                    primaryButton: .destructive(Text("Sign Out")) {
-                                        authModel.signOut()
-                                    },
-                                    secondaryButton: .cancel()
-                                )
-                            }
+                        }).alert(isPresented: $showSignOutAlert) {
+                            Alert(
+                                title: Text("Sign Out"),
+                                message: Text("Continue to log out of the Covitrace app."),
+                                primaryButton: .destructive(Text("Sign Out")) {
+                                    authModel.signOut()
+                                },
+                                secondaryButton: .cancel()
+                            )
+                        }
+                        
+                        
+                    }
+                    // MARK: App Version Number
+                    VStack {
+                        HStack(spacing: 5){
+                            Spacer()
+                            Text("App version: \(UIApplication.appVersion!) © All Rights Reserved 2022")
+                                .font(.custom("Avenir", size: 14).bold())
+                                .foregroundColor(purple)
+                        }
+                        HStack(spacing: 5){
+                            Spacer()
+                            Text("Developed by: Appè Latte")
+                                .font(.custom("Avenir", size: 12).bold())
+                                .foregroundColor(purple)
+                        }
                     }
                 }
-                
-                // MARK: App Version Number
-                HStack(spacing: 5){
-                    Text("version:\(UIApplication.appVersion!)")
-                        .font(.custom("Avenir", size: 12))
-                }.foregroundColor(Color(.white))
-                
-                Spacer()
+                .environment(\.defaultMinListRowHeight, rowHeight)
             }
             .navigationBarTitle("Settings", displayMode: .inline)
             .accentColor(Color.gray.opacity(0.5))

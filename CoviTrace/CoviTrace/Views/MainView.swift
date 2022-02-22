@@ -52,6 +52,7 @@ struct MainView: View {
         UIDatePicker.appearance().tintColor = UIColor.init(red: 220 / 255, green: 220 / 255, blue: 220 / 255, alpha: 1.0)
         UINavigationBar.appearance().scrollEdgeAppearance = barTintColor
         UINavigationBar.appearance().standardAppearance = barTintColor
+        UITableView.appearance().backgroundColor = .white
     }
     
     var body: some View {
