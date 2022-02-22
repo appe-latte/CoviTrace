@@ -14,6 +14,7 @@ import FirebaseFirestore
 struct VaccinationCardView: View {
     @EnvironmentObject private var authModel : AuthViewModel
     @State private var showVaccCardSheetView = false
+    @State var expandImg : Bool = false
     
     var body: some View {
         
@@ -37,6 +38,18 @@ struct VaccinationCardView: View {
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)
                             .foregroundColor(Color(.white))
                             .cornerRadius(10)
+                            .gesture(
+                                TapGesture(count: 1)
+                                    .onEnded {
+                                        self.expandImg = true
+                                    }).sheet(isPresented: $expandImg){
+                                        KFImage(url)
+                                            .resizable()
+                                            .scaledToFit()
+                                        Text("Swipe down to close")
+                                            .font(.custom("Avenir", size: 12).bold())
+                                            .foregroundColor(purple)
+                                    }
                     }
                     Spacer()
                 }

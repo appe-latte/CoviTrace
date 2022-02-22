@@ -43,7 +43,11 @@ struct DigitalCertView: View {
                                         self.expandImg = true
                                     }).sheet(isPresented: $expandImg){
                                         KFImage(url)
-                                            .frame(width: UIScreen.main.bounds.size.width - 40, height: UIScreen.main.bounds.size.height - 10)
+                                            .resizable()
+                                            .scaledToFit()
+                                        Text("Swipe down to close")
+                                            .font(.custom("Avenir", size: 12).bold())
+                                            .foregroundColor(purple)
                                     }
                     }
                     Spacer()

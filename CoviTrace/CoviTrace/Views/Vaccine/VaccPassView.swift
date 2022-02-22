@@ -108,7 +108,7 @@ struct VaccPassView: View {
                     }
                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                 } .toast(isPresenting: $showIdTypeAlert){
-                    AlertToast(type: .regular, title: "Acceptable Identification", subTitle: "\(alertMessage)")
+                    AlertToast(type: .regular, title: "Approved ID", subTitle: "\(alertMessage)")
                 }
                 
                 VStack {

@@ -16,6 +16,7 @@ struct FaqsView: View {
     @State var isFaqExpanded_upload = false
     @State var isFaqExpanded_location = false
     @State var isFaqExpanded_id = false
+    @State var rowHeight = 50.0
     
     var body: some View {
         ZStack {
@@ -101,6 +102,7 @@ struct FaqsView: View {
                     .multilineTextAlignment(.leading)
                 }
             }
+            .environment(\.defaultMinListRowHeight, rowHeight)
         }
         .navigationTitle("About")
         .accentColor(purple)

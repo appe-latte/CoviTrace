@@ -59,7 +59,7 @@ struct UserProfileView: View {
                                 Button(action: {
                                     self.showProfileImageUpdateSheetView.toggle()
                                 }, label: {
-                                    Text("UPDATE")
+                                    Text("CHANGE")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
@@ -91,7 +91,7 @@ struct UserProfileView: View {
                                 Button(action: {
                                     self.showDobUpdateSheetView.toggle()
                                 }, label: {
-                                    Text("UPDATE")
+                                    Text("EDIT")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
@@ -112,7 +112,7 @@ struct UserProfileView: View {
                                 Button(action: {
                                     self.disableIdTextField.toggle()
                                 }, label: {
-                                    Text("UPDATE")
+                                    Text("EDIT")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
@@ -141,7 +141,7 @@ struct UserProfileView: View {
                                 Button(action: {
                                     self.disableEmailTextField.toggle()
                                 }, label: {
-                                    Text("UPDATE")
+                                    Text("EDIT")
                                         .font(.custom("Avenir", size: 13))
                                         .foregroundColor(green)
                                 }).buttonStyle(PlainButtonStyle())
