@@ -37,7 +37,7 @@ struct CountryPickerView: UIViewControllerRepresentable {
         }
         func countryPicker(didSelect country: Country) {
             parent.country = country
-            print("======= country = \(parent.country)")
+            print("======= country = \(String(describing: parent.country))")
         }
     }
 }

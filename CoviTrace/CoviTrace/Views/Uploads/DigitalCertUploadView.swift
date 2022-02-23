@@ -69,8 +69,11 @@ struct DigitalCertUploadView : View {
                                     .padding(.vertical, 5)
                             } else {
                                 VStack {
-                                    Text("+ tap to add digital cert. image")
+                                    Text("+ tap to add digital certificate image")
                                         .font(.system(size: 12))
+                                        .foregroundColor(purple)
+                                    Text("[.jpeg, .png]")
+                                        .font(.system(size: 9))
                                         .foregroundColor(purple)
                                 }
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 600)

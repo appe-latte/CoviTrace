@@ -69,8 +69,11 @@ struct VaccCardUploadView: View {
                                     .padding(.vertical, 5)
                             } else {
                                 VStack {
-                                    Text("+ tap to add vacc. card image")
+                                    Text("+ tap to add vaccination card image")
                                         .font(.system(size: 12))
+                                        .foregroundColor(purple)
+                                    Text("[.jpeg, .png]")
+                                        .font(.system(size: 9))
                                         .foregroundColor(purple)
                                 }
                                 .frame(width: UIScreen.main.bounds.size.width - 40, height: 300)
