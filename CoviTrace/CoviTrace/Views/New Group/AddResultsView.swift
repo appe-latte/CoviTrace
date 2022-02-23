@@ -155,6 +155,9 @@ struct AddResultsView: View {
                                     Text("+ tap to add pcr image")
                                         .font(.system(size: 10))
                                         .foregroundColor(purple)
+                                    Text(".jpeg, .png")
+                                        .font(.system(size: 7))
+                                        .foregroundColor(purple)
                                 }
                                 .frame(width: 120, height: 100)
                                 .background(purple.opacity(0.1))                                                                    .cornerRadius(10)

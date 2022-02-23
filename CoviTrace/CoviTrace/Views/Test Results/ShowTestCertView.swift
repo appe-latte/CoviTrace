@@ -14,7 +14,9 @@ import FirebaseFirestore
 
 struct ShowTestCertView: View {
     var testResult: TestResults
-    
+    @State var expandImg : Bool = false
+    @State var zoomScale : CGFloat = 1.0
+ 
     var body: some View {
         
         ZStack {
@@ -37,7 +39,12 @@ struct ShowTestCertView: View {
                             .frame(width: UIScreen.main.bounds.size.width - 40, height: 580)
                             .foregroundColor(Color(.white))
                             .cornerRadius(10)
+                            .scaleEffect(zoomScale)
                             .background(purple.opacity(0.1))
+                            .gesture(MagnificationGesture()
+                                        .onChanged { value in
+                                            self.zoomScale = value.magnitude
+                                        })
                     }
                     
                     Spacer()

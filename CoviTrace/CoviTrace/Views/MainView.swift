@@ -83,105 +83,95 @@ struct MainView: View {
                                         HStack(spacing: 15) {
                                             // MARK: Vaccine Pass
                                             VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: VaccPassView()){
-                                                            VStack {
-                                                                Image("qr-code")
-                                                                    .resizable()
-                                                                    .frame(width: 25, height: 25)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("Pass")
-                                                                    .font(.system(size: 11))
-                                                                    .foregroundColor(Color.white)
-                                                            }
+                                                NavigationLink(
+                                                    destination: VaccPassView()){
+                                                        VStack {
+                                                            Image("qr-code")
+                                                                .resizable()
+                                                                .frame(width: 25, height: 25)
+                                                                .padding(10)
+                                                                .background(Color.white.opacity(0.1))
+                                                                .clipShape(Circle())
+                                                            Text("Pass")
+                                                                .font(.system(size: 11))
+                                                                .foregroundColor(Color.white)
                                                         }
-                                                }
+                                                    }
                                             }
                                             
                                             // MARK: Vaccination Card
                                             VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: VaccinationCardView()){
-                                                            VStack {
-                                                                Image("card-w")
-                                                                    .resizable()
-                                                                    .frame(width: 25, height: 25)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("Vac. Card")
-                                                                    .font(.system(size: 11))
-                                                                    .foregroundColor(Color.white)
-                                                            }
+                                                NavigationLink(
+                                                    destination: VaccinationCardView()){
+                                                        VStack {
+                                                            Image("card-w")
+                                                                .resizable()
+                                                                .frame(width: 25, height: 25)
+                                                                .padding(10)
+                                                                .background(Color.white.opacity(0.1))
+                                                                .clipShape(Circle())
+                                                            Text("Vac. Card")
+                                                                .font(.system(size: 11))
+                                                                .foregroundColor(Color.white)
                                                         }
-                                                }
+                                                    }
                                             }
                                             
                                             // MARK: Digital Cert.
                                             VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: DigitalCertView()){
-                                                            VStack {
-                                                                Image("checkmark")
-                                                                    .resizable()
-                                                                    .frame(width: 25, height: 25)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("Certificate")
-                                                                    .font(.system(size: 11))
-                                                                    .foregroundColor(Color.white)
-                                                            }
+                                                NavigationLink(
+                                                    destination: DigitalCertView()){
+                                                        VStack {
+                                                            Image("checkmark")
+                                                                .resizable()
+                                                                .frame(width: 25, height: 25)
+                                                                .padding(10)
+                                                                .background(Color.white.opacity(0.1))
+                                                                .clipShape(Circle())
+                                                            Text("Certificate")
+                                                                .font(.system(size: 11))
+                                                                .foregroundColor(Color.white)
                                                         }
-                                                }
+                                                    }
                                             }
                                             
                                             // MARK: Test Results
                                             VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: TestResultView()){
-                                                            VStack {
-                                                                Image("pcr-test-result")
-                                                                    .resizable()
-                                                                    .frame(width: 25, height: 25)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("PCR")
-                                                                    .font(.system(size: 11))
-                                                                    .foregroundColor(Color.white)
-                                                            }
+                                                NavigationLink(
+                                                    destination: TestResultView()){
+                                                        VStack {
+                                                            Image("pcr-test-result")
+                                                                .resizable()
+                                                                .frame(width: 25, height: 25)
+                                                                .padding(10)
+                                                                .background(Color.white.opacity(0.1))
+                                                                .clipShape(Circle())
+                                                            Text("PCR")
+                                                                .font(.system(size: 11))
+                                                                .foregroundColor(Color.white)
                                                         }
-                                                }
+                                                    }
                                             }
                                             
                                             // MARK: Previous Check-ins
                                             VStack(spacing: 1) {
-                                                HStack {
-                                                    NavigationLink(
-                                                        destination: CheckInView()){
-                                                            VStack {
-                                                                Image("venue")
-                                                                    .resizable()
-                                                                    .frame(width: 25, height: 25)
-                                                                    .padding(10)
-                                                                    .background(Color.white.opacity(0.1))
-                                                                    .clipShape(Circle())
-                                                                Text("Check-ins")
-                                                                    .font(.system(size: 12))
-                                                                    .foregroundColor(Color.white)
-                                                            }
+                                                NavigationLink(
+                                                    destination: CheckInView()){
+                                                        VStack {
+                                                            Image("venue")
+                                                                .resizable()
+                                                                .frame(width: 25, height: 25)
+                                                                .padding(10)
+                                                                .background(Color.white.opacity(0.1))
+                                                                .clipShape(Circle())
+                                                            Text("Check-ins")
+                                                                .font(.system(size: 12))
+                                                                .foregroundColor(Color.white)
                                                         }
-                                                }
+                                                    }
                                             }
                                             
-                                            Spacer()
+                                            Spacer() // for alignment purposes within the row
                                         }.padding(.horizontal, 15)
                                         
                                         Spacer()
@@ -364,7 +354,6 @@ struct MainView: View {
                     }
                     .navigationBarHidden(true)
                     .navigationBarTitleDisplayMode(.inline)
-                    //                }.accentColor(.white)
                 } else {
                     ProgressLoadingView()
                 }

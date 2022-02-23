@@ -47,6 +47,8 @@
 	<string>Covitrace App requires Location Services to be enabled for use by the "Venue Check-in" feature.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Covitrace App requires Location Services to be enabled for use by the "Venue Check-in" feature.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow Covitrace to save images to your Photo Library</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
