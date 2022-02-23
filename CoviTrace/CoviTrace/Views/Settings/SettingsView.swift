@@ -77,7 +77,7 @@ struct SettingsView: View {
                                 
                                 Spacer()
                             }
-                        }
+                        }.padding(.vertical, 5)
                         
                         // MARK: Privacy Policy
                         HStack {
@@ -172,7 +172,7 @@ struct SettingsView: View {
                                 SFSafariViewWrapper(url: URL(string: "https://www.diasporameds.com")!)
                             })
                         }
-                        .font(.custom("Avenir", size: 15).bold())
+                        .font(.custom("Avenir", size: 17).bold())
                         .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                         
                         // MARK: SA Health Dept. Website

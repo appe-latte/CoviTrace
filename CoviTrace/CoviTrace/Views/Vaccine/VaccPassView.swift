@@ -31,7 +31,7 @@ struct VaccPassView: View {
     // MARK: Alert
     @State var showIdTypeAlert = false
     @State var alertTitle = ""
-    @State var alertMessage = "Acceptable identification documents include: a valid Passport, National ID, a driver's licence and a Military / Police ID."
+    @State var alertMessage = "Approved ID includes: a valid Passport, National ID, a Driver's Licence and a Military / Police ID."
     
     // MARK: for QR Code generation
     let context = CIContext()
