@@ -16,19 +16,7 @@ struct UserProfileView: View {
     @State var dob = ""
     @State var fullName = ""
     
-    // MARK: Sheets
-    @State private var verifyIdSheetView = false
-    @State private var showDobUpdateSheetView = false
-    @State private var showEmailUpdateSheetView = false
-    @State private var showIdUpdateSheetView = false
-    @State private var showProfileImageUpdateSheetView = false
-    
     @ObservedObject var authModel = AuthViewModel()
-    
-    @Environment(\.editMode) private var editMode
-    @State var disableTextField = true
-    @State var disableIdTextField = true
-    @State var disableEmailTextField = true
     @State var rowHeight = 50.0
     
     var body: some View {
@@ -45,40 +33,18 @@ struct UserProfileView: View {
             VStack {
                 Form {
                     
-                    // MARK: User Information section
                     Section {
-                        // MARK: Profile Image
-                        VStack {
-                            HStack {
-                                Text("Update Profile Image")
-                                    .font(.custom("Avenir", size: 15).bold())
-                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    self.showProfileImageUpdateSheetView.toggle()
-                                }, label: {
-                                    Text("CHANGE")
-                                        .font(.custom("Avenir", size: 13))
-                                        .foregroundColor(green)
-                                }).buttonStyle(PlainButtonStyle())
-                                    .padding(5)
-                            }
-                        }.sheet(isPresented: $showProfileImageUpdateSheetView) {
-                            UpdateProfileImageView()
-                        }
-                        
                         // MARK: Name
-                        VStack {
+                        VStack(spacing: 10) {
                             HStack {
                                 Text("Name:")
                                     .font(.custom("Avenir", size: 15).bold())
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
+                                Text(fullName)
+                                    .font(.custom("Avenir", size: 17).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             }
-                            TextField("\(fullName)", text: $fullName)
-                                .disabled(disableTextField)
                         }
                         
                         // MARK: DoB
@@ -88,18 +54,10 @@ struct UserProfileView: View {
                                     .font(.custom("Avenir", size: 15).bold())
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
-                                Button(action: {
-                                    self.showDobUpdateSheetView.toggle()
-                                }, label: {
-                                    Text("EDIT")
-                                        .font(.custom("Avenir", size: 13))
-                                        .foregroundColor(green)
-                                }).buttonStyle(PlainButtonStyle())
+                                Text(dob)
+                                    .font(.custom("Avenir", size: 17).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             }
-                            TextField("\(dob)", text: $dob)
-                                .disabled(disableTextField)
-                        }.sheet(isPresented: $showDobUpdateSheetView) {
-                            UpdateDobView()
                         }
                         
                         // MARK: ID No.
@@ -109,26 +67,10 @@ struct UserProfileView: View {
                                     .font(.custom("Avenir", size: 15).bold())
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
-                                Button(action: {
-                                    self.disableIdTextField.toggle()
-                                }, label: {
-                                    Text("EDIT")
-                                        .font(.custom("Avenir", size: 13))
-                                        .foregroundColor(green)
-                                }).buttonStyle(PlainButtonStyle())
+                                Text(idNum)
+                                    .font(.custom("Avenir", size: 17).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             }
-                            // Change edit state
-                            if disableIdTextField == true {
-                                TextField("\(idNum)", text: $idNumber)
-                                    .disabled(disableTextField)
-                                    .foregroundColor(Color(UIColor.lightGray))
-                            } else {
-                                TextField("", text: $idNumber)
-                                    .foregroundColor(purple)
-                                    .accentColor(purple)
-                            }
-                        }.onSubmit {
-                            submit_idNum()
                         }
                         
                         // MARK: Email
@@ -138,26 +80,10 @@ struct UserProfileView: View {
                                     .font(.custom("Avenir", size: 15).bold())
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
-                                Button(action: {
-                                    self.disableEmailTextField.toggle()
-                                }, label: {
-                                    Text("EDIT")
-                                        .font(.custom("Avenir", size: 13))
-                                        .foregroundColor(green)
-                                }).buttonStyle(PlainButtonStyle())
+                                Text(email)
+                                    .font(.custom("Avenir", size: 17).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             }
-                            // Change edit state
-                            if disableEmailTextField == true {
-                                TextField("\(email)", text: $email)
-                                    .disabled(disableTextField)
-                                    .foregroundColor(Color(UIColor.lightGray))
-                            } else {
-                                TextField("", text: $email)
-                                    .foregroundColor(purple)
-                                    .accentColor(purple)
-                            }
-                        }.onSubmit {
-                            submit_email()
                         }
                         
                         // MARK: Cell No.
@@ -167,16 +93,11 @@ struct UserProfileView: View {
                                     .font(.custom("Avenir", size: 15).bold())
                                     .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                                 Spacer()
+                                Text(cellNum)
+                                    .font(.custom("Avenir", size: 17).bold())
+                                    .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
                             }
-                            TextField("\(cellNum)", text: $cellNum)
-                                .disabled(disableTextField)
-                                .foregroundColor(purple)
                         }
-                        
-                        Text("To update your account name and cell phone number contact: admin@covitrace.co.za")
-                            .foregroundColor(Color(red: 83 / 255, green: 82 / 255, blue: 116 / 255))
-                            .font(.custom("Avenir", size: 12).bold())
-                            .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
                     
                     // MARK: Verification Section
@@ -219,29 +140,6 @@ struct UserProfileView: View {
                             .font(.custom("Avenir", size: 12).bold())
                             .accentColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
                     }
-                    
-                    // MARK: Verification View
-                    //                    HStack {
-                    //                        Button(action: {
-                    //                            self.verifyIdSheetView.toggle()
-                    //                        }, label: {
-                    //                            HStack {
-                    //                                Text("Profile Verification")
-                    //                                    .font(.custom("Avenir", size: 15))
-                    //                                    .fontWeight(.bold)
-                    //                                    .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
-                    //
-                    //                                Spacer()
-                    //
-                    //                                Image("arrow-right")
-                    //                                    .resizable()
-                    //                                    .frame(width: 25, height: 25)
-                    //                                    .padding(2)
-                    //                            }
-                    //                        })
-                    //                    }.sheet(isPresented: $verifyIdSheetView) {
-                    //                        VerificationDocView()
-                    //                    }
                 }
                 .environment(\.defaultMinListRowHeight, rowHeight)
             }
@@ -250,17 +148,5 @@ struct UserProfileView: View {
         }
         .navigationTitle("User Information")
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    func submit_email(){
-        let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["email": email], merge: true)
-        self.disableEmailTextField.toggle()
-    }
-    
-    func submit_idNum(){
-        let db = Firestore.firestore()
-        db.collection("users").document(authModel.userSession!.uid).setData(["id_num": idNumber], merge: true)
-        self.disableIdTextField.toggle()
     }
 }

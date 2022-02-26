@@ -25,8 +25,16 @@ struct VaccPassView: View {
     @ObservedObject var authModel = AuthViewModel()
     @ObservedObject var boosterModel = BoosterShotViewModel()
     
+    @State var activeSheet: ActiveSheet?
+    
+    @State private var showFirstDoseSheetView = false
+    @State private var showSecondDoseSheetView = false
+    @State private var showSingleDoseSheetView = false
+    @State private var showBoosterDoseSheetView = false
+    
     @State var selectDose: doseSelection = .first
     @State var formHalfModal_shown = false
+    @State var showActionSheet = false
     
     // MARK: Alert
     @State var showIdTypeAlert = false
@@ -46,14 +54,14 @@ struct VaccPassView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 10) {
-                Spacer()
+                //                Spacer()
                 
                 Text("Certificate of Vaccination")
                     .multilineTextAlignment(.leading)
                     .font(.custom("Avenir", size: 22).bold())
                     .foregroundColor(Color(.white))
                     .padding(.horizontal)
-                    .padding(.top, 25)
+                //                    .padding(.top, 25)
                 
                 let fullName = authModel.user!.firstName + " " + authModel.user!.lastName
                 let dob = authModel.user!.dob
@@ -121,7 +129,7 @@ struct VaccPassView: View {
                         Spacer()
                         
                         Button(action: {
-                            self.formHalfModal_shown.toggle()
+                            self.showActionSheet.toggle()
                         }, label: {
                             Text("+ add vaccination")
                                 .foregroundColor(purple)
@@ -130,7 +138,36 @@ struct VaccPassView: View {
                         }).frame(width: 110, height: 20)
                             .background(bgWhite())
                             .cornerRadius(5)
+                            .actionSheet(isPresented: $showActionSheet) {
+                                ActionSheet(title: Text("Select Vaccination"), message: Text("Pick which vaccination type to upload"), buttons: [
+                                    .default(Text("Add First Dose")){
+                                        activeSheet = .first
+                                    },
+                                    .default(Text("Add Second Dose")){
+                                        activeSheet = .second
+                                    },
+                                    .default(Text("Add Single Dose")){
+                                        activeSheet = .single
+                                    },
+                                    .default(Text("Add Booster Dose")){
+                                        activeSheet = .booster
+                                    },
+                                    .cancel()
+                                ])
+                            }
                     }.padding(.horizontal)
+                        .sheet(item: $activeSheet) { item in
+                            switch item {
+                            case .first:
+                                AddFirstDoseView()
+                            case .second:
+                                AddSecondDoseView()
+                            case .single:
+                                AddSingleDoseView()
+                            case .booster:
+                                AddBoosterShotView()
+                            }
+                        }
                     
                     // MARK: Segmented Control for Dose Selection
                     Picker("Dose Selection:", selection: $selectDose) {
@@ -147,9 +184,6 @@ struct VaccPassView: View {
                 self.firstDoseVaccModel.fetchData(id: authModel.userSession!.uid)
                 
             }.padding(.top, 20)
-            FormUploadHalfModalView(isShown: $formHalfModal_shown, modalHeight: 600) {
-                UploadInformationView()
-            }
         }.background(bgPurple())
             .navigationBarTitle("Vaccination Pass")
             .navigationBarTitleDisplayMode(.inline)
@@ -192,5 +226,14 @@ struct doseSelectionView : View {
         case .booster:
             BoosterVaccView()
         }
+    }
+}
+
+// MARK: Dosage sheet selection
+enum ActiveSheet: Identifiable {
+    case first, second, single, booster
+    
+    var id: Int {
+        hashValue
     }
 }
