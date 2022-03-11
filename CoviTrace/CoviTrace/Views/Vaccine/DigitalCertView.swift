@@ -49,6 +49,10 @@ struct DigitalCertView: View {
                                             .font(.custom("Avenir", size: 12).bold())
                                             .foregroundColor(purple)
                                     }
+                        
+                        Text("Tap image to enlarge")
+                            .font(.custom("Avenir", size: 12).bold())
+                            .foregroundColor(purple)
                     }
                     Spacer()
                 }

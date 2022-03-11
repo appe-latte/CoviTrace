@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -23,7 +24,7 @@ struct UserProfileEditView: View {
     @State private var showIdUpdateSheetView = false
     @State private var showProfileImageUpdateSheetView = false
     
-    @ObservedObject var authModel = AuthViewModel()
+    @EnvironmentObject var authModel : AuthViewModel
     
     @Environment(\.editMode) private var editMode
     @State var disableTextField = true

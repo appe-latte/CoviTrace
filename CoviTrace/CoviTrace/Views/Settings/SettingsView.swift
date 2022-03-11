@@ -7,7 +7,9 @@
 
 import UIKit
 import WebKit
+import Combine
 import SwiftUI
+import Firebase
 import AlertToast
 import FirebaseAuth
 import SafariServices
@@ -199,6 +201,19 @@ struct SettingsView: View {
                     
                     // MARK: Sign Out Button
                     Section(header: Text("Account")) {
+                        // MARK: Edit Profile
+                        NavigationLink(destination: UserProfileEditView()){
+                            Image("edit-button")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .padding(1)
+                            Text("Edit Profile")
+                                .font(.custom("Avenir", size: 17))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 46 / 255, green: 153 / 255, blue: 168 / 255))
+                                .padding(.leading, 15)
+                        }
+                        
                         // MARK: Delete Account
                         VStack {
                             HStack {
