@@ -1,5 +1,5 @@
 # CoviTrace
-Covid Tracking iOS Application
+Covid-19 Vaccine Passport iOS App.
 
 <h1 align="center">Hi 👋, We are Appè Latte</h1>
 <h3 align="center">A mobile app development agency based in Calgary, AB.</h3>
