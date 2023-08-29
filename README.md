@@ -27,7 +27,7 @@
 </p>
 
 <h3 align="left">Our Website:</h3>
-<p><a href="https://www.appe-latte.ca"> <img align="left" src="https://www.appe-latte.ca/assets/imgs/logo.png" height="50" width="50" alt="appe.latte" /></a></p>
-
+<p><a href="https://www.appe-latte.ca" target="_blank"> <img align="left" src="https://www.appe-latte.ca/assets/imgs/logo.png" height="50" width="50" alt="appe.latte" /></a></p>
+<br/>
 <h3 align="left">Support:</h3>
 <p><a href="https://www.buymeacoffee.com/appe.latte"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="appe.latte" /></a></p><br><br>
