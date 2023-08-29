@@ -1,9 +1,6 @@
 # Covitrace
 <h4>Covid-19 Vaccine Passport iOS App.</h4>
 
-<h1 align="center">Hello 👋, We are Appè Latte</h1>
-<h3 align="left">A mobile app development agency based in Calgary, AB.</h3>
-
 <h3 align="left">Project Summary:</h3>
 <h4 align="left">  
 <p> Covitrace revolutionizes the way we manage our Covid-19 health records by conveniently centralizing our test results and vaccination status all in one secure, user-friendly platform. No longer will you be burdened by the constant need to carry physical cards or paper printouts of your vaccine certificates when travelling or attending events. This innovative digital solution goes beyond a mere storage system; it is designed to simplify and streamline your healthcare management process during these challenging times. </p>
