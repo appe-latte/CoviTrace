@@ -2,11 +2,20 @@
 Covid-19 Vaccine Passport iOS App.
 
 <h1 align="center">Hello 👋, We are Appè Latte</h1>
-<h3 align="center">A mobile app development agency based in Calgary, AB.</h3>
-
-<p align="left"> <a href="https://twitter.com/appelatte" target="blank"><img src="https://img.shields.io/twitter/follow/appelatte?logo=twitter&style=for-the-badge" alt="appelatte" /></a> </p>
+<h3 align="left">A mobile app development agency based in Calgary, AB.</h3>
 
 <h3 align="left">Project Summary:</h3>
+<h4 align="left">  
+<p> Covitrace revolutionizes the way we manage our Covid-19 health records by conveniently centralizing our test results and vaccination status all in one secure, user-friendly platform. No longer will you be burdened by the constant need to carry physical cards or paper printouts of your vaccine certificates when travelling or attending events. This innovative digital solution goes beyond a mere storage system; it is designed to simplify and streamline your healthcare management process during these challenging times. </p>
+<br/>
+<p>Utilizing Covitrace, you can effortlessly upload and save your most recent Covid-19 test results and verify your vaccination status, making these critical documents instantly accessible whenever and wherever they are required. The app not only preserves your health information but also validates your records, providing an indisputable digital proof of your Covid-19 related health status.</p>
+<br/>
+<p>One of the greatest advantages of Covitrace is its intuitive design that makes navigation a breeze. With just a few taps, you can readily present your health records at various checkpoints, whether at airports, hotels, restaurants, or event venues, effectively enabling you to reclaim your freedom in this new normal.</p>
+<br/>
+<p>But we don't stop at convenience. We take your privacy very seriously. Covitrace employs robust encryption technologies to ensure that your personal health information remains confidential and secure. You have total control over who can access your records, thereby maintaining your privacy and peace of mind.</p>
+</h4>
+
+<h3 align="left">Our Socials:</h3>
 <p align="left">
 <a href="https://twitter.com/appelatte" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="appelatte" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/linkedin.com/appe-latte" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin.com/appe-latte" height="30" width="40" /></a>
